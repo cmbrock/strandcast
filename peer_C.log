@@ -1,0 +1,14 @@
+[2025-10-29 16:02:12.435] Registered with coordinator. prev=B:10002
+[2025-10-29 16:02:25.059] RECV seq=1 from A: test
+[2025-10-29 17:37:46.204] Registered with coordinator. prev=B:10002
+[2025-10-29 17:37:47.022] CTRL UPDATE_NEXT -> D:10004
+[2025-10-29 17:37:55.749] RECV origin=B seq=1 from B: test
+[2025-10-29 17:37:55.750] FORWARDED origin=B seq=1 to D:10004
+[2025-10-29 17:43:10.005] Registered with coordinator. prev=B:10002
+[2025-10-29 17:43:10.810] CTRL UPDATE_NEXT -> D:10004
+[2025-10-29 17:43:40.748] RECV origin=A seq=1 from A: i love you
+[2025-10-29 17:43:40.749] FORWARDED origin=A seq=1 to D:10004
+[2025-10-29 17:44:22.342] RECV origin=B seq=1 from B: fuck a
+[2025-10-29 17:44:22.342] FORWARDED origin=B seq=1 to D:10004
+[2025-10-29 17:44:47.983] RECV origin=D seq=1 from D: b is a weirdo
+[2025-10-29 17:44:47.984] FORWARDED origin=D seq=1 to D:10004

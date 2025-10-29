@@ -1,0 +1,8 @@
+[2025-10-29 16:02:10.834] Registered with coordinator. prev=None:None
+[2025-10-29 16:02:11.622] CTRL UPDATE_NEXT -> B:10002
+[2025-10-29 16:02:25.058] SENT seq=1 to B:10002 msg=test
+[2025-10-29 17:37:44.613] Registered with coordinator. prev=None:None
+[2025-10-29 17:37:45.485] CTRL UPDATE_NEXT -> B:10002
+[2025-10-29 17:43:08.355] Registered with coordinator. prev=None:None
+[2025-10-29 17:43:09.158] CTRL UPDATE_NEXT -> B:10002
+[2025-10-29 17:43:40.747] SENT origin=A seq=1 to B:10002 msg=i love you

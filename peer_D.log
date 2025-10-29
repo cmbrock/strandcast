@@ -1,0 +1,7 @@
+[2025-10-29 17:37:47.022] Registered with coordinator. prev=C:10003
+[2025-10-29 17:37:55.750] RECV origin=B seq=1 from B: test
+[2025-10-29 17:43:10.790] Registered with coordinator. prev=C:10003
+[2025-10-29 17:43:40.749] RECV origin=A seq=1 from A: i love you
+[2025-10-29 17:44:22.343] RECV origin=B seq=1 from B: fuck a
+[2025-10-29 17:44:47.983] SENT_DIRECT to C:10003 origin=D seq=1 msg=b is a weirdo
+[2025-10-29 17:44:47.984] RECV origin=D seq=1 from D: b is a weirdo

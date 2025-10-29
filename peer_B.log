@@ -1,0 +1,12 @@
+[2025-10-29 16:02:11.617] Registered with coordinator. prev=A:10001
+[2025-10-29 16:02:12.454] CTRL UPDATE_NEXT -> C:10003
+[2025-10-29 16:02:25.058] RECV seq=1 from A: test
+[2025-10-29 16:02:25.059] FORWARDED to C:10003 seq=1
+[2025-10-29 17:37:45.482] Registered with coordinator. prev=A:10001
+[2025-10-29 17:37:46.223] CTRL UPDATE_NEXT -> C:10003
+[2025-10-29 17:37:55.749] SENT origin=B seq=1 to C:10003 msg=test
+[2025-10-29 17:43:09.154] Registered with coordinator. prev=A:10001
+[2025-10-29 17:43:10.027] CTRL UPDATE_NEXT -> C:10003
+[2025-10-29 17:43:40.747] RECV origin=A seq=1 from A: i love you
+[2025-10-29 17:43:40.748] FORWARDED origin=A seq=1 to C:10003
+[2025-10-29 17:44:22.342] SENT origin=B seq=1 to C:10003 msg=fuck a
