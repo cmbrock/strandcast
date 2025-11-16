@@ -25,7 +25,7 @@ def nowts():
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
 
 def log(name, text):
-    fname = f"peer_{name}.log"
+    fname = f"strandcast/peer_{name}.log"
     with open(fname, "a") as f:
         f.write(f"[{nowts()}] {text}\n")
 

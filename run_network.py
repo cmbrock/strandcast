@@ -14,20 +14,30 @@ def start_in_new_console(cmd):
     if system == "Windows":
         CREATE_NEW_CONSOLE = 0x00000010
         return subprocess.Popen(cmd, creationflags=CREATE_NEW_CONSOLE)
+    elif system == "Darwin":  # macOS
+        # Use osascript to open a new Terminal.app window
+        script = f'tell application "Terminal" to do script "{" ".join(cmd)}"'
+        subprocess.Popen(["osascript", "-e", script])
+        # Return a dummy process since Terminal.app manages the actual process
+        return subprocess.Popen(["sleep", "0"])
     else:
-        # try common terminals
+        # Linux: try common terminals
         try:
             return subprocess.Popen(["gnome-terminal", "--"] + cmd)
         except Exception:
             try:
                 return subprocess.Popen(["xterm", "-e"] + cmd)
             except Exception:
-                # fallback to background (no TTY)
-                return subprocess.Popen(cmd)
+                try:
+                    return subprocess.Popen(["konsole", "-e"] + cmd)
+                except Exception:
+                    # fallback to background (no TTY)
+                    print(f"Warning: No terminal emulator found, running in background")
+                    return subprocess.Popen(cmd)
 
 if __name__ == "__main__":
-    coord_cmd = [sys.executable, "coordinator.py"]
-    peers = [("A", 10001), ("B", 10002), ("C", 10003), ("D", 10004)]
+    coord_cmd = [sys.executable, "strandcast/coordinator.py"]
+    peers = [("A", 10001), ("B", 10002), ("C", 10003)]
 
     procs = []
     print("Starting coordinator...")
@@ -36,7 +46,7 @@ if __name__ == "__main__":
     time.sleep(1.0)
 
     for name, port in peers:
-        cmd = [sys.executable, "peer.py", name, str(port)]
+        cmd = [sys.executable, "strandcast/peer.py", name, str(port)]
         print(f"Starting peer {name} on port {port} ...")
         p = start_in_new_console(cmd)
         procs.append(p)

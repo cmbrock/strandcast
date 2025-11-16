@@ -1,8 +1,7 @@
-[2025-10-29 16:02:10.834] Registered with coordinator. prev=None:None
-[2025-10-29 16:02:11.622] CTRL UPDATE_NEXT -> B:10002
-[2025-10-29 16:02:25.058] SENT seq=1 to B:10002 msg=test
-[2025-10-29 17:37:44.613] Registered with coordinator. prev=None:None
-[2025-10-29 17:37:45.485] CTRL UPDATE_NEXT -> B:10002
-[2025-10-29 17:43:08.355] Registered with coordinator. prev=None:None
-[2025-10-29 17:43:09.158] CTRL UPDATE_NEXT -> B:10002
-[2025-10-29 17:43:40.747] SENT origin=A seq=1 to B:10002 msg=i love you
+[2025-11-15 14:02:29.242] Registered with coordinator. prev=None:None
+[2025-11-15 14:02:30.073] CTRL UPDATE_NEXT -> B:10002
+[2025-11-15 14:02:47.333] RECV origin=C seq=1 from C: your existence is meaningless
+[2025-11-15 14:02:47.333] FORWARDED origin=C seq=1 to B:10002
+[2025-11-15 14:03:32.059] SENT origin=A seq=1 to B:10002 msg=long live the United States
+[2025-11-15 14:06:47.579] Registered with coordinator. prev=None:None
+[2025-11-15 14:06:48.443] CTRL UPDATE_NEXT -> B:10002
