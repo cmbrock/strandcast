@@ -3,3 +3,58 @@
 [2025-11-15 14:02:47.334] RECV origin=C seq=1 from C: your existence is meaningless
 [2025-11-15 14:03:32.060] RECV origin=A seq=1 from A: long live the United States
 [2025-11-15 14:06:49.215] Registered with coordinator. prev=B:10002
+[2025-11-15 22:41:11.058] Registered with coordinator. prev=B:10002
+[2025-11-15 22:41:23.251] RECV origin=B seq=1 from B: you are a weirdo
+[2025-11-15 23:16:19.835] Registered with coordinator. prev=B:10002
+[2025-11-15 23:16:19.836] Output directory: peer_C_frames
+[2025-11-15 23:20:07.309] Registered with coordinator. prev=B:10002
+[2025-11-15 23:20:07.310] Output directory: peer_C_frames
+[2025-11-15 23:21:02.188] Registered with coordinator. prev=B:10002
+[2025-11-15 23:21:02.188] Output directory: peer_C_frames
+[2025-11-15 23:21:40.316] VIDEO_END from coordinator, total frames: 0
+[2025-11-15 23:23:37.085] Registered with coordinator. prev=B:10002
+[2025-11-15 23:23:37.085] Output directory: peer_C_frames
+[2025-11-15 23:24:57.046] Registered with coordinator. prev=B:10002
+[2025-11-15 23:24:57.046] Output directory: peer_C_frames
+[2025-11-15 23:26:29.658] Registered with coordinator. prev=B:10002
+[2025-11-15 23:26:29.659] Output directory: peer_C_frames
+[2025-11-15 23:27:20.876] Registered with coordinator. prev=B:10002
+[2025-11-15 23:27:20.877] Output directory: peer_C_frames
+[2025-11-15 23:28:29.786] Registered with coordinator. prev=B:10002
+[2025-11-15 23:28:29.787] Output directory: peer_C_frames
+[2025-11-15 23:28:38.203] CTRL UPDATE_NEXT -> A:10001
+[2025-11-15 23:28:39.847] Registered with coordinator. prev=B:10002
+[2025-11-15 23:28:50.140] Registered with coordinator. prev=B:10002
+[2025-11-15 23:28:50.140] Output directory: peer_C_frames
+[2025-11-15 23:29:01.661] RECV_FRAME 0 from coordinator
+[2025-11-15 23:29:02.977] RECV_FRAME 30 from coordinator
+[2025-11-15 23:29:04.289] RECV_FRAME 60 from coordinator
+[2025-11-15 23:29:05.603] RECV_FRAME 90 from coordinator
+[2025-11-15 23:29:06.931] RECV_FRAME 120 from coordinator
+[2025-11-15 23:29:08.237] RECV_FRAME 150 from coordinator
+[2025-11-15 23:29:09.545] RECV_FRAME 180 from coordinator
+[2025-11-15 23:29:10.841] RECV_FRAME 210 from coordinator
+[2025-11-15 23:29:12.128] RECV_FRAME 240 from coordinator
+[2025-11-15 23:29:13.386] RECV_FRAME 270 from coordinator
+[2025-11-15 23:29:14.687] RECV_FRAME 300 from coordinator
+[2025-11-15 23:29:16.003] RECV_FRAME 330 from coordinator
+[2025-11-15 23:29:17.321] RECV_FRAME 360 from coordinator
+[2025-11-15 23:29:18.642] RECV_FRAME 390 from coordinator
+[2025-11-15 23:29:19.514] VIDEO_END from coordinator, total frames: 411
+[2025-11-15 23:29:45.028] Registered with coordinator. prev=B:10002
+[2025-11-15 23:29:45.028] Output directory: peer_C_frames
+[2025-11-15 23:29:55.864] RECV_FRAME 0 from coordinator
+[2025-11-15 23:29:57.187] RECV_FRAME 30 from coordinator
+[2025-11-15 23:29:58.487] RECV_FRAME 60 from coordinator
+[2025-11-15 23:29:59.799] RECV_FRAME 90 from coordinator
+[2025-11-15 23:30:01.076] RECV_FRAME 120 from coordinator
+[2025-11-15 23:30:02.378] RECV_FRAME 150 from coordinator
+[2025-11-15 23:30:03.668] RECV_FRAME 180 from coordinator
+[2025-11-15 23:30:04.970] RECV_FRAME 210 from coordinator
+[2025-11-15 23:30:06.286] RECV_FRAME 240 from coordinator
+[2025-11-15 23:30:07.590] RECV_FRAME 270 from coordinator
+[2025-11-15 23:30:08.886] RECV_FRAME 300 from coordinator
+[2025-11-15 23:30:10.184] RECV_FRAME 330 from coordinator
+[2025-11-15 23:30:11.463] RECV_FRAME 360 from coordinator
+[2025-11-15 23:30:12.743] RECV_FRAME 390 from coordinator
+[2025-11-15 23:30:13.641] VIDEO_END from coordinator, total frames: 411

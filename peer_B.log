@@ -6,3 +6,102 @@
 [2025-11-15 14:03:32.060] FORWARDED origin=A seq=1 to C:10003
 [2025-11-15 14:06:48.442] Registered with coordinator. prev=A:10001
 [2025-11-15 14:06:49.215] CTRL UPDATE_NEXT -> C:10003
+[2025-11-15 22:41:10.247] Registered with coordinator. prev=A:10001
+[2025-11-15 22:41:11.059] CTRL UPDATE_NEXT -> C:10003
+[2025-11-15 22:41:23.249] SENT_DIRECT to A:10001 origin=B seq=1 msg=you are a weirdo
+[2025-11-15 22:41:23.250] RECV origin=B seq=1 from B: you are a weirdo
+[2025-11-15 22:41:23.251] FORWARDED origin=B seq=1 to C:10003
+[2025-11-15 23:16:19.052] Registered with coordinator. prev=A:10001
+[2025-11-15 23:16:19.053] Output directory: peer_B_frames
+[2025-11-15 23:16:19.835] CTRL UPDATE_NEXT -> C:10003
+[2025-11-15 23:20:06.510] Registered with coordinator. prev=A:10001
+[2025-11-15 23:20:06.510] Output directory: peer_B_frames
+[2025-11-15 23:20:07.309] CTRL UPDATE_NEXT -> C:10003
+[2025-11-15 23:21:01.396] Registered with coordinator. prev=A:10001
+[2025-11-15 23:21:01.397] Output directory: peer_B_frames
+[2025-11-15 23:21:02.188] CTRL UPDATE_NEXT -> C:10003
+[2025-11-15 23:21:40.315] VIDEO_END from coordinator, total frames: 0
+[2025-11-15 23:21:40.315] FORWARDED video_end to C:10003
+[2025-11-15 23:23:36.298] Registered with coordinator. prev=A:10001
+[2025-11-15 23:23:36.298] Output directory: peer_B_frames
+[2025-11-15 23:23:37.085] CTRL UPDATE_NEXT -> C:10003
+[2025-11-15 23:24:56.264] Registered with coordinator. prev=A:10001
+[2025-11-15 23:24:56.264] Output directory: peer_B_frames
+[2025-11-15 23:24:57.046] CTRL UPDATE_NEXT -> C:10003
+[2025-11-15 23:26:28.864] Registered with coordinator. prev=A:10001
+[2025-11-15 23:26:28.864] Output directory: peer_B_frames
+[2025-11-15 23:26:29.659] CTRL UPDATE_NEXT -> C:10003
+[2025-11-15 23:27:20.078] Registered with coordinator. prev=A:10001
+[2025-11-15 23:27:20.078] Output directory: peer_B_frames
+[2025-11-15 23:27:20.876] CTRL UPDATE_NEXT -> C:10003
+[2025-11-15 23:28:28.981] Registered with coordinator. prev=A:10001
+[2025-11-15 23:28:28.981] Output directory: peer_B_frames
+[2025-11-15 23:28:29.787] CTRL UPDATE_NEXT -> C:10003
+[2025-11-15 23:28:39.048] Registered with coordinator. prev=A:10001
+[2025-11-15 23:28:39.847] CTRL UPDATE_NEXT -> C:10003
+[2025-11-15 23:28:49.356] Registered with coordinator. prev=A:10001
+[2025-11-15 23:28:49.356] Output directory: peer_B_frames
+[2025-11-15 23:28:50.140] CTRL UPDATE_NEXT -> C:10003
+[2025-11-15 23:29:01.655] RECV_FRAME 0 from coordinator
+[2025-11-15 23:29:01.655] FORWARDED frame 0 to C:10003
+[2025-11-15 23:29:02.971] RECV_FRAME 30 from coordinator
+[2025-11-15 23:29:02.972] FORWARDED frame 30 to C:10003
+[2025-11-15 23:29:04.283] RECV_FRAME 60 from coordinator
+[2025-11-15 23:29:04.284] FORWARDED frame 60 to C:10003
+[2025-11-15 23:29:05.596] RECV_FRAME 90 from coordinator
+[2025-11-15 23:29:05.597] FORWARDED frame 90 to C:10003
+[2025-11-15 23:29:06.924] RECV_FRAME 120 from coordinator
+[2025-11-15 23:29:06.925] FORWARDED frame 120 to C:10003
+[2025-11-15 23:29:08.231] RECV_FRAME 150 from coordinator
+[2025-11-15 23:29:08.232] FORWARDED frame 150 to C:10003
+[2025-11-15 23:29:09.539] RECV_FRAME 180 from coordinator
+[2025-11-15 23:29:09.539] FORWARDED frame 180 to C:10003
+[2025-11-15 23:29:10.835] RECV_FRAME 210 from coordinator
+[2025-11-15 23:29:10.836] FORWARDED frame 210 to C:10003
+[2025-11-15 23:29:12.122] RECV_FRAME 240 from coordinator
+[2025-11-15 23:29:12.123] FORWARDED frame 240 to C:10003
+[2025-11-15 23:29:13.380] RECV_FRAME 270 from coordinator
+[2025-11-15 23:29:13.381] FORWARDED frame 270 to C:10003
+[2025-11-15 23:29:14.681] RECV_FRAME 300 from coordinator
+[2025-11-15 23:29:14.682] FORWARDED frame 300 to C:10003
+[2025-11-15 23:29:15.997] RECV_FRAME 330 from coordinator
+[2025-11-15 23:29:15.998] FORWARDED frame 330 to C:10003
+[2025-11-15 23:29:17.315] RECV_FRAME 360 from coordinator
+[2025-11-15 23:29:17.316] FORWARDED frame 360 to C:10003
+[2025-11-15 23:29:18.636] RECV_FRAME 390 from coordinator
+[2025-11-15 23:29:18.637] FORWARDED frame 390 to C:10003
+[2025-11-15 23:29:19.514] VIDEO_END from coordinator, total frames: 411
+[2025-11-15 23:29:19.514] FORWARDED video_end to C:10003
+[2025-11-15 23:29:44.228] Registered with coordinator. prev=A:10001
+[2025-11-15 23:29:44.228] Output directory: peer_B_frames
+[2025-11-15 23:29:45.028] CTRL UPDATE_NEXT -> C:10003
+[2025-11-15 23:29:55.857] RECV_FRAME 0 from coordinator
+[2025-11-15 23:29:55.858] FORWARDED frame 0 to C:10003
+[2025-11-15 23:29:57.181] RECV_FRAME 30 from coordinator
+[2025-11-15 23:29:57.182] FORWARDED frame 30 to C:10003
+[2025-11-15 23:29:58.480] RECV_FRAME 60 from coordinator
+[2025-11-15 23:29:58.481] FORWARDED frame 60 to C:10003
+[2025-11-15 23:29:59.793] RECV_FRAME 90 from coordinator
+[2025-11-15 23:29:59.794] FORWARDED frame 90 to C:10003
+[2025-11-15 23:30:01.069] RECV_FRAME 120 from coordinator
+[2025-11-15 23:30:01.070] FORWARDED frame 120 to C:10003
+[2025-11-15 23:30:02.372] RECV_FRAME 150 from coordinator
+[2025-11-15 23:30:02.373] FORWARDED frame 150 to C:10003
+[2025-11-15 23:30:03.662] RECV_FRAME 180 from coordinator
+[2025-11-15 23:30:03.663] FORWARDED frame 180 to C:10003
+[2025-11-15 23:30:04.963] RECV_FRAME 210 from coordinator
+[2025-11-15 23:30:04.964] FORWARDED frame 210 to C:10003
+[2025-11-15 23:30:06.280] RECV_FRAME 240 from coordinator
+[2025-11-15 23:30:06.281] FORWARDED frame 240 to C:10003
+[2025-11-15 23:30:07.584] RECV_FRAME 270 from coordinator
+[2025-11-15 23:30:07.585] FORWARDED frame 270 to C:10003
+[2025-11-15 23:30:08.880] RECV_FRAME 300 from coordinator
+[2025-11-15 23:30:08.881] FORWARDED frame 300 to C:10003
+[2025-11-15 23:30:10.177] RECV_FRAME 330 from coordinator
+[2025-11-15 23:30:10.178] FORWARDED frame 330 to C:10003
+[2025-11-15 23:30:11.457] RECV_FRAME 360 from coordinator
+[2025-11-15 23:30:11.458] FORWARDED frame 360 to C:10003
+[2025-11-15 23:30:12.736] RECV_FRAME 390 from coordinator
+[2025-11-15 23:30:12.737] FORWARDED frame 390 to C:10003
+[2025-11-15 23:30:13.641] VIDEO_END from coordinator, total frames: 411
+[2025-11-15 23:30:13.641] FORWARDED video_end to C:10003

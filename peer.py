@@ -1,11 +1,11 @@
 # peer.py
 # Peer process:
 # - registers with coordinator (TCP)
-# - listens for data on a UDP port
+# - listens for video frames on a UDP port
 # - runs a TCP control server (ctrl_port = udp_port + 10000) to receive UPDATE_NEXT
-# - allows interactive sending from any peer
-# - supports "sendto <peername> <message>" to send directly to a specific peer by querying coordinator
-# - de-duplicates messages using (origin, seq)
+# - receives video frames, buffers and reassembles chunks, decodes and displays with OpenCV
+# - forwards video downstream to next peer
+# - de-duplicates frames using frame_num
 # - per-peer logfile: peer_<name>.log
 # - clean Ctrl+C shutdown
 
@@ -15,11 +15,28 @@ import sys
 import json
 import time
 import signal
+import cv2
+import numpy as np
+import pickle
+import zlib
+import base64
 from datetime import datetime
+from collections import defaultdict
 
 COORD_HOST = "127.0.0.1"
 COORD_PORT = 9000
+MAX_DGRAM = 60000
+MAX_CHUNK_SIZE = 5000  # Match coordinator chunk size
 running = True
+
+# Frame buffer for reassembling chunks
+frame_buffers = defaultdict(dict)  # frame_num -> {chunk_id: data}
+frame_chunks_expected = {}  # frame_num -> total_chunks
+received_frames = set()  # frame numbers already processed
+
+# Queue for frames ready to display (main thread will display)
+import queue
+display_queue = queue.Queue(maxsize=100)
 
 def nowts():
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
@@ -30,45 +47,173 @@ def log(name, text):
         f.write(f"[{nowts()}] {text}\n")
 
 def udp_listener(udp_sock, name, next_udp_port_holder, seen):
+    global frame_buffers, frame_chunks_expected, received_frames, display_queue
+    
     udp_sock.settimeout(1.0)
+    frame_count = 0
+    
+    # Create output directory for saved frames (optional backup)
+    import os
+    output_dir = f"peer_{name}_frames"
+    os.makedirs(output_dir, exist_ok=True)
+    
+    print(f"[{name}] Ready to receive video frames")
+    print(f"[{name}] Frames will be saved to {output_dir}/")
+    log(name, f"Output directory: {output_dir}")
+    
     while running:
         try:
             data, addr = udp_sock.recvfrom(65536)
-            # try parse
             try:
                 msg = json.loads(data.decode())
             except:
-                # ignore malformed
                 continue
+            
             typ = msg.get("type")
-            if typ == "data":
+            
+            if typ == "video_frame":
+                frame_num = msg.get("frame_num")
+                chunk_id = msg.get("chunk_id")
+                total_chunks = msg.get("total_chunks")
+                chunk_data_hex = msg.get("data")
+                origin = msg.get("origin")
+                
+                if frame_num in received_frames:
+                    # Already processed this frame, skip
+                    continue
+                
+                # Store chunk
+                chunk_data = base64.b64decode(chunk_data_hex)
+                frame_buffers[frame_num][chunk_id] = chunk_data
+                frame_chunks_expected[frame_num] = total_chunks
+                
+                # Check if we have all chunks for this frame
+                if len(frame_buffers[frame_num]) == total_chunks:
+                    # Reassemble frame
+                    compressed_data = b''.join(
+                        frame_buffers[frame_num][i] for i in range(total_chunks)
+                    )
+                    
+                    try:
+                        # Decompress and decode
+                        decompressed = zlib.decompress(compressed_data)
+                        buffer = pickle.loads(decompressed)
+                        frame = cv2.imdecode(buffer, cv2.IMREAD_COLOR)
+                        
+                        if frame is not None:
+                            # Save frame to disk (backup)
+                            frame_path = f"{output_dir}/frame_{frame_num:06d}.jpg"
+                            cv2.imwrite(frame_path, frame)
+                            
+                            if frame_num % 30 == 0:
+                                print(f"[{name}] Received frame {frame_num} from {origin}")
+                                log(name, f"RECV_FRAME {frame_num} from {origin}")
+                            
+                            frame_count += 1
+                            received_frames.add(frame_num)
+                            
+                            # Put frame in display queue for main thread
+                            try:
+                                display_queue.put(("frame", frame_num, frame), block=False)
+                            except queue.Full:
+                                # Queue full, skip this frame's display (still saved to disk)
+                                pass
+                            
+                            # Forward to next peer
+                            nxt = next_udp_port_holder.get("port")
+                            if nxt:
+                                # Re-send all chunks to next peer
+                                for cid in range(total_chunks):
+                                    packet = {
+                                        "type": "video_frame",
+                                        "origin": origin,
+                                        "frame_num": frame_num,
+                                        "chunk_id": cid,
+                                        "total_chunks": total_chunks,
+                                        "data": base64.b64encode(frame_buffers[frame_num][cid]).decode('ascii')
+                                    }
+                                    try:
+                                        udp_sock.sendto(json.dumps(packet).encode(), ("127.0.0.1", nxt))
+                                    except Exception as e:
+                                        log(name, f"FORWARD_ERROR frame {frame_num} chunk {cid}: {e}")
+                                
+                                if frame_num % 30 == 0:
+                                    log(name, f"FORWARDED frame {frame_num} to {next_udp_port_holder.get('name')}:{nxt}")
+                        
+                        # Clean up buffer
+                        del frame_buffers[frame_num]
+                        del frame_chunks_expected[frame_num]
+                        
+                    except Exception as e:
+                        print(f"[{name}] Error decoding frame {frame_num}: {e}")
+                        log(name, f"DECODE_ERROR frame {frame_num}: {e}")
+            
+            elif typ == "video_end":
+                frame_num = msg.get("frame_num")
+                origin = msg.get("origin")
+                print(f"[{name}] End of video stream from {origin}. Total frames received: {frame_count}")
+                log(name, f"VIDEO_END from {origin}, total frames: {frame_count}")
+                
+                # Signal end to display thread
+                try:
+                    display_queue.put(("end", frame_count, None), block=False)
+                except:
+                    pass
+                
+                # Forward end marker
+                nxt = next_udp_port_holder.get("port")
+                if nxt:
+                    try:
+                        udp_sock.sendto(data, ("127.0.0.1", nxt))
+                        log(name, f"FORWARDED video_end to {next_udp_port_holder.get('name')}:{nxt}")
+                    except Exception as e:
+                        log(name, f"FORWARD_ERROR video_end: {e}")
+            
+            elif typ == "data":
+                # Legacy text message support
                 origin = msg.get("origin")
                 seq = msg.get("seq")
                 key = (origin, seq)
                 if key in seen:
-                    # already processed -> ignore
                     continue
                 seen.add(key)
                 sender = msg.get("sender", "-")
                 payload = msg.get("msg", "")
                 print(f"[{name} RECV] origin={origin} seq={seq} from {sender}: {payload}")
                 log(name, f"RECV origin={origin} seq={seq} from {sender}: {payload}")
-                # forward downstream to next peer (if any)
+                
                 nxt = next_udp_port_holder.get("port")
                 if nxt:
                     try:
                         udp_sock.sendto(data, ("127.0.0.1", nxt))
-                        log(name, f"FORWARDED origin={origin} seq={seq} to {next_udp_port_holder.get('name')}:{nxt}")
+                        log(name, f"FORWARDED origin={origin} seq={seq}")
                     except Exception as e:
-                        print(f"[{name}] forward error: {e}")
                         log(name, f"FORWARD_FAILED origin={origin} seq={seq} err={e}")
-            # ignore other types on UDP
+                        
         except socket.timeout:
             continue
-        except Exception:
+        except Exception as e:
+            if running:
+                log(name, f"UDP_LISTENER_ERROR: {e}")
             continue
+    
     udp_sock.close()
-    print(f"[{name}] UDP listener exiting.")
+    print(f"[{name}] UDP listener exiting. Total frames received: {frame_count}")
+
+def input_handler(name):
+    """Handle user input in a separate thread."""
+    global running
+    while running:
+        try:
+            line = input()
+            if line.strip().lower() in ("quit", "exit"):
+                print(f"[{name}] User requested exit")
+                running = False
+                break
+        except EOFError:
+            break
+        except:
+            break
 
 def ctrl_server(ctrl_port, next_udp_port_holder, name):
     serv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -166,94 +311,88 @@ if __name__ == "__main__":
     t_udp.start()
     t_ctrl = threading.Thread(target=ctrl_server, args=(ctrl_port, next_udp_port_holder, name), daemon=True)
     t_ctrl.start()
+    t_input = threading.Thread(target=input_handler, args=(name,), daemon=True)
+    t_input.start()
 
-    # interactive loop for any peer: supports:
-    # - plain text: send a data message originating from this peer downstream
-    # - sendto <peername> <message...> : send directly to named peer (bypass chain) by querying coordinator
-    seq = 0
-    print(f"[{name}] Interactive sender ready. Commands:")
-    print("  <text>                     -> broadcast downstream as origin")
-    print("  sendto <peername> <text>   -> send directly to peername UDP port (bypass chain)")
-    print("  list                       -> ask coordinator for list of peers")
-    print("  quit / Ctrl+C              -> exit")
+    # OpenCV window setup (must be in main thread)
+    window_name = f"Peer {name} - Video Stream"
+    window_created = False
+    video_ended = False
+    
+    # Main display loop
+    print(f"[{name}] Peer ready. Waiting for video stream...")
+    print(f"[{name}] Type 'quit' to exit")
+    print(f"[{name}] Video will display in separate window when streaming starts")
 
     while running:
+        # Check display queue for frames to display
         try:
-            # input may raise EOFError if stdin closed; handle gracefully
-            line = input("> ")
-        except EOFError:
-            # likely no TTY - shut down gracefully
-            print(f"[{name}] Stdin closed (EOF). Exiting.")
-            running = False
-            break
-        except KeyboardInterrupt:
-            running = False
-            break
-
-        if not line:
-            continue
-        if line.strip().lower() in ("quit", "exit"):
-            running = False
-            break
-        if line.strip().lower() == "list":
-            # ask coordinator for peers
-            try:
-                with socket.create_connection((COORD_HOST, COORD_PORT), timeout=3) as s:
-                    s.sendall(json.dumps({"type":"list"}).encode())
-                    raw = s.recv(8192).decode()
-                    lst = json.loads(raw) if raw else []
-                    print("Peers:", lst)
-            except Exception as e:
-                print("Coordinator list error:", e)
-            continue
-
-        tokens = line.split()
-        if tokens[0].lower() == "sendto" and len(tokens) >= 3:
-            target = tokens[1]
-            msg_text = " ".join(tokens[2:])
-            info = query_coordinator_lookup(target)
-            if not info:
-                print(f"[{name}] Coordinator: no peer named {target}")
-                continue
-            target_port = info.get("port")
-            if not target_port:
-                print(f"[{name}] Coordinator returned bad info for {target}")
-                continue
-            # build a data message (origin is this peer)
-            seq += 1
-            payload = {"type":"data","origin":name,"seq":seq,"sender":name,"msg":msg_text}
-            try:
-                udp_sock.sendto(json.dumps(payload).encode(), ("127.0.0.1", target_port))
-                print(f"[{name}] Sent direct to {target} ({target_port}) seq={seq}")
-                log(name, f"SENT_DIRECT to {target}:{target_port} origin={name} seq={seq} msg={msg_text}")
-            except Exception as e:
-                print(f"[{name}] direct send error: {e}")
-            continue
-
-        # default: originate a message that will propagate downstream
-        seq += 1
-        payload = {"type":"data","origin":name,"seq":seq,"sender":name,"msg":line}
-        nxt = next_udp_port_holder.get("port")
-        if nxt:
-            try:
-                udp_sock.sendto(json.dumps(payload).encode(), ("127.0.0.1", nxt))
-                print(f"[{name}] Originated seq={seq} -> forwarded to {next_udp_port_holder.get('name')}:{nxt}")
-                log(name, f"SENT origin={name} seq={seq} to {next_udp_port_holder.get('name')}:{nxt} msg={line}")
-                # mark as seen so origin doesn't get processed again on receipt
-                seen.add((name, seq))
-            except Exception as e:
-                print(f"[{name}] send error: {e}")
-                log(name, f"SEND_ERROR origin={name} seq={seq} err={e}")
-        else:
-            # no downstream yet — just log it (or optionally queue)
-            print(f"[{name}] No next peer yet — message queued (not sent).")
-            log(name, f"QUEUED origin={name} seq={seq} msg={line}")
+            event_type, data1, data2 = display_queue.get(timeout=0.01)
+            
+            if event_type == "frame":
+                frame_num = data1
+                frame = data2
+                
+                # Create window on first frame
+                if not window_created:
+                    cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
+                    cv2.resizeWindow(window_name, 800, 600)
+                    window_created = True
+                    print(f"[{name}] Video window opened. Press 'q' in window to close.")
+                
+                # Display frame
+                cv2.imshow(window_name, frame)
+                key = cv2.waitKey(1) & 0xFF
+                
+                if key == ord('q'):
+                    print(f"[{name}] User pressed 'q', closing video window")
+                    running = False
+                    break
+                
+                if frame_num % 30 == 0:
+                    print(f"[{name}] Displaying frame {frame_num}")
+            
+            elif event_type == "end":
+                total_frames = data1
+                video_ended = True
+                print(f"[{name}] Video playback complete. Total frames: {total_frames}")
+                print(f"[{name}] Window will remain open. Press 'q' to close or type 'quit'.")
+                
+        except queue.Empty:
+            # No frames to display, process window events if window exists
+            if window_created:
+                key = cv2.waitKey(1) & 0xFF
+                if key == ord('q'):
+                    print(f"[{name}] User pressed 'q', closing video window")
+                    running = False
+                    break
+                
+                # Check if window was closed
+                try:
+                    if cv2.getWindowProperty(window_name, cv2.WND_PROP_VISIBLE) < 1:
+                        print(f"[{name}] Video window closed by user")
+                        running = False
+                        break
+                except:
+                    pass
+            else:
+                # No window yet, just wait a bit
+                time.sleep(0.01)
 
     # shutdown
     running = False
     print(f"[{name}] Shutting down, waiting for threads...")
     t_udp.join(timeout=1.0)
     t_ctrl.join(timeout=1.0)
+    
+    # Cleanup OpenCV windows
+    if window_created:
+        try:
+            cv2.destroyWindow(window_name)
+            cv2.waitKey(1)  # Process the destroy event
+        except:
+            pass
+    
     try:
         udp_sock.close()
     except:

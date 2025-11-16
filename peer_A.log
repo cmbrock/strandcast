@@ -5,3 +5,101 @@
 [2025-11-15 14:03:32.059] SENT origin=A seq=1 to B:10002 msg=long live the United States
 [2025-11-15 14:06:47.579] Registered with coordinator. prev=None:None
 [2025-11-15 14:06:48.443] CTRL UPDATE_NEXT -> B:10002
+[2025-11-15 22:41:09.404] Registered with coordinator. prev=None:None
+[2025-11-15 22:41:10.248] CTRL UPDATE_NEXT -> B:10002
+[2025-11-15 22:41:23.249] RECV origin=B seq=1 from B: you are a weirdo
+[2025-11-15 22:41:23.250] FORWARDED origin=B seq=1 to B:10002
+[2025-11-15 23:16:18.217] Registered with coordinator. prev=None:None
+[2025-11-15 23:16:18.218] Output directory: peer_A_frames
+[2025-11-15 23:16:19.054] CTRL UPDATE_NEXT -> B:10002
+[2025-11-15 23:20:05.668] Registered with coordinator. prev=None:None
+[2025-11-15 23:20:05.668] Output directory: peer_A_frames
+[2025-11-15 23:20:06.512] CTRL UPDATE_NEXT -> B:10002
+[2025-11-15 23:21:00.593] Registered with coordinator. prev=None:None
+[2025-11-15 23:21:00.594] Output directory: peer_A_frames
+[2025-11-15 23:21:01.398] CTRL UPDATE_NEXT -> B:10002
+[2025-11-15 23:21:40.315] VIDEO_END from coordinator, total frames: 0
+[2025-11-15 23:21:40.315] FORWARDED video_end to B:10002
+[2025-11-15 23:23:35.441] Registered with coordinator. prev=None:None
+[2025-11-15 23:23:35.441] Output directory: peer_A_frames
+[2025-11-15 23:23:36.300] CTRL UPDATE_NEXT -> B:10002
+[2025-11-15 23:24:55.405] Registered with coordinator. prev=None:None
+[2025-11-15 23:24:55.406] Output directory: peer_A_frames
+[2025-11-15 23:24:56.266] CTRL UPDATE_NEXT -> B:10002
+[2025-11-15 23:26:28.046] Registered with coordinator. prev=None:None
+[2025-11-15 23:26:28.047] Output directory: peer_A_frames
+[2025-11-15 23:26:28.865] CTRL UPDATE_NEXT -> B:10002
+[2025-11-15 23:27:19.224] Registered with coordinator. prev=None:None
+[2025-11-15 23:27:19.224] Output directory: peer_A_frames
+[2025-11-15 23:27:20.080] CTRL UPDATE_NEXT -> B:10002
+[2025-11-15 23:28:28.156] Registered with coordinator. prev=None:None
+[2025-11-15 23:28:28.156] Output directory: peer_A_frames
+[2025-11-15 23:28:28.983] CTRL UPDATE_NEXT -> B:10002
+[2025-11-15 23:28:38.203] Registered with coordinator. prev=C:10003
+[2025-11-15 23:28:39.048] CTRL UPDATE_NEXT -> B:10002
+[2025-11-15 23:28:48.489] Registered with coordinator. prev=None:None
+[2025-11-15 23:28:48.489] Output directory: peer_A_frames
+[2025-11-15 23:28:49.357] CTRL UPDATE_NEXT -> B:10002
+[2025-11-15 23:29:01.649] RECV_FRAME 0 from coordinator
+[2025-11-15 23:29:01.649] FORWARDED frame 0 to B:10002
+[2025-11-15 23:29:02.965] RECV_FRAME 30 from coordinator
+[2025-11-15 23:29:02.966] FORWARDED frame 30 to B:10002
+[2025-11-15 23:29:04.276] RECV_FRAME 60 from coordinator
+[2025-11-15 23:29:04.277] FORWARDED frame 60 to B:10002
+[2025-11-15 23:29:05.590] RECV_FRAME 90 from coordinator
+[2025-11-15 23:29:05.591] FORWARDED frame 90 to B:10002
+[2025-11-15 23:29:06.917] RECV_FRAME 120 from coordinator
+[2025-11-15 23:29:06.918] FORWARDED frame 120 to B:10002
+[2025-11-15 23:29:08.224] RECV_FRAME 150 from coordinator
+[2025-11-15 23:29:08.225] FORWARDED frame 150 to B:10002
+[2025-11-15 23:29:09.532] RECV_FRAME 180 from coordinator
+[2025-11-15 23:29:09.533] FORWARDED frame 180 to B:10002
+[2025-11-15 23:29:10.828] RECV_FRAME 210 from coordinator
+[2025-11-15 23:29:10.830] FORWARDED frame 210 to B:10002
+[2025-11-15 23:29:12.116] RECV_FRAME 240 from coordinator
+[2025-11-15 23:29:12.117] FORWARDED frame 240 to B:10002
+[2025-11-15 23:29:13.373] RECV_FRAME 270 from coordinator
+[2025-11-15 23:29:13.374] FORWARDED frame 270 to B:10002
+[2025-11-15 23:29:14.675] RECV_FRAME 300 from coordinator
+[2025-11-15 23:29:14.676] FORWARDED frame 300 to B:10002
+[2025-11-15 23:29:15.990] RECV_FRAME 330 from coordinator
+[2025-11-15 23:29:15.991] FORWARDED frame 330 to B:10002
+[2025-11-15 23:29:17.309] RECV_FRAME 360 from coordinator
+[2025-11-15 23:29:17.310] FORWARDED frame 360 to B:10002
+[2025-11-15 23:29:18.629] RECV_FRAME 390 from coordinator
+[2025-11-15 23:29:18.630] FORWARDED frame 390 to B:10002
+[2025-11-15 23:29:19.513] VIDEO_END from coordinator, total frames: 411
+[2025-11-15 23:29:19.513] FORWARDED video_end to B:10002
+[2025-11-15 23:29:43.420] Registered with coordinator. prev=None:None
+[2025-11-15 23:29:43.421] Output directory: peer_A_frames
+[2025-11-15 23:29:44.230] CTRL UPDATE_NEXT -> B:10002
+[2025-11-15 23:29:55.851] RECV_FRAME 0 from coordinator
+[2025-11-15 23:29:55.852] FORWARDED frame 0 to B:10002
+[2025-11-15 23:29:57.175] RECV_FRAME 30 from coordinator
+[2025-11-15 23:29:57.176] FORWARDED frame 30 to B:10002
+[2025-11-15 23:29:58.474] RECV_FRAME 60 from coordinator
+[2025-11-15 23:29:58.475] FORWARDED frame 60 to B:10002
+[2025-11-15 23:29:59.786] RECV_FRAME 90 from coordinator
+[2025-11-15 23:29:59.787] FORWARDED frame 90 to B:10002
+[2025-11-15 23:30:01.063] RECV_FRAME 120 from coordinator
+[2025-11-15 23:30:01.064] FORWARDED frame 120 to B:10002
+[2025-11-15 23:30:02.365] RECV_FRAME 150 from coordinator
+[2025-11-15 23:30:02.366] FORWARDED frame 150 to B:10002
+[2025-11-15 23:30:03.656] RECV_FRAME 180 from coordinator
+[2025-11-15 23:30:03.656] FORWARDED frame 180 to B:10002
+[2025-11-15 23:30:04.957] RECV_FRAME 210 from coordinator
+[2025-11-15 23:30:04.958] FORWARDED frame 210 to B:10002
+[2025-11-15 23:30:06.274] RECV_FRAME 240 from coordinator
+[2025-11-15 23:30:06.275] FORWARDED frame 240 to B:10002
+[2025-11-15 23:30:07.578] RECV_FRAME 270 from coordinator
+[2025-11-15 23:30:07.578] FORWARDED frame 270 to B:10002
+[2025-11-15 23:30:08.874] RECV_FRAME 300 from coordinator
+[2025-11-15 23:30:08.875] FORWARDED frame 300 to B:10002
+[2025-11-15 23:30:10.171] RECV_FRAME 330 from coordinator
+[2025-11-15 23:30:10.172] FORWARDED frame 330 to B:10002
+[2025-11-15 23:30:11.451] RECV_FRAME 360 from coordinator
+[2025-11-15 23:30:11.452] FORWARDED frame 360 to B:10002
+[2025-11-15 23:30:12.730] RECV_FRAME 390 from coordinator
+[2025-11-15 23:30:12.731] FORWARDED frame 390 to B:10002
+[2025-11-15 23:30:13.641] VIDEO_END from coordinator, total frames: 411
+[2025-11-15 23:30:13.641] FORWARDED video_end to B:10002
