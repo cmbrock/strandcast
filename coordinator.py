@@ -18,7 +18,7 @@ import base64
 
 HOST = "127.0.0.1"
 COORD_PORT = 9000
-VIDEO_FILE = "strandcast/testAyush.mp4"
+VIDEO_FILE = "strandcast/test.mp4"
 MAX_DGRAM = 60000  # Max UDP datagram size (safe limit)
 MAX_CHUNK_SIZE = 5000  # Very small chunks: 5KB data -> ~7KB base64 -> ~10KB with JSON
 
@@ -172,7 +172,7 @@ def stream_video():
                 "frame_num": frame_num,
                 "chunk_id": chunk_id,
                 "total_chunks": total_chunks,
-                "data": base64.b64encode(chunk_data).decode('ascii')  # base64 is more efficient than hex
+                "data": base64.b64encode(chunk_data).decode('ascii') 
             }
             
             try:

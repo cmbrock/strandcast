@@ -58,3 +58,37 @@
 [2025-11-15 23:30:11.463] RECV_FRAME 360 from coordinator
 [2025-11-15 23:30:12.743] RECV_FRAME 390 from coordinator
 [2025-11-15 23:30:13.641] VIDEO_END from coordinator, total frames: 411
+[2025-11-15 23:35:47.823] Registered with coordinator. prev=B:10002
+[2025-11-15 23:35:47.823] Output directory: peer_C_frames
+[2025-11-15 23:36:16.444] RECV_FRAME 0 from coordinator
+[2025-11-15 23:36:17.766] RECV_FRAME 30 from coordinator
+[2025-11-15 23:36:19.076] RECV_FRAME 60 from coordinator
+[2025-11-15 23:36:20.391] RECV_FRAME 90 from coordinator
+[2025-11-15 23:36:21.715] RECV_FRAME 120 from coordinator
+[2025-11-15 23:36:23.035] RECV_FRAME 150 from coordinator
+[2025-11-15 23:36:24.338] RECV_FRAME 180 from coordinator
+[2025-11-15 23:36:25.660] RECV_FRAME 210 from coordinator
+[2025-11-15 23:36:26.972] RECV_FRAME 240 from coordinator
+[2025-11-15 23:36:28.280] RECV_FRAME 270 from coordinator
+[2025-11-15 23:36:29.591] RECV_FRAME 300 from coordinator
+[2025-11-15 23:36:30.882] RECV_FRAME 330 from coordinator
+[2025-11-15 23:36:32.180] RECV_FRAME 360 from coordinator
+[2025-11-15 23:36:33.473] RECV_FRAME 390 from coordinator
+[2025-11-15 23:36:34.360] VIDEO_END from coordinator, total frames: 411
+[2025-11-16 11:33:37.701] Registered with coordinator. prev=B:10002
+[2025-11-16 11:33:37.702] Output directory: peer_C_frames
+[2025-11-16 11:33:49.403] RECV_FRAME 0 from coordinator
+[2025-11-16 11:33:50.725] RECV_FRAME 30 from coordinator
+[2025-11-16 11:33:52.035] RECV_FRAME 60 from coordinator
+[2025-11-16 11:33:53.345] RECV_FRAME 90 from coordinator
+[2025-11-16 11:33:54.669] RECV_FRAME 120 from coordinator
+[2025-11-16 11:33:55.983] RECV_FRAME 150 from coordinator
+[2025-11-16 11:33:57.300] RECV_FRAME 180 from coordinator
+[2025-11-16 11:33:58.603] RECV_FRAME 210 from coordinator
+[2025-11-16 11:33:59.918] RECV_FRAME 240 from coordinator
+[2025-11-16 11:34:01.224] RECV_FRAME 270 from coordinator
+[2025-11-16 11:34:02.545] RECV_FRAME 300 from coordinator
+[2025-11-16 11:34:03.861] RECV_FRAME 330 from coordinator
+[2025-11-16 11:34:05.189] RECV_FRAME 360 from coordinator
+[2025-11-16 11:34:06.478] RECV_FRAME 390 from coordinator
+[2025-11-16 11:34:07.368] VIDEO_END from coordinator, total frames: 411
