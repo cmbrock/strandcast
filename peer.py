@@ -32,7 +32,9 @@ def log(name, text):
 
 def udp_listener(udp_sock, name, next_udp_port_holder, seen):
     udp_sock.settimeout(1.0)
+    
     while running:
+        startTime = time.perf_counter()
         try:
             data, addr = udp_sock.recvfrom(65536)
             # try parse
@@ -63,6 +65,23 @@ def udp_listener(udp_sock, name, next_udp_port_holder, seen):
                     except Exception as e:
                         print(f"[{name}] forward error: {e}")
                         log(name, f"FORWARD_FAILED origin={origin} seq={seq} err={e}")
+                    
+                    endTime = time.perf_counter()
+                    print(f"Elapsed Time: {endTime-startTime}" )
+                    log(f"Elapsed Time: {endTime-startTime}" )
+                #last peer, so notify subcoordinator to send the next file if any
+                else:
+                    try:
+                        with socket.create_connection((COORD_HOST, SUB_COORD_PORT), timeout=3) as s:
+                            msg = json.dumps({"type": "deliveryDone"})
+                            s.sendall(msg.encode())
+                            # Wait for acknowledgment
+                            resp = s.recv(1024).decode()
+                            log(name, f"Notified subcoordinator: deliveryDone, response: {resp}")
+                    except Exception as e:
+                        print(f"[{name}] Failed to notify subcoordinator: {e}")
+                        log(name, f"SUBCOORD_NOTIFY_FAILED err={e}")
+                    
             # ignore other types on UDP
         except socket.timeout:
             continue

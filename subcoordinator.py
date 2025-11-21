@@ -14,6 +14,8 @@ HOST = None
 SUPER_COORD_PORT = None
 COORD_PORT = None
 
+FILE_COUNT = 1
+
 peers = []            # list of dicts: {"name":..., "port":..., "ctrl_port":...}
 lock = threading.Lock()
 running = True
@@ -51,6 +53,56 @@ def update_host(ctrl_port, new_cord_port):
         print(f"[Subcoordinator] Failed to notify ctrl {ctrl_port}: {e}")
 
 
+def downstream():
+    """Send file1.txt content to peer 1 and downstream."""
+    print("[Subcoordinator] Starting downstream thread...")
+    global downstream_started
+    global FILE_COUNT
+
+    time.sleep(7)
+
+    try:
+
+        if FILE_COUNT > 5:
+            print("all files have been processed")
+            downstream_started = False
+            return
+
+        # Read file1.txt
+        with open(f'strandcast/text_folder/file{FILE_COUNT}.txt', 'r') as f:
+            content = f.read()
+        
+        print(f"[Subcoordinator] Read file{FILE_COUNT}.txt: {len(content)} bytes")
+        
+        # Get peer 1 (first peer in the list)
+        with lock:
+            if len(peers) < 1:
+                print("[Subcoordinator] No peers available for downstream")
+                return
+            first_peer = peers[0]
+        
+        # Send to peer 1 via UDP
+        sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        message = json.dumps({
+            "type": "data",
+            "origin": "subcoordinator",
+            "seq": FILE_COUNT,
+            "msg": content,
+            "direct": False
+        })
+        
+        sock.sendto(message.encode(), (HOST, first_peer["port"]))
+        print(f"[Subcoordinator] Sent file{FILE_COUNT}.txt to {first_peer['name']} (port {first_peer['port']})")
+        downstream_started = False
+        sock.close()
+        FILE_COUNT += 1
+        
+        
+    except FileNotFoundError:
+        print("[Subcoordinator] Error: text_folder/file1.txt not found")
+    except Exception as e:
+        print(f"[Subcoordinator] Error in downstream: {e}")
+
 
 
 def is_authorized_peer(requester_name):
@@ -79,7 +131,10 @@ def handle_connection(conn, addr):
                 print(f"[Subcoordinator] Registered {name} (udp={port}, ctrl={ctrl_port})")
                 prev = peers[-2] if len(peers) > 1 else None
                 
-                
+                # Start downstream thread when we have 3 peers
+                if len(peers) == 3 and not downstream_started:
+                    downstream_started = True
+                    threading.Thread(target=downstream, daemon=True).start()
                     
             # reply with previous peer info (or empty object)
             conn.sendall(json.dumps(prev or {}).encode())
@@ -87,6 +142,16 @@ def handle_connection(conn, addr):
             if prev:
                 notify_next(prev["ctrl_port"], entry["name"], entry["port"])
 
+        elif typ == "deliveryDone":
+            # Send next file downstream
+            print(f"[Subcoordinator] Received deliveryDone, downstream_started={downstream_started}")
+            conn.sendall(json.dumps({"status": "acknowledged"}).encode())
+            if not downstream_started:
+                print("[Subcoordinator] Starting new downstream thread")
+                downstream_started = True
+                threading.Thread(target=downstream, daemon=True).start()
+            else:
+                print("[Subcoordinator] downstream thread already running, skipping")
             
         elif typ == "lookup":
             # lookup by name and return peer info if exists
