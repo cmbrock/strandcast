@@ -6,3 +6,33 @@
 [2025-11-15 14:03:32.060] FORWARDED origin=A seq=1 to C:10003
 [2025-11-15 14:06:48.442] Registered with coordinator. prev=A:10001
 [2025-11-15 14:06:49.215] CTRL UPDATE_NEXT -> C:10003
+[2025-11-20 20:35:07.735] Registered with coordinator. prev=A:10001
+[2025-11-20 20:35:08.554] CTRL UPDATE_NEXT -> C:10003
+[2025-11-20 20:36:13.804] Registered with coordinator. prev=A:10001
+[2025-11-20 20:36:14.631] CTRL UPDATE_NEXT -> C:10003
+[2025-11-20 20:37:19.552] Registered with coordinator. prev=A:10001
+[2025-11-20 20:37:20.368] CTRL UPDATE_NEXT -> C:10003
+[2025-11-20 20:38:19.441] SENT_DIRECT to A:10001 origin=B seq=1 msg=you are incredible
+[2025-11-20 20:38:19.442] RECV origin=B seq=1 from B: you are incredible
+[2025-11-20 20:38:19.442] FORWARDED origin=B seq=1 to C:10003
+[2025-11-20 20:42:15.476] Registered with coordinator. prev=A:10001
+[2025-11-20 20:42:16.280] CTRL UPDATE_NEXT -> C:10003
+[2025-11-20 20:42:28.621] SENT_DIRECT to A:10001 origin=B seq=1 msg=you are insecure
+[2025-11-20 20:42:51.335] RECV origin=C seq=1 from C: don't know what for
+[2025-11-20 20:48:21.823] Registered with coordinator. prev=A:10001
+[2025-11-20 21:03:16.053] Registered with coordinator. prev=A:10001
+[2025-11-20 21:13:50.123] Registered with coordinator. prev=A:10001
+[2025-11-20 21:16:27.666] Registered with coordinator. prev=A:10001
+[2025-11-20 21:18:00.106] Registered with coordinator. prev=A:10001
+[2025-11-20 21:19:17.211] Registered with coordinator. prev=A:10001
+[2025-11-20 21:22:40.566] Registered with coordinator. prev=A:10001
+[2025-11-20 21:50:30.072] Registered with coordinator. prev=A:10001
+[2025-11-20 22:00:19.866] Registered with coordinator. prev=A:10001
+[2025-11-20 22:01:47.977] Registered with coordinator. prev=A:10001
+[2025-11-20 22:39:57.610] Registered with coordinator. prev=A:10001
+[2025-11-20 22:41:35.855] CTRL UPDATE_NEXT -> D:10004
+[2025-11-20 22:45:11.372] Registered with coordinator. prev=A:10001
+[2025-11-20 22:45:42.318] CTRL UPDATE_NEXT -> D:10004
+[2025-11-20 22:46:41.813] Registered with coordinator. prev=A:10001
+[2025-11-20 22:47:03.159] CTRL UPDATE_NEXT -> D:10004
+[2025-11-20 22:47:14.209] RECV origin=D seq=1 from D: how are you

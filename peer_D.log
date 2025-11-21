@@ -1,0 +1,38 @@
+[2025-11-20 20:48:23.481] Registered with coordinator. prev=C:10003
+[2025-11-20 20:48:54.899] RECV origin=C seq=1 from C: I love pie
+[2025-11-20 21:03:17.680] Registered with coordinator. prev=C:10003
+[2025-11-20 21:13:51.757] Registered with coordinator. prev=C:10003
+[2025-11-20 21:16:29.301] Registered with coordinator. prev=C:10003
+[2025-11-20 21:18:01.745] Registered with coordinator. prev=C:10003
+[2025-11-20 21:19:18.845] Registered with coordinator. prev=C:10003
+[2025-11-20 21:22:42.199] Registered with coordinator. prev=C:10003
+[2025-11-20 21:50:31.700] Registered with coordinator. prev=C:10003
+[2025-11-20 21:50:32.515] CTRL UPDATE_NEXT -> E:10005
+[2025-11-20 21:50:57.155] SENT_DIRECT to C:10003 origin=D seq=1 msg=I am alive
+[2025-11-20 21:51:08.299] RECV origin=C seq=1 from C: I am the superior letter
+[2025-11-20 21:51:08.300] FORWARDED origin=C seq=1 to E:10005
+[2025-11-20 21:51:23.210] CTRL UPDATE_NEXT -> :
+[2025-11-20 21:51:39.289] QUEUED origin=D seq=2 msg=dfds
+[2025-11-20 21:51:49.730] SENT_DIRECT to C:10003 origin=D seq=3 msg=are you there
+[2025-11-20 22:00:21.487] Registered with coordinator. prev=C:10003
+[2025-11-20 22:00:22.298] CTRL UPDATE_NEXT -> E:10005
+[2025-11-20 22:00:34.238] SENT_DIRECT to C:10003 origin=D seq=1 msg=you are great
+[2025-11-20 22:00:45.847] CTRL UPDATE_NEXT -> :
+[2025-11-20 22:01:14.917] QUEUED origin=D seq=2 msg=dfjdlsfdsf
+[2025-11-20 22:01:49.612] Registered with coordinator. prev=C:10003
+[2025-11-20 22:01:50.423] CTRL UPDATE_NEXT -> E:10005
+[2025-11-20 22:02:21.117] CTRL UPDATE_NEXT -> :
+[2025-11-20 22:02:46.602] SENT_DIRECT to C:10003 origin=D seq=1 msg=how are you
+[2025-11-20 22:02:52.421] RECV origin=C seq=1 from C: I am doing fine
+[2025-11-20 22:39:59.232] Registered with coordinator. prev=C:10003
+[2025-11-20 22:40:00.033] CTRL UPDATE_NEXT -> E:10005
+[2025-11-20 22:41:35.850] CTRL UPDATE_NEXT -> :
+[2025-11-20 22:45:12.990] Registered with coordinator. prev=C:10003
+[2025-11-20 22:45:13.797] CTRL UPDATE_NEXT -> E:10005
+[2025-11-20 22:45:42.314] CTRL UPDATE_NEXT -> :
+[2025-11-20 22:46:43.445] Registered with coordinator. prev=C:10003
+[2025-11-20 22:46:44.251] CTRL UPDATE_NEXT -> E:10005
+[2025-11-20 22:47:03.153] CTRL UPDATE_NEXT -> :
+[2025-11-20 22:47:14.209] SENT_DIRECT to B:10002 origin=D seq=1 msg=how are you
+[2025-11-20 22:47:37.913] CTRL UPDATE_NEXT -> C:10003
+[2025-11-20 22:48:01.115] SENT origin=D seq=2 to C:10003 msg=I am the superior being

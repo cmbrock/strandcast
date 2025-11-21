@@ -37,7 +37,10 @@ def start_in_new_console(cmd):
 
 if __name__ == "__main__":
     coord_cmd = [sys.executable, "strandcast/coordinator.py"]
-    peers = [("A", 10001), ("B", 10002), ("C", 10003)]
+    sub_coord_cmd = [sys.executable, "strandcast/subcoordinator.py", "9001"]
+    sub_coord_cmd2 = [sys.executable, "strandcast/subcoordinator.py", "9002"]
+    peers = [("A", 10001, 9001), ("B", 10002, 9001)]
+    peers2 = [("C", 10003, 9002), ("D", 10004, 9002), ("E", 10005, 9002)]
 
     procs = []
     print("Starting coordinator...")
@@ -45,9 +48,27 @@ if __name__ == "__main__":
     procs.append(p)
     time.sleep(1.0)
 
-    for name, port in peers:
-        cmd = [sys.executable, "strandcast/peer.py", name, str(port)]
-        print(f"Starting peer {name} on port {port} ...")
+    print("Starting subcoordinator...")
+    p = start_in_new_console(sub_coord_cmd)
+    procs.append(p)
+    time.sleep(2.0)
+
+
+    print("Starting subcoordinator 2...")
+    p = start_in_new_console(sub_coord_cmd2)
+    procs.append(p)
+    time.sleep(4.0)
+
+    for peer in peers:
+        cmd = [sys.executable, "strandcast/peer.py", peer[0], str(peer[1]), str(peer[2])]
+        print(f"Starting peer {peer[0]} on port {str(peer[1])} ...")
+        p = start_in_new_console(cmd)
+        procs.append(p)
+        time.sleep(0.8)
+    
+    for peer in peers2:
+        cmd = [sys.executable, "strandcast/peer.py", peer[0], str(peer[1]), str(peer[2])]
+        print(f"Starting peer {peer[0]} on port {str(peer[1])} ...")
         p = start_in_new_console(cmd)
         procs.append(p)
         time.sleep(0.8)

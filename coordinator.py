@@ -13,7 +13,7 @@ import time
 HOST = "127.0.0.1"
 COORD_PORT = 9000
 
-peers = []            # list of dicts: {"name":..., "port":..., "ctrl_port":...}
+subcoordinators = []            # list of dicts: {"name":..., "port":..., "ctrl_port":...}
 lock = threading.Lock()
 running = True
 
@@ -40,32 +40,26 @@ def handle_connection(conn, addr):
         req = json.loads(raw)
         typ = req.get("type")
         if typ == "register":
-            name = req.get("name") or f"peer{len(peers)+1}"
-            port = int(req["port"])
-            ctrl_port = int(req["ctrl_port"])
+            port = req.get("port")
             with lock:
-                entry = {"name": name, "port": port, "ctrl_port": ctrl_port}
-                peers.append(entry)
-                print(f"[Coordinator] Registered {name} (udp={port}, ctrl={ctrl_port})")
-                prev = peers[-2] if len(peers) > 1 else None
+                entry = port
+                subcoordinators.append(entry)
+                print(f"[Coordinator] Registered port {port}")
             # reply with previous peer info (or empty object)
-            conn.sendall(json.dumps(prev or {}).encode())
+            reply = {"reply": f"[Coordinator] Registered port {port}"}
+            conn.sendall(json.dumps(reply or {}).encode())
             # notify previous peer about its new next
-            if prev:
-                notify_next(prev["ctrl_port"], entry["name"], entry["port"])
         elif typ == "lookup":
             # lookup by name and return peer info if exists
-            target = req.get("name")
-            found = {}
+            
+            target = req.get("port")
+            found = ""
             with lock:
-                for p in peers:
-                    if p["name"] == target:
-                        found = p
+                for s in subcoordinators:
+                    if s == target:
+                        found = s
                         break
             conn.sendall(json.dumps(found).encode())
-        elif typ == "list":
-            with lock:
-                conn.sendall(json.dumps(peers).encode())
         else:
             conn.sendall(json.dumps({"error":"unknown type"}).encode())
     except Exception as e:

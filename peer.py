@@ -18,7 +18,7 @@ import signal
 from datetime import datetime
 
 COORD_HOST = "127.0.0.1"
-COORD_PORT = 9000
+COORD_PORT = None
 running = True
 
 def nowts():
@@ -51,17 +51,22 @@ def udp_listener(udp_sock, name, next_udp_port_holder, seen):
                 seen.add(key)
                 sender = msg.get("sender", "-")
                 payload = msg.get("msg", "")
-                print(f"[{name} RECV] origin={origin} seq={seq} from {sender}: {payload}")
-                log(name, f"RECV origin={origin} seq={seq} from {sender}: {payload}")
                 # forward downstream to next peer (if any)
-                nxt = next_udp_port_holder.get("port")
-                if nxt:
-                    try:
-                        udp_sock.sendto(data, ("127.0.0.1", nxt))
-                        log(name, f"FORWARDED origin={origin} seq={seq} to {next_udp_port_holder.get('name')}:{nxt}")
-                    except Exception as e:
-                        print(f"[{name}] forward error: {e}")
-                        log(name, f"FORWARD_FAILED origin={origin} seq={seq} err={e}")
+                direct = msg.get('direct')
+                if direct:
+                    print(f"[{name} RECV] origin={origin} seq={seq} from {sender}: {payload}")
+                    log(name, f"RECV origin={origin} seq={seq} from {sender}: {payload}")
+                else:
+                    print(f"[{name} RECV] origin={origin} seq={seq} from {sender}: {payload}")
+                    log(name, f"RECV origin={origin} seq={seq} from {sender}: {payload}")
+                    nxt = next_udp_port_holder.get("port")
+                    if nxt:
+                        try:
+                            udp_sock.sendto(data, ("127.0.0.1", nxt))
+                            log(name, f"FORWARDED origin={origin} seq={seq} to {next_udp_port_holder.get('name')}:{nxt}")
+                        except Exception as e:
+                            print(f"[{name}] forward error: {e}")
+                            log(name, f"FORWARD_FAILED origin={origin} seq={seq} err={e}")
             # ignore other types on UDP
         except socket.timeout:
             continue
@@ -92,12 +97,31 @@ def ctrl_server(ctrl_port, next_udp_port_holder, name):
                     next_port = msg.get("next_port")
                     print(f"[{name} CTRL] UPDATE_NEXT -> {next_name}:{next_port}")
                     log(name, f"CTRL UPDATE_NEXT -> {next_name}:{next_port}")
-                    next_udp_port_holder["port"] = next_port
-                    next_udp_port_holder["name"] = next_name
+                    if next_port == "":
+                        next_udp_port_holder["port"] = None
+                    else:
+                        next_udp_port_holder["port"] = next_port
+                    if next_name == "":
+                        next_udp_port_holder["name"] = None
+                    else:
+                        next_udp_port_holder["name"] = next_name
                     try:
                         conn.sendall(b"OK")
                     except:
                         pass
+                elif msg.get("cmd") == "NEW_CORD":
+                    global COORD_PORT
+                    COORD_PORT = int(msg.get("port"))
+                    # Register with coordinator
+                    reg = {"type":"register", "name": name, "port": udp_port, "ctrl_port": ctrl_port}
+                    try:
+                        with socket.create_connection((COORD_HOST, COORD_PORT), timeout=5) as s:
+                            s.sendall(json.dumps(reg).encode())
+                            resp = s.recv(8192).decode()
+                            prev_info = json.loads(resp) if resp else {}
+                    except Exception as e:
+                        print(f"[{name}] Failed to register with coordinator: {e}")
+                        sys.exit(1)
         except socket.timeout:
             continue
         except Exception:
@@ -110,13 +134,17 @@ def sigint_handler(sig, frame):
     print("\n[Peer] Caught interrupt, shutting down...")
     running = False
 
-def query_coordinator_lookup(target_name):
+def query_coordinator_lookup(target_name, requester_name):
     """Query coordinator for peer info by name. Returns dict or {}."""
     try:
         with socket.create_connection((COORD_HOST, COORD_PORT), timeout=3) as s:
-            s.sendall(json.dumps({"type":"lookup", "name": target_name}).encode())
+            s.sendall(json.dumps({"type":"lookup", "name": target_name, "requester": requester_name}).encode())
             raw = s.recv(4096).decode()
-            return json.loads(raw) if raw else {}
+            result = json.loads(raw) if raw else {}
+            if result.get("error") == "unauthorized":
+                print(f"[peer] Unauthorized to lookup {target_name}")
+                return {}
+            return result
     except Exception as e:
         print("[peer] coordinator lookup error:", e)
         return {}
@@ -124,13 +152,14 @@ def query_coordinator_lookup(target_name):
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, sigint_handler)
 
-    if len(sys.argv) != 3:
+    if len(sys.argv) != 4:
         print("Usage: python peer.py <name> <udp_port>")
         sys.exit(1)
 
     name = sys.argv[1]
     udp_port = int(sys.argv[2])
     ctrl_port = udp_port + 10000
+    COORD_PORT = int(sys.argv[3])
 
     # Register with coordinator
     reg = {"type":"register", "name": name, "port": udp_port, "ctrl_port": ctrl_port}
@@ -199,10 +228,13 @@ if __name__ == "__main__":
             # ask coordinator for peers
             try:
                 with socket.create_connection((COORD_HOST, COORD_PORT), timeout=3) as s:
-                    s.sendall(json.dumps({"type":"list"}).encode())
+                    s.sendall(json.dumps({"type":"list", "requester": name}).encode())
                     raw = s.recv(8192).decode()
-                    lst = json.loads(raw) if raw else []
-                    print("Peers:", lst)
+                    result = json.loads(raw) if raw else []
+                    if isinstance(result, dict) and result.get("error") == "unauthorized":
+                        print(f"[{name}] Unauthorized to list peers")
+                    else:
+                        print("Peers:", result)
             except Exception as e:
                 print("Coordinator list error:", e)
             continue
@@ -211,7 +243,8 @@ if __name__ == "__main__":
         if tokens[0].lower() == "sendto" and len(tokens) >= 3:
             target = tokens[1]
             msg_text = " ".join(tokens[2:])
-            info = query_coordinator_lookup(target)
+            print(COORD_PORT)
+            info = query_coordinator_lookup(target, name)
             if not info:
                 print(f"[{name}] Coordinator: no peer named {target}")
                 continue
@@ -221,7 +254,7 @@ if __name__ == "__main__":
                 continue
             # build a data message (origin is this peer)
             seq += 1
-            payload = {"type":"data","origin":name,"seq":seq,"sender":name,"msg":msg_text}
+            payload = {"type":"data","origin":name,"seq":seq,"sender":name,"msg":msg_text, "direct": True}
             try:
                 udp_sock.sendto(json.dumps(payload).encode(), ("127.0.0.1", target_port))
                 print(f"[{name}] Sent direct to {target} ({target_port}) seq={seq}")
@@ -232,7 +265,7 @@ if __name__ == "__main__":
 
         # default: originate a message that will propagate downstream
         seq += 1
-        payload = {"type":"data","origin":name,"seq":seq,"sender":name,"msg":line}
+        payload = {"type":"data","origin":name,"seq":seq,"sender":name,"msg":line, "direct": False}
         nxt = next_udp_port_holder.get("port")
         if nxt:
             try:
