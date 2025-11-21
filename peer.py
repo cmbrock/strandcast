@@ -17,8 +17,9 @@ import time
 import signal
 from datetime import datetime
 
-COORD_HOST = "127.0.0.1"
-COORD_PORT = 9000
+COORD_HOST = None
+COORD_PORT = None
+SUB_COORD_PORT = None
 running = True
 
 def nowts():
@@ -87,6 +88,14 @@ def ctrl_server(ctrl_port, next_udp_port_holder, name):
                     msg = json.loads(raw)
                 except:
                     continue
+                
+                # Check for error messages and raise exception
+                if msg.get("error"):
+                    error_msg = msg.get("error")
+                    print(f"[{name} CTRL] ERROR received: {error_msg}")
+                    log(name, f"CTRL ERROR: {error_msg}")
+                    raise Exception(f"Control server received error: {error_msg}")
+                
                 if msg.get("cmd") == "UPDATE_NEXT":
                     next_name = msg.get("next_name")
                     next_port = msg.get("next_port")
@@ -110,11 +119,11 @@ def sigint_handler(sig, frame):
     print("\n[Peer] Caught interrupt, shutting down...")
     running = False
 
-def query_coordinator_lookup(target_name):
+def query_coordinator_lookup(target_name, peer_name):
     """Query coordinator for peer info by name. Returns dict or {}."""
     try:
-        with socket.create_connection((COORD_HOST, COORD_PORT), timeout=3) as s:
-            s.sendall(json.dumps({"type":"lookup", "name": target_name}).encode())
+        with socket.create_connection((COORD_HOST, SUB_COORD_PORT), timeout=3) as s:
+            s.sendall(json.dumps({"type":"lookup", "name": target_name, "requester" : peer_name}).encode())
             raw = s.recv(4096).decode()
             return json.loads(raw) if raw else {}
     except Exception as e:
@@ -122,33 +131,66 @@ def query_coordinator_lookup(target_name):
         return {}
 
 if __name__ == "__main__":
+
+
     signal.signal(signal.SIGINT, sigint_handler)
 
-    if len(sys.argv) != 3:
+    if len(sys.argv) != 5:
         print("Usage: python peer.py <name> <udp_port>")
         sys.exit(1)
 
     name = sys.argv[1]
     udp_port = int(sys.argv[2])
+    COORD_HOST = sys.argv[3]
+    COORD_PORT = int(sys.argv[4])
     ctrl_port = udp_port + 10000
 
     # Register with coordinator
-    reg = {"type":"register", "name": name, "port": udp_port, "ctrl_port": ctrl_port}
+    reg = {"type":"peer", "action":"register", "name": name, "port": udp_port, "ctrl_port": ctrl_port}
     try:
         with socket.create_connection((COORD_HOST, COORD_PORT), timeout=5) as s:
             s.sendall(json.dumps(reg).encode())
             resp = s.recv(8192).decode()
-            prev_info = json.loads(resp) if resp else {}
+            meta_info = json.loads(resp) if resp else {}
+            
+            # Check for error in response
+            if meta_info.get("error"):
+                error_msg = meta_info.get("error")
+                raise Exception(f"Registration failed: {error_msg}")
     except Exception as e:
         print(f"[{name}] Failed to register with coordinator: {e}")
         sys.exit(1)
 
-    prev_name = prev_info.get("name")
-    prev_port = prev_info.get("port")
+    prev_info = meta_info['prev']
+    prev_name = None
+    prev_port = None
+    if prev_info != None:
+        prev_name = prev_info['name']
+        prev_port = prev_info['port']
+
     is_first = not prev_info  # True if no previous peer
 
     print(f"[{name}] Registered. previous peer: {prev_name or 'NONE'} (port={prev_port or 'N/A'})")
     log(name, f"Registered with coordinator. prev={prev_name}:{prev_port}")
+
+    if meta_info != None:
+        SUB_COORD_PORT = int(meta_info['subport'])
+
+     # Register with subcoordinator
+    reg = {"type":"register","name": name, "port": udp_port, "ctrl_port": ctrl_port}
+    try:
+        with socket.create_connection((COORD_HOST, SUB_COORD_PORT), timeout=5) as s:
+            s.sendall(json.dumps(reg).encode())
+            resp = s.recv(8192).decode()
+            meta_info = json.loads(resp) if resp else {}
+            
+            # Check for error in response
+            if meta_info.get("error"):
+                error_msg = meta_info.get("error")
+                raise Exception(f"Registration failed: {error_msg}")
+    except Exception as e:
+        print(f"[{name}] Failed to register with subcoordinator: {e}")
+        sys.exit(1)
 
     # shared holder for next peer
     next_udp_port_holder = {"port": None, "name": None}
@@ -198,8 +240,8 @@ if __name__ == "__main__":
         if line.strip().lower() == "list":
             # ask coordinator for peers
             try:
-                with socket.create_connection((COORD_HOST, COORD_PORT), timeout=3) as s:
-                    s.sendall(json.dumps({"type":"list"}).encode())
+                with socket.create_connection((COORD_HOST, SUB_COORD_PORT), timeout=3) as s:
+                    s.sendall(json.dumps({"type":"list", "requester" : name}).encode())
                     raw = s.recv(8192).decode()
                     lst = json.loads(raw) if raw else []
                     print("Peers:", lst)
@@ -211,7 +253,7 @@ if __name__ == "__main__":
         if tokens[0].lower() == "sendto" and len(tokens) >= 3:
             target = tokens[1]
             msg_text = " ".join(tokens[2:])
-            info = query_coordinator_lookup(target)
+            info = query_coordinator_lookup(target, name)
             if not info:
                 print(f"[{name}] Coordinator: no peer named {target}")
                 continue

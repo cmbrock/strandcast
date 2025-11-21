@@ -5,3 +5,43 @@
 [2025-11-15 14:03:32.059] SENT origin=A seq=1 to B:10002 msg=long live the United States
 [2025-11-15 14:06:47.579] Registered with coordinator. prev=None:None
 [2025-11-15 14:06:48.443] CTRL UPDATE_NEXT -> B:10002
+[2025-11-21 13:59:14.842] Registered with coordinator. prev=None:None
+[2025-11-21 14:01:01.211] Registered with coordinator. prev=None:None
+[2025-11-21 14:02:00.481] Registered with coordinator. prev=None:None
+[2025-11-21 14:04:55.675] Registered with coordinator. prev=None:None
+[2025-11-21 14:04:56.470] CTRL UPDATE_NEXT -> B:10002
+[2025-11-21 14:10:55.220] Registered with coordinator. prev=None:None
+[2025-11-21 14:10:56.020] CTRL UPDATE_NEXT -> B:10002
+[2025-11-21 14:11:45.952] Registered with coordinator. prev=None:None
+[2025-11-21 14:11:46.765] CTRL UPDATE_NEXT -> B:10002
+[2025-11-21 14:28:42.920] Registered with coordinator. prev=None:None
+[2025-11-21 14:28:43.749] CTRL UPDATE_NEXT -> B:10002
+[2025-11-21 14:28:43.749] CTRL UPDATE_NEXT -> B:10002
+[2025-11-21 14:30:43.395] Registered with coordinator. prev=None:None
+[2025-11-21 14:30:44.257] CTRL UPDATE_NEXT -> B:10002
+[2025-11-21 14:30:44.258] CTRL UPDATE_NEXT -> B:10002
+[2025-11-21 14:31:21.559] SENT origin=A seq=1 to B:10002 msg=i am king of the world
+[2025-11-21 14:32:19.752] Registered with coordinator. prev=None:None
+[2025-11-21 14:32:20.562] CTRL UPDATE_NEXT -> B:10002
+[2025-11-21 14:32:20.563] CTRL UPDATE_NEXT -> B:10002
+[2025-11-21 14:36:18.404] Registered with coordinator. prev=B:10002
+[2025-11-21 14:38:17.929] Registered with coordinator. prev=B:10002
+[2025-11-21 14:38:17.929] CTRL UPDATE_NEXT -> A:10001
+[2025-11-21 14:38:26.628] Registered with coordinator. prev=None:None
+[2025-11-21 14:38:27.448] CTRL UPDATE_NEXT -> B:10002
+[2025-11-21 14:38:27.449] CTRL UPDATE_NEXT -> B:10002
+[2025-11-21 14:38:34.733] SENT_DIRECT to B:10002 origin=A seq=1 msg=hello B
+[2025-11-21 14:38:46.597] RECV origin=B seq=1 from B: hello back
+[2025-11-21 14:38:46.598] FORWARDED origin=B seq=1 to B:10002
+[2025-11-21 14:40:52.833] Registered with coordinator. prev=None:None
+[2025-11-21 14:40:53.649] CTRL UPDATE_NEXT -> B:10002
+[2025-11-21 14:40:53.649] CTRL UPDATE_NEXT -> B:10002
+[2025-11-21 14:43:46.446] Registered with coordinator. prev=None:None
+[2025-11-21 14:43:47.259] CTRL UPDATE_NEXT -> B:10002
+[2025-11-21 14:43:47.260] CTRL UPDATE_NEXT -> B:10002
+[2025-11-21 14:46:35.575] Registered with coordinator. prev=None:None
+[2025-11-21 14:46:36.390] CTRL UPDATE_NEXT -> B:10002
+[2025-11-21 14:46:36.391] CTRL UPDATE_NEXT -> B:10002
+[2025-11-21 15:36:19.867] Registered with coordinator. prev=None:None
+[2025-11-21 15:36:20.707] CTRL UPDATE_NEXT -> B:10002
+[2025-11-21 15:36:20.708] CTRL UPDATE_NEXT -> B:10002

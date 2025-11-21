@@ -3,3 +3,10 @@
 [2025-11-15 14:02:47.334] RECV origin=C seq=1 from C: your existence is meaningless
 [2025-11-15 14:03:32.060] RECV origin=A seq=1 from A: long live the United States
 [2025-11-15 14:06:49.215] Registered with coordinator. prev=B:10002
+[2025-11-21 14:40:54.428] Registered with coordinator. prev=B:10002
+[2025-11-21 14:43:48.081] Registered with coordinator. prev=B:10002
+[2025-11-21 14:46:37.202] Registered with coordinator. prev=B:10002
+[2025-11-21 14:47:16.437] SENT_DIRECT to B:10002 origin=C seq=1 msg=who are you
+[2025-11-21 14:47:16.437] RECV origin=C seq=1 from C: who are you
+[2025-11-21 14:48:11.817] RECV origin=B seq=1 from B: I am the superior B
+[2025-11-21 15:36:21.522] Registered with coordinator. prev=B:10002

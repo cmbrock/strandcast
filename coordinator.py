@@ -13,7 +13,8 @@ import time
 HOST = "127.0.0.1"
 COORD_PORT = 9000
 
-peers = []            # list of dicts: {"name":..., "port":..., "ctrl_port":...}
+subcoordinators = []
+strands = [[]]
 lock = threading.Lock()
 running = True
 
@@ -38,38 +39,56 @@ def handle_connection(conn, addr):
         if not raw:
             return
         req = json.loads(raw)
+        action = req.get("action")
         typ = req.get("type")
-        if typ == "register":
-            name = req.get("name") or f"peer{len(peers)+1}"
-            port = int(req["port"])
-            ctrl_port = int(req["ctrl_port"])
-            with lock:
-                entry = {"name": name, "port": port, "ctrl_port": ctrl_port}
-                peers.append(entry)
-                print(f"[Coordinator] Registered {name} (udp={port}, ctrl={ctrl_port})")
-                prev = peers[-2] if len(peers) > 1 else None
-            # reply with previous peer info (or empty object)
-            conn.sendall(json.dumps(prev or {}).encode())
-            # notify previous peer about its new next
-            if prev:
-                notify_next(prev["ctrl_port"], entry["name"], entry["port"])
-        elif typ == "lookup":
-            # lookup by name and return peer info if exists
-            target = req.get("name")
-            found = {}
-            with lock:
-                for p in peers:
-                    if p["name"] == target:
-                        found = p
-                        break
-            conn.sendall(json.dumps(found).encode())
-        elif typ == "list":
-            with lock:
-                conn.sendall(json.dumps(peers).encode())
+        if action == "register":
+            if typ == "subcoordinator":
+                port: int = int(req.get("port"))
+                with lock:
+                    subcoordinators.append(port)
+                print(f"Subcoordinator with port {port} registered.")
+                reply = {"reply": f"Successfuly registered with Coordinator at port {COORD_PORT}"}
+                conn.sendall(json.dumps(reply or {}).encode())
+            elif typ == "peer":
+                if len(subcoordinators) == 0:
+                    raise Exception(f"No subcoordinators registered yet to sign on peer {name}")
+                name = req.get("name") 
+                port = int(req["port"])
+                ctrl_port = int(req["ctrl_port"])
+                with lock:
+                    entry = {"name": name, "port": port, "ctrl_port": ctrl_port}
+                    lastStrand = strands[-1]
+                    if len(lastStrand) >= 3 and len(subcoordinators) > len(strands):
+                        strands.append([entry])
+                        subcoordinatorIndex = len(strands)-1
+                        sub = subcoordinators[subcoordinatorIndex]
+                        message = {"prev" : None, "subport" : str(sub)}
+
+                        conn.sendall(json.dumps(message or {}).encode())
+                    else:
+                        lastStrand.append(entry)
+                        prev = lastStrand[-2] if len(lastStrand) > 1 else None
+                        # reply with previous peer info (or empty object)
+                        subcoordinatorIndex = len(strands)-1
+                        sub = subcoordinators[subcoordinatorIndex]
+                        message = {"prev" : prev, "subport" : str(sub)}
+
+                        conn.sendall(json.dumps(message or {}).encode())
+                        # notify previous peer about its new next
+                        if prev:
+                            notify_next(prev["ctrl_port"], entry["name"], entry["port"])
+
+                        print(f"[Coordinator] Registered {name} (udp={port}, ctrl={ctrl_port}) at subcoordinator port {sub}")
+                        
         else:
-            conn.sendall(json.dumps({"error":"unknown type"}).encode())
+            raise Exception(f"action type unknown") 
+              
+        # else:
+        #     conn.sendall(json.dumps({"error":"unknown type"}).encode())
     except Exception as e:
         print("[Coordinator] connection handler error:", e)
+        error = {"error": f"[Coordinator] connection handler error: {e}" }
+        conn.sendall(json.dumps(error or {}).encode())
     finally:
         try:
             conn.close()

@@ -9,6 +9,10 @@ import time
 import platform
 import os
 
+
+COORD_HOST = "127.0.0.1"
+COORD_PORT = 9000
+
 def start_in_new_console(cmd):
     system = platform.system()
     if system == "Windows":
@@ -37,7 +41,9 @@ def start_in_new_console(cmd):
 
 if __name__ == "__main__":
     coord_cmd = [sys.executable, "strandcast/coordinator.py"]
-    peers = [("A", 10001), ("B", 10002), ("C", 10003)]
+    sub_coord_cmd = [sys.executable, "strandcast/subcoordinator.py", "9001", COORD_HOST, str(COORD_PORT)]
+    sub_coord_cmd2 = [sys.executable, "strandcast/subcoordinator.py", "9002", COORD_HOST, str(COORD_PORT)]
+    peers = [("A", 10001), ("B", 10002), ("C", 10003), ("D", 10004), ("E", 10005), ("F", 10006)]
 
     procs = []
     print("Starting coordinator...")
@@ -45,8 +51,20 @@ if __name__ == "__main__":
     procs.append(p)
     time.sleep(1.0)
 
+    print("Starting subcoordinator...")
+    p = start_in_new_console(sub_coord_cmd)
+    procs.append(p)
+    time.sleep(1.0)
+
+    print("Starting subcoordinator 2...")
+    p = start_in_new_console(sub_coord_cmd2)
+    procs.append(p)
+    time.sleep(2.0)
+
+
+
     for name, port in peers:
-        cmd = [sys.executable, "strandcast/peer.py", name, str(port)]
+        cmd = [sys.executable, "strandcast/peer.py", name, str(port), COORD_HOST, str(COORD_PORT)]
         print(f"Starting peer {name} on port {port} ...")
         p = start_in_new_console(cmd)
         procs.append(p)

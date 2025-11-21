@@ -6,3 +6,35 @@
 [2025-11-15 14:03:32.060] FORWARDED origin=A seq=1 to C:10003
 [2025-11-15 14:06:48.442] Registered with coordinator. prev=A:10001
 [2025-11-15 14:06:49.215] CTRL UPDATE_NEXT -> C:10003
+[2025-11-21 13:59:15.651] Registered with coordinator. prev=None:None
+[2025-11-21 14:01:02.030] Registered with coordinator. prev=None:None
+[2025-11-21 14:02:01.287] Registered with coordinator. prev=None:None
+[2025-11-21 14:04:56.469] Registered with coordinator. prev=None:None
+[2025-11-21 14:08:50.222] Registered with coordinator. prev=A:10001
+[2025-11-21 14:11:46.763] Registered with coordinator. prev=A:10001
+[2025-11-21 14:28:43.748] Registered with coordinator. prev=A:10001
+[2025-11-21 14:30:44.257] Registered with coordinator. prev=A:10001
+[2025-11-21 14:31:21.559] RECV origin=A seq=1 from A: i am king of the world
+[2025-11-21 14:32:20.562] Registered with coordinator. prev=A:10001
+[2025-11-21 14:36:18.404] CTRL UPDATE_NEXT -> A:10001
+[2025-11-21 14:36:18.404] CTRL UPDATE_NEXT -> A:10001
+[2025-11-21 14:38:17.929] CTRL UPDATE_NEXT -> A:10001
+[2025-11-21 14:38:27.448] Registered with coordinator. prev=A:10001
+[2025-11-21 14:38:34.733] RECV origin=A seq=1 from A: hello B
+[2025-11-21 14:38:46.597] SENT_DIRECT to A:10001 origin=B seq=1 msg=hello back
+[2025-11-21 14:38:46.598] RECV origin=B seq=1 from B: hello back
+[2025-11-21 14:40:53.648] Registered with coordinator. prev=A:10001
+[2025-11-21 14:40:54.428] CTRL UPDATE_NEXT -> C:10003
+[2025-11-21 14:40:54.428] CTRL UPDATE_NEXT -> C:10003
+[2025-11-21 14:43:47.259] Registered with coordinator. prev=A:10001
+[2025-11-21 14:43:48.081] CTRL UPDATE_NEXT -> C:10003
+[2025-11-21 14:43:48.081] CTRL UPDATE_NEXT -> C:10003
+[2025-11-21 14:46:36.389] Registered with coordinator. prev=A:10001
+[2025-11-21 14:46:37.202] CTRL UPDATE_NEXT -> C:10003
+[2025-11-21 14:46:37.203] CTRL UPDATE_NEXT -> C:10003
+[2025-11-21 14:47:16.437] RECV origin=C seq=1 from C: who are you
+[2025-11-21 14:47:16.437] FORWARDED origin=C seq=1 to C:10003
+[2025-11-21 14:48:11.817] SENT origin=B seq=1 to C:10003 msg=I am the superior B
+[2025-11-21 15:36:20.706] Registered with coordinator. prev=A:10001
+[2025-11-21 15:36:21.522] CTRL UPDATE_NEXT -> C:10003
+[2025-11-21 15:36:21.523] CTRL UPDATE_NEXT -> C:10003
