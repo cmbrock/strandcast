@@ -33,6 +33,48 @@ def notify_next(ctrl_port, next_name, next_port):
     except Exception as e:
         print(f"[Coordinator] Failed to notify ctrl {ctrl_port}: {e}")
 
+def register_subcoordinator(req, conn):
+    port: int = int(req.get("port"))
+    with lock:
+        subcoordinators.append(port)
+    print(f"Subcoordinator with port {port} registered.")
+    reply = {"reply": f"Successfuly registered with Coordinator at port {COORD_PORT}"}
+    conn.sendall(json.dumps(reply or {}).encode())
+
+
+def register_peer(req, conn):
+    if len(subcoordinators) == 0:
+        raise Exception(f"No subcoordinators registered yet to sign on peer {name}")
+    name = req.get("name") 
+    port = int(req["port"])
+    ctrl_port = int(req["ctrl_port"])
+    with lock:
+        entry = {"name": name, "port": port, "ctrl_port": ctrl_port}
+        lastStrand = strands[-1]
+        if len(lastStrand) >= 3 and len(subcoordinators) > len(strands):
+            strands.append([entry])
+            subcoordinatorIndex = len(strands)-1
+            sub = subcoordinators[subcoordinatorIndex]
+            message = {"prev" : None, "subport" : str(sub)}
+
+            conn.sendall(json.dumps(message or {}).encode())
+        else:
+            lastStrand.append(entry)
+            prev = lastStrand[-2] if len(lastStrand) > 1 else None
+            # reply with previous peer info (or empty object)
+            subcoordinatorIndex = len(strands)-1
+            sub = subcoordinators[subcoordinatorIndex]
+            message = {"prev" : prev, "subport" : str(sub)}
+
+            conn.sendall(json.dumps(message or {}).encode())
+            # notify previous peer about its new next
+            if prev:
+                notify_next(prev["ctrl_port"], entry["name"], entry["port"])
+
+            print(f"[Coordinator] Registered {name} (udp={port}, ctrl={ctrl_port}) at subcoordinator port {sub}")
+
+
+
 def handle_connection(conn, addr):
     try:
         raw = conn.recv(8192).decode()
@@ -43,42 +85,11 @@ def handle_connection(conn, addr):
         typ = req.get("type")
         if action == "register":
             if typ == "subcoordinator":
-                port: int = int(req.get("port"))
-                with lock:
-                    subcoordinators.append(port)
-                print(f"Subcoordinator with port {port} registered.")
-                reply = {"reply": f"Successfuly registered with Coordinator at port {COORD_PORT}"}
-                conn.sendall(json.dumps(reply or {}).encode())
+                register_subcoordinator(req, conn)
             elif typ == "peer":
-                if len(subcoordinators) == 0:
-                    raise Exception(f"No subcoordinators registered yet to sign on peer {name}")
-                name = req.get("name") 
-                port = int(req["port"])
-                ctrl_port = int(req["ctrl_port"])
-                with lock:
-                    entry = {"name": name, "port": port, "ctrl_port": ctrl_port}
-                    lastStrand = strands[-1]
-                    if len(lastStrand) >= 3 and len(subcoordinators) > len(strands):
-                        strands.append([entry])
-                        subcoordinatorIndex = len(strands)-1
-                        sub = subcoordinators[subcoordinatorIndex]
-                        message = {"prev" : None, "subport" : str(sub)}
-
-                        conn.sendall(json.dumps(message or {}).encode())
-                    else:
-                        lastStrand.append(entry)
-                        prev = lastStrand[-2] if len(lastStrand) > 1 else None
-                        # reply with previous peer info (or empty object)
-                        subcoordinatorIndex = len(strands)-1
-                        sub = subcoordinators[subcoordinatorIndex]
-                        message = {"prev" : prev, "subport" : str(sub)}
-
-                        conn.sendall(json.dumps(message or {}).encode())
-                        # notify previous peer about its new next
-                        if prev:
-                            notify_next(prev["ctrl_port"], entry["name"], entry["port"])
-
-                        print(f"[Coordinator] Registered {name} (udp={port}, ctrl={ctrl_port}) at subcoordinator port {sub}")
+                register_peer(req, conn)
+            else:
+                raise Exception("Entity type unknown")
                         
         else:
             raise Exception(f"action type unknown") 

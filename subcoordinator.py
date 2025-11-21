@@ -113,6 +113,72 @@ def is_authorized_peer(requester_name):
                 return True
     return False
 
+
+def register_peer(req, conn):
+    global downstream_started
+    name = req.get("name") or f"peer{len(peers)+1}"
+    port = int(req["port"])
+    ctrl_port = int(req["ctrl_port"])
+    with lock:
+        entry = {"name": name, "port": port, "ctrl_port": ctrl_port}
+        peers.append(entry)
+        print(f"[Subcoordinator] Registered {name} (udp={port}, ctrl={ctrl_port})")
+        prev = peers[-2] if len(peers) > 1 else None
+        
+        # Start downstream thread when we have 3 peers
+        if len(peers) == 3 and not downstream_started:
+            downstream_started = True
+            threading.Thread(target=downstream, daemon=True).start()
+            
+    # reply with previous peer info (or empty object)
+    conn.sendall(json.dumps(prev or {}).encode())
+    # notify previous peer about its new next
+    if prev:
+        notify_next(prev["ctrl_port"], entry["name"], entry["port"])
+
+
+def delivery_done(conn):
+    global downstream_started
+     # Send next file downstream
+    print(f"[Subcoordinator] Received deliveryDone, downstream_started={downstream_started}")
+    conn.sendall(json.dumps({"status": "acknowledged"}).encode())
+    if not downstream_started:
+        print("[Subcoordinator] Starting new downstream thread")
+        downstream_started = True
+        threading.Thread(target=downstream, daemon=True).start()
+    else:
+        print("[Subcoordinator] downstream thread already running, skipping")
+
+
+def lookup(req, conn):
+    # lookup by name and return peer info if exists
+    requester = req.get("requester")
+    if not requester or not is_authorized_peer(requester):
+        print(f"[Subcoordinator] Unauthorized lookup attempt from {requester or 'unknown'}")
+        conn.sendall(json.dumps({"error": "unauthorized"}).encode())
+        return
+    
+    target = req.get("name")
+    found = {}
+    with lock:
+        for p in peers:
+            if p["name"] == target:
+                found = p
+                break
+    conn.sendall(json.dumps(found).encode())
+
+
+def list(req, conn):
+    requester = req.get("requester")
+    if not requester or not is_authorized_peer(requester):
+        print(f"[Subcoordinator] Unauthorized list attempt from {requester or 'unknown'}")
+        conn.sendall(json.dumps({"error": "unauthorized"}).encode())
+        return
+    
+    with lock:
+        conn.sendall(json.dumps(peers).encode())
+
+
 def handle_connection(conn, addr):
     global downstream_started
     try:
@@ -122,62 +188,13 @@ def handle_connection(conn, addr):
         req = json.loads(raw)
         typ = req.get("type")
         if typ == "register":
-            name = req.get("name") or f"peer{len(peers)+1}"
-            port = int(req["port"])
-            ctrl_port = int(req["ctrl_port"])
-            with lock:
-                entry = {"name": name, "port": port, "ctrl_port": ctrl_port}
-                peers.append(entry)
-                print(f"[Subcoordinator] Registered {name} (udp={port}, ctrl={ctrl_port})")
-                prev = peers[-2] if len(peers) > 1 else None
-                
-                # Start downstream thread when we have 3 peers
-                if len(peers) == 3 and not downstream_started:
-                    downstream_started = True
-                    threading.Thread(target=downstream, daemon=True).start()
-                    
-            # reply with previous peer info (or empty object)
-            conn.sendall(json.dumps(prev or {}).encode())
-            # notify previous peer about its new next
-            if prev:
-                notify_next(prev["ctrl_port"], entry["name"], entry["port"])
-
+            register_peer(req, conn)
         elif typ == "deliveryDone":
-            # Send next file downstream
-            print(f"[Subcoordinator] Received deliveryDone, downstream_started={downstream_started}")
-            conn.sendall(json.dumps({"status": "acknowledged"}).encode())
-            if not downstream_started:
-                print("[Subcoordinator] Starting new downstream thread")
-                downstream_started = True
-                threading.Thread(target=downstream, daemon=True).start()
-            else:
-                print("[Subcoordinator] downstream thread already running, skipping")
-            
+           delivery_done(conn)
         elif typ == "lookup":
-            # lookup by name and return peer info if exists
-            requester = req.get("requester")
-            if not requester or not is_authorized_peer(requester):
-                print(f"[Subcoordinator] Unauthorized lookup attempt from {requester or 'unknown'}")
-                conn.sendall(json.dumps({"error": "unauthorized"}).encode())
-                return
-            
-            target = req.get("name")
-            found = {}
-            with lock:
-                for p in peers:
-                    if p["name"] == target:
-                        found = p
-                        break
-            conn.sendall(json.dumps(found).encode())
+            lookup(req, conn)
         elif typ == "list":
-            requester = req.get("requester")
-            if not requester or not is_authorized_peer(requester):
-                print(f"[Subcoordinator] Unauthorized list attempt from {requester or 'unknown'}")
-                conn.sendall(json.dumps({"error": "unauthorized"}).encode())
-                return
-            
-            with lock:
-                conn.sendall(json.dumps(peers).encode())
+            list(req, conn)
         else:
             conn.sendall(json.dumps({"error":"unknown type"}).encode())
     except Exception as e:
