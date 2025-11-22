@@ -1,0 +1,10 @@
+
+Flow of Strandcast without asynchronous queue:
+
+1. Coordinator starts
+2. Subcoordinator starts
+3. Peers start w/ individual processes each
+4. Peers sign on to Coordinator 
+5. Coordinator sends back peer available subcoordinator port information
+6. Peer signs on to subcoordinator 
+7. If peer has a next peer, ctrl server listens for subcoordinator information about next peer udp port 
