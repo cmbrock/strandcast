@@ -91,6 +91,7 @@ def udp_listener(udp_sock, name, next_udp_port_holder, seen):
     print(f"[{name}] UDP listener exiting.")
 
 def ctrl_server(ctrl_port, next_udp_port_holder, name):
+    global SUB_COORD_PORT
     serv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     serv.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     serv.bind(("127.0.0.1", ctrl_port))
@@ -122,6 +123,48 @@ def ctrl_server(ctrl_port, next_udp_port_holder, name):
                     log(name, f"CTRL UPDATE_NEXT -> {next_name}:{next_port}")
                     next_udp_port_holder["port"] = next_port
                     next_udp_port_holder["name"] = next_name
+                    try:
+                        conn.sendall(b"OK")
+                    except:
+                        pass
+                
+                elif msg.get("cmd") == "ASSIGN_CHAIN":
+                    # Receive assignment from coordinator with prev_peer and subcoordinator port
+                    prev_peer = msg.get("prev_peer")
+                    subcoord_port = msg.get("subcoord_port")
+                    
+                    print(f"[{name} CTRL] ASSIGN_CHAIN -> prev={prev_peer}, subcoord={subcoord_port}")
+                    log(name, f"CTRL ASSIGN_CHAIN -> prev={prev_peer}, subcoord={subcoord_port}")
+                    
+                    # Set subcoordinator port
+                    SUB_COORD_PORT = subcoord_port
+                    
+                    # Register with subcoordinator
+                    udp_port = ctrl_port - 10000
+                    reg = {"type":"register", "name": name, "port": udp_port, "ctrl_port": ctrl_port}
+                    try:
+                        with socket.create_connection((COORD_HOST, SUB_COORD_PORT), timeout=5) as s:
+                            s.sendall(json.dumps(reg).encode())
+                            resp = s.recv(8192).decode()
+                            meta_info = json.loads(resp) if resp else {}
+                            
+                            # Check for error in response
+                            if meta_info.get("error"):
+                                error_msg = meta_info.get("error")
+                                print(f"[{name}] Failed to register with subcoordinator: {error_msg}")
+                                log(name, f"SUBCOORD_REG_FAILED: {error_msg}")
+                            else:
+                                print(f"[{name}] Registered with subcoordinator on port {SUB_COORD_PORT}")
+                                log(name, f"Registered with subcoordinator on port {SUB_COORD_PORT}")
+                    except Exception as e:
+                        print(f"[{name}] Failed to register with subcoordinator: {e}")
+                        log(name, f"SUBCOORD_REG_FAILED: {e}")
+                    
+                    # Update next peer info if we have a previous peer
+                    if prev_peer:
+                        next_udp_port_holder["port"] = None
+                        next_udp_port_holder["name"] = None
+                    
                     try:
                         conn.sendall(b"OK")
                     except:
@@ -180,36 +223,9 @@ if __name__ == "__main__":
         print(f"[{name}] Failed to register with coordinator: {e}")
         sys.exit(1)
 
-    prev_info = meta_info['prev']
-    prev_name = None
-    prev_port = None
-    if prev_info != None:
-        prev_name = prev_info['name']
-        prev_port = prev_info['port']
-
-    is_first = not prev_info  # True if no previous peer
-
-    print(f"[{name}] Registered. previous peer: {prev_name or 'NONE'} (port={prev_port or 'N/A'})")
-    log(name, f"Registered with coordinator. prev={prev_name}:{prev_port}")
-
-    if meta_info != None:
-        SUB_COORD_PORT = int(meta_info['subport'])
-
-     # Register with subcoordinator
-    reg = {"type":"register","name": name, "port": udp_port, "ctrl_port": ctrl_port}
-    try:
-        with socket.create_connection((COORD_HOST, SUB_COORD_PORT), timeout=5) as s:
-            s.sendall(json.dumps(reg).encode())
-            resp = s.recv(8192).decode()
-            meta_info = json.loads(resp) if resp else {}
-            
-            # Check for error in response
-            if meta_info.get("error"):
-                error_msg = meta_info.get("error")
-                raise Exception(f"Registration failed: {error_msg}")
-    except Exception as e:
-        print(f"[{name}] Failed to register with subcoordinator: {e}")
-        sys.exit(1)
+    # Note: prev_info and subcoordinator assignment will come via ASSIGN_CHAIN command
+    print(f"[{name}] Registered with coordinator, waiting for chain assignment...")
+    log(name, f"Registered with coordinator, waiting for ASSIGN_CHAIN")
 
     # shared holder for next peer
     next_udp_port_holder = {"port": None, "name": None}

@@ -15,7 +15,8 @@ SUPER_COORD_PORT = None
 COORD_PORT = None
 
 FILE_COUNT = 1
-
+BUFFER = 3
+COUNT = 0
 peers = []            # list of dicts: {"name":..., "port":..., "ctrl_port":...}
 lock = threading.Lock()
 running = True
@@ -116,6 +117,8 @@ def is_authorized_peer(requester_name):
 
 def register_peer(req, conn):
     global downstream_started
+    global BUFFER
+    global COUNT
     name = req.get("name") or f"peer{len(peers)+1}"
     port = int(req["port"])
     ctrl_port = int(req["ctrl_port"])
@@ -124,9 +127,11 @@ def register_peer(req, conn):
         peers.append(entry)
         print(f"[Subcoordinator] Registered {name} (udp={port}, ctrl={ctrl_port})")
         prev = peers[-2] if len(peers) > 1 else None
-        
+        COUNT += 1
         # Start downstream thread when we have 3 peers
-        if len(peers) == 3 and not downstream_started:
+        if COUNT == BUFFER and not downstream_started:
+            COUNT = 0
+            BUFFER = 0
             downstream_started = True
             threading.Thread(target=downstream, daemon=True).start()
             
@@ -139,15 +144,38 @@ def register_peer(req, conn):
 
 def delivery_done(conn):
     global downstream_started
-     # Send next file downstream
+    global BUFFER
+    global COUNT
+
+    downstream_started = False
+
+    # Send next file downstream
     print(f"[Subcoordinator] Received deliveryDone, downstream_started={downstream_started}")
     conn.sendall(json.dumps({"status": "acknowledged"}).encode())
-    if not downstream_started:
-        print("[Subcoordinator] Starting new downstream thread")
+    
+    # Notify coordinator that subcoordinator is available for more peers
+    try:
+        with socket.create_connection((HOST, SUPER_COORD_PORT), timeout=3) as s:
+            msg = json.dumps({"status": "available", "port": COORD_PORT})
+            s.sendall(msg.encode())
+            resp = s.recv(4096).decode()
+            response = json.loads(resp) if resp else {}
+            
+            # Update BUFFER with queue length from coordinator
+            queue_length = response.get("queue_length", 0)
+            BUFFER = queue_length
+            print(f"[Subcoordinator] Notified coordinator available, BUFFER updated to {BUFFER}")
+    except Exception as e:
+        print(f"[Subcoordinator] Failed to notify coordinator: {e}")
+    
+    # The edge case in which the Buffer is 0
+    if BUFFER == 0 and not downstream_started:
+        print(f"[Subcoordinator] Starting new downstream thread (COUNT={COUNT}, BUFFER={BUFFER})")
         downstream_started = True
+        COUNT = 0  # Reset count
         threading.Thread(target=downstream, daemon=True).start()
     else:
-        print("[Subcoordinator] downstream thread already running, skipping")
+        print(f"[Subcoordinator] Waiting for more peers (COUNT={COUNT}, BUFFER={BUFFER})")
 
 
 def lookup(req, conn):
