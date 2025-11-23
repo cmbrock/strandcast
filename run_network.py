@@ -19,8 +19,11 @@ def start_in_new_console(cmd):
         CREATE_NEW_CONSOLE = 0x00000010
         return subprocess.Popen(cmd, creationflags=CREATE_NEW_CONSOLE)
     elif system == "Darwin":  # macOS
-        # Use osascript to open a new Terminal.app window
-        script = f'tell application "Terminal" to do script "{" ".join(cmd)}"'
+        # Get the directory where this script is located
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        # Use osascript to open a new Terminal.app window with proper working directory
+        cmd_str = " ".join(cmd)
+        script = f'tell application "Terminal" to do script "cd {script_dir} && {cmd_str}"'
         subprocess.Popen(["osascript", "-e", script])
         # Return a dummy process since Terminal.app manages the actual process
         return subprocess.Popen(["sleep", "0"])
