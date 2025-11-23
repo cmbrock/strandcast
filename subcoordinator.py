@@ -16,6 +16,9 @@ COORD_PORT = None
 
 FILE_COUNT = 1
 
+COUNT = 0
+BUFFER = 3
+
 peers = []            # list of dicts: {"name":..., "port":..., "ctrl_port":...}
 lock = threading.Lock()
 running = True
@@ -69,7 +72,7 @@ def downstream():
             return
 
         # Read file1.txt
-        with open(f'strandcast/text_folder/file{FILE_COUNT}.txt', 'r') as f:
+        with open(f'text_folder/file{FILE_COUNT}.txt', 'r') as f:
             content = f.read()
         
         print(f"[Subcoordinator] Read file{FILE_COUNT}.txt: {len(content)} bytes")
@@ -116,6 +119,8 @@ def is_authorized_peer(requester_name):
 
 def register_peer(req, conn):
     global downstream_started
+    global BUFFER
+    global COUNT
     name = req.get("name") or f"peer{len(peers)+1}"
     port = int(req["port"])
     ctrl_port = int(req["ctrl_port"])
@@ -124,9 +129,12 @@ def register_peer(req, conn):
         peers.append(entry)
         print(f"[Subcoordinator] Registered {name} (udp={port}, ctrl={ctrl_port})")
         prev = peers[-2] if len(peers) > 1 else None
+        COUNT += 1
         
         # Start downstream thread when we have 3 peers
-        if len(peers) == 3 and not downstream_started:
+        if COUNT == BUFFER and not downstream_started:
+            COUNT = 0
+            BUFFER = 0
             downstream_started = True
             threading.Thread(target=downstream, daemon=True).start()
             
@@ -139,15 +147,34 @@ def register_peer(req, conn):
 
 def delivery_done(conn):
     global downstream_started
-     # Send next file downstream
+    global BUFFER
+    # Send next file downstream
     print(f"[Subcoordinator] Received deliveryDone, downstream_started={downstream_started}")
     conn.sendall(json.dumps({"status": "acknowledged"}).encode())
-    if not downstream_started:
+    
+    # Notify coordinator about completion and get new buffer size
+    try:
+        with socket.create_connection((HOST, SUPER_COORD_PORT), timeout=5) as coord_s:
+            status_msg = {"action": "status", "type": "status", "status": "done", "port": COORD_PORT}
+            coord_s.sendall(json.dumps(status_msg).encode())
+            resp = coord_s.recv(8192).decode()
+            reply = json.loads(resp) if resp else {}
+            
+            # Update buffer size from coordinator response
+            if "buffer" in reply:
+                new_buffer = int(reply["buffer"])
+                print(f"[Subcoordinator] Received new buffer size from coordinator: {new_buffer}")
+                BUFFER = new_buffer
+            else:
+                print(f"[Subcoordinator] Coordinator response: {reply}")
+                
+    except Exception as e:
+        print(f"[Subcoordinator] Failed to notify coordinator about completion: {e}")
+    
+    if BUFFER == 0 and not downstream_started:
         print("[Subcoordinator] Starting new downstream thread")
         downstream_started = True
         threading.Thread(target=downstream, daemon=True).start()
-    else:
-        print("[Subcoordinator] downstream thread already running, skipping")
 
 
 def lookup(req, conn):
@@ -168,7 +195,7 @@ def lookup(req, conn):
     conn.sendall(json.dumps(found).encode())
 
 
-def list(req, conn):
+def list_items(req, conn):
     requester = req.get("requester")
     if not requester or not is_authorized_peer(requester):
         print(f"[Subcoordinator] Unauthorized list attempt from {requester or 'unknown'}")
@@ -194,7 +221,7 @@ def handle_connection(conn, addr):
         elif typ == "lookup":
             lookup(req, conn)
         elif typ == "list":
-            list(req, conn)
+            list_items(req, conn)
         else:
             conn.sendall(json.dumps({"error":"unknown type"}).encode())
     except Exception as e:

@@ -1,5 +1,5 @@
 
-Flow of Strandcast without asynchronous queue:
+Flow of Strandcast w/o asynchronous queue:
 
 1. Coordinator starts
 2. Subcoordinator starts
@@ -8,3 +8,18 @@ Flow of Strandcast without asynchronous queue:
 5. Coordinator sends back peer available subcoordinator port information
 6. Peer signs on to subcoordinator 
 7. If peer has a next peer, ctrl server listens for subcoordinator information about next peer udp port 
+
+
+
+Flow of Strandcast w/ asynchronous queue:
+
+
+1. Coordinator starts 
+2. Subcoordinator starts
+3. peers start w/ individual processes each
+4. (ON INIT SETUP) peers get queued in triples per subcoordinator
+5. Given Peer queue with 3 peers gets popped and inserted into main array of peers associated with a subcoordinator
+6. After peer gets inserted into main subcoordinator array, coordinator makes a call to peer with information on subcoordinator host and port
+7. Peer signs on to subcoordinator with information sent to respective ctrl server
+8. If peer has a next peer, ctrl server listens for subcoordinator information about next peer UDP port 
+9. After all information is sent downstream, subcoordinator makes call to coordinator on send peers within its queue. Coordinator sends back length of queue for subcoordinator to keep track off

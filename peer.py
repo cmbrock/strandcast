@@ -26,13 +26,12 @@ def nowts():
     return datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")[:-3]
 
 def log(name, text):
-    fname = f"strandcast/peer_{name}.log"
+    fname = f"peer_{name}.log"
     with open(fname, "a") as f:
         f.write(f"[{nowts()}] {text}\n")
 
 def udp_listener(udp_sock, name, next_udp_port_holder, seen):
     udp_sock.settimeout(1.0)
-    
     while running:
         startTime = time.perf_counter()
         try:
@@ -119,13 +118,24 @@ def ctrl_server(ctrl_port, next_udp_port_holder, name):
                     next_name = msg.get("next_name")
                     next_port = msg.get("next_port")
                     print(f"[{name} CTRL] UPDATE_NEXT -> {next_name}:{next_port}")
-                    log(name, f"CTRL UPDATE_NEXT -> {next_name}:{next_port}")
                     next_udp_port_holder["port"] = next_port
                     next_udp_port_holder["name"] = next_name
+                    print(next_udp_port_holder["name"])
+                    log(name, f"CTRL UPDATE_NEXT -> {next_name}:{next_port}")
+                    
                     try:
                         conn.sendall(b"OK")
                     except:
                         pass
+                elif msg.get("cmd") == "SUBCOORDINATOR_INFO":
+                    global SUB_COORD_PORT
+                    SUB_COORD_PORT = int(msg.get("subcoordinator_port"))
+                    prev_peer = None
+                    if "prev_peer" in msg:
+                        prev_peer = msg['prev_peer']['name']
+                    print(f"Subcoordinator at port {SUB_COORD_PORT} registered")
+                    print(f"Previous Peer: {prev_peer}")
+
         except socket.timeout:
             continue
         except Exception:
@@ -167,49 +177,18 @@ if __name__ == "__main__":
     # Register with coordinator
     reg = {"type":"peer", "action":"register", "name": name, "port": udp_port, "ctrl_port": ctrl_port}
     try:
-        with socket.create_connection((COORD_HOST, COORD_PORT), timeout=5) as s:
+        with socket.create_connection((COORD_HOST, COORD_PORT), timeout=10) as s:
             s.sendall(json.dumps(reg).encode())
             resp = s.recv(8192).decode()
             meta_info = json.loads(resp) if resp else {}
-            
-            # Check for error in response
-            if meta_info.get("error"):
-                error_msg = meta_info.get("error")
-                raise Exception(f"Registration failed: {error_msg}")
+            if "message" in meta_info:
+                print(meta_info["message"])
     except Exception as e:
         print(f"[{name}] Failed to register with coordinator: {e}")
         sys.exit(1)
 
-    prev_info = meta_info['prev']
-    prev_name = None
-    prev_port = None
-    if prev_info != None:
-        prev_name = prev_info['name']
-        prev_port = prev_info['port']
 
-    is_first = not prev_info  # True if no previous peer
-
-    print(f"[{name}] Registered. previous peer: {prev_name or 'NONE'} (port={prev_port or 'N/A'})")
-    log(name, f"Registered with coordinator. prev={prev_name}:{prev_port}")
-
-    if meta_info != None:
-        SUB_COORD_PORT = int(meta_info['subport'])
-
-     # Register with subcoordinator
-    reg = {"type":"register","name": name, "port": udp_port, "ctrl_port": ctrl_port}
-    try:
-        with socket.create_connection((COORD_HOST, SUB_COORD_PORT), timeout=5) as s:
-            s.sendall(json.dumps(reg).encode())
-            resp = s.recv(8192).decode()
-            meta_info = json.loads(resp) if resp else {}
-            
-            # Check for error in response
-            if meta_info.get("error"):
-                error_msg = meta_info.get("error")
-                raise Exception(f"Registration failed: {error_msg}")
-    except Exception as e:
-        print(f"[{name}] Failed to register with subcoordinator: {e}")
-        sys.exit(1)
+    
 
     # shared holder for next peer
     next_udp_port_holder = {"port": None, "name": None}
@@ -295,6 +274,7 @@ if __name__ == "__main__":
         seq += 1
         payload = {"type":"data","origin":name,"seq":seq,"sender":name,"msg":line}
         nxt = next_udp_port_holder.get("port")
+        print(nxt)
         if nxt:
             try:
                 udp_sock.sendto(json.dumps(payload).encode(), ("127.0.0.1", nxt))
@@ -308,7 +288,7 @@ if __name__ == "__main__":
         else:
             # no downstream yet — just log it (or optionally queue)
             print(f"[{name}] No next peer yet — message queued (not sent).")
-            log(name, f"QUEUED origin={name} seq={seq} msg={line}")
+            #log(name, f"QUEUED origin={name} seq={seq} msg={line}")
 
     # shutdown
     running = False
