@@ -79,8 +79,7 @@ if __name__ == "__main__":
     
     coord_cmd = [sys.executable, "coordinator.py"]
     sub_coord_cmd = [sys.executable, "subcoordinator.py", "9001", COORD_HOST, str(COORD_PORT)]
-    sub_coord_cmd2 = [sys.executable, "subcoordinator.py", "9002", COORD_HOST, str(COORD_PORT)]
-    peers = [("A", 10001), ("B", 10002), ("C", 10003), ("D", 10004), ("E", 10005), ("F", 10006)]
+    peers = [("A", 10001), ("B", 10002), ("C", 10003)]
 
 
     procs = []
@@ -94,10 +93,6 @@ if __name__ == "__main__":
     procs.append(p)
     time.sleep(1.0)
 
-    print("Starting subcoordinator 2...")
-    p = start_in_new_console(sub_coord_cmd2)
-    procs.append(p)
-    time.sleep(2.0)
 
 
 

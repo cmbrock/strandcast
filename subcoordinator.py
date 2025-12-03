@@ -9,13 +9,19 @@ import json
 import signal
 import sys
 import time
+import cv2
+import numpy as np
+import pickle
+import zlib
+import base64
 
 HOST = None
 SUPER_COORD_PORT = None
 COORD_PORT = None
-
+MAX_DGRAM = 60000
+MAX_CHUNK_SIZE = 5000  # Match coordinator chunk size
 FILE_COUNT = 1
-
+VIDEO_FILE = None
 COUNT = 0
 BUFFER = 3
 
@@ -23,6 +29,7 @@ peers = []            # list of dicts: {"name":..., "port":..., "ctrl_port":...}
 lock = threading.Lock()
 running = True
 downstream_started = False  # flag to ensure downstream thread starts only once
+video_streaming = False
 
 def notify_next(ctrl_port, next_name, next_port):
     """Notify a peer's control server about its new downstream neighbor."""
@@ -55,6 +62,108 @@ def update_host(ctrl_port, new_cord_port):
     except Exception as e:
         print(f"[Subcoordinator] Failed to notify ctrl {ctrl_port}: {e}")
 
+
+def stream_video():
+    """Stream video file to the first peer in the chain."""
+    global running, video_streaming, FILE_COUNT
+
+    if FILE_COUNT > 3:
+            print("all videos have been processed")
+            video_streaming = False
+            return
+
+    VIDEO_FILE = f"videoFiles/test{FILE_COUNT}.mp4"
+    FILE_COUNT += 1
+
+    with lock:
+        if not peers:
+            print("[Coordinator] No peers registered, cannot stream video.")
+            return
+        first_peer = peers[0]
+    
+    print(f"[Coordinator] Starting video stream to first peer: {first_peer['name']}:{first_peer['port']}")
+    
+    cap = cv2.VideoCapture(VIDEO_FILE)
+    if not cap.isOpened():
+        print(f"[Coordinator] ERROR: Cannot open video file {VIDEO_FILE}")
+        return
+    
+    fps = cap.get(cv2.CAP_PROP_FPS)
+    frame_delay = 1.0 / fps if fps > 0 else 0.033  # default to ~30fps
+    
+    # Reduce delay for faster transmission (send at 2x speed)
+    frame_delay = frame_delay / 4.0  # Send 4x faster than original FPS
+    
+    udp_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    frame_num = 0
+    
+    print(f"[Coordinator] Video FPS: {fps}, Frame delay: {frame_delay:.4f}s (4x speed)")
+    video_streaming = True
+    
+    while running and video_streaming:
+        ret, frame = cap.read()
+        if not ret:
+            print("[Coordinator] End of video file reached.")
+            # Send end-of-stream marker
+            end_msg = {
+                "type": "video_end",
+                "origin": "coordinator",
+                "frame_num": frame_num
+            }
+            try:
+                udp_sock.sendto(json.dumps(end_msg).encode(), (HOST, first_peer['port']))
+            except:
+                pass
+            break
+        
+        # Encode frame: compress with JPEG then pickle
+        encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 40]  # Lower quality for smaller size
+        _, buffer = cv2.imencode('.jpg', frame, encode_param)
+        data = pickle.dumps(buffer)
+        
+        # Compress with zlib
+        compressed = zlib.compress(data, 6)
+        size = len(compressed)
+        
+        # Split into chunks if needed
+        total_chunks = (size + MAX_CHUNK_SIZE - 1) // MAX_CHUNK_SIZE
+        
+        for chunk_id in range(total_chunks):
+            start = chunk_id * MAX_CHUNK_SIZE
+            end = min(start + MAX_CHUNK_SIZE, size)
+            chunk_data = compressed[start:end]
+            
+            # Create packet with metadata
+            packet = {
+                "type": "video_frame",
+                "origin": "coordinator",
+                "frame_num": frame_num,
+                "chunk_id": chunk_id,
+                "total_chunks": total_chunks,
+                "data": base64.b64encode(chunk_data).decode('ascii') 
+            }
+            
+            try:
+                msg = json.dumps(packet).encode()
+                if len(msg) > MAX_DGRAM:
+                    print(f"[Coordinator] WARNING: Message too large ({len(msg)} bytes) for frame {frame_num} chunk {chunk_id}")
+                udp_sock.sendto(msg, (HOST, first_peer['port']))
+                # Small delay between chunks to avoid overwhelming UDP buffer
+                if chunk_id < total_chunks - 1:  # Don't delay after last chunk
+                    time.sleep(0.0001)  # 0.1ms delay between chunks
+            except Exception as e:
+                print(f"[Coordinator] Error sending frame {frame_num} chunk {chunk_id}: {e}")
+        
+        if frame_num % 30 == 0:
+            print(f"[Coordinator] Sent frame {frame_num} ({total_chunks} chunks, {size} bytes compressed)")
+        
+        frame_num += 1
+        time.sleep(frame_delay)
+    
+    cap.release()
+    udp_sock.close()
+    video_streaming = False
+    print("[Subcoordinator] Video streaming stopped.")
 
 def downstream():
     """Send file1.txt content to peer 1 and downstream."""
@@ -121,6 +230,7 @@ def register_peer(req, conn):
     global downstream_started
     global BUFFER
     global COUNT
+    global video_streaming
     name = req.get("name") or f"peer{len(peers)+1}"
     port = int(req["port"])
     ctrl_port = int(req["ctrl_port"])
@@ -132,11 +242,11 @@ def register_peer(req, conn):
         COUNT += 1
         
         # Start downstream thread when we have 3 peers
-        if COUNT == BUFFER and not downstream_started:
+        if COUNT == BUFFER and not video_streaming:
             COUNT = 0
             BUFFER = 0
-            downstream_started = True
-            threading.Thread(target=downstream, daemon=True).start()
+            video_streaming = True
+            threading.Thread(target=stream_video, daemon=True).start()
             
     # reply with previous peer info (or empty object)
     conn.sendall(json.dumps(prev or {}).encode())
@@ -148,11 +258,24 @@ def register_peer(req, conn):
 def delivery_done(conn):
     global downstream_started
     global BUFFER
+    global video_streaming 
     # Send next file downstream
     print(f"[Subcoordinator] Received deliveryDone, downstream_started={downstream_started}")
     conn.sendall(json.dumps({"status": "acknowledged"}).encode())
     
-    # Notify coordinator about completion and get new buffer size
+    # Wait for video streaming to complete before proceeding
+    print(f"[Subcoordinator] Waiting for stream_video to complete (video_streaming={video_streaming})...")
+    wait_count = 0
+    while video_streaming and wait_count < 300:  # Wait up to 30 seconds (300 * 0.1s)
+        time.sleep(0.1)
+        wait_count += 1
+    
+    if video_streaming:
+        print(f"[Subcoordinator] WARNING: stream_video still running after timeout")
+    else:
+        print(f"[Subcoordinator] stream_video completed, proceeding with delivery_done")
+    
+    #Notify coordinator about completion and get new buffer size
     try:
         with socket.create_connection((HOST, SUPER_COORD_PORT), timeout=5) as coord_s:
             status_msg = {"action": "status", "type": "status", "status": "done", "port": COORD_PORT}
@@ -171,10 +294,11 @@ def delivery_done(conn):
     except Exception as e:
         print(f"[Subcoordinator] Failed to notify coordinator about completion: {e}")
     
-    if BUFFER == 0 and not downstream_started:
+    if BUFFER == 0 and not video_streaming:
+        print("inside")
         print("[Subcoordinator] Starting new downstream thread")
-        downstream_started = True
-        threading.Thread(target=downstream, daemon=True).start()
+        video_streaming = True
+        threading.Thread(target=stream_video, daemon=True).start()
 
 
 def lookup(req, conn):
