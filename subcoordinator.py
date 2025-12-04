@@ -31,11 +31,11 @@ running = True
 downstream_started = False  # flag to ensure downstream thread starts only once
 video_streaming = False
 
-def notify_next(ctrl_port, next_name, next_port):
+def notify_next(ctrl_port, next_name, next_port, next_ctrl_port):
     """Notify a peer's control server about its new downstream neighbor."""
     try:
         with socket.create_connection((HOST, ctrl_port), timeout=2) as s:
-            msg = json.dumps({"cmd": "UPDATE_NEXT", "next_name": next_name, "next_port": next_port})
+            msg = json.dumps({"cmd": "UPDATE_NEXT", "name": next_name, "port": next_port, "ctrl_port": next_ctrl_port})
             s.sendall(msg.encode())
             # optional ack read
             try:
@@ -251,8 +251,12 @@ def register_peer(req, conn):
     # reply with previous peer info (or empty object)
     conn.sendall(json.dumps(prev or {}).encode())
     # notify previous peer about its new next
-    if prev:
-        notify_next(prev["ctrl_port"], entry["name"], entry["port"])
+    count = 0
+    for i in range(len(peers)-2, -1, -1):
+        if count >= 3: break
+        prev = peers[i]
+        notify_next(prev["ctrl_port"], entry["name"], entry["port"], entry["ctrl_port"])
+        count += 1
 
 
 def delivery_done(conn):

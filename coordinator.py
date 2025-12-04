@@ -83,7 +83,7 @@ def register_peer_queue(index: int):
                                 prev_peer = target_queue[i-1]
                                 notification["prev_peer"] = {
                                     "name": prev_peer['name'],
-                                    "port": prev_peer['port']
+                                    "port": prev_peer['port'],
                                 }
                             
                             ctrl_s.sendall(json.dumps(notification).encode())

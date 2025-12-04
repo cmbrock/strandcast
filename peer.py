@@ -31,6 +31,10 @@ MAX_CHUNK_SIZE = 5000  # Match coordinator chunk size
 running = True
 startTime = 0
 endTime = 0
+oneTimeAck = True
+
+
+nextPeers = []
 
 # Frame buffer for reassembling chunks
 frame_buffers = defaultdict(dict)  # frame_num -> {chunk_id: data}
@@ -42,6 +46,13 @@ all_frames = {}  # frame_num -> frame (numpy array)
 video_complete = False
 total_video_frames = 0
 video_segments = []  # List of (start_frame, end_frame) tuples for each video segment
+
+# Next peer connection monitoring
+next_peer_last_success = time.time()
+next_peer_timeout = 5.0  # 5 seconds without successful forward = dead peer
+
+waiting_for_ack = False
+ack_timeout = 5.0  # Max time to wait for ACK
 
 # Queue for frames ready to display (main thread will display)
 import queue
@@ -55,10 +66,31 @@ def log(name, text):
     with open(fname, "a") as f:
         f.write(f"[{nowts()}] {text}\n")
 
-def udp_listener(udp_sock, name, next_udp_port_holder, seen):
-    global frame_buffers, frame_chunks_expected, received_frames, display_queue, all_frames, video_complete, total_video_frames, video_segments, startTime, endTime
+
+def acknowledgePeer(ctrl_port):
+    """Notify a peer's control server about its new downstream neighbor."""
+    ctrl_port = int(ctrl_port)
+    try:
+        with socket.create_connection((COORD_HOST, ctrl_port), timeout=5) as s:
+            msg = json.dumps({"cmd": "ack"})
+            s.sendall(msg.encode())
+            resp = s.recv(8192).decode()
+            print(resp)
+            # optional ack read
+            try:
+                s.settimeout(1.0)
+                _ = s.recv(1024)
+            except:
+                pass
+    except Exception as e:
+        print(f"[Peer] Failed to acknowledge ctrl {ctrl_port}: {e}")
+        nextPeers.pop(0)
+
+
+def udp_listener(udp_sock, name, seen):
+    global frame_buffers, frame_chunks_expected, received_frames, display_queue, all_frames, video_complete, total_video_frames, video_segments, startTime, endTime, next_peer_last_success, nextPeers, ack_event, oneTimeAck
     
-    udp_sock.settimeout(1.0)
+    udp_sock.settimeout(5.0)
     frame_count = 0
     segment_start_frame = 0
     current_segment_offset = 0  # Offset to add to incoming frame numbers
@@ -82,8 +114,18 @@ def udp_listener(udp_sock, name, next_udp_port_holder, seen):
             
             typ = msg.get("type")
             
+            
             if typ == "video_frame":
                 if startTime == 0: startTime = time.perf_counter()
+                
+                # Send ACK back to sender to confirm receipt
+                if addr:
+                    ack_msg = json.dumps({"type": "ack"}).encode()
+                    try:
+                        udp_sock.sendto(ack_msg, addr)
+                    except:
+                        pass  # Don't let ACK failures block frame processing
+                
                 frame_num = msg.get("frame_num")
                 chunk_id = msg.get("chunk_id")
                 total_chunks = msg.get("total_chunks")
@@ -132,11 +174,16 @@ def udp_listener(udp_sock, name, next_udp_port_holder, seen):
                             # Store frame for later playback with global frame number
                             all_frames[global_frame_num] = frame
                             
+                            
                             # Forward to next peer
-                            nxt = next_udp_port_holder.get("port")
-                            if nxt:
+                            if nextPeers:
+                                nxt = nextPeers[0]['port']
+                                nxtCtrl = nextPeers[0]['ctrl_port']
+                                acknowledgePeer(nxtCtrl)
                                 # Re-send all chunks to next peer with original frame numbers
                                 for cid in range(total_chunks):
+                                    # Wait for ACK from previous chunk before sending next chunk
+                                    
                                     packet = {
                                         "type": "video_frame",
                                         "origin": origin,
@@ -149,9 +196,11 @@ def udp_listener(udp_sock, name, next_udp_port_holder, seen):
                                         udp_sock.sendto(json.dumps(packet).encode(), ("127.0.0.1", nxt))
                                     except Exception as e:
                                         log(name, f"FORWARD_ERROR frame {global_frame_num} chunk {cid}: {e}")
+                                        ack_event.set()  # Reset on error to avoid permanent block
+                                        break
                                 
                                 if global_frame_num % 30 == 0:
-                                    log(name, f"FORWARDED frame {global_frame_num} to {next_udp_port_holder.get('name')}:{nxt}")
+                                    log(name, f"FORWARDED frame {global_frame_num} to {nextPeers[0]['name']}:{nxt}")
                         
                         # Clean up buffer
                         del frame_buffers[global_frame_num]
@@ -189,13 +238,15 @@ def udp_listener(udp_sock, name, next_udp_port_holder, seen):
                     print(f"[{name}] New video segment appended (total frames: {total_video_frames})")
                 
                 # Forward end marker
-                nxt = next_udp_port_holder.get("port")
-                if nxt:
+                if nextPeers:
+                    nxt = nextPeers[0]['port']
                     try:
                         udp_sock.sendto(data, ("127.0.0.1", nxt))
-                        log(name, f"FORWARDED video_end to {next_udp_port_holder.get('name')}:{nxt}")
+                        log(name, f"FORWARDED video_end to {nextPeers[0]['name']}:{nxt}")
                     except Exception as e:
                         log(name, f"FORWARD_ERROR video_end: {e}")
+                    else:
+                        nxt = None
                 else:
                     try:
                         with socket.create_connection((COORD_HOST, SUB_COORD_PORT), timeout=3) as s:
@@ -221,8 +272,8 @@ def udp_listener(udp_sock, name, next_udp_port_holder, seen):
                 print(f"[{name} RECV] origin={origin} seq={seq} from {sender}: {payload}")
                 log(name, f"RECV origin={origin} seq={seq} from {sender}: {payload}")
                 
-                nxt = next_udp_port_holder.get("port")
-                if nxt:
+                if nextPeers:
+                    nxt = nextPeers[0]['port']
                     try:
                         udp_sock.sendto(data, ("127.0.0.1", nxt))
                         log(name, f"FORWARDED origin={origin} seq={seq}")
@@ -239,7 +290,7 @@ def udp_listener(udp_sock, name, next_udp_port_holder, seen):
     udp_sock.close()
     print(f"[{name}] UDP listener exiting. Total frames received: {frame_count}")
 
-def ctrl_server(ctrl_port, next_udp_port_holder, name):
+def ctrl_server(ctrl_port, name):
     serv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     serv.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
     serv.bind(("127.0.0.1", ctrl_port))
@@ -265,18 +316,17 @@ def ctrl_server(ctrl_port, next_udp_port_holder, name):
                     raise Exception(f"Control server received error: {error_msg}")
                 
                 if msg.get("cmd") == "UPDATE_NEXT":
-                    next_name = msg.get("next_name")
-                    next_port = msg.get("next_port")
+                    next_name = msg.get("name")
+                    next_port = msg.get("port")
                     print(f"[{name} CTRL] UPDATE_NEXT -> {next_name}:{next_port}")
-                    next_udp_port_holder["port"] = next_port
-                    next_udp_port_holder["name"] = next_name
-                    print(next_udp_port_holder["name"])
+                    nextPeers.append(msg)
                     log(name, f"CTRL UPDATE_NEXT -> {next_name}:{next_port}")
                     
                     try:
                         conn.sendall(b"OK")
                     except:
                         pass
+                #legacy command
                 elif msg.get("cmd") == "SUBCOORDINATOR_INFO":
                     global SUB_COORD_PORT
                     SUB_COORD_PORT = int(msg.get("subcoordinator_port"))
@@ -285,6 +335,14 @@ def ctrl_server(ctrl_port, next_udp_port_holder, name):
                         prev_peer = msg['prev_peer']['name']
                     print(f"Subcoordinator at port {SUB_COORD_PORT} registered")
                     print(f"Previous Peer: {prev_peer}")
+                elif msg.get("cmd") == "ack":
+                    try:
+                        conn.sendall(b"OK")
+                    except:
+                        pass
+
+
+                
 
         except socket.timeout:
             continue
@@ -340,8 +398,6 @@ if __name__ == "__main__":
 
     
 
-    # shared holder for next peer
-    next_udp_port_holder = {"port": None, "name": None}
 
     # UDP socket for data
     udp_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -352,9 +408,9 @@ if __name__ == "__main__":
     seen = set()
 
     # start threads
-    t_udp = threading.Thread(target=udp_listener, args=(udp_sock, name, next_udp_port_holder, seen), daemon=True)
+    t_udp = threading.Thread(target=udp_listener, args=(udp_sock, name, seen), daemon=True)
     t_udp.start()
-    t_ctrl = threading.Thread(target=ctrl_server, args=(ctrl_port, next_udp_port_holder, name), daemon=True)
+    t_ctrl = threading.Thread(target=ctrl_server, args=(ctrl_port, name), daemon=True)
     t_ctrl.start()
 
     # Create OpenCV window for video display (must be done in main thread on macOS)
@@ -643,13 +699,13 @@ if __name__ == "__main__":
         # default: originate a message that will propagate downstream
         seq += 1
         payload = {"type":"data","origin":name,"seq":seq,"sender":name,"msg":line}
-        nxt = next_udp_port_holder.get("port")
-        print(nxt)
-        if nxt:
+        if nextPeers:
+            nxt = nextPeers[0]['port']
+            print(nxt)
             try:
                 udp_sock.sendto(json.dumps(payload).encode(), ("127.0.0.1", nxt))
-                print(f"[{name}] Originated seq={seq} -> forwarded to {next_udp_port_holder.get('name')}:{nxt}")
-                log(name, f"SENT origin={name} seq={seq} to {next_udp_port_holder.get('name')}:{nxt} msg={line}")
+                print(f"[{name}] Originated seq={seq} -> forwarded to {nextPeers[0]['name']}:{nxt}")
+                log(name, f"SENT origin={name} seq={seq} to {nextPeers[0]['name']}:{nxt} msg={line}")
                 # mark as seen so origin doesn't get processed again on receipt
                 seen.add((name, seq))
             except Exception as e:
