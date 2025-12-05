@@ -1811,3 +1811,2329 @@
 [2025-12-05 14:40:30.246] RECV_FRAME 1830 from coordinator
 [2025-12-05 14:40:30.324] VIDEO_END from coordinator, segment frames: 642
 [2025-12-05 14:40:30.324] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:57:29.362] Output directory: videoOutput/peer_C_frames
+[2025-12-05 14:57:29.911] RECV_FRAME 0 from coordinator
+[2025-12-05 14:57:30.146] RECV_FRAME 30 from coordinator
+[2025-12-05 14:57:30.377] RECV_FRAME 60 from coordinator
+[2025-12-05 14:57:30.608] RECV_FRAME 90 from coordinator
+[2025-12-05 14:57:30.839] RECV_FRAME 120 from coordinator
+[2025-12-05 14:57:31.071] RECV_FRAME 150 from coordinator
+[2025-12-05 14:57:31.318] RECV_FRAME 180 from coordinator
+[2025-12-05 14:57:31.553] RECV_FRAME 210 from coordinator
+[2025-12-05 14:57:31.789] RECV_FRAME 240 from coordinator
+[2025-12-05 14:57:32.032] RECV_FRAME 270 from coordinator
+[2025-12-05 14:57:32.272] RECV_FRAME 300 from coordinator
+[2025-12-05 14:57:32.509] RECV_FRAME 330 from coordinator
+[2025-12-05 14:57:32.755] RECV_FRAME 360 from coordinator
+[2025-12-05 14:57:33.006] RECV_FRAME 390 from coordinator
+[2025-12-05 14:57:33.262] RECV_FRAME 420 from coordinator
+[2025-12-05 14:57:33.512] RECV_FRAME 450 from coordinator
+[2025-12-05 14:57:33.757] RECV_FRAME 480 from coordinator
+[2025-12-05 14:57:34.003] RECV_FRAME 510 from coordinator
+[2025-12-05 14:57:34.249] RECV_FRAME 540 from coordinator
+[2025-12-05 14:57:34.512] RECV_FRAME 570 from coordinator
+[2025-12-05 14:57:34.754] RECV_FRAME 600 from coordinator
+[2025-12-05 14:57:34.754] VIDEO_END from coordinator, segment frames: 601
+[2025-12-05 14:57:34.754] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:57:35.606] RECV_FRAME 630 from coordinator
+[2025-12-05 14:57:35.853] RECV_FRAME 660 from coordinator
+[2025-12-05 14:57:36.107] RECV_FRAME 690 from coordinator
+[2025-12-05 14:57:36.371] RECV_FRAME 720 from coordinator
+[2025-12-05 14:57:36.647] RECV_FRAME 750 from coordinator
+[2025-12-05 14:57:36.923] RECV_FRAME 780 from coordinator
+[2025-12-05 14:57:37.200] RECV_FRAME 810 from coordinator
+[2025-12-05 14:57:37.464] RECV_FRAME 840 from coordinator
+[2025-12-05 14:57:37.749] RECV_FRAME 870 from coordinator
+[2025-12-05 14:57:38.037] RECV_FRAME 900 from coordinator
+[2025-12-05 14:57:38.308] RECV_FRAME 930 from coordinator
+[2025-12-05 14:57:38.581] RECV_FRAME 960 from coordinator
+[2025-12-05 14:57:38.849] RECV_FRAME 990 from coordinator
+[2025-12-05 14:57:39.121] RECV_FRAME 1020 from coordinator
+[2025-12-05 14:57:39.386] RECV_FRAME 1050 from coordinator
+[2025-12-05 14:57:39.654] RECV_FRAME 1080 from coordinator
+[2025-12-05 14:57:39.939] RECV_FRAME 1110 from coordinator
+[2025-12-05 14:57:40.214] RECV_FRAME 1140 from coordinator
+[2025-12-05 14:57:40.507] RECV_FRAME 1170 from coordinator
+[2025-12-05 14:57:40.767] RECV_FRAME 1200 from coordinator
+[2025-12-05 14:57:40.767] VIDEO_END from coordinator, segment frames: 600
+[2025-12-05 14:57:40.768] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:57:41.688] RECV_FRAME 1230 from coordinator
+[2025-12-05 14:57:41.963] RECV_FRAME 1260 from coordinator
+[2025-12-05 14:57:42.245] RECV_FRAME 1290 from coordinator
+[2025-12-05 14:57:42.521] RECV_FRAME 1320 from coordinator
+[2025-12-05 14:57:42.795] RECV_FRAME 1350 from coordinator
+[2025-12-05 14:57:43.077] RECV_FRAME 1380 from coordinator
+[2025-12-05 14:57:43.344] RECV_FRAME 1410 from coordinator
+[2025-12-05 14:57:43.619] RECV_FRAME 1440 from coordinator
+[2025-12-05 14:57:43.893] RECV_FRAME 1470 from coordinator
+[2025-12-05 14:57:44.164] RECV_FRAME 1500 from coordinator
+[2025-12-05 14:57:44.438] RECV_FRAME 1530 from coordinator
+[2025-12-05 14:57:44.704] RECV_FRAME 1560 from coordinator
+[2025-12-05 14:57:44.982] RECV_FRAME 1590 from coordinator
+[2025-12-05 14:57:45.255] RECV_FRAME 1620 from coordinator
+[2025-12-05 14:57:45.526] RECV_FRAME 1650 from coordinator
+[2025-12-05 14:57:45.800] RECV_FRAME 1680 from coordinator
+[2025-12-05 14:57:46.086] RECV_FRAME 1710 from coordinator
+[2025-12-05 14:57:46.379] RECV_FRAME 1740 from coordinator
+[2025-12-05 14:57:46.666] RECV_FRAME 1770 from coordinator
+[2025-12-05 14:57:46.951] RECV_FRAME 1800 from coordinator
+[2025-12-05 14:57:47.225] RECV_FRAME 1830 from coordinator
+[2025-12-05 14:57:47.347] VIDEO_END from coordinator, segment frames: 644
+[2025-12-05 14:57:47.347] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:09.623] Output directory: videoOutput/peer_C_frames
+[2025-12-05 14:58:10.157] RECV_FRAME 0 from coordinator
+[2025-12-05 14:58:10.392] RECV_FRAME 30 from coordinator
+[2025-12-05 14:58:10.618] RECV_FRAME 60 from coordinator
+[2025-12-05 14:58:10.847] RECV_FRAME 90 from coordinator
+[2025-12-05 14:58:11.078] RECV_FRAME 120 from coordinator
+[2025-12-05 14:58:11.309] RECV_FRAME 150 from coordinator
+[2025-12-05 14:58:11.541] RECV_FRAME 180 from coordinator
+[2025-12-05 14:58:11.774] RECV_FRAME 210 from coordinator
+[2025-12-05 14:58:12.007] RECV_FRAME 240 from coordinator
+[2025-12-05 14:58:12.246] RECV_FRAME 270 from coordinator
+[2025-12-05 14:58:12.483] RECV_FRAME 300 from coordinator
+[2025-12-05 14:58:12.717] RECV_FRAME 330 from coordinator
+[2025-12-05 14:58:12.952] RECV_FRAME 360 from coordinator
+[2025-12-05 14:58:13.192] RECV_FRAME 390 from coordinator
+[2025-12-05 14:58:13.429] RECV_FRAME 420 from coordinator
+[2025-12-05 14:58:13.657] RECV_FRAME 450 from coordinator
+[2025-12-05 14:58:13.889] RECV_FRAME 480 from coordinator
+[2025-12-05 14:58:14.121] RECV_FRAME 510 from coordinator
+[2025-12-05 14:58:14.355] RECV_FRAME 540 from coordinator
+[2025-12-05 14:58:14.586] RECV_FRAME 570 from coordinator
+[2025-12-05 14:58:14.818] RECV_FRAME 600 from coordinator
+[2025-12-05 14:58:14.818] VIDEO_END from coordinator, segment frames: 599
+[2025-12-05 14:58:14.818] Missing frames in video #1: [421, 422]
+[2025-12-05 14:58:14.819] Requested 2 missing frames for video #1, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 14:58:14.819] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:15.754] RECV_FRAME 1020 from coordinator
+[2025-12-05 14:58:15.799] VIDEO_END from coordinator, segment frames: 7
+[2025-12-05 14:58:15.799] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:15.940] RECV_FRAME 630 from coordinator
+[2025-12-05 14:58:16.172] RECV_FRAME 660 from coordinator
+[2025-12-05 14:58:16.402] RECV_FRAME 690 from coordinator
+[2025-12-05 14:58:16.638] RECV_FRAME 720 from coordinator
+[2025-12-05 14:58:16.878] RECV_FRAME 750 from coordinator
+[2025-12-05 14:58:17.114] RECV_FRAME 780 from coordinator
+[2025-12-05 14:58:17.353] RECV_FRAME 810 from coordinator
+[2025-12-05 14:58:17.585] RECV_FRAME 840 from coordinator
+[2025-12-05 14:58:17.823] RECV_FRAME 870 from coordinator
+[2025-12-05 14:58:18.058] RECV_FRAME 900 from coordinator
+[2025-12-05 14:58:18.293] RECV_FRAME 930 from coordinator
+[2025-12-05 14:58:18.529] RECV_FRAME 960 from coordinator
+[2025-12-05 14:58:18.766] RECV_FRAME 990 from coordinator
+[2025-12-05 14:58:19.249] RECV_FRAME 1050 from coordinator
+[2025-12-05 14:58:19.496] RECV_FRAME 1080 from coordinator
+[2025-12-05 14:58:19.745] RECV_FRAME 1110 from coordinator
+[2025-12-05 14:58:19.993] RECV_FRAME 1140 from coordinator
+[2025-12-05 14:58:20.244] RECV_FRAME 1170 from coordinator
+[2025-12-05 14:58:20.497] RECV_FRAME 1200 from coordinator
+[2025-12-05 14:58:20.539] VIDEO_END from coordinator, segment frames: 591
+[2025-12-05 14:58:20.539] Missing frames in video #2: [0, 1, 414, 415]
+[2025-12-05 14:58:20.539] Requested 4 missing frames for video #2, response: {"status": "ok", "message": "Resending 4 frames"}
+[2025-12-05 14:58:20.539] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:21.664] VIDEO_END from coordinator, segment frames: 6
+[2025-12-05 14:58:21.664] Missing frames in video #2: [0, 1]
+[2025-12-05 14:58:21.664] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 14:58:21.664] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:21.832] RECV_FRAME 1230 from coordinator
+[2025-12-05 14:58:22.188] RECV_FRAME 1260 from coordinator
+[2025-12-05 14:58:22.456] VIDEO_END from coordinator, segment frames: 68
+[2025-12-05 14:58:22.456] Missing frames in video #2: [0, 1]
+[2025-12-05 14:58:22.457] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 14:58:22.457] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:22.801] RECV_FRAME 1380 from coordinator
+[2025-12-05 14:58:23.119] RECV_FRAME 1410 from coordinator
+[2025-12-05 14:58:23.221] VIDEO_END from coordinator, segment frames: 69
+[2025-12-05 14:58:23.221] Missing frames in video #2: [0, 1]
+[2025-12-05 14:58:23.222] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 14:58:23.222] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:23.349] RECV_FRAME 1500 from coordinator
+[2025-12-05 14:58:23.680] RECV_FRAME 1530 from coordinator
+[2025-12-05 14:58:24.026] RECV_FRAME 1560 from coordinator
+[2025-12-05 14:58:24.068] VIDEO_END from coordinator, segment frames: 76
+[2025-12-05 14:58:24.069] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:24.152] RECV_FRAME 1650 from coordinator
+[2025-12-05 14:58:24.404] RECV_FRAME 1680 from coordinator
+[2025-12-05 14:58:24.659] RECV_FRAME 1710 from coordinator
+[2025-12-05 14:58:24.908] RECV_FRAME 1740 from coordinator
+[2025-12-05 14:58:25.156] RECV_FRAME 1770 from coordinator
+[2025-12-05 14:58:25.412] RECV_FRAME 1800 from coordinator
+[2025-12-05 14:58:25.669] RECV_FRAME 1830 from coordinator
+[2025-12-05 14:58:25.916] RECV_FRAME 1860 from coordinator
+[2025-12-05 14:58:26.174] RECV_FRAME 1890 from coordinator
+[2025-12-05 14:58:26.449] RECV_FRAME 1920 from coordinator
+[2025-12-05 14:58:26.715] RECV_FRAME 1950 from coordinator
+[2025-12-05 14:58:26.985] RECV_FRAME 1980 from coordinator
+[2025-12-05 14:58:27.248] RECV_FRAME 2010 from coordinator
+[2025-12-05 14:58:27.504] RECV_FRAME 2040 from coordinator
+[2025-12-05 14:58:27.657] VIDEO_END from coordinator, segment frames: 420
+[2025-12-05 14:58:27.658] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[2025-12-05 14:58:27.658] Requested 9 missing frames for video #3, response: {"status": "ok", "message": "Resending 9 frames"}
+[2025-12-05 14:58:27.658] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:28.495] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 14:58:28.495] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[2025-12-05 14:58:28.495] Requested 9 missing frames for video #3, response: {"status": "ok", "message": "Resending 9 frames"}
+[2025-12-05 14:58:28.496] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:29.329] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 14:58:29.329] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[2025-12-05 14:58:29.329] Requested 9 missing frames for video #3, response: {"status": "ok", "message": "Resending 9 frames"}
+[2025-12-05 14:58:29.329] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:30.157] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 14:58:30.157] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[2025-12-05 14:58:30.158] Requested 9 missing frames for video #3, response: {"status": "ok", "message": "Resending 9 frames"}
+[2025-12-05 14:58:30.158] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:30.979] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 14:58:30.979] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[2025-12-05 14:58:30.979] Requested 9 missing frames for video #3, response: {"status": "ok", "message": "Resending 9 frames"}
+[2025-12-05 14:58:30.979] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:31.813] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 14:58:31.813] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[2025-12-05 14:58:31.814] Requested 9 missing frames for video #3, response: {"status": "ok", "message": "Resending 9 frames"}
+[2025-12-05 14:58:31.814] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:32.638] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 14:58:32.638] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[2025-12-05 14:58:32.639] Requested 9 missing frames for video #3, response: {"status": "ok", "message": "Resending 9 frames"}
+[2025-12-05 14:58:32.639] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:33.462] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 14:58:33.462] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[2025-12-05 14:58:33.463] Requested 9 missing frames for video #3, response: {"status": "ok", "message": "Resending 9 frames"}
+[2025-12-05 14:58:33.463] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:34.286] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 14:58:34.286] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[2025-12-05 14:58:34.287] Requested 9 missing frames for video #3, response: {"status": "ok", "message": "Resending 9 frames"}
+[2025-12-05 14:58:34.287] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:35.113] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 14:58:35.113] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[2025-12-05 14:58:35.114] Requested 9 missing frames for video #3, response: {"status": "ok", "message": "Resending 9 frames"}
+[2025-12-05 14:58:35.114] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:35.947] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 14:58:35.947] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[2025-12-05 14:58:35.947] Requested 9 missing frames for video #3, response: {"status": "ok", "message": "Resending 9 frames"}
+[2025-12-05 14:58:35.948] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:36.779] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 14:58:36.779] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[2025-12-05 14:58:36.780] Requested 9 missing frames for video #3, response: {"status": "ok", "message": "Resending 9 frames"}
+[2025-12-05 14:58:36.780] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:37.604] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 14:58:37.604] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[2025-12-05 14:58:37.604] Requested 9 missing frames for video #3, response: {"status": "ok", "message": "Resending 9 frames"}
+[2025-12-05 14:58:37.604] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:38.450] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 14:58:38.450] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[2025-12-05 14:58:38.450] Requested 9 missing frames for video #3, response: {"status": "ok", "message": "Resending 9 frames"}
+[2025-12-05 14:58:38.450] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:39.285] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 14:58:39.285] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[2025-12-05 14:58:39.286] Requested 9 missing frames for video #3, response: {"status": "ok", "message": "Resending 9 frames"}
+[2025-12-05 14:58:39.287] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:40.122] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 14:58:40.122] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[2025-12-05 14:58:40.122] Requested 9 missing frames for video #3, response: {"status": "ok", "message": "Resending 9 frames"}
+[2025-12-05 14:58:40.123] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:40.986] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 14:58:40.986] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[2025-12-05 14:58:40.986] Requested 9 missing frames for video #3, response: {"status": "ok", "message": "Resending 9 frames"}
+[2025-12-05 14:58:40.986] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:41.813] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 14:58:41.813] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[2025-12-05 14:58:41.814] Requested 9 missing frames for video #3, response: {"status": "ok", "message": "Resending 9 frames"}
+[2025-12-05 14:58:41.814] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:42.638] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 14:58:42.638] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[2025-12-05 14:58:42.638] Requested 9 missing frames for video #3, response: {"status": "ok", "message": "Resending 9 frames"}
+[2025-12-05 14:58:42.638] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:43.471] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 14:58:43.471] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[2025-12-05 14:58:43.471] Requested 9 missing frames for video #3, response: {"status": "ok", "message": "Resending 9 frames"}
+[2025-12-05 14:58:43.471] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:44.306] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 14:58:44.306] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[2025-12-05 14:58:44.306] Requested 9 missing frames for video #3, response: {"status": "ok", "message": "Resending 9 frames"}
+[2025-12-05 14:58:44.306] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:45.137] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 14:58:45.137] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[2025-12-05 14:58:45.137] Requested 9 missing frames for video #3, response: {"status": "ok", "message": "Resending 9 frames"}
+[2025-12-05 14:58:45.138] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:45.974] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 14:58:45.974] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[2025-12-05 14:58:45.975] Requested 9 missing frames for video #3, response: {"status": "ok", "message": "Resending 9 frames"}
+[2025-12-05 14:58:45.975] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 14:58:46.804] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 14:58:46.804] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8]
+[2025-12-05 14:58:46.804] Requested 9 missing frames for video #3, response: {"status": "ok", "message": "Resending 9 frames"}
+[2025-12-05 14:58:46.805] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:11:07.821] Output directory: videoOutput/peer_C_frames
+[2025-12-05 15:11:08.358] RECV_FRAME 0 from coordinator
+[2025-12-05 15:11:08.595] RECV_FRAME 30 from coordinator
+[2025-12-05 15:11:08.823] RECV_FRAME 60 from coordinator
+[2025-12-05 15:11:09.055] RECV_FRAME 90 from coordinator
+[2025-12-05 15:11:09.285] RECV_FRAME 120 from coordinator
+[2025-12-05 15:11:09.517] RECV_FRAME 150 from coordinator
+[2025-12-05 15:11:09.751] RECV_FRAME 180 from coordinator
+[2025-12-05 15:11:09.983] RECV_FRAME 210 from coordinator
+[2025-12-05 15:11:10.217] RECV_FRAME 240 from coordinator
+[2025-12-05 15:11:10.455] RECV_FRAME 270 from coordinator
+[2025-12-05 15:11:10.927] RECV_FRAME 330 from coordinator
+[2025-12-05 15:11:11.158] RECV_FRAME 360 from coordinator
+[2025-12-05 15:11:11.393] RECV_FRAME 390 from coordinator
+[2025-12-05 15:11:11.626] RECV_FRAME 420 from coordinator
+[2025-12-05 15:11:11.857] RECV_FRAME 450 from coordinator
+[2025-12-05 15:11:12.088] RECV_FRAME 480 from coordinator
+[2025-12-05 15:11:12.320] RECV_FRAME 510 from coordinator
+[2025-12-05 15:11:12.556] RECV_FRAME 540 from coordinator
+[2025-12-05 15:11:12.785] RECV_FRAME 570 from coordinator
+[2025-12-05 15:11:13.013] RECV_FRAME 600 from coordinator
+[2025-12-05 15:11:13.013] VIDEO_END from coordinator, segment frames: 599
+[2025-12-05 15:11:13.013] Missing frames in video #1: [300, 301]
+[2025-12-05 15:11:13.013] Requested 2 missing frames for video #1, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:11:13.014] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:11:13.995] RECV_FRAME 900 from coordinator
+[2025-12-05 15:11:13.995] VIDEO_END from coordinator, segment frames: 10
+[2025-12-05 15:11:13.995] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:11:14.087] RECV_FRAME 630 from coordinator
+[2025-12-05 15:11:14.323] RECV_FRAME 660 from coordinator
+[2025-12-05 15:11:14.555] RECV_FRAME 690 from coordinator
+[2025-12-05 15:11:14.791] RECV_FRAME 720 from coordinator
+[2025-12-05 15:11:15.033] RECV_FRAME 750 from coordinator
+[2025-12-05 15:11:15.270] RECV_FRAME 780 from coordinator
+[2025-12-05 15:11:15.512] RECV_FRAME 810 from coordinator
+[2025-12-05 15:11:15.745] RECV_FRAME 840 from coordinator
+[2025-12-05 15:11:15.986] RECV_FRAME 870 from coordinator
+[2025-12-05 15:11:16.481] RECV_FRAME 930 from coordinator
+[2025-12-05 15:11:16.730] RECV_FRAME 960 from coordinator
+[2025-12-05 15:11:17.000] RECV_FRAME 990 from coordinator
+[2025-12-05 15:11:17.248] RECV_FRAME 1020 from coordinator
+[2025-12-05 15:11:17.504] RECV_FRAME 1050 from coordinator
+[2025-12-05 15:11:17.761] RECV_FRAME 1080 from coordinator
+[2025-12-05 15:11:18.009] RECV_FRAME 1110 from coordinator
+[2025-12-05 15:11:18.247] RECV_FRAME 1140 from coordinator
+[2025-12-05 15:11:18.489] RECV_FRAME 1170 from coordinator
+[2025-12-05 15:11:18.734] RECV_FRAME 1200 from coordinator
+[2025-12-05 15:11:18.798] VIDEO_END from coordinator, segment frames: 588
+[2025-12-05 15:11:18.798] Missing frames in video #2: [0, 1, 290, 291]
+[2025-12-05 15:11:18.798] Requested 4 missing frames for video #2, response: {"status": "ok", "message": "Resending 4 frames"}
+[2025-12-05 15:11:18.798] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:11:19.888] VIDEO_END from coordinator, segment frames: 5
+[2025-12-05 15:11:19.888] Missing frames in video #2: [0, 1]
+[2025-12-05 15:11:19.890] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:11:19.891] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:11:20.026] RECV_FRAME 1230 from coordinator
+[2025-12-05 15:11:20.408] RECV_FRAME 1260 from coordinator
+[2025-12-05 15:11:20.636] VIDEO_END from coordinator, segment frames: 64
+[2025-12-05 15:11:20.637] Missing frames in video #2: [0, 1]
+[2025-12-05 15:11:20.638] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:11:20.638] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:11:20.693] RECV_FRAME 1350 from coordinator
+[2025-12-05 15:11:21.026] RECV_FRAME 1380 from coordinator
+[2025-12-05 15:11:21.405] RECV_FRAME 1410 from coordinator
+[2025-12-05 15:11:21.443] VIDEO_END from coordinator, segment frames: 69
+[2025-12-05 15:11:21.443] Missing frames in video #2: [0, 1]
+[2025-12-05 15:11:21.444] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:11:21.444] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:11:21.629] RECV_FRAME 1500 from coordinator
+[2025-12-05 15:11:22.015] RECV_FRAME 1530 from coordinator
+[2025-12-05 15:11:22.237] VIDEO_END from coordinator, segment frames: 65
+[2025-12-05 15:11:22.237] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:11:22.292] RECV_FRAME 1620 from coordinator
+[2025-12-05 15:11:22.539] RECV_FRAME 1650 from coordinator
+[2025-12-05 15:11:22.793] RECV_FRAME 1680 from coordinator
+[2025-12-05 15:11:23.046] RECV_FRAME 1710 from coordinator
+[2025-12-05 15:11:23.297] RECV_FRAME 1740 from coordinator
+[2025-12-05 15:11:23.543] RECV_FRAME 1770 from coordinator
+[2025-12-05 15:11:23.794] RECV_FRAME 1800 from coordinator
+[2025-12-05 15:11:24.052] RECV_FRAME 1830 from coordinator
+[2025-12-05 15:11:24.318] RECV_FRAME 1860 from coordinator
+[2025-12-05 15:11:24.586] RECV_FRAME 1890 from coordinator
+[2025-12-05 15:11:24.852] RECV_FRAME 1920 from coordinator
+[2025-12-05 15:11:25.120] RECV_FRAME 1950 from coordinator
+[2025-12-05 15:11:25.393] RECV_FRAME 1980 from coordinator
+[2025-12-05 15:11:25.657] RECV_FRAME 2010 from coordinator
+[2025-12-05 15:11:25.906] RECV_FRAME 2040 from coordinator
+[2025-12-05 15:11:25.928] VIDEO_END from coordinator, segment frames: 430
+[2025-12-05 15:11:25.928] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 148, 152, 153]
+[2025-12-05 15:11:25.929] Requested 15 missing frames for video #3, response: {"status": "ok", "message": "Resending 15 frames"}
+[2025-12-05 15:11:25.929] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:11:27.000] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:11:27.000] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 148, 152, 153]
+[2025-12-05 15:11:27.000] Requested 15 missing frames for video #3, response: {"status": "ok", "message": "Resending 15 frames"}
+[2025-12-05 15:11:27.001] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:11:28.059] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:11:28.059] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 148, 152, 153]
+[2025-12-05 15:11:28.059] Requested 15 missing frames for video #3, response: {"status": "ok", "message": "Resending 15 frames"}
+[2025-12-05 15:11:28.060] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:11:29.104] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:11:29.104] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 148, 152, 153]
+[2025-12-05 15:11:29.104] Requested 15 missing frames for video #3, response: {"status": "ok", "message": "Resending 15 frames"}
+[2025-12-05 15:11:29.105] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:11:30.144] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:11:30.144] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 148, 152, 153]
+[2025-12-05 15:11:30.145] Requested 15 missing frames for video #3, response: {"status": "ok", "message": "Resending 15 frames"}
+[2025-12-05 15:11:30.145] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:11:31.220] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:11:31.220] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 148, 152, 153]
+[2025-12-05 15:11:31.221] Requested 15 missing frames for video #3, response: {"status": "ok", "message": "Resending 15 frames"}
+[2025-12-05 15:11:31.221] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:18.661] Output directory: videoOutput/peer_C_frames
+[2025-12-05 15:12:19.197] RECV_FRAME 0 from coordinator
+[2025-12-05 15:12:19.434] RECV_FRAME 30 from coordinator
+[2025-12-05 15:12:19.663] RECV_FRAME 60 from coordinator
+[2025-12-05 15:12:19.894] RECV_FRAME 90 from coordinator
+[2025-12-05 15:12:20.126] RECV_FRAME 120 from coordinator
+[2025-12-05 15:12:20.359] RECV_FRAME 150 from coordinator
+[2025-12-05 15:12:20.593] RECV_FRAME 180 from coordinator
+[2025-12-05 15:12:20.825] RECV_FRAME 210 from coordinator
+[2025-12-05 15:12:21.059] RECV_FRAME 240 from coordinator
+[2025-12-05 15:12:21.296] RECV_FRAME 270 from coordinator
+[2025-12-05 15:12:21.533] RECV_FRAME 300 from coordinator
+[2025-12-05 15:12:21.769] RECV_FRAME 330 from coordinator
+[2025-12-05 15:12:22.003] RECV_FRAME 360 from coordinator
+[2025-12-05 15:12:22.242] RECV_FRAME 390 from coordinator
+[2025-12-05 15:12:22.479] RECV_FRAME 420 from coordinator
+[2025-12-05 15:12:22.711] RECV_FRAME 450 from coordinator
+[2025-12-05 15:12:22.945] RECV_FRAME 480 from coordinator
+[2025-12-05 15:12:23.178] RECV_FRAME 510 from coordinator
+[2025-12-05 15:12:23.414] RECV_FRAME 540 from coordinator
+[2025-12-05 15:12:23.646] RECV_FRAME 570 from coordinator
+[2025-12-05 15:12:23.875] RECV_FRAME 600 from coordinator
+[2025-12-05 15:12:23.875] VIDEO_END from coordinator, segment frames: 599
+[2025-12-05 15:12:23.875] Missing frames in video #1: [142, 143]
+[2025-12-05 15:12:23.875] Requested 2 missing frames for video #1, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:12:23.876] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:24.831] VIDEO_END from coordinator, segment frames: 5
+[2025-12-05 15:12:24.832] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:25.002] RECV_FRAME 630 from coordinator
+[2025-12-05 15:12:25.237] RECV_FRAME 660 from coordinator
+[2025-12-05 15:12:25.470] RECV_FRAME 690 from coordinator
+[2025-12-05 15:12:25.706] RECV_FRAME 720 from coordinator
+[2025-12-05 15:12:25.947] RECV_FRAME 750 from coordinator
+[2025-12-05 15:12:26.184] RECV_FRAME 780 from coordinator
+[2025-12-05 15:12:26.425] RECV_FRAME 810 from coordinator
+[2025-12-05 15:12:26.660] RECV_FRAME 840 from coordinator
+[2025-12-05 15:12:26.901] RECV_FRAME 870 from coordinator
+[2025-12-05 15:12:27.139] RECV_FRAME 900 from coordinator
+[2025-12-05 15:12:27.379] RECV_FRAME 930 from coordinator
+[2025-12-05 15:12:27.620] RECV_FRAME 960 from coordinator
+[2025-12-05 15:12:27.876] RECV_FRAME 990 from coordinator
+[2025-12-05 15:12:28.127] RECV_FRAME 1020 from coordinator
+[2025-12-05 15:12:28.375] RECV_FRAME 1050 from coordinator
+[2025-12-05 15:12:28.625] RECV_FRAME 1080 from coordinator
+[2025-12-05 15:12:28.879] RECV_FRAME 1110 from coordinator
+[2025-12-05 15:12:29.130] RECV_FRAME 1140 from coordinator
+[2025-12-05 15:12:29.383] RECV_FRAME 1170 from coordinator
+[2025-12-05 15:12:29.636] RECV_FRAME 1200 from coordinator
+[2025-12-05 15:12:29.660] VIDEO_END from coordinator, segment frames: 593
+[2025-12-05 15:12:29.660] Missing frames in video #2: [0, 1, 137, 138]
+[2025-12-05 15:12:29.660] Requested 4 missing frames for video #2, response: {"status": "ok", "message": "Resending 4 frames"}
+[2025-12-05 15:12:29.660] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:30.752] VIDEO_END from coordinator, segment frames: 9
+[2025-12-05 15:12:30.753] Missing frames in video #2: [0, 1]
+[2025-12-05 15:12:30.753] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:12:30.753] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:30.867] RECV_FRAME 1230 from coordinator
+[2025-12-05 15:12:31.231] RECV_FRAME 1260 from coordinator
+[2025-12-05 15:12:31.538] VIDEO_END from coordinator, segment frames: 67
+[2025-12-05 15:12:31.538] Missing frames in video #2: [0, 1]
+[2025-12-05 15:12:31.539] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:12:31.540] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:31.882] RECV_FRAME 1380 from coordinator
+[2025-12-05 15:12:32.278] RECV_FRAME 1410 from coordinator
+[2025-12-05 15:12:32.401] VIDEO_END from coordinator, segment frames: 68
+[2025-12-05 15:12:32.404] Missing frames in video #2: [0, 1]
+[2025-12-05 15:12:32.404] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:12:32.404] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:32.522] RECV_FRAME 1500 from coordinator
+[2025-12-05 15:12:32.886] RECV_FRAME 1530 from coordinator
+[2025-12-05 15:12:33.249] RECV_FRAME 1560 from coordinator
+[2025-12-05 15:12:33.263] VIDEO_END from coordinator, segment frames: 74
+[2025-12-05 15:12:33.264] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:33.390] RECV_FRAME 1650 from coordinator
+[2025-12-05 15:12:33.641] RECV_FRAME 1680 from coordinator
+[2025-12-05 15:12:33.896] RECV_FRAME 1710 from coordinator
+[2025-12-05 15:12:34.150] RECV_FRAME 1740 from coordinator
+[2025-12-05 15:12:34.404] RECV_FRAME 1770 from coordinator
+[2025-12-05 15:12:34.663] RECV_FRAME 1800 from coordinator
+[2025-12-05 15:12:34.924] RECV_FRAME 1830 from coordinator
+[2025-12-05 15:12:35.198] RECV_FRAME 1860 from coordinator
+[2025-12-05 15:12:35.464] RECV_FRAME 1890 from coordinator
+[2025-12-05 15:12:35.738] RECV_FRAME 1920 from coordinator
+[2025-12-05 15:12:36.004] RECV_FRAME 1950 from coordinator
+[2025-12-05 15:12:36.269] RECV_FRAME 1980 from coordinator
+[2025-12-05 15:12:36.536] RECV_FRAME 2010 from coordinator
+[2025-12-05 15:12:36.799] RECV_FRAME 2040 from coordinator
+[2025-12-05 15:12:36.948] VIDEO_END from coordinator, segment frames: 423
+[2025-12-05 15:12:36.948] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:36.948] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:36.949] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:37.719] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:37.720] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:37.720] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:37.720] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:38.482] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:38.482] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:38.483] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:38.483] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:39.249] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:39.249] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:39.249] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:39.250] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:40.009] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:40.009] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:40.009] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:40.009] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:40.768] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:40.768] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:40.768] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:40.769] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:41.529] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:41.529] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:41.529] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:41.530] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:42.291] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:42.291] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:42.292] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:42.292] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:43.059] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:43.059] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:43.059] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:43.060] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:43.826] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:43.827] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:43.827] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:43.827] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:44.596] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:44.596] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:44.596] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:44.596] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:45.364] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:45.364] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:45.364] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:45.364] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:46.127] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:46.127] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:46.128] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:46.128] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:46.891] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:46.891] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:46.891] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:46.892] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:47.656] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:47.657] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:47.657] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:47.657] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:48.433] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:48.434] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:48.434] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:48.434] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:49.212] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:49.212] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:49.213] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:49.213] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:49.975] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:49.975] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:49.976] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:49.976] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:50.739] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:50.739] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:50.740] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:50.740] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:51.499] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:51.499] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:51.500] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:51.500] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:52.269] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:52.269] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:52.269] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:52.270] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:53.029] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:53.029] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:53.029] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:53.030] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:53.790] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:53.790] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:53.791] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:53.791] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:54.552] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:54.552] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:54.553] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:54.553] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:55.318] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:55.318] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:55.319] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:55.319] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:56.089] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:56.089] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:56.089] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:56.090] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:56.881] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:56.881] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:56.882] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:56.882] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:57.647] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:57.647] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:57.647] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:57.647] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:58.413] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:58.414] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:58.414] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:58.414] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:59.188] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:59.188] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:59.189] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:59.189] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:12:59.958] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:12:59.958] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:12:59.958] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:12:59.959] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:13:00.733] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:13:00.733] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:13:00.733] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:13:00.733] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:13:01.500] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:13:01.500] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:13:01.501] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:13:01.501] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:13:02.271] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:13:02.271] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:13:02.271] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:13:02.272] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:13:03.033] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:13:03.033] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:13:03.034] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:13:03.034] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:13:03.800] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:13:03.800] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:13:03.801] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:13:03.801] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:13:04.573] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:13:04.573] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:13:04.574] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:13:04.574] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:13:05.341] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:13:05.341] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:13:05.341] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:13:05.342] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:13:06.121] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:13:06.121] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:13:06.121] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:13:06.122] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:13:06.888] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:13:06.888] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6]
+[2025-12-05 15:13:06.888] Requested 7 missing frames for video #3, response: {"status": "ok", "message": "Resending 7 frames"}
+[2025-12-05 15:13:06.888] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:13:53.428] Output directory: videoOutput/peer_C_frames
+[2025-12-05 15:13:53.967] RECV_FRAME 0 from coordinator
+[2025-12-05 15:13:54.205] RECV_FRAME 30 from coordinator
+[2025-12-05 15:13:54.434] RECV_FRAME 60 from coordinator
+[2025-12-05 15:13:54.665] RECV_FRAME 90 from coordinator
+[2025-12-05 15:13:54.899] RECV_FRAME 120 from coordinator
+[2025-12-05 15:13:55.128] RECV_FRAME 150 from coordinator
+[2025-12-05 15:13:55.362] RECV_FRAME 180 from coordinator
+[2025-12-05 15:13:55.595] RECV_FRAME 210 from coordinator
+[2025-12-05 15:13:55.827] RECV_FRAME 240 from coordinator
+[2025-12-05 15:13:56.066] RECV_FRAME 270 from coordinator
+[2025-12-05 15:13:56.300] RECV_FRAME 300 from coordinator
+[2025-12-05 15:13:56.535] RECV_FRAME 330 from coordinator
+[2025-12-05 15:13:56.770] RECV_FRAME 360 from coordinator
+[2025-12-05 15:13:57.010] RECV_FRAME 390 from coordinator
+[2025-12-05 15:13:57.246] RECV_FRAME 420 from coordinator
+[2025-12-05 15:13:57.478] RECV_FRAME 450 from coordinator
+[2025-12-05 15:13:57.711] RECV_FRAME 480 from coordinator
+[2025-12-05 15:13:57.946] RECV_FRAME 510 from coordinator
+[2025-12-05 15:13:58.182] RECV_FRAME 540 from coordinator
+[2025-12-05 15:13:58.414] RECV_FRAME 570 from coordinator
+[2025-12-05 15:13:58.643] RECV_FRAME 600 from coordinator
+[2025-12-05 15:13:58.643] VIDEO_END from coordinator, segment frames: 599
+[2025-12-05 15:13:58.643] Missing frames in video #1: [137, 138]
+[2025-12-05 15:13:58.644] Requested 2 missing frames for video #1, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:13:58.644] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:13:59.599] VIDEO_END from coordinator, segment frames: 8
+[2025-12-05 15:13:59.599] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:13:59.722] RECV_FRAME 630 from coordinator
+[2025-12-05 15:13:59.957] RECV_FRAME 660 from coordinator
+[2025-12-05 15:14:00.191] RECV_FRAME 690 from coordinator
+[2025-12-05 15:14:00.428] RECV_FRAME 720 from coordinator
+[2025-12-05 15:14:00.670] RECV_FRAME 750 from coordinator
+[2025-12-05 15:14:00.908] RECV_FRAME 780 from coordinator
+[2025-12-05 15:14:01.150] RECV_FRAME 810 from coordinator
+[2025-12-05 15:14:01.383] RECV_FRAME 840 from coordinator
+[2025-12-05 15:14:01.622] RECV_FRAME 870 from coordinator
+[2025-12-05 15:14:01.860] RECV_FRAME 900 from coordinator
+[2025-12-05 15:14:02.098] RECV_FRAME 930 from coordinator
+[2025-12-05 15:14:02.336] RECV_FRAME 960 from coordinator
+[2025-12-05 15:14:02.579] RECV_FRAME 990 from coordinator
+[2025-12-05 15:14:02.817] RECV_FRAME 1020 from coordinator
+[2025-12-05 15:14:03.060] RECV_FRAME 1050 from coordinator
+[2025-12-05 15:14:03.312] RECV_FRAME 1080 from coordinator
+[2025-12-05 15:14:03.569] RECV_FRAME 1110 from coordinator
+[2025-12-05 15:14:03.827] RECV_FRAME 1140 from coordinator
+[2025-12-05 15:14:04.083] RECV_FRAME 1170 from coordinator
+[2025-12-05 15:14:04.334] RECV_FRAME 1200 from coordinator
+[2025-12-05 15:14:04.383] VIDEO_END from coordinator, segment frames: 590
+[2025-12-05 15:14:04.383] Missing frames in video #2: [0, 1, 129, 130]
+[2025-12-05 15:14:04.384] Requested 4 missing frames for video #2, response: {"status": "ok", "message": "Resending 4 frames"}
+[2025-12-05 15:14:04.384] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:05.538] VIDEO_END from coordinator, segment frames: 16
+[2025-12-05 15:14:05.538] Missing frames in video #2: [0, 1]
+[2025-12-05 15:14:05.539] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:14:05.539] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:05.827] RECV_FRAME 1260 from coordinator
+[2025-12-05 15:14:06.203] RECV_FRAME 1290 from coordinator
+[2025-12-05 15:14:06.306] VIDEO_END from coordinator, segment frames: 64
+[2025-12-05 15:14:06.306] Missing frames in video #2: [0, 1]
+[2025-12-05 15:14:06.306] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:14:06.306] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:06.487] RECV_FRAME 1380 from coordinator
+[2025-12-05 15:14:06.851] RECV_FRAME 1410 from coordinator
+[2025-12-05 15:14:07.099] VIDEO_END from coordinator, segment frames: 69
+[2025-12-05 15:14:07.099] Missing frames in video #2: [0, 1]
+[2025-12-05 15:14:07.099] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:14:07.099] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:07.469] RECV_FRAME 1530 from coordinator
+[2025-12-05 15:14:07.812] RECV_FRAME 1560 from coordinator
+[2025-12-05 15:14:07.991] VIDEO_END from coordinator, segment frames: 76
+[2025-12-05 15:14:07.991] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:08.208] RECV_FRAME 1680 from coordinator
+[2025-12-05 15:14:08.464] RECV_FRAME 1710 from coordinator
+[2025-12-05 15:14:08.715] RECV_FRAME 1740 from coordinator
+[2025-12-05 15:14:08.966] RECV_FRAME 1770 from coordinator
+[2025-12-05 15:14:09.220] RECV_FRAME 1800 from coordinator
+[2025-12-05 15:14:09.475] RECV_FRAME 1830 from coordinator
+[2025-12-05 15:14:09.727] RECV_FRAME 1860 from coordinator
+[2025-12-05 15:14:09.988] RECV_FRAME 1890 from coordinator
+[2025-12-05 15:14:10.265] RECV_FRAME 1920 from coordinator
+[2025-12-05 15:14:10.533] RECV_FRAME 1950 from coordinator
+[2025-12-05 15:14:10.806] RECV_FRAME 1980 from coordinator
+[2025-12-05 15:14:11.074] RECV_FRAME 2010 from coordinator
+[2025-12-05 15:14:11.330] RECV_FRAME 2040 from coordinator
+[2025-12-05 15:14:11.539] VIDEO_END from coordinator, segment frames: 413
+[2025-12-05 15:14:11.539] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:11.540] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:11.540] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:12.416] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:12.416] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:12.416] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:12.417] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:13.275] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:13.276] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:13.276] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:13.276] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:14.141] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:14.141] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:14.141] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:14.141] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:15.031] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:15.031] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:15.031] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:15.031] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:15.889] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:15.889] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:15.890] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:15.890] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:16.748] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:16.748] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:16.749] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:16.749] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:17.612] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:17.612] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:17.613] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:17.613] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:18.474] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:18.474] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:18.475] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:18.475] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:19.337] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:19.337] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:19.337] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:19.338] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:20.205] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:20.205] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:20.206] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:20.206] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:21.063] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:21.063] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:21.063] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:21.064] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:21.928] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:21.928] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:21.929] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:21.929] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:22.783] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:22.783] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:22.783] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:22.783] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:23.643] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:23.643] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:23.644] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:23.644] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:24.510] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:24.510] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:24.511] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:24.511] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:25.366] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:25.366] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:25.367] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:25.367] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:26.232] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:26.233] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:26.233] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:26.233] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:27.114] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:27.114] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:27.114] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:27.115] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:27.970] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:27.970] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:27.971] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:27.971] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:28.827] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:28.828] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:28.828] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:28.828] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:29.688] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:29.690] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:29.691] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:29.691] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:30.547] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:30.548] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:30.548] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:30.548] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:31.399] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:31.399] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:31.399] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:31.399] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:32.262] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:32.262] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:32.263] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:32.263] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:33.112] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:33.112] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:33.112] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:33.112] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:33.963] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:33.963] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:33.964] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:33.964] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:34.817] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:34.817] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:34.818] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:34.818] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:35.678] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:35.678] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:35.679] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:35.679] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:36.549] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:36.549] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:36.550] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:36.550] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:37.415] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:37.415] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:37.415] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:37.416] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:38.285] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:38.285] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:38.285] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:38.286] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:39.157] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:39.157] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:39.158] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:39.158] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:40.020] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:40.021] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:40.021] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:40.021] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:40.881] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:40.882] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:40.882] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:40.882] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:41.748] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:41.748] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:41.748] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:41.748] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:42.615] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:42.615] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:42.615] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:42.616] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:43.493] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:43.493] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:43.494] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:43.494] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:44.361] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:44.362] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:44.362] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:44.363] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:45.227] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:45.227] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:45.228] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:45.228] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:46.092] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:46.092] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:46.092] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:46.092] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:46.962] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:46.962] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:46.963] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:46.963] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:47.825] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:47.825] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:47.826] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:47.826] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:48.682] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:48.682] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:48.682] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:48.683] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:49.549] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:49.549] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:49.549] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:49.549] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:50.410] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:50.411] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:50.411] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:50.411] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:51.279] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:51.279] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:51.279] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:51.280] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:52.149] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:52.149] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:52.149] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:52.150] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:53.069] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:53.070] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:53.070] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:53.070] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:53.941] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:53.941] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:53.942] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:53.942] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:54.824] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:54.824] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:54.824] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:54.825] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:55.699] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:55.699] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:55.699] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:55.700] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:56.574] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:56.574] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:56.574] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:56.574] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:57.436] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:57.436] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:57.436] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:57.436] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:58.300] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:58.300] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:58.300] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:58.301] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:14:59.171] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:14:59.171] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:14:59.172] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:14:59.172] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:15:00.042] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:15:00.042] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:15:00.043] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:15:00.043] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:15:00.924] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:15:00.924] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:15:00.925] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:15:00.925] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:15:01.785] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:15:01.785] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:15:01.785] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:15:01.786] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:15:02.657] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:15:02.657] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:15:02.657] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:15:02.658] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:15:03.521] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:15:03.521] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:15:03.522] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:15:03.522] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:15:04.392] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:15:04.393] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:15:04.393] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:15:04.393] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:15:05.265] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:15:05.266] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:15:05.266] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:15:05.266] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:15:06.127] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:15:06.127] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:15:06.128] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:15:06.128] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:15:06.992] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:15:06.992] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:15:06.992] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:15:06.993] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:15:07.853] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:15:07.853] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:15:07.853] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:15:07.854] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:15:08.713] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:15:08.713] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:15:08.713] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:15:08.714] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:15:09.583] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:15:09.583] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:15:09.583] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:15:09.584] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:15:10.449] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:15:10.449] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:15:10.450] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:15:10.450] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:15:11.317] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:15:11.317] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:15:11.318] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:15:11.318] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:15:12.186] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:15:12.186] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:15:12.186] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:15:12.187] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:15:13.058] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:15:13.058] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:15:13.059] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:15:13.059] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:15:13.920] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:15:13.920] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:15:13.920] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:15:13.920] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:15:14.782] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:15:14.782] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:15:14.782] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:15:14.783] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:15:15.652] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:15:15.652] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:15:15.653] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:15:15.653] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:15:16.531] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:15:16.531] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:15:16.531] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:15:16.532] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:15:17.407] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:15:17.408] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:15:17.408] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:15:17.408] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:15:55.183] Output directory: videoOutput/peer_C_frames
+[2025-12-05 15:15:55.716] RECV_FRAME 0 from coordinator
+[2025-12-05 15:15:55.954] RECV_FRAME 30 from coordinator
+[2025-12-05 15:15:56.185] RECV_FRAME 60 from coordinator
+[2025-12-05 15:15:56.417] RECV_FRAME 90 from coordinator
+[2025-12-05 15:15:56.651] RECV_FRAME 120 from coordinator
+[2025-12-05 15:15:56.884] RECV_FRAME 150 from coordinator
+[2025-12-05 15:15:57.122] RECV_FRAME 180 from coordinator
+[2025-12-05 15:15:57.358] RECV_FRAME 210 from coordinator
+[2025-12-05 15:15:57.595] RECV_FRAME 240 from coordinator
+[2025-12-05 15:15:57.828] RECV_FRAME 270 from coordinator
+[2025-12-05 15:15:58.063] RECV_FRAME 300 from coordinator
+[2025-12-05 15:15:58.297] RECV_FRAME 330 from coordinator
+[2025-12-05 15:15:58.529] RECV_FRAME 360 from coordinator
+[2025-12-05 15:15:58.768] RECV_FRAME 390 from coordinator
+[2025-12-05 15:15:59.006] RECV_FRAME 420 from coordinator
+[2025-12-05 15:15:59.238] RECV_FRAME 450 from coordinator
+[2025-12-05 15:15:59.470] RECV_FRAME 480 from coordinator
+[2025-12-05 15:15:59.704] RECV_FRAME 510 from coordinator
+[2025-12-05 15:15:59.940] RECV_FRAME 540 from coordinator
+[2025-12-05 15:16:00.173] RECV_FRAME 570 from coordinator
+[2025-12-05 15:16:00.405] RECV_FRAME 600 from coordinator
+[2025-12-05 15:16:00.405] VIDEO_END from coordinator, segment frames: 599
+[2025-12-05 15:16:00.405] Missing frames in video #1: [241, 242]
+[2025-12-05 15:16:00.405] Requested 2 missing frames for video #1, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:16:00.405] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:01.341] RECV_FRAME 840 from coordinator
+[2025-12-05 15:16:01.402] VIDEO_END from coordinator, segment frames: 11
+[2025-12-05 15:16:01.402] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:01.478] RECV_FRAME 630 from coordinator
+[2025-12-05 15:16:01.713] RECV_FRAME 660 from coordinator
+[2025-12-05 15:16:01.945] RECV_FRAME 690 from coordinator
+[2025-12-05 15:16:02.183] RECV_FRAME 720 from coordinator
+[2025-12-05 15:16:02.425] RECV_FRAME 750 from coordinator
+[2025-12-05 15:16:02.662] RECV_FRAME 780 from coordinator
+[2025-12-05 15:16:02.904] RECV_FRAME 810 from coordinator
+[2025-12-05 15:16:03.376] RECV_FRAME 870 from coordinator
+[2025-12-05 15:16:03.615] RECV_FRAME 900 from coordinator
+[2025-12-05 15:16:03.855] RECV_FRAME 930 from coordinator
+[2025-12-05 15:16:04.091] RECV_FRAME 960 from coordinator
+[2025-12-05 15:16:04.331] RECV_FRAME 990 from coordinator
+[2025-12-05 15:16:04.567] RECV_FRAME 1020 from coordinator
+[2025-12-05 15:16:04.810] RECV_FRAME 1050 from coordinator
+[2025-12-05 15:16:05.064] RECV_FRAME 1080 from coordinator
+[2025-12-05 15:16:05.318] RECV_FRAME 1110 from coordinator
+[2025-12-05 15:16:05.572] RECV_FRAME 1140 from coordinator
+[2025-12-05 15:16:05.830] RECV_FRAME 1170 from coordinator
+[2025-12-05 15:16:06.085] RECV_FRAME 1200 from coordinator
+[2025-12-05 15:16:06.159] VIDEO_END from coordinator, segment frames: 587
+[2025-12-05 15:16:06.159] Missing frames in video #2: [0, 1, 230, 231]
+[2025-12-05 15:16:06.159] Requested 4 missing frames for video #2, response: {"status": "ok", "message": "Resending 4 frames"}
+[2025-12-05 15:16:06.159] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:07.228] VIDEO_END from coordinator, segment frames: 2
+[2025-12-05 15:16:07.228] Missing frames in video #2: [0, 1]
+[2025-12-05 15:16:07.229] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:16:07.229] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:07.505] RECV_FRAME 1230 from coordinator
+[2025-12-05 15:16:07.892] RECV_FRAME 1260 from coordinator
+[2025-12-05 15:16:08.052] VIDEO_END from coordinator, segment frames: 66
+[2025-12-05 15:16:08.052] Missing frames in video #2: [0, 1]
+[2025-12-05 15:16:08.052] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:16:08.052] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:08.141] RECV_FRAME 1350 from coordinator
+[2025-12-05 15:16:08.527] RECV_FRAME 1380 from coordinator
+[2025-12-05 15:16:08.844] VIDEO_END from coordinator, segment frames: 66
+[2025-12-05 15:16:08.844] Missing frames in video #2: [0, 1]
+[2025-12-05 15:16:08.845] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:16:08.845] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:09.161] RECV_FRAME 1500 from coordinator
+[2025-12-05 15:16:09.541] RECV_FRAME 1530 from coordinator
+[2025-12-05 15:16:09.663] VIDEO_END from coordinator, segment frames: 68
+[2025-12-05 15:16:09.664] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:09.757] RECV_FRAME 1620 from coordinator
+[2025-12-05 15:16:10.017] RECV_FRAME 1650 from coordinator
+[2025-12-05 15:16:10.274] RECV_FRAME 1680 from coordinator
+[2025-12-05 15:16:10.534] RECV_FRAME 1710 from coordinator
+[2025-12-05 15:16:10.787] RECV_FRAME 1740 from coordinator
+[2025-12-05 15:16:11.043] RECV_FRAME 1770 from coordinator
+[2025-12-05 15:16:11.302] RECV_FRAME 1800 from coordinator
+[2025-12-05 15:16:11.562] RECV_FRAME 1830 from coordinator
+[2025-12-05 15:16:11.828] RECV_FRAME 1860 from coordinator
+[2025-12-05 15:16:12.093] RECV_FRAME 1890 from coordinator
+[2025-12-05 15:16:12.365] RECV_FRAME 1920 from coordinator
+[2025-12-05 15:16:12.642] RECV_FRAME 1950 from coordinator
+[2025-12-05 15:16:12.914] RECV_FRAME 1980 from coordinator
+[2025-12-05 15:16:13.175] RECV_FRAME 2010 from coordinator
+[2025-12-05 15:16:13.427] RECV_FRAME 2040 from coordinator
+[2025-12-05 15:16:13.440] VIDEO_END from coordinator, segment frames: 433
+[2025-12-05 15:16:13.441] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 77, 144]
+[2025-12-05 15:16:13.441] Requested 13 missing frames for video #3, response: {"status": "ok", "message": "Resending 13 frames"}
+[2025-12-05 15:16:13.441] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:14.446] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:16:14.447] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 77, 144]
+[2025-12-05 15:16:14.447] Requested 13 missing frames for video #3, response: {"status": "ok", "message": "Resending 13 frames"}
+[2025-12-05 15:16:14.447] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:15.447] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:16:15.447] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 77, 144]
+[2025-12-05 15:16:15.447] Requested 13 missing frames for video #3, response: {"status": "ok", "message": "Resending 13 frames"}
+[2025-12-05 15:16:15.448] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:16.441] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:16:16.441] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 77, 144]
+[2025-12-05 15:16:16.441] Requested 13 missing frames for video #3, response: {"status": "ok", "message": "Resending 13 frames"}
+[2025-12-05 15:16:16.442] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:17.444] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:16:17.444] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 77, 144]
+[2025-12-05 15:16:17.445] Requested 13 missing frames for video #3, response: {"status": "ok", "message": "Resending 13 frames"}
+[2025-12-05 15:16:17.445] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:18.428] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:16:18.428] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 77, 144]
+[2025-12-05 15:16:18.429] Requested 13 missing frames for video #3, response: {"status": "ok", "message": "Resending 13 frames"}
+[2025-12-05 15:16:18.429] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:19.413] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:16:19.413] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 77, 144]
+[2025-12-05 15:16:19.413] Requested 13 missing frames for video #3, response: {"status": "ok", "message": "Resending 13 frames"}
+[2025-12-05 15:16:19.414] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:20.407] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:16:20.407] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 77, 144]
+[2025-12-05 15:16:20.407] Requested 13 missing frames for video #3, response: {"status": "ok", "message": "Resending 13 frames"}
+[2025-12-05 15:16:20.408] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:21.403] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:16:21.403] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 77, 144]
+[2025-12-05 15:16:21.403] Requested 13 missing frames for video #3, response: {"status": "ok", "message": "Resending 13 frames"}
+[2025-12-05 15:16:21.404] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:22.399] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:16:22.399] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 77, 144]
+[2025-12-05 15:16:22.402] Requested 13 missing frames for video #3, response: {"status": "ok", "message": "Resending 13 frames"}
+[2025-12-05 15:16:22.402] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:23.397] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:16:23.398] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 77, 144]
+[2025-12-05 15:16:23.398] Requested 13 missing frames for video #3, response: {"status": "ok", "message": "Resending 13 frames"}
+[2025-12-05 15:16:23.398] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:24.398] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:16:24.399] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 77, 144]
+[2025-12-05 15:16:24.399] Requested 13 missing frames for video #3, response: {"status": "ok", "message": "Resending 13 frames"}
+[2025-12-05 15:16:24.399] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:25.392] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:16:25.392] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 77, 144]
+[2025-12-05 15:16:25.393] Requested 13 missing frames for video #3, response: {"status": "ok", "message": "Resending 13 frames"}
+[2025-12-05 15:16:25.393] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:26.389] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:16:26.389] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 77, 144]
+[2025-12-05 15:16:26.389] Requested 13 missing frames for video #3, response: {"status": "ok", "message": "Resending 13 frames"}
+[2025-12-05 15:16:26.390] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:27.389] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:16:27.390] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 77, 144]
+[2025-12-05 15:16:27.390] Requested 13 missing frames for video #3, response: {"status": "ok", "message": "Resending 13 frames"}
+[2025-12-05 15:16:27.390] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:28.382] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:16:28.382] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 77, 144]
+[2025-12-05 15:16:28.383] Requested 13 missing frames for video #3, response: {"status": "ok", "message": "Resending 13 frames"}
+[2025-12-05 15:16:28.383] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:29.368] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:16:29.368] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 77, 144]
+[2025-12-05 15:16:29.368] Requested 13 missing frames for video #3, response: {"status": "ok", "message": "Resending 13 frames"}
+[2025-12-05 15:16:29.369] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:30.350] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:16:30.351] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 77, 144]
+[2025-12-05 15:16:30.351] Requested 13 missing frames for video #3, response: {"status": "ok", "message": "Resending 13 frames"}
+[2025-12-05 15:16:30.351] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:31.331] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:16:31.332] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 77, 144]
+[2025-12-05 15:16:31.332] Requested 13 missing frames for video #3, response: {"status": "ok", "message": "Resending 13 frames"}
+[2025-12-05 15:16:31.332] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:32.324] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:16:32.324] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 77, 144]
+[2025-12-05 15:16:32.325] Requested 13 missing frames for video #3, response: {"status": "ok", "message": "Resending 13 frames"}
+[2025-12-05 15:16:32.325] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:33.314] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:16:33.314] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 77, 144]
+[2025-12-05 15:16:33.315] Requested 13 missing frames for video #3, response: {"status": "ok", "message": "Resending 13 frames"}
+[2025-12-05 15:16:33.315] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:34.287] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:16:34.287] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 77, 144]
+[2025-12-05 15:16:34.288] Requested 13 missing frames for video #3, response: {"status": "ok", "message": "Resending 13 frames"}
+[2025-12-05 15:16:34.288] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:35.276] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:16:35.277] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 77, 144]
+[2025-12-05 15:16:35.277] Requested 13 missing frames for video #3, response: {"status": "ok", "message": "Resending 13 frames"}
+[2025-12-05 15:16:35.278] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:36.278] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:16:36.278] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 77, 144]
+[2025-12-05 15:16:36.278] Requested 13 missing frames for video #3, response: {"status": "ok", "message": "Resending 13 frames"}
+[2025-12-05 15:16:36.279] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:37.279] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:16:37.279] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 77, 144]
+[2025-12-05 15:16:37.279] Requested 13 missing frames for video #3, response: {"status": "ok", "message": "Resending 13 frames"}
+[2025-12-05 15:16:37.280] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:16:38.274] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:16:38.275] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 77, 144]
+[2025-12-05 15:16:38.275] Requested 13 missing frames for video #3, response: {"status": "ok", "message": "Resending 13 frames"}
+[2025-12-05 15:16:38.275] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:04.757] Output directory: videoOutput/peer_C_frames
+[2025-12-05 15:22:05.295] RECV_FRAME 0 from coordinator
+[2025-12-05 15:22:05.533] RECV_FRAME 30 from coordinator
+[2025-12-05 15:22:05.764] RECV_FRAME 60 from coordinator
+[2025-12-05 15:22:05.997] RECV_FRAME 90 from coordinator
+[2025-12-05 15:22:06.229] RECV_FRAME 120 from coordinator
+[2025-12-05 15:22:06.458] RECV_FRAME 150 from coordinator
+[2025-12-05 15:22:06.692] RECV_FRAME 180 from coordinator
+[2025-12-05 15:22:06.923] RECV_FRAME 210 from coordinator
+[2025-12-05 15:22:07.155] RECV_FRAME 240 from coordinator
+[2025-12-05 15:22:07.394] RECV_FRAME 270 from coordinator
+[2025-12-05 15:22:07.638] RECV_FRAME 300 from coordinator
+[2025-12-05 15:22:07.871] RECV_FRAME 330 from coordinator
+[2025-12-05 15:22:08.105] RECV_FRAME 360 from coordinator
+[2025-12-05 15:22:08.345] RECV_FRAME 390 from coordinator
+[2025-12-05 15:22:08.582] RECV_FRAME 420 from coordinator
+[2025-12-05 15:22:08.816] RECV_FRAME 450 from coordinator
+[2025-12-05 15:22:09.051] RECV_FRAME 480 from coordinator
+[2025-12-05 15:22:09.288] RECV_FRAME 510 from coordinator
+[2025-12-05 15:22:09.526] RECV_FRAME 540 from coordinator
+[2025-12-05 15:22:09.757] RECV_FRAME 570 from coordinator
+[2025-12-05 15:22:09.987] RECV_FRAME 600 from coordinator
+[2025-12-05 15:22:09.987] VIDEO_END from coordinator, segment frames: 599
+[2025-12-05 15:22:09.987] Missing frames in video #1: [127, 128]
+[2025-12-05 15:22:09.988] Requested 2 missing frames for video #1, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:22:09.988] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:10.982] VIDEO_END from coordinator, segment frames: 8
+[2025-12-05 15:22:10.983] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:11.107] RECV_FRAME 630 from coordinator
+[2025-12-05 15:22:11.345] RECV_FRAME 660 from coordinator
+[2025-12-05 15:22:11.578] RECV_FRAME 690 from coordinator
+[2025-12-05 15:22:11.814] RECV_FRAME 720 from coordinator
+[2025-12-05 15:22:12.055] RECV_FRAME 750 from coordinator
+[2025-12-05 15:22:12.295] RECV_FRAME 780 from coordinator
+[2025-12-05 15:22:12.539] RECV_FRAME 810 from coordinator
+[2025-12-05 15:22:12.781] RECV_FRAME 840 from coordinator
+[2025-12-05 15:22:13.032] RECV_FRAME 870 from coordinator
+[2025-12-05 15:22:13.292] RECV_FRAME 900 from coordinator
+[2025-12-05 15:22:13.546] RECV_FRAME 930 from coordinator
+[2025-12-05 15:22:13.801] RECV_FRAME 960 from coordinator
+[2025-12-05 15:22:14.066] RECV_FRAME 990 from coordinator
+[2025-12-05 15:22:14.326] RECV_FRAME 1020 from coordinator
+[2025-12-05 15:22:14.584] RECV_FRAME 1050 from coordinator
+[2025-12-05 15:22:14.821] RECV_FRAME 1080 from coordinator
+[2025-12-05 15:22:15.063] RECV_FRAME 1110 from coordinator
+[2025-12-05 15:22:15.302] RECV_FRAME 1140 from coordinator
+[2025-12-05 15:22:15.544] RECV_FRAME 1170 from coordinator
+[2025-12-05 15:22:15.788] RECV_FRAME 1200 from coordinator
+[2025-12-05 15:22:15.836] VIDEO_END from coordinator, segment frames: 590
+[2025-12-05 15:22:15.836] Missing frames in video #2: [0, 1, 119, 120]
+[2025-12-05 15:22:15.836] Requested 4 missing frames for video #2, response: {"status": "ok", "message": "Resending 4 frames"}
+[2025-12-05 15:22:15.837] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:16.936] VIDEO_END from coordinator, segment frames: 6
+[2025-12-05 15:22:16.937] Missing frames in video #2: [0, 1]
+[2025-12-05 15:22:16.937] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:22:16.937] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:17.082] RECV_FRAME 1230 from coordinator
+[2025-12-05 15:22:17.420] RECV_FRAME 1260 from coordinator
+[2025-12-05 15:22:17.726] VIDEO_END from coordinator, segment frames: 70
+[2025-12-05 15:22:17.726] Missing frames in video #2: [0, 1]
+[2025-12-05 15:22:17.726] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:22:17.726] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:18.007] RECV_FRAME 1380 from coordinator
+[2025-12-05 15:22:18.383] RECV_FRAME 1410 from coordinator
+[2025-12-05 15:22:18.556] VIDEO_END from coordinator, segment frames: 71
+[2025-12-05 15:22:18.556] Missing frames in video #2: [0, 1]
+[2025-12-05 15:22:18.557] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:22:18.557] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:18.577] RECV_FRAME 1500 from coordinator
+[2025-12-05 15:22:18.936] RECV_FRAME 1530 from coordinator
+[2025-12-05 15:22:19.296] RECV_FRAME 1560 from coordinator
+[2025-12-05 15:22:19.420] VIDEO_END from coordinator, segment frames: 75
+[2025-12-05 15:22:19.421] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:19.453] RECV_FRAME 1650 from coordinator
+[2025-12-05 15:22:19.703] RECV_FRAME 1680 from coordinator
+[2025-12-05 15:22:19.959] RECV_FRAME 1710 from coordinator
+[2025-12-05 15:22:20.211] RECV_FRAME 1740 from coordinator
+[2025-12-05 15:22:20.461] RECV_FRAME 1770 from coordinator
+[2025-12-05 15:22:20.716] RECV_FRAME 1800 from coordinator
+[2025-12-05 15:22:20.975] RECV_FRAME 1830 from coordinator
+[2025-12-05 15:22:21.232] RECV_FRAME 1860 from coordinator
+[2025-12-05 15:22:21.494] RECV_FRAME 1890 from coordinator
+[2025-12-05 15:22:21.761] RECV_FRAME 1920 from coordinator
+[2025-12-05 15:22:22.028] RECV_FRAME 1950 from coordinator
+[2025-12-05 15:22:22.295] RECV_FRAME 1980 from coordinator
+[2025-12-05 15:22:22.560] RECV_FRAME 2010 from coordinator
+[2025-12-05 15:22:22.823] RECV_FRAME 2040 from coordinator
+[2025-12-05 15:22:23.002] VIDEO_END from coordinator, segment frames: 416
+[2025-12-05 15:22:23.002] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:23.002] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:23.002] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:23.878] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:23.878] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:23.879] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:23.879] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:24.749] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:24.750] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:24.750] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:24.750] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:25.610] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:25.610] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:25.611] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:25.611] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:26.467] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:26.467] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:26.467] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:26.468] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:27.332] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:27.332] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:27.333] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:27.333] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:28.202] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:28.202] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:28.202] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:28.203] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:29.067] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:29.067] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:29.067] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:29.067] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:29.928] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:29.929] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:29.929] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:29.930] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:30.794] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:30.794] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:30.795] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:30.795] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:31.661] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:31.662] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:31.662] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:31.662] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:32.526] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:32.526] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:32.527] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:32.527] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:33.395] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:33.395] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:33.395] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:33.395] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:34.258] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:34.259] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:34.259] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:34.259] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:35.123] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:35.123] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:35.124] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:35.124] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:35.994] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:35.994] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:35.994] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:35.995] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:36.856] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:36.856] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:36.857] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:36.857] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:37.720] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:37.720] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:37.721] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:37.721] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:38.597] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:38.597] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:38.598] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:38.598] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:39.472] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:39.472] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:39.473] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:39.473] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:40.341] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:40.341] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:40.341] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:40.342] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:41.204] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:41.204] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:41.205] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:41.205] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:42.071] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:42.071] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:42.071] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:42.071] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:42.937] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:42.937] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:42.938] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:42.938] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:43.808] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:43.808] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:43.808] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:43.809] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:44.671] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:44.671] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:44.672] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:44.672] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:45.540] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:45.540] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:45.541] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:45.541] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:46.410] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:46.410] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:46.410] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:46.411] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:47.272] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:47.272] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:47.272] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:47.272] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:48.146] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:48.146] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:48.147] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:48.147] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:49.010] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:49.011] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:49.011] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:49.011] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:49.876] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:49.876] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:49.876] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:49.877] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:50.737] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:50.737] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:50.738] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:50.738] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:51.612] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:51.612] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:51.612] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:51.613] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:52.472] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:52.472] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:52.472] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:52.473] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:53.334] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:53.335] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:53.335] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:53.335] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:54.197] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:54.197] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:54.197] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:54.197] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:55.066] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:55.067] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:55.067] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:55.067] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:55.934] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:55.934] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:55.934] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:55.935] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:56.805] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:56.806] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:56.806] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:56.806] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:57.677] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:57.677] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:57.678] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:57.678] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:58.547] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:58.548] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:58.548] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:58.548] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:22:59.412] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:22:59.412] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:22:59.414] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:22:59.414] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:00.294] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:00.294] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:00.294] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:00.295] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:01.170] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:01.171] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:01.171] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:01.171] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:02.033] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:02.033] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:02.034] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:02.034] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:02.902] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:02.902] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:02.902] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:02.902] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:03.765] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:03.765] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:03.766] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:03.766] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:04.645] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:04.645] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:04.645] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:04.645] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:05.513] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:05.513] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:05.514] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:05.514] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:06.396] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:06.396] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:06.396] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:06.396] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:07.266] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:07.266] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:07.267] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:07.267] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:08.131] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:08.131] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:08.132] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:08.132] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:08.994] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:08.994] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:08.994] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:08.995] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:09.861] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:09.861] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:09.861] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:09.861] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:10.732] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:10.732] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:10.733] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:10.733] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:11.616] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:11.616] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:11.616] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:11.617] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:12.492] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:12.492] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:12.492] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:12.492] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:13.354] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:13.354] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:13.354] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:13.355] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:14.220] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:14.221] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:14.221] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:14.221] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:15.085] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:15.086] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:15.086] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:15.086] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:15.953] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:15.953] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:15.954] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:15.954] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:16.824] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:16.824] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:16.824] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:16.825] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:17.684] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:17.684] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:17.685] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:17.685] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:18.555] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:18.555] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:18.556] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:18.556] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:19.420] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:19.421] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:19.421] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:19.421] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:20.284] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:20.284] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:20.284] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:20.285] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:21.160] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:21.161] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:21.161] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:21.161] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:22.029] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:22.030] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:22.030] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:22.030] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:22.904] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:22.904] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:22.904] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:22.905] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:23.777] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:23.777] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:23.777] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:23.778] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:24.651] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:24.651] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:24.651] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:24.652] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:25.570] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:25.570] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:25.570] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:25.570] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:26.454] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:26.454] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:26.454] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:26.454] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:27.323] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:27.323] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:27.323] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:27.323] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:28.183] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:28.184] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:28.184] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:28.184] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:29.052] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:29.052] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:29.052] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:29.053] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:29.929] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:29.929] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:29.929] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:29.929] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:30.805] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:30.805] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:30.806] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:30.806] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:31.699] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:31.699] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:31.699] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:31.700] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:32.571] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:32.571] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:32.572] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:32.572] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:33.439] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:33.439] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:33.440] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:33.440] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:34.314] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:34.315] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:34.315] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:34.315] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:35.184] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:35.184] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:35.185] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:35.185] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:36.056] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:36.056] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:36.057] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:36.058] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:36.932] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:36.932] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:36.933] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:36.933] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:37.799] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:37.799] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:37.800] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:37.800] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:23:38.705] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:23:38.705] Missing frames in video #3: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[2025-12-05 15:23:38.705] Requested 10 missing frames for video #3, response: {"status": "ok", "message": "Resending 10 frames"}
+[2025-12-05 15:23:38.705] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:24:59.860] Output directory: videoOutput/peer_C_frames
+[2025-12-05 15:25:00.404] RECV_FRAME 0 from coordinator
+[2025-12-05 15:25:00.645] RECV_FRAME 30 from coordinator
+[2025-12-05 15:25:00.876] RECV_FRAME 60 from coordinator
+[2025-12-05 15:25:01.110] RECV_FRAME 90 from coordinator
+[2025-12-05 15:25:01.342] RECV_FRAME 120 from coordinator
+[2025-12-05 15:25:01.578] RECV_FRAME 150 from coordinator
+[2025-12-05 15:25:01.811] RECV_FRAME 180 from coordinator
+[2025-12-05 15:25:02.044] RECV_FRAME 210 from coordinator
+[2025-12-05 15:25:02.278] RECV_FRAME 240 from coordinator
+[2025-12-05 15:25:02.515] RECV_FRAME 270 from coordinator
+[2025-12-05 15:25:02.753] RECV_FRAME 300 from coordinator
+[2025-12-05 15:25:02.988] RECV_FRAME 330 from coordinator
+[2025-12-05 15:25:03.222] RECV_FRAME 360 from coordinator
+[2025-12-05 15:25:03.461] RECV_FRAME 390 from coordinator
+[2025-12-05 15:25:03.698] RECV_FRAME 420 from coordinator
+[2025-12-05 15:25:03.932] RECV_FRAME 450 from coordinator
+[2025-12-05 15:25:04.166] RECV_FRAME 480 from coordinator
+[2025-12-05 15:25:04.401] RECV_FRAME 510 from coordinator
+[2025-12-05 15:25:04.637] RECV_FRAME 540 from coordinator
+[2025-12-05 15:25:04.869] RECV_FRAME 570 from coordinator
+[2025-12-05 15:25:05.101] RECV_FRAME 600 from coordinator
+[2025-12-05 15:25:05.101] VIDEO_END from coordinator, segment frames: 599
+[2025-12-05 15:25:05.102] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:25:05.892] RECV_FRAME 630 from coordinator
+[2025-12-05 15:25:06.124] RECV_FRAME 660 from coordinator
+[2025-12-05 15:25:06.354] RECV_FRAME 690 from coordinator
+[2025-12-05 15:25:06.589] RECV_FRAME 720 from coordinator
+[2025-12-05 15:25:06.830] RECV_FRAME 750 from coordinator
+[2025-12-05 15:25:07.068] RECV_FRAME 780 from coordinator
+[2025-12-05 15:25:07.309] RECV_FRAME 810 from coordinator
+[2025-12-05 15:25:07.539] RECV_FRAME 840 from coordinator
+[2025-12-05 15:25:07.785] RECV_FRAME 870 from coordinator
+[2025-12-05 15:25:08.031] RECV_FRAME 900 from coordinator
+[2025-12-05 15:25:08.277] RECV_FRAME 930 from coordinator
+[2025-12-05 15:25:08.527] RECV_FRAME 960 from coordinator
+[2025-12-05 15:25:08.779] RECV_FRAME 990 from coordinator
+[2025-12-05 15:25:09.028] RECV_FRAME 1020 from coordinator
+[2025-12-05 15:25:09.278] RECV_FRAME 1050 from coordinator
+[2025-12-05 15:25:09.530] RECV_FRAME 1080 from coordinator
+[2025-12-05 15:25:09.778] RECV_FRAME 1110 from coordinator
+[2025-12-05 15:25:10.013] RECV_FRAME 1140 from coordinator
+[2025-12-05 15:25:10.251] RECV_FRAME 1170 from coordinator
+[2025-12-05 15:25:10.475] VIDEO_END from coordinator, segment frames: 598
+[2025-12-05 15:25:10.477] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:25:11.086] RECV_FRAME 1200 from coordinator
+[2025-12-05 15:25:11.328] RECV_FRAME 1230 from coordinator
+[2025-12-05 15:25:11.577] RECV_FRAME 1260 from coordinator
+[2025-12-05 15:25:11.821] RECV_FRAME 1290 from coordinator
+[2025-12-05 15:25:12.060] RECV_FRAME 1320 from coordinator
+[2025-12-05 15:25:12.298] RECV_FRAME 1350 from coordinator
+[2025-12-05 15:25:12.546] RECV_FRAME 1380 from coordinator
+[2025-12-05 15:25:12.791] RECV_FRAME 1410 from coordinator
+[2025-12-05 15:25:13.041] RECV_FRAME 1440 from coordinator
+[2025-12-05 15:25:13.295] RECV_FRAME 1470 from coordinator
+[2025-12-05 15:25:13.543] RECV_FRAME 1500 from coordinator
+[2025-12-05 15:25:13.791] RECV_FRAME 1530 from coordinator
+[2025-12-05 15:25:14.056] RECV_FRAME 1560 from coordinator
+[2025-12-05 15:25:14.314] RECV_FRAME 1590 from coordinator
+[2025-12-05 15:25:14.561] RECV_FRAME 1620 from coordinator
+[2025-12-05 15:25:14.811] RECV_FRAME 1650 from coordinator
+[2025-12-05 15:25:15.058] RECV_FRAME 1680 from coordinator
+[2025-12-05 15:25:49.558] Output directory: videoOutput/peer_C_frames
+[2025-12-05 15:25:50.090] RECV_FRAME 0 from coordinator
+[2025-12-05 15:25:50.338] RECV_FRAME 30 from coordinator
+[2025-12-05 15:25:50.570] RECV_FRAME 60 from coordinator
+[2025-12-05 15:25:50.802] RECV_FRAME 90 from coordinator
+[2025-12-05 15:25:51.034] RECV_FRAME 120 from coordinator
+[2025-12-05 15:25:51.271] RECV_FRAME 150 from coordinator
+[2025-12-05 15:25:51.508] RECV_FRAME 180 from coordinator
+[2025-12-05 15:25:51.744] RECV_FRAME 210 from coordinator
+[2025-12-05 15:25:51.985] RECV_FRAME 240 from coordinator
+[2025-12-05 15:25:52.238] RECV_FRAME 270 from coordinator
+[2025-12-05 15:25:52.477] RECV_FRAME 300 from coordinator
+[2025-12-05 15:25:52.713] RECV_FRAME 330 from coordinator
+[2025-12-05 15:25:52.953] RECV_FRAME 360 from coordinator
+[2025-12-05 15:25:53.194] RECV_FRAME 390 from coordinator
+[2025-12-05 15:25:53.433] RECV_FRAME 420 from coordinator
+[2025-12-05 15:25:53.669] RECV_FRAME 450 from coordinator
+[2025-12-05 15:25:53.904] RECV_FRAME 480 from coordinator
+[2025-12-05 15:25:54.139] RECV_FRAME 510 from coordinator
+[2025-12-05 15:25:54.377] RECV_FRAME 540 from coordinator
+[2025-12-05 15:25:54.610] RECV_FRAME 570 from coordinator
+[2025-12-05 15:25:54.841] RECV_FRAME 600 from coordinator
+[2025-12-05 15:25:54.842] VIDEO_END from coordinator, segment frames: 599
+[2025-12-05 15:25:54.842] Missing frames in video #1: [444, 445]
+[2025-12-05 15:25:54.842] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:25:55.669] RECV_FRAME 630 from coordinator
+[2025-12-05 15:25:55.902] RECV_FRAME 660 from coordinator
+[2025-12-05 15:25:56.134] RECV_FRAME 690 from coordinator
+[2025-12-05 15:25:56.375] RECV_FRAME 720 from coordinator
+[2025-12-05 15:25:56.617] RECV_FRAME 750 from coordinator
+[2025-12-05 15:25:56.855] RECV_FRAME 780 from coordinator
+[2025-12-05 15:25:57.096] RECV_FRAME 810 from coordinator
+[2025-12-05 15:25:57.329] RECV_FRAME 840 from coordinator
+[2025-12-05 15:25:57.569] RECV_FRAME 870 from coordinator
+[2025-12-05 15:25:57.803] RECV_FRAME 900 from coordinator
+[2025-12-05 15:25:58.040] RECV_FRAME 930 from coordinator
+[2025-12-05 15:25:58.276] RECV_FRAME 960 from coordinator
+[2025-12-05 15:25:58.516] RECV_FRAME 990 from coordinator
+[2025-12-05 15:25:58.765] RECV_FRAME 1020 from coordinator
+[2025-12-05 15:25:59.033] RECV_FRAME 1050 from coordinator
+[2025-12-05 15:25:59.281] RECV_FRAME 1080 from coordinator
+[2025-12-05 15:25:59.537] RECV_FRAME 1110 from coordinator
+[2025-12-05 15:25:59.785] RECV_FRAME 1140 from coordinator
+[2025-12-05 15:26:00.041] RECV_FRAME 1170 from coordinator
+[2025-12-05 15:26:00.279] VIDEO_END from coordinator, segment frames: 598
+[2025-12-05 15:26:00.280] Missing frames in video #2: [0, 1]
+[2025-12-05 15:26:00.282] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:26:00.997] RECV_FRAME 1200 from coordinator
+[2025-12-05 15:26:01.263] RECV_FRAME 1230 from coordinator
+[2025-12-05 15:26:01.513] RECV_FRAME 1260 from coordinator
+[2025-12-05 15:26:01.764] RECV_FRAME 1290 from coordinator
+[2025-12-05 15:26:02.008] RECV_FRAME 1320 from coordinator
+[2025-12-05 15:26:02.255] RECV_FRAME 1350 from coordinator
+[2025-12-05 15:26:02.496] RECV_FRAME 1380 from coordinator
+[2025-12-05 15:26:02.750] RECV_FRAME 1410 from coordinator
+[2025-12-05 15:26:02.999] RECV_FRAME 1440 from coordinator
+[2025-12-05 15:26:03.249] RECV_FRAME 1470 from coordinator
+[2025-12-05 15:26:03.499] RECV_FRAME 1500 from coordinator
+[2025-12-05 15:26:03.754] RECV_FRAME 1530 from coordinator
+[2025-12-05 15:26:04.003] RECV_FRAME 1560 from coordinator
+[2025-12-05 15:26:04.255] RECV_FRAME 1590 from coordinator
+[2025-12-05 15:26:04.506] RECV_FRAME 1620 from coordinator
+[2025-12-05 15:26:04.768] RECV_FRAME 1650 from coordinator
+[2025-12-05 15:26:05.035] RECV_FRAME 1680 from coordinator
+[2025-12-05 15:26:05.306] RECV_FRAME 1710 from coordinator
+[2025-12-05 15:26:05.556] RECV_FRAME 1740 from coordinator
+[2025-12-05 15:26:05.822] RECV_FRAME 1770 from coordinator
+[2025-12-05 15:26:06.087] RECV_FRAME 1800 from coordinator
+[2025-12-05 15:26:06.330] RECV_FRAME 1830 from coordinator
+[2025-12-05 15:26:06.415] VIDEO_END from coordinator, segment frames: 642
+[2025-12-05 15:26:06.415] Missing frames in video #3: [0, 1]
+[2025-12-05 15:26:06.415] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:27:54.672] Output directory: videoOutput/peer_C_frames
+[2025-12-05 15:27:55.206] RECV_FRAME 0 from coordinator
+[2025-12-05 15:27:55.443] RECV_FRAME 30 from coordinator
+[2025-12-05 15:27:55.673] RECV_FRAME 60 from coordinator
+[2025-12-05 15:27:55.907] RECV_FRAME 90 from coordinator
+[2025-12-05 15:27:56.141] RECV_FRAME 120 from coordinator
+[2025-12-05 15:27:56.396] RECV_FRAME 150 from coordinator
+[2025-12-05 15:27:56.631] RECV_FRAME 180 from coordinator
+[2025-12-05 15:27:56.866] RECV_FRAME 210 from coordinator
+[2025-12-05 15:27:57.097] RECV_FRAME 240 from coordinator
+[2025-12-05 15:27:57.334] RECV_FRAME 270 from coordinator
+[2025-12-05 15:27:57.571] RECV_FRAME 300 from coordinator
+[2025-12-05 15:27:57.806] RECV_FRAME 330 from coordinator
+[2025-12-05 15:27:58.046] RECV_FRAME 360 from coordinator
+[2025-12-05 15:27:58.283] RECV_FRAME 390 from coordinator
+[2025-12-05 15:27:58.518] RECV_FRAME 420 from coordinator
+[2025-12-05 15:27:58.752] RECV_FRAME 450 from coordinator
+[2025-12-05 15:27:58.986] RECV_FRAME 480 from coordinator
+[2025-12-05 15:27:59.223] RECV_FRAME 510 from coordinator
+[2025-12-05 15:27:59.462] RECV_FRAME 540 from coordinator
+[2025-12-05 15:27:59.694] RECV_FRAME 570 from coordinator
+[2025-12-05 15:27:59.925] RECV_FRAME 600 from coordinator
+[2025-12-05 15:27:59.925] VIDEO_END from coordinator, segment frames: 599
+[2025-12-05 15:27:59.926] Missing frames in video #1: [214, 215]
+[2025-12-05 15:27:59.926] Missing frames in video #1: [214, 215]
+[2025-12-05 15:27:59.926] Requested 2 missing frames for video #1, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:27:59.926] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:28:00.537] VIDEO_END from coordinator, segment frames: 2
+[2025-12-05 15:28:00.537] Missing frames in video #1: []
+[2025-12-05 15:28:00.538] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:29:25.839] Output directory: videoOutput/peer_C_frames
+[2025-12-05 15:29:26.371] RECV_FRAME 0 from coordinator
+[2025-12-05 15:29:26.609] RECV_FRAME 30 from coordinator
+[2025-12-05 15:29:26.838] RECV_FRAME 60 from coordinator
+[2025-12-05 15:29:27.070] RECV_FRAME 90 from coordinator
+[2025-12-05 15:29:27.296] RECV_FRAME 120 from coordinator
+[2025-12-05 15:29:27.527] RECV_FRAME 150 from coordinator
+[2025-12-05 15:29:27.762] RECV_FRAME 180 from coordinator
+[2025-12-05 15:29:27.993] RECV_FRAME 210 from coordinator
+[2025-12-05 15:29:28.226] RECV_FRAME 240 from coordinator
+[2025-12-05 15:29:28.464] RECV_FRAME 270 from coordinator
+[2025-12-05 15:29:28.702] RECV_FRAME 300 from coordinator
+[2025-12-05 15:29:28.935] RECV_FRAME 330 from coordinator
+[2025-12-05 15:29:29.170] RECV_FRAME 360 from coordinator
+[2025-12-05 15:29:29.409] RECV_FRAME 390 from coordinator
+[2025-12-05 15:29:29.645] RECV_FRAME 420 from coordinator
+[2025-12-05 15:29:29.877] RECV_FRAME 450 from coordinator
+[2025-12-05 15:29:30.110] RECV_FRAME 480 from coordinator
+[2025-12-05 15:29:30.343] RECV_FRAME 510 from coordinator
+[2025-12-05 15:29:30.580] RECV_FRAME 540 from coordinator
+[2025-12-05 15:29:30.811] RECV_FRAME 570 from coordinator
+[2025-12-05 15:29:31.042] RECV_FRAME 600 from coordinator
+[2025-12-05 15:29:31.042] VIDEO_END from coordinator, segment frames: 599
+[2025-12-05 15:29:31.042] Missing frames in video #1: [100, 101]
+[2025-12-05 15:29:31.042] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:12.739] Output directory: videoOutput/peer_C_frames
+[2025-12-05 15:30:13.270] RECV_FRAME 0 from coordinator
+[2025-12-05 15:30:13.508] RECV_FRAME 30 from coordinator
+[2025-12-05 15:30:13.737] RECV_FRAME 60 from coordinator
+[2025-12-05 15:30:13.967] RECV_FRAME 90 from coordinator
+[2025-12-05 15:30:14.199] RECV_FRAME 120 from coordinator
+[2025-12-05 15:30:14.429] RECV_FRAME 150 from coordinator
+[2025-12-05 15:30:14.661] RECV_FRAME 180 from coordinator
+[2025-12-05 15:30:14.893] RECV_FRAME 210 from coordinator
+[2025-12-05 15:30:15.125] RECV_FRAME 240 from coordinator
+[2025-12-05 15:30:15.362] RECV_FRAME 270 from coordinator
+[2025-12-05 15:30:15.598] RECV_FRAME 300 from coordinator
+[2025-12-05 15:30:15.833] RECV_FRAME 330 from coordinator
+[2025-12-05 15:30:16.071] RECV_FRAME 360 from coordinator
+[2025-12-05 15:30:16.310] RECV_FRAME 390 from coordinator
+[2025-12-05 15:30:16.546] RECV_FRAME 420 from coordinator
+[2025-12-05 15:30:16.777] RECV_FRAME 450 from coordinator
+[2025-12-05 15:30:17.010] RECV_FRAME 480 from coordinator
+[2025-12-05 15:30:17.245] RECV_FRAME 510 from coordinator
+[2025-12-05 15:30:17.484] RECV_FRAME 540 from coordinator
+[2025-12-05 15:30:17.715] RECV_FRAME 570 from coordinator
+[2025-12-05 15:30:17.946] RECV_FRAME 600 from coordinator
+[2025-12-05 15:30:17.946] VIDEO_END from coordinator, segment frames: 599
+[2025-12-05 15:30:17.946] Missing frames in video #1: [141, 142]
+[2025-12-05 15:30:17.946] Missing frames in video #1: [141, 142]
+[2025-12-05 15:30:17.946] Requested 2 missing frames for video #1, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:30:17.946] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:18.910] VIDEO_END from coordinator, segment frames: 7
+[2025-12-05 15:30:18.910] Missing frames in video #1: []
+[2025-12-05 15:30:18.910] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:19.050] RECV_FRAME 630 from coordinator
+[2025-12-05 15:30:19.286] RECV_FRAME 660 from coordinator
+[2025-12-05 15:30:19.521] RECV_FRAME 690 from coordinator
+[2025-12-05 15:30:19.759] RECV_FRAME 720 from coordinator
+[2025-12-05 15:30:20.003] RECV_FRAME 750 from coordinator
+[2025-12-05 15:30:20.241] RECV_FRAME 780 from coordinator
+[2025-12-05 15:30:20.480] RECV_FRAME 810 from coordinator
+[2025-12-05 15:30:20.715] RECV_FRAME 840 from coordinator
+[2025-12-05 15:30:20.955] RECV_FRAME 870 from coordinator
+[2025-12-05 15:30:21.193] RECV_FRAME 900 from coordinator
+[2025-12-05 15:30:21.433] RECV_FRAME 930 from coordinator
+[2025-12-05 15:30:21.673] RECV_FRAME 960 from coordinator
+[2025-12-05 15:30:21.925] RECV_FRAME 990 from coordinator
+[2025-12-05 15:30:22.181] RECV_FRAME 1020 from coordinator
+[2025-12-05 15:30:22.433] RECV_FRAME 1050 from coordinator
+[2025-12-05 15:30:22.686] RECV_FRAME 1080 from coordinator
+[2025-12-05 15:30:22.938] RECV_FRAME 1110 from coordinator
+[2025-12-05 15:30:23.191] RECV_FRAME 1140 from coordinator
+[2025-12-05 15:30:23.445] RECV_FRAME 1170 from coordinator
+[2025-12-05 15:30:23.689] RECV_FRAME 1200 from coordinator
+[2025-12-05 15:30:23.729] VIDEO_END from coordinator, segment frames: 591
+[2025-12-05 15:30:23.729] Missing frames in video #2: [0, 1, 134, 135]
+[2025-12-05 15:30:23.729] Missing frames in video #2: [0, 1, 134, 135]
+[2025-12-05 15:30:23.729] Requested 4 missing frames for video #2, response: {"status": "ok", "message": "Resending 4 frames"}
+[2025-12-05 15:30:23.729] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:24.433] VIDEO_END from coordinator, segment frames: 2
+[2025-12-05 15:30:24.433] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:24.433] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:24.433] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:30:24.433] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:25.028] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:30:25.028] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:25.029] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:25.029] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:30:25.029] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:25.621] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:30:25.621] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:25.622] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:25.622] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:30:25.622] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:26.221] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:30:26.221] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:26.221] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:26.221] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:30:26.222] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:26.818] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:30:26.818] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:26.819] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:26.819] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:30:26.819] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:27.415] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:30:27.415] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:27.415] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:27.415] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:30:27.416] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:28.008] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:30:28.008] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:28.008] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:28.008] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:30:28.009] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:28.606] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:30:28.606] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:28.606] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:28.606] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:30:28.607] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:29.200] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:30:29.200] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:29.200] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:29.201] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:30:29.201] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:29.801] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:30:29.801] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:29.801] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:29.802] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:30:29.802] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:30.394] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:30:30.395] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:30.395] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:30.395] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:30:30.396] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:30.991] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:30:30.991] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:30.991] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:30.992] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:30:30.992] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:31.587] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:30:31.587] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:31.587] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:31.588] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:30:31.588] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:32.191] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:30:32.191] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:32.191] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:32.192] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:30:32.192] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:32.789] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:30:32.789] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:32.790] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:32.790] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:30:32.790] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:33.390] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:30:33.391] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:33.391] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:33.392] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:30:33.392] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:33.987] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:30:33.987] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:33.987] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:33.987] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:30:33.988] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:34.587] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:30:34.587] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:34.588] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:34.588] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:30:34.588] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:35.183] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:30:35.183] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:35.183] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:35.184] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:30:35.184] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:35.821] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:30:35.822] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:35.822] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:35.822] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:30:35.822] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:36.421] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:30:36.421] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:36.422] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:36.422] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:30:36.422] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:37.017] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:30:37.017] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:37.018] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:37.018] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:30:37.018] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:37.620] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:30:37.620] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:37.621] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:37.621] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:30:37.621] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:38.216] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:30:38.216] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:38.216] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:38.217] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:30:38.217] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:38.818] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:30:38.818] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:38.819] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:38.819] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:30:38.819] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:30:39.417] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:30:39.417] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:39.417] Missing frames in video #2: [0, 1]
+[2025-12-05 15:30:39.417] Requested 2 missing frames for video #2, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:30:39.417] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:31:58.122] Output directory: videoOutput/peer_C_frames
+[2025-12-05 15:31:58.661] RECV_FRAME 0 from coordinator
+[2025-12-05 15:31:58.895] RECV_FRAME 30 from coordinator
+[2025-12-05 15:31:59.123] RECV_FRAME 60 from coordinator
+[2025-12-05 15:31:59.352] RECV_FRAME 90 from coordinator
+[2025-12-05 15:31:59.583] RECV_FRAME 120 from coordinator
+[2025-12-05 15:31:59.810] RECV_FRAME 150 from coordinator
+[2025-12-05 15:32:00.040] RECV_FRAME 180 from coordinator
+[2025-12-05 15:32:00.277] RECV_FRAME 210 from coordinator
+[2025-12-05 15:32:00.508] RECV_FRAME 240 from coordinator
+[2025-12-05 15:32:00.743] RECV_FRAME 270 from coordinator
+[2025-12-05 15:32:00.977] RECV_FRAME 300 from coordinator
+[2025-12-05 15:32:01.209] RECV_FRAME 330 from coordinator
+[2025-12-05 15:32:01.441] RECV_FRAME 360 from coordinator
+[2025-12-05 15:32:01.677] RECV_FRAME 390 from coordinator
+[2025-12-05 15:32:01.911] RECV_FRAME 420 from coordinator
+[2025-12-05 15:32:02.147] RECV_FRAME 450 from coordinator
+[2025-12-05 15:32:02.378] RECV_FRAME 480 from coordinator
+[2025-12-05 15:32:02.612] RECV_FRAME 510 from coordinator
+[2025-12-05 15:32:02.847] RECV_FRAME 540 from coordinator
+[2025-12-05 15:32:03.078] RECV_FRAME 570 from coordinator
+[2025-12-05 15:32:03.308] RECV_FRAME 600 from coordinator
+[2025-12-05 15:32:03.308] VIDEO_END from coordinator, segment frames: 599
+[2025-12-05 15:32:03.308] Missing frames in video #1: [139, 140]
+[2025-12-05 15:32:03.308] Missing frames in video #1: [139, 140]
+[2025-12-05 15:32:03.308] Requested 2 missing frames for video #1, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:32:03.309] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:32:04.227] VIDEO_END from coordinator, segment frames: 2
+[2025-12-05 15:32:04.227] Missing frames in video #1: []
+[2025-12-05 15:32:04.227] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:32:04.444] RECV_FRAME 630 from coordinator
+[2025-12-05 15:32:04.678] RECV_FRAME 660 from coordinator
+[2025-12-05 15:32:04.913] RECV_FRAME 690 from coordinator
+[2025-12-05 15:32:05.149] RECV_FRAME 720 from coordinator
+[2025-12-05 15:32:05.388] RECV_FRAME 750 from coordinator
+[2025-12-05 15:32:05.625] RECV_FRAME 780 from coordinator
+[2025-12-05 15:32:05.864] RECV_FRAME 810 from coordinator
+[2025-12-05 15:32:06.098] RECV_FRAME 840 from coordinator
+[2025-12-05 15:32:06.338] RECV_FRAME 870 from coordinator
+[2025-12-05 15:32:06.573] RECV_FRAME 900 from coordinator
+[2025-12-05 15:32:06.820] RECV_FRAME 930 from coordinator
+[2025-12-05 15:32:07.066] RECV_FRAME 960 from coordinator
+[2025-12-05 15:32:07.314] RECV_FRAME 990 from coordinator
+[2025-12-05 15:32:07.558] RECV_FRAME 1020 from coordinator
+[2025-12-05 15:32:07.811] RECV_FRAME 1050 from coordinator
+[2025-12-05 15:32:08.061] RECV_FRAME 1080 from coordinator
+[2025-12-05 15:32:08.312] RECV_FRAME 1110 from coordinator
+[2025-12-05 15:32:08.563] RECV_FRAME 1140 from coordinator
+[2025-12-05 15:32:08.814] RECV_FRAME 1170 from coordinator
+[2025-12-05 15:32:09.056] RECV_FRAME 1200 from coordinator
+[2025-12-05 15:32:09.056] VIDEO_END from coordinator, segment frames: 595
+[2025-12-05 15:32:09.056] Missing frames in video #2: [0, 1, 2, 137, 138]
+[2025-12-05 15:32:09.056] Missing frames in video #2: [0, 1, 2, 137, 138]
+[2025-12-05 15:32:09.057] Requested 5 missing frames for video #2, response: {"status": "ok", "message": "Resending 5 frames"}
+[2025-12-05 15:32:09.057] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:32:09.771] VIDEO_END from coordinator, segment frames: 2
+[2025-12-05 15:32:09.771] Missing frames in video #2: [0, 1, 2]
+[2025-12-05 15:32:09.771] Missing frames in video #2: [0, 1, 2]
+[2025-12-05 15:32:09.771] Requested 3 missing frames for video #2, response: {"status": "ok", "message": "Resending 3 frames"}
+[2025-12-05 15:32:09.772] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:32:10.397] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:32:10.397] Missing frames in video #2: [0, 1, 2]
+[2025-12-05 15:32:10.397] Missing frames in video #2: [0, 1, 2]
+[2025-12-05 15:32:10.397] Requested 3 missing frames for video #2, response: {"status": "ok", "message": "Resending 3 frames"}
+[2025-12-05 15:32:10.398] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:32:11.028] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:32:11.029] Missing frames in video #2: [0, 1, 2]
+[2025-12-05 15:32:11.029] Missing frames in video #2: [0, 1, 2]
+[2025-12-05 15:32:11.029] Requested 3 missing frames for video #2, response: {"status": "ok", "message": "Resending 3 frames"}
+[2025-12-05 15:32:11.029] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:32:11.661] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:32:11.661] Missing frames in video #2: [0, 1, 2]
+[2025-12-05 15:32:11.661] Missing frames in video #2: [0, 1, 2]
+[2025-12-05 15:32:11.662] Requested 3 missing frames for video #2, response: {"status": "ok", "message": "Resending 3 frames"}
+[2025-12-05 15:32:11.662] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:32:12.295] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:32:12.295] Missing frames in video #2: [0, 1, 2]
+[2025-12-05 15:32:12.295] Missing frames in video #2: [0, 1, 2]
+[2025-12-05 15:32:12.296] Requested 3 missing frames for video #2, response: {"status": "ok", "message": "Resending 3 frames"}
+[2025-12-05 15:32:12.296] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:32:12.929] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:32:12.929] Missing frames in video #2: [0, 1, 2]
+[2025-12-05 15:32:12.929] Missing frames in video #2: [0, 1, 2]
+[2025-12-05 15:32:12.930] Requested 3 missing frames for video #2, response: {"status": "ok", "message": "Resending 3 frames"}
+[2025-12-05 15:32:12.930] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:32:13.554] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:32:13.554] Missing frames in video #2: [0, 1, 2]
+[2025-12-05 15:32:13.554] Missing frames in video #2: [0, 1, 2]
+[2025-12-05 15:32:13.555] Requested 3 missing frames for video #2, response: {"status": "ok", "message": "Resending 3 frames"}
+[2025-12-05 15:32:13.555] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:32:14.183] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:32:14.183] Missing frames in video #2: [0, 1, 2]
+[2025-12-05 15:32:14.183] Missing frames in video #2: [0, 1, 2]
+[2025-12-05 15:32:14.184] Requested 3 missing frames for video #2, response: {"status": "ok", "message": "Resending 3 frames"}
+[2025-12-05 15:32:14.184] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:32:14.815] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:32:14.816] Missing frames in video #2: [0, 1, 2]
+[2025-12-05 15:32:14.816] Missing frames in video #2: [0, 1, 2]
+[2025-12-05 15:32:14.816] Requested 3 missing frames for video #2, response: {"status": "ok", "message": "Resending 3 frames"}
+[2025-12-05 15:32:14.816] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:32:15.452] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:32:15.452] Missing frames in video #2: [0, 1, 2]
+[2025-12-05 15:32:15.452] Missing frames in video #2: [0, 1, 2]
+[2025-12-05 15:32:15.453] Requested 3 missing frames for video #2, response: {"status": "ok", "message": "Resending 3 frames"}
+[2025-12-05 15:32:15.453] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:32:16.087] VIDEO_END from coordinator, segment frames: 0
+[2025-12-05 15:32:16.088] Missing frames in video #2: [0, 1, 2]
+[2025-12-05 15:32:16.088] Missing frames in video #2: [0, 1, 2]
+[2025-12-05 15:32:16.088] Requested 3 missing frames for video #2, response: {"status": "ok", "message": "Resending 3 frames"}
+[2025-12-05 15:32:16.089] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:32:44.904] Output directory: videoOutput/peer_C_frames
+[2025-12-05 15:32:45.457] RECV_FRAME 0 from coordinator
+[2025-12-05 15:32:45.694] RECV_FRAME 30 from coordinator
+[2025-12-05 15:32:45.921] RECV_FRAME 60 from coordinator
+[2025-12-05 15:32:46.152] RECV_FRAME 90 from coordinator
+[2025-12-05 15:32:46.382] RECV_FRAME 120 from coordinator
+[2025-12-05 15:32:46.614] RECV_FRAME 150 from coordinator
+[2025-12-05 15:32:46.850] RECV_FRAME 180 from coordinator
+[2025-12-05 15:32:47.083] RECV_FRAME 210 from coordinator
+[2025-12-05 15:32:47.318] RECV_FRAME 240 from coordinator
+[2025-12-05 15:32:47.555] RECV_FRAME 270 from coordinator
+[2025-12-05 15:32:47.793] RECV_FRAME 300 from coordinator
+[2025-12-05 15:32:48.034] RECV_FRAME 330 from coordinator
+[2025-12-05 15:32:48.276] RECV_FRAME 360 from coordinator
+[2025-12-05 15:32:48.514] RECV_FRAME 390 from coordinator
+[2025-12-05 15:32:48.752] RECV_FRAME 420 from coordinator
+[2025-12-05 15:32:48.994] RECV_FRAME 450 from coordinator
+[2025-12-05 15:32:49.221] RECV_FRAME 480 from coordinator
+[2025-12-05 15:32:49.453] RECV_FRAME 510 from coordinator
+[2025-12-05 15:32:49.689] RECV_FRAME 540 from coordinator
+[2025-12-05 15:32:49.920] RECV_FRAME 570 from coordinator
+[2025-12-05 15:32:50.149] RECV_FRAME 600 from coordinator
+[2025-12-05 15:32:50.149] VIDEO_END from coordinator, segment frames: 599
+[2025-12-05 15:32:50.149] Missing frames in video #1: [484, 485]
+[2025-12-05 15:32:50.149] Missing frames in video #1: [484, 485]
+[2025-12-05 15:32:50.149] Requested 2 missing frames for video #1, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:32:50.150] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:32:51.048] VIDEO_END from coordinator, segment frames: 2
+[2025-12-05 15:32:51.048] Missing frames in video #1: []
+[2025-12-05 15:32:51.048] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:32:51.348] RECV_FRAME 630 from coordinator
+[2025-12-05 15:32:51.581] RECV_FRAME 660 from coordinator
+[2025-12-05 15:32:51.817] RECV_FRAME 690 from coordinator
+[2025-12-05 15:32:52.056] RECV_FRAME 720 from coordinator
+[2025-12-05 15:32:52.298] RECV_FRAME 750 from coordinator
+[2025-12-05 15:32:52.536] RECV_FRAME 780 from coordinator
+[2025-12-05 15:32:52.775] RECV_FRAME 810 from coordinator
+[2025-12-05 15:32:53.006] RECV_FRAME 840 from coordinator
+[2025-12-05 15:32:53.245] RECV_FRAME 870 from coordinator
+[2025-12-05 15:32:53.480] RECV_FRAME 900 from coordinator
+[2025-12-05 15:32:53.719] RECV_FRAME 930 from coordinator
+[2025-12-05 15:32:53.966] RECV_FRAME 960 from coordinator
+[2025-12-05 15:32:54.210] RECV_FRAME 990 from coordinator
+[2025-12-05 15:32:54.459] RECV_FRAME 1020 from coordinator
+[2025-12-05 15:32:54.713] RECV_FRAME 1050 from coordinator
+[2025-12-05 15:32:54.969] RECV_FRAME 1080 from coordinator
+[2025-12-05 15:32:55.222] RECV_FRAME 1110 from coordinator
+[2025-12-05 15:32:55.474] RECV_FRAME 1140 from coordinator
+[2025-12-05 15:32:55.725] RECV_FRAME 1170 from coordinator
+[2025-12-05 15:32:55.976] RECV_FRAME 1200 from coordinator
+[2025-12-05 15:32:55.976] VIDEO_END from coordinator, segment frames: 600
+[2025-12-05 15:32:55.976] Missing frames in video #2: []
+[2025-12-05 15:32:55.976] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:33:59.607] Output directory: videoOutput/peer_C_frames
+[2025-12-05 15:34:00.147] RECV_FRAME 0 from coordinator
+[2025-12-05 15:34:00.378] RECV_FRAME 30 from coordinator
+[2025-12-05 15:34:00.604] RECV_FRAME 60 from coordinator
+[2025-12-05 15:34:00.833] RECV_FRAME 90 from coordinator
+[2025-12-05 15:34:01.061] RECV_FRAME 120 from coordinator
+[2025-12-05 15:34:01.293] RECV_FRAME 150 from coordinator
+[2025-12-05 15:34:01.526] RECV_FRAME 180 from coordinator
+[2025-12-05 15:34:01.759] RECV_FRAME 210 from coordinator
+[2025-12-05 15:34:01.993] RECV_FRAME 240 from coordinator
+[2025-12-05 15:34:02.225] RECV_FRAME 270 from coordinator
+[2025-12-05 15:34:02.461] RECV_FRAME 300 from coordinator
+[2025-12-05 15:34:02.692] RECV_FRAME 330 from coordinator
+[2025-12-05 15:34:02.924] RECV_FRAME 360 from coordinator
+[2025-12-05 15:34:03.160] RECV_FRAME 390 from coordinator
+[2025-12-05 15:34:03.397] RECV_FRAME 420 from coordinator
+[2025-12-05 15:34:03.627] RECV_FRAME 450 from coordinator
+[2025-12-05 15:34:03.861] RECV_FRAME 480 from coordinator
+[2025-12-05 15:34:04.092] RECV_FRAME 510 from coordinator
+[2025-12-05 15:34:04.326] RECV_FRAME 540 from coordinator
+[2025-12-05 15:34:04.556] RECV_FRAME 570 from coordinator
+[2025-12-05 15:34:04.784] RECV_FRAME 600 from coordinator
+[2025-12-05 15:34:04.784] VIDEO_END from coordinator, segment frames: 599
+[2025-12-05 15:34:04.784] Missing frames in video #1: [251, 252]
+[2025-12-05 15:34:04.784] Missing frames in video #1: [251, 252]
+[2025-12-05 15:34:04.784] Requested 2 missing frames for video #1, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:34:04.785] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:34:05.653] RECV_FRAME 600 from coordinator
+[2025-12-05 15:34:05.742] VIDEO_END from coordinator, segment frames: 13
+[2025-12-05 15:34:05.742] Missing frames in video #1: []
+[2025-12-05 15:34:05.743] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:34:05.800] RECV_FRAME 630 from coordinator
+[2025-12-05 15:34:06.036] RECV_FRAME 660 from coordinator
+[2025-12-05 15:34:06.269] RECV_FRAME 690 from coordinator
+[2025-12-05 15:34:06.504] RECV_FRAME 720 from coordinator
+[2025-12-05 15:34:06.744] RECV_FRAME 750 from coordinator
+[2025-12-05 15:34:06.981] RECV_FRAME 780 from coordinator
+[2025-12-05 15:34:07.221] RECV_FRAME 810 from coordinator
+[2025-12-05 15:34:07.455] RECV_FRAME 840 from coordinator
+[2025-12-05 15:34:07.691] RECV_FRAME 870 from coordinator
+[2025-12-05 15:34:07.929] RECV_FRAME 900 from coordinator
+[2025-12-05 15:34:08.167] RECV_FRAME 930 from coordinator
+[2025-12-05 15:34:08.413] RECV_FRAME 960 from coordinator
+[2025-12-05 15:34:08.659] RECV_FRAME 990 from coordinator
+[2025-12-05 15:34:08.910] RECV_FRAME 1020 from coordinator
+[2025-12-05 15:34:09.164] RECV_FRAME 1050 from coordinator
+[2025-12-05 15:34:09.417] RECV_FRAME 1080 from coordinator
+[2025-12-05 15:34:09.669] RECV_FRAME 1110 from coordinator
+[2025-12-05 15:34:09.921] RECV_FRAME 1140 from coordinator
+[2025-12-05 15:34:10.176] RECV_FRAME 1170 from coordinator
+[2025-12-05 15:34:10.431] RECV_FRAME 1200 from coordinator
+[2025-12-05 15:34:10.514] VIDEO_END from coordinator, segment frames: 589
+[2025-12-05 15:34:10.514] Missing frames in video #2: []
+[2025-12-05 15:34:10.514] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:34:11.341] RECV_FRAME 1230 from coordinator
+[2025-12-05 15:34:11.591] RECV_FRAME 1260 from coordinator
+[2025-12-05 15:34:11.856] RECV_FRAME 1290 from coordinator
+[2025-12-05 15:34:12.112] RECV_FRAME 1320 from coordinator
+[2025-12-05 15:34:12.360] RECV_FRAME 1350 from coordinator
+[2025-12-05 15:34:12.609] RECV_FRAME 1380 from coordinator
+[2025-12-05 15:34:12.855] RECV_FRAME 1410 from coordinator
+[2025-12-05 15:34:13.103] RECV_FRAME 1440 from coordinator
+[2025-12-05 15:34:13.355] RECV_FRAME 1470 from coordinator
+[2025-12-05 15:34:13.608] RECV_FRAME 1500 from coordinator
+[2025-12-05 15:34:13.856] RECV_FRAME 1530 from coordinator
+[2025-12-05 15:34:14.106] RECV_FRAME 1560 from coordinator
+[2025-12-05 15:34:14.358] RECV_FRAME 1590 from coordinator
+[2025-12-05 15:34:14.611] RECV_FRAME 1620 from coordinator
+[2025-12-05 15:34:14.866] RECV_FRAME 1650 from coordinator
+[2025-12-05 15:34:15.128] RECV_FRAME 1680 from coordinator
+[2025-12-05 15:34:15.377] RECV_FRAME 1710 from coordinator
+[2025-12-05 15:34:15.628] RECV_FRAME 1740 from coordinator
+[2025-12-05 15:34:15.895] RECV_FRAME 1770 from coordinator
+[2025-12-05 15:34:16.171] RECV_FRAME 1800 from coordinator
+[2025-12-05 15:34:16.421] RECV_FRAME 1830 from coordinator
+[2025-12-05 15:34:16.537] VIDEO_END from coordinator, segment frames: 644
+[2025-12-05 15:34:16.537] Missing frames in video #3: []
+[2025-12-05 15:34:16.537] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:48:00.272] Output directory: videoOutput/peer_C_frames
+[2025-12-05 15:48:00.816] RECV_FRAME 0 from coordinator
+[2025-12-05 15:48:01.049] RECV_FRAME 30 from coordinator
+[2025-12-05 15:48:01.275] RECV_FRAME 60 from coordinator
+[2025-12-05 15:48:01.505] RECV_FRAME 90 from coordinator
+[2025-12-05 15:48:01.735] RECV_FRAME 120 from coordinator
+[2025-12-05 15:48:01.966] RECV_FRAME 150 from coordinator
+[2025-12-05 15:48:02.195] RECV_FRAME 180 from coordinator
+[2025-12-05 15:48:02.427] RECV_FRAME 210 from coordinator
+[2025-12-05 15:48:02.658] RECV_FRAME 240 from coordinator
+[2025-12-05 15:48:02.893] RECV_FRAME 270 from coordinator
+[2025-12-05 15:48:03.127] RECV_FRAME 300 from coordinator
+[2025-12-05 15:48:03.363] RECV_FRAME 330 from coordinator
+[2025-12-05 15:48:03.595] RECV_FRAME 360 from coordinator
+[2025-12-05 15:48:03.831] RECV_FRAME 390 from coordinator
+[2025-12-05 15:48:04.064] RECV_FRAME 420 from coordinator
+[2025-12-05 15:48:04.295] RECV_FRAME 450 from coordinator
+[2025-12-05 15:48:04.535] RECV_FRAME 480 from coordinator
+[2025-12-05 15:48:04.769] RECV_FRAME 510 from coordinator
+[2025-12-05 15:48:05.004] RECV_FRAME 540 from coordinator
+[2025-12-05 15:48:05.232] RECV_FRAME 570 from coordinator
+[2025-12-05 15:48:05.460] RECV_FRAME 600 from coordinator
+[2025-12-05 15:48:05.460] VIDEO_END from coordinator, segment frames: 599
+[2025-12-05 15:48:05.460] Missing frames in video #1: [152, 153]
+[2025-12-05 15:48:05.460] Missing frames in video #1: [152, 153]
+[2025-12-05 15:48:05.460] Requested 2 missing frames for video #1, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:48:05.460] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:48:06.390] RECV_FRAME 600 from coordinator
+[2025-12-05 15:48:06.449] VIDEO_END from coordinator, segment frames: 9
+[2025-12-05 15:48:06.449] Missing frames in video #1: []
+[2025-12-05 15:48:06.449] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:48:06.571] RECV_FRAME 630 from coordinator
+[2025-12-05 15:48:06.804] RECV_FRAME 660 from coordinator
+[2025-12-05 15:48:07.035] RECV_FRAME 690 from coordinator
+[2025-12-05 15:48:07.270] RECV_FRAME 720 from coordinator
+[2025-12-05 15:48:07.511] RECV_FRAME 750 from coordinator
+[2025-12-05 15:48:07.747] RECV_FRAME 780 from coordinator
+[2025-12-05 15:48:07.987] RECV_FRAME 810 from coordinator
+[2025-12-05 15:48:08.217] RECV_FRAME 840 from coordinator
+[2025-12-05 15:48:08.455] RECV_FRAME 870 from coordinator
+[2025-12-05 15:48:08.696] RECV_FRAME 900 from coordinator
+[2025-12-05 15:48:08.948] RECV_FRAME 930 from coordinator
+[2025-12-05 15:48:09.194] RECV_FRAME 960 from coordinator
+[2025-12-05 15:48:09.446] RECV_FRAME 990 from coordinator
+[2025-12-05 15:48:09.694] RECV_FRAME 1020 from coordinator
+[2025-12-05 15:48:09.950] RECV_FRAME 1050 from coordinator
+[2025-12-05 15:48:10.198] RECV_FRAME 1080 from coordinator
+[2025-12-05 15:48:10.450] RECV_FRAME 1110 from coordinator
+[2025-12-05 15:48:10.698] RECV_FRAME 1140 from coordinator
+[2025-12-05 15:48:10.938] RECV_FRAME 1170 from coordinator
+[2025-12-05 15:48:11.180] RECV_FRAME 1200 from coordinator
+[2025-12-05 15:48:11.235] VIDEO_END from coordinator, segment frames: 593
+[2025-12-05 15:48:11.235] Missing frames in video #2: []
+[2025-12-05 15:48:11.236] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:48:12.080] RECV_FRAME 1230 from coordinator
+[2025-12-05 15:48:12.344] RECV_FRAME 1260 from coordinator
+[2025-12-05 15:48:12.603] RECV_FRAME 1290 from coordinator
+[2025-12-05 15:48:12.852] RECV_FRAME 1320 from coordinator
+[2025-12-05 15:48:13.101] RECV_FRAME 1350 from coordinator
+[2025-12-05 15:48:13.350] RECV_FRAME 1380 from coordinator
+[2025-12-05 15:48:13.598] RECV_FRAME 1410 from coordinator
+[2025-12-05 15:48:13.851] RECV_FRAME 1440 from coordinator
+[2025-12-05 15:48:14.106] RECV_FRAME 1470 from coordinator
+[2025-12-05 15:48:14.354] RECV_FRAME 1500 from coordinator
+[2025-12-05 15:48:14.603] RECV_FRAME 1530 from coordinator
+[2025-12-05 15:48:14.864] RECV_FRAME 1560 from coordinator
+[2025-12-05 15:48:15.125] RECV_FRAME 1590 from coordinator
+[2025-12-05 15:48:15.375] RECV_FRAME 1620 from coordinator
+[2025-12-05 15:48:15.625] RECV_FRAME 1650 from coordinator
+[2025-12-05 15:48:15.877] RECV_FRAME 1680 from coordinator
+[2025-12-05 15:48:16.125] RECV_FRAME 1710 from coordinator
+[2025-12-05 15:48:16.374] RECV_FRAME 1740 from coordinator
+[2025-12-05 15:48:16.636] RECV_FRAME 1770 from coordinator
+[2025-12-05 15:48:16.912] RECV_FRAME 1800 from coordinator
+[2025-12-05 15:48:17.166] RECV_FRAME 1830 from coordinator
+[2025-12-05 15:48:17.280] VIDEO_END from coordinator, segment frames: 644
+[2025-12-05 15:48:17.280] Missing frames in video #3: []
+[2025-12-05 15:48:17.281] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}

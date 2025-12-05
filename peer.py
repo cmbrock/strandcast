@@ -47,7 +47,7 @@ all_frames = []
 video_complete = False
 total_video_frames = 0
 video_segments = []  # List of (start_frame, end_frame) tuples for each video segment
-
+readyQueue = []
 # Next peer connection monitoring
 next_peer_last_success = time.time()
 next_peer_timeout = 5.0  # 5 seconds without successful forward = dead peer
@@ -134,12 +134,12 @@ def udp_listener(udp_sock, name, seen):
                 video_number = int(msg.get("video_number"))
                 total_frames = int(msg.get("total_frames_incoming"))
                 
+
+
                 # Remap frame number to global index
                 global_frame_num = frame_num + current_segment_offset
                 
-                if global_frame_num in received_frames:
-                    # Already processed this frame, skip
-                    continue
+                
                 
                 # Store chunk
                 chunk_data = base64.b64decode(chunk_data_hex)
@@ -178,6 +178,7 @@ def udp_listener(udp_sock, name, seen):
                             if video_number not in all_collections.keys():
                                 buffer = [None] * total_frames
                                 all_collections[video_number] = buffer
+                                readyQueue.append(False)
 
 
                             all_collections[video_number][frame_num] = frame
@@ -240,17 +241,44 @@ def udp_listener(udp_sock, name, seen):
                     if targetArray[i] is None:
                         missingFrames.append(i)
 
-                print(f"Missing Frames: {missingFrames}")
+                print(f"[{name}] Missing {len(missingFrames)} frames: {missingFrames[:10]}{'...' if len(missingFrames) > 10 else ''}")
+                log(name, f"Missing frames in video #{video_number}: {missingFrames}")
+                if missingFrames:
+                    print(f"[{name}] Missing {len(missingFrames)} frames: {missingFrames[:10]}{'...' if len(missingFrames) > 10 else ''}")
+                    log(name, f"Missing frames in video #{video_number}: {missingFrames}")
+                    
+                    # Request missing frames from subcoordinator
+                    try:
+                        with socket.create_connection((COORD_HOST, SUB_COORD_PORT), timeout=5) as s:
+                            request_msg = json.dumps({
+                                "type": "requestMissingFrames",
+                                "peer_name": name,
+                                "peer_port": udp_port,
+                                "video_number": video_number,
+                                "missing_frames": missingFrames
+                            })
+                            s.sendall(request_msg.encode())
+                            resp = s.recv(1024).decode()
+                            print(f"[{name}] Requested {len(missingFrames)} missing frames from subcoordinator for video #{video_number}: {resp}")
+                            log(name, f"Requested {len(missingFrames)} missing frames for video #{video_number}, response: {resp}")
+                    except Exception as e:
+                        print(f"[{name}] Failed to request missing frames: {e}")
+                        log(name, f"MISSING_FRAMES_REQUEST_FAILED: {e}")
+                else:
+                    print(f"[{name}] All frames received successfully for video #{video_number}!")
 
 
 
 
 
-                all_frames.extend(targetArray)
-                del all_collections[video_number]
 
-                # Record this video segment
-                video_segments.append((segment_start_frame, total_video_frames + frame_count - 1))
+
+
+                if len(missingFrames) == 0:
+                    all_frames.extend(targetArray)
+                    del all_collections[video_number]
+                    # append tuple of times to video segment
+                    video_segments.append((segment_start_frame, total_frames-1))
                 
                 # Update total frames and offset for next segment
                 total_video_frames += frame_count

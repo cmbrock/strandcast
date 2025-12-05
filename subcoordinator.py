@@ -360,6 +360,104 @@ def list_items(req, conn):
         conn.sendall(json.dumps(peers).encode())
 
 
+def request_missing_frames(req, conn):
+    """Handle request for missing frames from a peer."""
+    peer_name = req.get("peer_name")
+    peer_port = req.get("peer_port")
+    video_number = req.get("video_number")
+    missing_frames = req.get("missing_frames", [])
+    
+    print(f"[Subcoordinator] Received request for {len(missing_frames)} missing frames from {peer_name} (video #{video_number})")
+    
+    # Send acknowledgment
+    conn.sendall(json.dumps({"status": "ok", "message": f"Resending {len(missing_frames)} frames"}).encode())
+    
+    # Spawn thread to resend missing frames
+    threading.Thread(target=resend_missing_frames, args=(video_number, missing_frames, peer_port), daemon=True).start()
+
+
+def resend_missing_frames(video_number, frame_numbers, peer_port):
+    """Resend specific frames from a video file to a peer."""
+    VIDEO_FILE = f"videoFiles/test{video_number}.mp4"
+    
+    print(f"[Subcoordinator] Starting to resend {len(frame_numbers)} frames from {VIDEO_FILE} to port {peer_port}")
+    
+    cap = cv2.VideoCapture(VIDEO_FILE)
+    if not cap.isOpened():
+        print(f"[Subcoordinator] ERROR: Cannot open video file {VIDEO_FILE} for resending")
+        return
+    
+    # Get total frames for metadata
+    total_video_frames = get_total_frames(VIDEO_FILE)
+    
+    udp_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    
+    for frame_num in frame_numbers:
+        # Seek to the specific frame
+        cap.set(cv2.CAP_PROP_POS_FRAMES, frame_num)
+        ret, frame = cap.read()
+        
+        if not ret:
+            print(f"[Subcoordinator] ERROR: Could not read frame {frame_num} from {VIDEO_FILE}")
+            continue
+        
+        # Encode frame: compress with JPEG then pickle
+        encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 40]
+        _, buffer = cv2.imencode('.jpg', frame, encode_param)
+        data = pickle.dumps(buffer)
+        
+        # Compress with zlib
+        compressed = zlib.compress(data, 6)
+        size = len(compressed)
+        
+        # Split into chunks if needed
+        total_chunks = (size + MAX_CHUNK_SIZE - 1) // MAX_CHUNK_SIZE
+        
+        for chunk_id in range(total_chunks):
+            start = chunk_id * MAX_CHUNK_SIZE
+            end = min(start + MAX_CHUNK_SIZE, size)
+            chunk_data = compressed[start:end]
+            
+            # Create packet with metadata
+            packet = {
+                "video_number": video_number,
+                "type": "video_frame",
+                "origin": "coordinator",
+                "frame_num": frame_num,
+                "chunk_id": chunk_id,
+                "total_chunks": total_chunks,
+                "total_frames_incoming": total_video_frames,
+                "data": base64.b64encode(chunk_data).decode('ascii')
+            }
+            
+            try:
+                msg = json.dumps(packet).encode()
+                udp_sock.sendto(msg, (HOST, peer_port))
+                time.sleep(0.0001)  # Small delay between chunks
+            except Exception as e:
+                print(f"[Subcoordinator] Error resending frame {frame_num} chunk {chunk_id}: {e}")
+        
+        print(f"[Subcoordinator] Resent frame {frame_num} ({total_chunks} chunks)")
+    
+    cap.release()
+    
+    # Send video_end message after all missing frames have been resent
+    end_msg = {
+        "type": "video_end",
+        "origin": "coordinator",
+        "video_number": video_number,
+        "frame_num": max(frame_numbers) if frame_numbers else 0
+    }
+    try:
+        udp_sock.sendto(json.dumps(end_msg).encode(), (HOST, peer_port))
+        print(f"[Subcoordinator] Sent video_end confirmation to port {peer_port} after recovery")
+    except Exception as e:
+        print(f"[Subcoordinator] Error sending video_end after recovery: {e}")
+    
+    udp_sock.close()
+    print(f"[Subcoordinator] Completed resending {len(frame_numbers)} frames and sent video_end")
+
+
 def handle_connection(conn, addr):
     global downstream_started
     try:
@@ -376,6 +474,8 @@ def handle_connection(conn, addr):
             lookup(req, conn)
         elif typ == "list":
             list_items(req, conn)
+        elif typ == "requestMissingFrames":
+            request_missing_frames(req, conn)
         else:
             conn.sendall(json.dumps({"error":"unknown type"}).encode())
     except Exception as e:
