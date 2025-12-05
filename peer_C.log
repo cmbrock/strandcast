@@ -4137,3 +4137,594 @@
 [2025-12-05 15:48:17.280] VIDEO_END from coordinator, segment frames: 644
 [2025-12-05 15:48:17.280] Missing frames in video #3: []
 [2025-12-05 15:48:17.281] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:50:46.545] Output directory: videoOutput/peer_C_frames
+[2025-12-05 15:50:47.076] RECV_FRAME 0 from coordinator
+[2025-12-05 15:50:47.312] RECV_FRAME 30 from coordinator
+[2025-12-05 15:50:47.537] RECV_FRAME 60 from coordinator
+[2025-12-05 15:50:47.764] RECV_FRAME 90 from coordinator
+[2025-12-05 15:50:47.995] RECV_FRAME 120 from coordinator
+[2025-12-05 15:50:48.226] RECV_FRAME 150 from coordinator
+[2025-12-05 15:50:48.461] RECV_FRAME 180 from coordinator
+[2025-12-05 15:50:48.692] RECV_FRAME 210 from coordinator
+[2025-12-05 15:50:48.926] RECV_FRAME 240 from coordinator
+[2025-12-05 15:50:49.162] RECV_FRAME 270 from coordinator
+[2025-12-05 15:50:49.400] RECV_FRAME 300 from coordinator
+[2025-12-05 15:50:49.636] RECV_FRAME 330 from coordinator
+[2025-12-05 15:50:49.870] RECV_FRAME 360 from coordinator
+[2025-12-05 15:50:50.109] RECV_FRAME 390 from coordinator
+[2025-12-05 15:50:50.345] RECV_FRAME 420 from coordinator
+[2025-12-05 15:50:50.580] RECV_FRAME 450 from coordinator
+[2025-12-05 15:50:50.814] RECV_FRAME 480 from coordinator
+[2025-12-05 15:50:51.049] RECV_FRAME 510 from coordinator
+[2025-12-05 15:50:51.287] RECV_FRAME 540 from coordinator
+[2025-12-05 15:50:51.529] RECV_FRAME 570 from coordinator
+[2025-12-05 15:50:51.760] RECV_FRAME 600 from coordinator
+[2025-12-05 15:50:51.760] VIDEO_END from coordinator, segment frames: 601
+[2025-12-05 15:50:51.760] Missing frames in video #1: []
+[2025-12-05 15:50:51.760] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:50:52.589] RECV_FRAME 630 from coordinator
+[2025-12-05 15:50:52.842] RECV_FRAME 660 from coordinator
+[2025-12-05 15:50:53.113] RECV_FRAME 690 from coordinator
+[2025-12-05 15:50:53.397] RECV_FRAME 720 from coordinator
+[2025-12-05 15:50:53.679] RECV_FRAME 750 from coordinator
+[2025-12-05 15:50:53.958] RECV_FRAME 780 from coordinator
+[2025-12-05 15:50:54.219] RECV_FRAME 810 from coordinator
+[2025-12-05 15:50:54.476] RECV_FRAME 840 from coordinator
+[2025-12-05 15:50:54.754] RECV_FRAME 870 from coordinator
+[2025-12-05 15:50:55.045] RECV_FRAME 900 from coordinator
+[2025-12-05 15:50:55.320] RECV_FRAME 930 from coordinator
+[2025-12-05 15:50:55.603] RECV_FRAME 960 from coordinator
+[2025-12-05 15:50:55.886] RECV_FRAME 990 from coordinator
+[2025-12-05 15:50:56.162] RECV_FRAME 1020 from coordinator
+[2025-12-05 15:50:56.434] RECV_FRAME 1050 from coordinator
+[2025-12-05 15:50:56.704] RECV_FRAME 1080 from coordinator
+[2025-12-05 15:50:56.981] RECV_FRAME 1110 from coordinator
+[2025-12-05 15:50:57.264] RECV_FRAME 1140 from coordinator
+[2025-12-05 15:50:57.561] RECV_FRAME 1170 from coordinator
+[2025-12-05 15:50:57.825] RECV_FRAME 1200 from coordinator
+[2025-12-05 15:50:57.827] VIDEO_END from coordinator, segment frames: 600
+[2025-12-05 15:50:57.829] Missing frames in video #2: []
+[2025-12-05 15:50:57.830] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:50:58.713] RECV_FRAME 1230 from coordinator
+[2025-12-05 15:50:58.992] RECV_FRAME 1260 from coordinator
+[2025-12-05 15:50:59.268] RECV_FRAME 1290 from coordinator
+[2025-12-05 15:50:59.540] RECV_FRAME 1320 from coordinator
+[2025-12-05 15:50:59.812] RECV_FRAME 1350 from coordinator
+[2025-12-05 15:51:00.080] RECV_FRAME 1380 from coordinator
+[2025-12-05 15:51:00.348] RECV_FRAME 1410 from coordinator
+[2025-12-05 15:51:00.622] RECV_FRAME 1440 from coordinator
+[2025-12-05 15:51:00.896] RECV_FRAME 1470 from coordinator
+[2025-12-05 15:51:01.169] RECV_FRAME 1500 from coordinator
+[2025-12-05 15:51:01.441] RECV_FRAME 1530 from coordinator
+[2025-12-05 15:51:01.713] RECV_FRAME 1560 from coordinator
+[2025-12-05 15:51:01.982] RECV_FRAME 1590 from coordinator
+[2025-12-05 15:51:02.257] RECV_FRAME 1620 from coordinator
+[2025-12-05 15:51:02.536] RECV_FRAME 1650 from coordinator
+[2025-12-05 15:51:02.819] RECV_FRAME 1680 from coordinator
+[2025-12-05 15:51:03.116] RECV_FRAME 1710 from coordinator
+[2025-12-05 15:51:03.401] RECV_FRAME 1740 from coordinator
+[2025-12-05 15:51:03.706] RECV_FRAME 1770 from coordinator
+[2025-12-05 15:51:04.004] RECV_FRAME 1800 from coordinator
+[2025-12-05 15:51:34.359] Output directory: videoOutput/peer_C_frames
+[2025-12-05 15:51:34.895] RECV_FRAME 0 from coordinator
+[2025-12-05 15:51:35.129] RECV_FRAME 30 from coordinator
+[2025-12-05 15:51:35.356] RECV_FRAME 60 from coordinator
+[2025-12-05 15:51:35.584] RECV_FRAME 90 from coordinator
+[2025-12-05 15:51:35.813] RECV_FRAME 120 from coordinator
+[2025-12-05 15:51:36.044] RECV_FRAME 150 from coordinator
+[2025-12-05 15:51:36.279] RECV_FRAME 180 from coordinator
+[2025-12-05 15:51:36.535] RECV_FRAME 210 from coordinator
+[2025-12-05 15:51:36.768] RECV_FRAME 240 from coordinator
+[2025-12-05 15:51:37.013] RECV_FRAME 270 from coordinator
+[2025-12-05 15:51:37.248] RECV_FRAME 300 from coordinator
+[2025-12-05 15:51:37.481] RECV_FRAME 330 from coordinator
+[2025-12-05 15:51:37.714] RECV_FRAME 360 from coordinator
+[2025-12-05 15:51:37.953] RECV_FRAME 390 from coordinator
+[2025-12-05 15:51:38.189] RECV_FRAME 420 from coordinator
+[2025-12-05 15:51:38.422] RECV_FRAME 450 from coordinator
+[2025-12-05 15:51:38.657] RECV_FRAME 480 from coordinator
+[2025-12-05 15:51:38.891] RECV_FRAME 510 from coordinator
+[2025-12-05 15:51:39.128] RECV_FRAME 540 from coordinator
+[2025-12-05 15:51:39.360] RECV_FRAME 570 from coordinator
+[2025-12-05 15:51:39.590] RECV_FRAME 600 from coordinator
+[2025-12-05 15:51:39.590] VIDEO_END from coordinator, segment frames: 601
+[2025-12-05 15:51:39.590] Missing frames in video #1: []
+[2025-12-05 15:51:39.591] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:51:40.385] RECV_FRAME 630 from coordinator
+[2025-12-05 15:51:40.625] RECV_FRAME 660 from coordinator
+[2025-12-05 15:51:40.876] RECV_FRAME 690 from coordinator
+[2025-12-05 15:51:41.139] RECV_FRAME 720 from coordinator
+[2025-12-05 15:51:41.418] RECV_FRAME 750 from coordinator
+[2025-12-05 15:51:41.693] RECV_FRAME 780 from coordinator
+[2025-12-05 15:51:41.971] RECV_FRAME 810 from coordinator
+[2025-12-05 15:51:42.242] RECV_FRAME 840 from coordinator
+[2025-12-05 15:51:42.507] RECV_FRAME 870 from coordinator
+[2025-12-05 15:51:42.787] RECV_FRAME 900 from coordinator
+[2025-12-05 15:51:43.058] RECV_FRAME 930 from coordinator
+[2025-12-05 15:51:43.331] RECV_FRAME 960 from coordinator
+[2025-12-05 15:51:43.602] RECV_FRAME 990 from coordinator
+[2025-12-05 15:51:43.868] RECV_FRAME 1020 from coordinator
+[2025-12-05 15:51:44.135] RECV_FRAME 1050 from coordinator
+[2025-12-05 15:51:44.401] RECV_FRAME 1080 from coordinator
+[2025-12-05 15:51:44.682] RECV_FRAME 1110 from coordinator
+[2025-12-05 15:51:44.956] RECV_FRAME 1140 from coordinator
+[2025-12-05 15:51:45.248] RECV_FRAME 1170 from coordinator
+[2025-12-05 15:51:45.515] RECV_FRAME 1200 from coordinator
+[2025-12-05 15:51:45.515] VIDEO_END from coordinator, segment frames: 600
+[2025-12-05 15:51:45.516] Missing frames in video #2: []
+[2025-12-05 15:51:45.517] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:51:46.447] RECV_FRAME 1230 from coordinator
+[2025-12-05 15:51:46.746] RECV_FRAME 1260 from coordinator
+[2025-12-05 15:51:47.023] RECV_FRAME 1290 from coordinator
+[2025-12-05 15:51:47.298] RECV_FRAME 1320 from coordinator
+[2025-12-05 15:51:47.567] RECV_FRAME 1350 from coordinator
+[2025-12-05 15:51:48.084] RECV_FRAME 1410 from coordinator
+[2025-12-05 15:51:48.333] RECV_FRAME 1440 from coordinator
+[2025-12-05 15:51:48.582] RECV_FRAME 1470 from coordinator
+[2025-12-05 15:51:48.828] RECV_FRAME 1500 from coordinator
+[2025-12-05 15:51:49.073] RECV_FRAME 1530 from coordinator
+[2025-12-05 15:51:49.315] RECV_FRAME 1560 from coordinator
+[2025-12-05 15:51:49.559] RECV_FRAME 1590 from coordinator
+[2025-12-05 15:51:49.803] RECV_FRAME 1620 from coordinator
+[2025-12-05 15:51:50.044] RECV_FRAME 1650 from coordinator
+[2025-12-05 15:51:50.288] RECV_FRAME 1680 from coordinator
+[2025-12-05 15:51:50.537] RECV_FRAME 1710 from coordinator
+[2025-12-05 15:51:50.794] RECV_FRAME 1740 from coordinator
+[2025-12-05 15:51:51.066] RECV_FRAME 1770 from coordinator
+[2025-12-05 15:51:51.336] RECV_FRAME 1800 from coordinator
+[2025-12-05 15:51:51.590] RECV_FRAME 1830 from coordinator
+[2025-12-05 15:51:51.707] VIDEO_END from coordinator, segment frames: 642
+[2025-12-05 15:51:51.707] Missing frames in video #3: [179, 180]
+[2025-12-05 15:51:51.707] Missing frames in video #3: [179, 180]
+[2025-12-05 15:51:51.709] Requested 2 missing frames for video #3, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 15:51:51.709] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 15:51:52.365] VIDEO_END from coordinator, segment frames: 2
+[2025-12-05 15:51:52.365] Missing frames in video #3: []
+[2025-12-05 15:51:52.365] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 16:06:22.284] Output directory: videoOutput/peer_C_frames
+[2025-12-05 16:06:22.819] RECV_FRAME 0 from coordinator
+[2025-12-05 16:06:23.055] RECV_FRAME 30 from coordinator
+[2025-12-05 16:06:23.283] RECV_FRAME 60 from coordinator
+[2025-12-05 16:06:23.508] RECV_FRAME 90 from coordinator
+[2025-12-05 16:06:23.740] RECV_FRAME 120 from coordinator
+[2025-12-05 16:06:23.972] RECV_FRAME 150 from coordinator
+[2025-12-05 16:06:24.205] RECV_FRAME 180 from coordinator
+[2025-12-05 16:06:24.439] RECV_FRAME 210 from coordinator
+[2025-12-05 16:06:24.673] RECV_FRAME 240 from coordinator
+[2025-12-05 16:06:24.910] RECV_FRAME 270 from coordinator
+[2025-12-05 16:06:25.147] RECV_FRAME 300 from coordinator
+[2025-12-05 16:06:25.382] RECV_FRAME 330 from coordinator
+[2025-12-05 16:06:25.616] RECV_FRAME 360 from coordinator
+[2025-12-05 16:06:25.858] RECV_FRAME 390 from coordinator
+[2025-12-05 16:06:26.095] RECV_FRAME 420 from coordinator
+[2025-12-05 16:06:26.331] RECV_FRAME 450 from coordinator
+[2025-12-05 16:06:26.567] RECV_FRAME 480 from coordinator
+[2025-12-05 16:06:26.808] RECV_FRAME 510 from coordinator
+[2025-12-05 16:06:27.061] RECV_FRAME 540 from coordinator
+[2025-12-05 16:06:27.315] RECV_FRAME 570 from coordinator
+[2025-12-05 16:06:27.575] RECV_FRAME 600 from coordinator
+[2025-12-05 16:06:27.575] VIDEO_END from coordinator, segment frames: 601
+[2025-12-05 16:06:27.576] Missing frames in video #1: []
+[2025-12-05 16:06:27.577] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 16:06:28.444] RECV_FRAME 630 from coordinator
+[2025-12-05 16:06:28.690] RECV_FRAME 660 from coordinator
+[2025-12-05 16:06:28.936] RECV_FRAME 690 from coordinator
+[2025-12-05 16:06:29.207] RECV_FRAME 720 from coordinator
+[2025-12-05 16:06:29.473] RECV_FRAME 750 from coordinator
+[2025-12-05 16:06:29.734] RECV_FRAME 780 from coordinator
+[2025-12-05 16:06:29.988] RECV_FRAME 810 from coordinator
+[2025-12-05 16:06:30.255] RECV_FRAME 840 from coordinator
+[2025-12-05 16:06:30.530] RECV_FRAME 870 from coordinator
+[2025-12-05 16:06:30.811] RECV_FRAME 900 from coordinator
+[2025-12-05 16:06:31.089] RECV_FRAME 930 from coordinator
+[2025-12-05 16:06:31.386] RECV_FRAME 960 from coordinator
+[2025-12-05 16:06:31.658] RECV_FRAME 990 from coordinator
+[2025-12-05 16:06:31.925] RECV_FRAME 1020 from coordinator
+[2025-12-05 16:06:32.198] RECV_FRAME 1050 from coordinator
+[2025-12-05 16:06:32.468] RECV_FRAME 1080 from coordinator
+[2025-12-05 16:06:32.747] RECV_FRAME 1110 from coordinator
+[2025-12-05 16:06:33.053] RECV_FRAME 1140 from coordinator
+[2025-12-05 16:06:33.330] RECV_FRAME 1170 from coordinator
+[2025-12-05 16:06:33.594] RECV_FRAME 1200 from coordinator
+[2025-12-05 16:08:04.557] Output directory: videoOutput/peer_C_frames
+[2025-12-05 16:08:05.092] RECV_FRAME 0 from coordinator
+[2025-12-05 16:08:05.329] RECV_FRAME 30 from coordinator
+[2025-12-05 16:08:05.555] RECV_FRAME 60 from coordinator
+[2025-12-05 16:08:05.785] RECV_FRAME 90 from coordinator
+[2025-12-05 16:08:06.016] RECV_FRAME 120 from coordinator
+[2025-12-05 16:08:06.246] RECV_FRAME 150 from coordinator
+[2025-12-05 16:08:06.479] RECV_FRAME 180 from coordinator
+[2025-12-05 16:08:06.711] RECV_FRAME 210 from coordinator
+[2025-12-05 16:08:06.944] RECV_FRAME 240 from coordinator
+[2025-12-05 16:08:07.182] RECV_FRAME 270 from coordinator
+[2025-12-05 16:08:07.419] RECV_FRAME 300 from coordinator
+[2025-12-05 16:08:07.653] RECV_FRAME 330 from coordinator
+[2025-12-05 16:08:07.886] RECV_FRAME 360 from coordinator
+[2025-12-05 16:08:08.124] RECV_FRAME 390 from coordinator
+[2025-12-05 16:08:08.361] RECV_FRAME 420 from coordinator
+[2025-12-05 16:08:08.593] RECV_FRAME 450 from coordinator
+[2025-12-05 16:08:08.828] RECV_FRAME 480 from coordinator
+[2025-12-05 16:08:09.062] RECV_FRAME 510 from coordinator
+[2025-12-05 16:08:09.316] RECV_FRAME 540 from coordinator
+[2025-12-05 16:08:09.535] RECV_FRAME 570 from coordinator
+[2025-12-05 16:08:09.767] RECV_FRAME 600 from coordinator
+[2025-12-05 16:08:09.767] VIDEO_END from coordinator, segment frames: 601
+[2025-12-05 16:08:09.767] Missing frames in video #1: []
+[2025-12-05 16:08:09.768] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 16:08:10.597] RECV_FRAME 630 from coordinator
+[2025-12-05 16:08:10.849] RECV_FRAME 660 from coordinator
+[2025-12-05 16:08:11.110] RECV_FRAME 690 from coordinator
+[2025-12-05 16:08:11.387] RECV_FRAME 720 from coordinator
+[2025-12-05 16:08:11.662] RECV_FRAME 750 from coordinator
+[2025-12-05 16:08:11.934] RECV_FRAME 780 from coordinator
+[2025-12-05 16:08:12.192] RECV_FRAME 810 from coordinator
+[2025-12-05 16:08:12.451] RECV_FRAME 840 from coordinator
+[2025-12-05 16:08:12.722] RECV_FRAME 870 from coordinator
+[2025-12-05 16:08:12.995] RECV_FRAME 900 from coordinator
+[2025-12-05 16:08:13.276] RECV_FRAME 930 from coordinator
+[2025-12-05 16:08:13.551] RECV_FRAME 960 from coordinator
+[2025-12-05 16:08:13.832] RECV_FRAME 990 from coordinator
+[2025-12-05 16:08:14.115] RECV_FRAME 1020 from coordinator
+[2025-12-05 16:08:14.399] RECV_FRAME 1050 from coordinator
+[2025-12-05 16:08:14.673] RECV_FRAME 1080 from coordinator
+[2025-12-05 16:08:14.947] RECV_FRAME 1110 from coordinator
+[2025-12-05 16:08:15.231] RECV_FRAME 1140 from coordinator
+[2025-12-05 16:08:15.515] RECV_FRAME 1170 from coordinator
+[2025-12-05 16:08:15.781] RECV_FRAME 1200 from coordinator
+[2025-12-05 16:09:11.095] Output directory: videoOutput/peer_C_frames
+[2025-12-05 16:09:11.628] RECV_FRAME 0 from coordinator
+[2025-12-05 16:09:11.862] RECV_FRAME 30 from coordinator
+[2025-12-05 16:09:12.089] RECV_FRAME 60 from coordinator
+[2025-12-05 16:09:12.317] RECV_FRAME 90 from coordinator
+[2025-12-05 16:09:12.547] RECV_FRAME 120 from coordinator
+[2025-12-05 16:09:12.778] RECV_FRAME 150 from coordinator
+[2025-12-05 16:09:13.012] RECV_FRAME 180 from coordinator
+[2025-12-05 16:09:13.246] RECV_FRAME 210 from coordinator
+[2025-12-05 16:09:13.479] RECV_FRAME 240 from coordinator
+[2025-12-05 16:09:13.715] RECV_FRAME 270 from coordinator
+[2025-12-05 16:09:13.951] RECV_FRAME 300 from coordinator
+[2025-12-05 16:09:14.184] RECV_FRAME 330 from coordinator
+[2025-12-05 16:09:14.418] RECV_FRAME 360 from coordinator
+[2025-12-05 16:09:14.656] RECV_FRAME 390 from coordinator
+[2025-12-05 16:09:14.893] RECV_FRAME 420 from coordinator
+[2025-12-05 16:09:15.128] RECV_FRAME 450 from coordinator
+[2025-12-05 16:09:15.361] RECV_FRAME 480 from coordinator
+[2025-12-05 16:09:15.595] RECV_FRAME 510 from coordinator
+[2025-12-05 16:09:15.831] RECV_FRAME 540 from coordinator
+[2025-12-05 16:09:16.063] RECV_FRAME 570 from coordinator
+[2025-12-05 16:09:16.295] RECV_FRAME 600 from coordinator
+[2025-12-05 16:09:16.295] VIDEO_END from coordinator, segment frames: 601
+[2025-12-05 16:09:16.295] Missing frames in video #1: []
+[2025-12-05 16:09:16.295] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 16:09:17.104] RECV_FRAME 630 from coordinator
+[2025-12-05 16:09:17.353] RECV_FRAME 660 from coordinator
+[2025-12-05 16:09:17.604] RECV_FRAME 690 from coordinator
+[2025-12-05 16:09:17.872] RECV_FRAME 720 from coordinator
+[2025-12-05 16:09:18.145] RECV_FRAME 750 from coordinator
+[2025-12-05 16:09:18.415] RECV_FRAME 780 from coordinator
+[2025-12-05 16:09:18.694] RECV_FRAME 810 from coordinator
+[2025-12-05 16:09:18.942] RECV_FRAME 840 from coordinator
+[2025-12-05 16:09:19.208] RECV_FRAME 870 from coordinator
+[2025-12-05 16:09:19.476] RECV_FRAME 900 from coordinator
+[2025-12-05 16:09:19.751] RECV_FRAME 930 from coordinator
+[2025-12-05 16:09:20.024] RECV_FRAME 960 from coordinator
+[2025-12-05 16:09:20.298] RECV_FRAME 990 from coordinator
+[2025-12-05 16:09:20.564] RECV_FRAME 1020 from coordinator
+[2025-12-05 16:09:20.834] RECV_FRAME 1050 from coordinator
+[2025-12-05 16:09:21.109] RECV_FRAME 1080 from coordinator
+[2025-12-05 16:09:21.387] RECV_FRAME 1110 from coordinator
+[2025-12-05 16:09:21.660] RECV_FRAME 1140 from coordinator
+[2025-12-05 16:09:21.930] RECV_FRAME 1170 from coordinator
+[2025-12-05 16:09:22.196] RECV_FRAME 1200 from coordinator
+[2025-12-05 16:09:48.998] Output directory: videoOutput/peer_C_frames
+[2025-12-05 16:09:49.533] RECV_FRAME 0 from coordinator
+[2025-12-05 16:09:49.768] RECV_FRAME 30 from coordinator
+[2025-12-05 16:09:49.996] RECV_FRAME 60 from coordinator
+[2025-12-05 16:09:50.226] RECV_FRAME 90 from coordinator
+[2025-12-05 16:09:50.457] RECV_FRAME 120 from coordinator
+[2025-12-05 16:09:50.688] RECV_FRAME 150 from coordinator
+[2025-12-05 16:09:50.921] RECV_FRAME 180 from coordinator
+[2025-12-05 16:09:51.154] RECV_FRAME 210 from coordinator
+[2025-12-05 16:09:51.389] RECV_FRAME 240 from coordinator
+[2025-12-05 16:09:51.627] RECV_FRAME 270 from coordinator
+[2025-12-05 16:09:51.865] RECV_FRAME 300 from coordinator
+[2025-12-05 16:09:52.098] RECV_FRAME 330 from coordinator
+[2025-12-05 16:09:52.334] RECV_FRAME 360 from coordinator
+[2025-12-05 16:09:52.572] RECV_FRAME 390 from coordinator
+[2025-12-05 16:09:52.809] RECV_FRAME 420 from coordinator
+[2025-12-05 16:09:53.043] RECV_FRAME 450 from coordinator
+[2025-12-05 16:09:53.276] RECV_FRAME 480 from coordinator
+[2025-12-05 16:09:53.510] RECV_FRAME 510 from coordinator
+[2025-12-05 16:09:53.746] RECV_FRAME 540 from coordinator
+[2025-12-05 16:09:53.980] RECV_FRAME 570 from coordinator
+[2025-12-05 16:09:54.211] RECV_FRAME 600 from coordinator
+[2025-12-05 16:09:54.211] VIDEO_END from coordinator, segment frames: 601
+[2025-12-05 16:09:54.211] Missing frames in video #1: []
+[2025-12-05 16:09:54.212] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 16:09:55.007] RECV_FRAME 630 from coordinator
+[2025-12-05 16:09:55.252] RECV_FRAME 660 from coordinator
+[2025-12-05 16:09:55.503] RECV_FRAME 690 from coordinator
+[2025-12-05 16:09:55.769] RECV_FRAME 720 from coordinator
+[2025-12-05 16:09:56.050] RECV_FRAME 750 from coordinator
+[2025-12-05 16:09:56.337] RECV_FRAME 780 from coordinator
+[2025-12-05 16:09:56.620] RECV_FRAME 810 from coordinator
+[2025-12-05 16:09:56.882] RECV_FRAME 840 from coordinator
+[2025-12-05 16:09:57.145] RECV_FRAME 870 from coordinator
+[2025-12-05 16:09:57.413] RECV_FRAME 900 from coordinator
+[2025-12-05 16:09:57.690] RECV_FRAME 930 from coordinator
+[2025-12-05 16:09:57.962] RECV_FRAME 960 from coordinator
+[2025-12-05 16:09:58.245] RECV_FRAME 990 from coordinator
+[2025-12-05 16:09:58.514] RECV_FRAME 1020 from coordinator
+[2025-12-05 16:09:58.779] RECV_FRAME 1050 from coordinator
+[2025-12-05 16:09:59.060] RECV_FRAME 1080 from coordinator
+[2025-12-05 16:09:59.337] RECV_FRAME 1110 from coordinator
+[2025-12-05 16:09:59.615] RECV_FRAME 1140 from coordinator
+[2025-12-05 16:09:59.902] RECV_FRAME 1170 from coordinator
+[2025-12-05 16:10:00.178] RECV_FRAME 1200 from coordinator
+[2025-12-05 16:11:42.629] Output directory: videoOutput/peer_C_frames
+[2025-12-05 16:11:43.168] RECV_FRAME 0 from coordinator
+[2025-12-05 16:11:43.402] RECV_FRAME 30 from coordinator
+[2025-12-05 16:11:43.630] RECV_FRAME 60 from coordinator
+[2025-12-05 16:11:43.858] RECV_FRAME 90 from coordinator
+[2025-12-05 16:11:44.089] RECV_FRAME 120 from coordinator
+[2025-12-05 16:11:44.320] RECV_FRAME 150 from coordinator
+[2025-12-05 16:11:44.554] RECV_FRAME 180 from coordinator
+[2025-12-05 16:11:44.787] RECV_FRAME 210 from coordinator
+[2025-12-05 16:11:45.022] RECV_FRAME 240 from coordinator
+[2025-12-05 16:11:45.260] RECV_FRAME 270 from coordinator
+[2025-12-05 16:11:45.497] RECV_FRAME 300 from coordinator
+[2025-12-05 16:11:45.731] RECV_FRAME 330 from coordinator
+[2025-12-05 16:11:45.965] RECV_FRAME 360 from coordinator
+[2025-12-05 16:11:46.202] RECV_FRAME 390 from coordinator
+[2025-12-05 16:11:46.443] RECV_FRAME 420 from coordinator
+[2025-12-05 16:11:46.677] RECV_FRAME 450 from coordinator
+[2025-12-05 16:11:46.911] RECV_FRAME 480 from coordinator
+[2025-12-05 16:11:47.147] RECV_FRAME 510 from coordinator
+[2025-12-05 16:11:47.383] RECV_FRAME 540 from coordinator
+[2025-12-05 16:11:47.616] RECV_FRAME 570 from coordinator
+[2025-12-05 16:11:47.847] RECV_FRAME 600 from coordinator
+[2025-12-05 16:11:47.847] VIDEO_END from coordinator, segment frames: 601
+[2025-12-05 16:11:47.847] Missing frames in video #1: []
+[2025-12-05 16:11:47.848] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 16:11:48.674] RECV_FRAME 630 from coordinator
+[2025-12-05 16:11:48.922] RECV_FRAME 660 from coordinator
+[2025-12-05 16:11:49.180] RECV_FRAME 690 from coordinator
+[2025-12-05 16:11:49.461] RECV_FRAME 720 from coordinator
+[2025-12-05 16:11:49.738] RECV_FRAME 750 from coordinator
+[2025-12-05 16:11:50.023] RECV_FRAME 780 from coordinator
+[2025-12-05 16:11:50.296] RECV_FRAME 810 from coordinator
+[2025-12-05 16:11:50.546] RECV_FRAME 840 from coordinator
+[2025-12-05 16:11:50.811] RECV_FRAME 870 from coordinator
+[2025-12-05 16:11:51.085] RECV_FRAME 900 from coordinator
+[2025-12-05 16:11:51.356] RECV_FRAME 930 from coordinator
+[2025-12-05 16:11:51.634] RECV_FRAME 960 from coordinator
+[2025-12-05 16:11:51.905] RECV_FRAME 990 from coordinator
+[2025-12-05 16:11:52.176] RECV_FRAME 1020 from coordinator
+[2025-12-05 16:11:52.441] RECV_FRAME 1050 from coordinator
+[2025-12-05 16:11:52.707] RECV_FRAME 1080 from coordinator
+[2025-12-05 16:11:52.985] RECV_FRAME 1110 from coordinator
+[2025-12-05 16:11:53.267] RECV_FRAME 1140 from coordinator
+[2025-12-05 16:11:53.561] RECV_FRAME 1170 from coordinator
+[2025-12-05 16:11:53.825] RECV_FRAME 1200 from coordinator
+[2025-12-05 16:16:25.133] Output directory: videoOutput/peer_C_frames
+[2025-12-05 16:16:25.670] RECV_FRAME 0 from coordinator
+[2025-12-05 16:16:25.905] RECV_FRAME 30 from coordinator
+[2025-12-05 16:16:26.131] RECV_FRAME 60 from coordinator
+[2025-12-05 16:16:26.362] RECV_FRAME 90 from coordinator
+[2025-12-05 16:16:26.594] RECV_FRAME 120 from coordinator
+[2025-12-05 16:16:26.825] RECV_FRAME 150 from coordinator
+[2025-12-05 16:16:27.059] RECV_FRAME 180 from coordinator
+[2025-12-05 16:16:27.291] RECV_FRAME 210 from coordinator
+[2025-12-05 16:16:27.526] RECV_FRAME 240 from coordinator
+[2025-12-05 16:16:27.764] RECV_FRAME 270 from coordinator
+[2025-12-05 16:16:28.000] RECV_FRAME 300 from coordinator
+[2025-12-05 16:16:28.236] RECV_FRAME 330 from coordinator
+[2025-12-05 16:16:28.471] RECV_FRAME 360 from coordinator
+[2025-12-05 16:16:28.711] RECV_FRAME 390 from coordinator
+[2025-12-05 16:16:28.948] RECV_FRAME 420 from coordinator
+[2025-12-05 16:16:29.182] RECV_FRAME 450 from coordinator
+[2025-12-05 16:16:29.414] RECV_FRAME 480 from coordinator
+[2025-12-05 16:16:29.650] RECV_FRAME 510 from coordinator
+[2025-12-05 16:16:29.884] RECV_FRAME 540 from coordinator
+[2025-12-05 16:16:30.117] RECV_FRAME 570 from coordinator
+[2025-12-05 16:16:30.347] RECV_FRAME 600 from coordinator
+[2025-12-05 16:16:30.347] VIDEO_END from coordinator, segment frames: 601
+[2025-12-05 16:16:30.347] Missing frames in video #1: []
+[2025-12-05 16:16:30.348] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 16:16:31.126] RECV_FRAME 630 from coordinator
+[2025-12-05 16:16:31.368] RECV_FRAME 660 from coordinator
+[2025-12-05 16:16:31.614] RECV_FRAME 690 from coordinator
+[2025-12-05 16:16:31.868] RECV_FRAME 720 from coordinator
+[2025-12-05 16:16:32.136] RECV_FRAME 750 from coordinator
+[2025-12-05 16:16:32.401] RECV_FRAME 780 from coordinator
+[2025-12-05 16:16:32.671] RECV_FRAME 810 from coordinator
+[2025-12-05 16:16:32.919] RECV_FRAME 840 from coordinator
+[2025-12-05 16:16:33.173] RECV_FRAME 870 from coordinator
+[2025-12-05 16:16:33.425] RECV_FRAME 900 from coordinator
+[2025-12-05 16:16:33.688] RECV_FRAME 930 from coordinator
+[2025-12-05 16:16:33.966] RECV_FRAME 960 from coordinator
+[2025-12-05 16:16:34.220] RECV_FRAME 990 from coordinator
+[2025-12-05 16:16:34.466] RECV_FRAME 1020 from coordinator
+[2025-12-05 16:16:34.721] RECV_FRAME 1050 from coordinator
+[2025-12-05 16:16:34.975] RECV_FRAME 1080 from coordinator
+[2025-12-05 16:16:35.237] RECV_FRAME 1110 from coordinator
+[2025-12-05 16:16:35.486] RECV_FRAME 1140 from coordinator
+[2025-12-05 16:16:35.741] RECV_FRAME 1170 from coordinator
+[2025-12-05 16:16:35.991] RECV_FRAME 1200 from coordinator
+[2025-12-05 16:16:35.991] VIDEO_END from coordinator, segment frames: 600
+[2025-12-05 16:16:35.991] Missing frames in video #2: []
+[2025-12-05 16:16:35.991] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 16:16:36.836] RECV_FRAME 1230 from coordinator
+[2025-12-05 16:16:37.093] RECV_FRAME 1260 from coordinator
+[2025-12-05 16:16:37.351] RECV_FRAME 1290 from coordinator
+[2025-12-05 16:16:37.605] RECV_FRAME 1320 from coordinator
+[2025-12-05 16:16:37.857] RECV_FRAME 1350 from coordinator
+[2025-12-05 16:16:38.115] RECV_FRAME 1380 from coordinator
+[2025-12-05 16:16:38.366] RECV_FRAME 1410 from coordinator
+[2025-12-05 16:16:38.620] RECV_FRAME 1440 from coordinator
+[2025-12-05 16:16:38.885] RECV_FRAME 1470 from coordinator
+[2025-12-05 16:16:39.146] RECV_FRAME 1500 from coordinator
+[2025-12-05 16:16:39.401] RECV_FRAME 1530 from coordinator
+[2025-12-05 16:16:39.661] RECV_FRAME 1560 from coordinator
+[2025-12-05 16:16:39.919] RECV_FRAME 1590 from coordinator
+[2025-12-05 16:16:40.186] RECV_FRAME 1620 from coordinator
+[2025-12-05 16:16:40.435] RECV_FRAME 1650 from coordinator
+[2025-12-05 16:16:40.698] RECV_FRAME 1680 from coordinator
+[2025-12-05 16:16:40.963] RECV_FRAME 1710 from coordinator
+[2025-12-05 16:16:41.228] RECV_FRAME 1740 from coordinator
+[2025-12-05 16:16:41.504] RECV_FRAME 1770 from coordinator
+[2025-12-05 16:16:41.791] RECV_FRAME 1800 from coordinator
+[2025-12-05 16:16:42.045] RECV_FRAME 1830 from coordinator
+[2025-12-05 16:16:42.161] VIDEO_END from coordinator, segment frames: 644
+[2025-12-05 16:16:42.161] Missing frames in video #3: []
+[2025-12-05 16:16:42.162] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 16:17:30.916] Output directory: videoOutput/peer_C_frames
+[2025-12-05 16:17:31.482] RECV_FRAME 0 from coordinator
+[2025-12-05 16:17:31.716] RECV_FRAME 30 from coordinator
+[2025-12-05 16:17:31.945] RECV_FRAME 60 from coordinator
+[2025-12-05 16:17:32.176] RECV_FRAME 90 from coordinator
+[2025-12-05 16:17:32.405] RECV_FRAME 120 from coordinator
+[2025-12-05 16:17:32.637] RECV_FRAME 150 from coordinator
+[2025-12-05 16:17:32.870] RECV_FRAME 180 from coordinator
+[2025-12-05 16:17:33.103] RECV_FRAME 210 from coordinator
+[2025-12-05 16:17:33.337] RECV_FRAME 240 from coordinator
+[2025-12-05 16:17:33.575] RECV_FRAME 270 from coordinator
+[2025-12-05 16:17:33.811] RECV_FRAME 300 from coordinator
+[2025-12-05 16:17:34.045] RECV_FRAME 330 from coordinator
+[2025-12-05 16:17:34.280] RECV_FRAME 360 from coordinator
+[2025-12-05 16:17:34.518] RECV_FRAME 390 from coordinator
+[2025-12-05 16:17:34.754] RECV_FRAME 420 from coordinator
+[2025-12-05 16:17:34.989] RECV_FRAME 450 from coordinator
+[2025-12-05 16:17:35.223] RECV_FRAME 480 from coordinator
+[2025-12-05 16:17:35.456] RECV_FRAME 510 from coordinator
+[2025-12-05 16:17:35.692] RECV_FRAME 540 from coordinator
+[2025-12-05 16:17:35.931] RECV_FRAME 570 from coordinator
+[2025-12-05 16:17:36.156] RECV_FRAME 600 from coordinator
+[2025-12-05 16:17:36.156] VIDEO_END from coordinator, segment frames: 601
+[2025-12-05 16:17:36.156] Missing frames in video #1: []
+[2025-12-05 16:17:36.156] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 16:17:36.958] RECV_FRAME 630 from coordinator
+[2025-12-05 16:17:37.200] RECV_FRAME 660 from coordinator
+[2025-12-05 16:17:37.448] RECV_FRAME 690 from coordinator
+[2025-12-05 16:17:37.719] RECV_FRAME 720 from coordinator
+[2025-12-05 16:17:38.019] RECV_FRAME 750 from coordinator
+[2025-12-05 16:17:38.306] RECV_FRAME 780 from coordinator
+[2025-12-05 16:17:38.587] RECV_FRAME 810 from coordinator
+[2025-12-05 16:17:38.851] RECV_FRAME 840 from coordinator
+[2025-12-05 16:17:39.116] RECV_FRAME 870 from coordinator
+[2025-12-05 16:17:39.402] RECV_FRAME 900 from coordinator
+[2025-12-05 16:17:39.676] RECV_FRAME 930 from coordinator
+[2025-12-05 16:17:39.953] RECV_FRAME 960 from coordinator
+[2025-12-05 16:17:40.226] RECV_FRAME 990 from coordinator
+[2025-12-05 16:17:40.505] RECV_FRAME 1020 from coordinator
+[2025-12-05 16:17:40.778] RECV_FRAME 1050 from coordinator
+[2025-12-05 16:17:41.056] RECV_FRAME 1080 from coordinator
+[2025-12-05 16:17:41.339] RECV_FRAME 1110 from coordinator
+[2025-12-05 16:17:41.611] RECV_FRAME 1140 from coordinator
+[2025-12-05 16:17:41.885] RECV_FRAME 1170 from coordinator
+[2025-12-05 16:17:42.150] RECV_FRAME 1200 from coordinator
+[2025-12-05 16:17:42.150] VIDEO_END from coordinator, segment frames: 600
+[2025-12-05 16:17:42.154] Missing frames in video #2: []
+[2025-12-05 16:17:42.155] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 16:17:43.072] RECV_FRAME 1230 from coordinator
+[2025-12-05 16:17:43.350] RECV_FRAME 1260 from coordinator
+[2025-12-05 16:17:43.622] RECV_FRAME 1290 from coordinator
+[2025-12-05 16:17:43.893] RECV_FRAME 1320 from coordinator
+[2025-12-05 16:17:44.169] RECV_FRAME 1350 from coordinator
+[2025-12-05 16:17:44.446] RECV_FRAME 1380 from coordinator
+[2025-12-05 16:17:44.718] RECV_FRAME 1410 from coordinator
+[2025-12-05 16:17:44.994] RECV_FRAME 1440 from coordinator
+[2025-12-05 16:17:45.270] RECV_FRAME 1470 from coordinator
+[2025-12-05 16:17:45.540] RECV_FRAME 1500 from coordinator
+[2025-12-05 16:17:45.806] RECV_FRAME 1530 from coordinator
+[2025-12-05 16:17:46.078] RECV_FRAME 1560 from coordinator
+[2025-12-05 16:17:46.354] RECV_FRAME 1590 from coordinator
+[2025-12-05 16:17:46.627] RECV_FRAME 1620 from coordinator
+[2025-12-05 16:17:46.895] RECV_FRAME 1650 from coordinator
+[2025-12-05 16:17:47.171] RECV_FRAME 1680 from coordinator
+[2025-12-05 16:17:47.464] RECV_FRAME 1710 from coordinator
+[2025-12-05 16:17:47.750] RECV_FRAME 1740 from coordinator
+[2025-12-05 16:17:48.029] RECV_FRAME 1770 from coordinator
+[2025-12-05 16:17:48.325] RECV_FRAME 1800 from coordinator
+[2025-12-05 16:17:48.605] RECV_FRAME 1830 from coordinator
+[2025-12-05 16:17:48.717] VIDEO_END from coordinator, segment frames: 644
+[2025-12-05 16:17:48.717] Missing frames in video #3: []
+[2025-12-05 16:17:48.718] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 16:18:19.928] Output directory: videoOutput/peer_C_frames
+[2025-12-05 16:18:20.464] RECV_FRAME 0 from coordinator
+[2025-12-05 16:18:20.698] RECV_FRAME 30 from coordinator
+[2025-12-05 16:18:20.924] RECV_FRAME 60 from coordinator
+[2025-12-05 16:18:21.153] RECV_FRAME 90 from coordinator
+[2025-12-05 16:18:21.384] RECV_FRAME 120 from coordinator
+[2025-12-05 16:18:21.615] RECV_FRAME 150 from coordinator
+[2025-12-05 16:18:21.848] RECV_FRAME 180 from coordinator
+[2025-12-05 16:18:22.080] RECV_FRAME 210 from coordinator
+[2025-12-05 16:18:22.308] RECV_FRAME 240 from coordinator
+[2025-12-05 16:18:22.547] RECV_FRAME 270 from coordinator
+[2025-12-05 16:18:22.782] RECV_FRAME 300 from coordinator
+[2025-12-05 16:18:23.014] RECV_FRAME 330 from coordinator
+[2025-12-05 16:18:23.247] RECV_FRAME 360 from coordinator
+[2025-12-05 16:18:23.484] RECV_FRAME 390 from coordinator
+[2025-12-05 16:18:23.725] RECV_FRAME 420 from coordinator
+[2025-12-05 16:18:23.956] RECV_FRAME 450 from coordinator
+[2025-12-05 16:18:24.188] RECV_FRAME 480 from coordinator
+[2025-12-05 16:18:24.423] RECV_FRAME 510 from coordinator
+[2025-12-05 16:18:24.663] RECV_FRAME 540 from coordinator
+[2025-12-05 16:18:24.894] RECV_FRAME 570 from coordinator
+[2025-12-05 16:18:25.124] RECV_FRAME 600 from coordinator
+[2025-12-05 16:18:25.124] VIDEO_END from coordinator, segment frames: 599
+[2025-12-05 16:18:25.124] Missing frames in video #1: [237, 238]
+[2025-12-05 16:18:25.124] Missing frames in video #1: [237, 238]
+[2025-12-05 16:18:25.124] Requested 2 missing frames for video #1, response: {"status": "ok", "message": "Resending 2 frames"}
+[2025-12-05 16:18:25.124] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 16:18:26.111] RECV_FRAME 600 from coordinator
+[2025-12-05 16:18:26.170] VIDEO_END from coordinator, segment frames: 10
+[2025-12-05 16:18:26.170] Missing frames in video #1: []
+[2025-12-05 16:18:26.171] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 16:18:26.276] RECV_FRAME 630 from coordinator
+[2025-12-05 16:18:26.509] RECV_FRAME 660 from coordinator
+[2025-12-05 16:18:26.741] RECV_FRAME 690 from coordinator
+[2025-12-05 16:18:26.978] RECV_FRAME 720 from coordinator
+[2025-12-05 16:18:27.219] RECV_FRAME 750 from coordinator
+[2025-12-05 16:18:27.456] RECV_FRAME 780 from coordinator
+[2025-12-05 16:18:27.698] RECV_FRAME 810 from coordinator
+[2025-12-05 16:18:27.930] RECV_FRAME 840 from coordinator
+[2025-12-05 16:18:28.167] RECV_FRAME 870 from coordinator
+[2025-12-05 16:18:28.405] RECV_FRAME 900 from coordinator
+[2025-12-05 16:18:28.642] RECV_FRAME 930 from coordinator
+[2025-12-05 16:18:28.876] RECV_FRAME 960 from coordinator
+[2025-12-05 16:18:29.116] RECV_FRAME 990 from coordinator
+[2025-12-05 16:18:29.351] RECV_FRAME 1020 from coordinator
+[2025-12-05 16:18:29.588] RECV_FRAME 1050 from coordinator
+[2025-12-05 16:18:29.826] RECV_FRAME 1080 from coordinator
+[2025-12-05 16:18:30.075] RECV_FRAME 1110 from coordinator
+[2025-12-05 16:18:30.333] RECV_FRAME 1140 from coordinator
+[2025-12-05 16:18:30.593] RECV_FRAME 1170 from coordinator
+[2025-12-05 16:18:30.846] RECV_FRAME 1200 from coordinator
+[2025-12-05 16:18:30.914] VIDEO_END from coordinator, segment frames: 592
+[2025-12-05 16:18:30.914] Missing frames in video #2: []
+[2025-12-05 16:18:30.915] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 16:18:31.753] RECV_FRAME 1230 from coordinator
+[2025-12-05 16:18:32.004] RECV_FRAME 1260 from coordinator
+[2025-12-05 16:18:32.272] RECV_FRAME 1290 from coordinator
+[2025-12-05 16:18:32.510] RECV_FRAME 1320 from coordinator
+[2025-12-05 16:18:32.756] RECV_FRAME 1350 from coordinator
+[2025-12-05 16:18:33.018] RECV_FRAME 1380 from coordinator
+[2025-12-05 16:18:33.263] RECV_FRAME 1410 from coordinator
+[2025-12-05 16:18:33.521] RECV_FRAME 1440 from coordinator
+[2025-12-05 16:18:33.778] RECV_FRAME 1470 from coordinator
+[2025-12-05 16:18:34.031] RECV_FRAME 1500 from coordinator
+[2025-12-05 16:18:34.277] RECV_FRAME 1530 from coordinator
+[2025-12-05 16:18:34.528] RECV_FRAME 1560 from coordinator
+[2025-12-05 16:18:34.778] RECV_FRAME 1590 from coordinator
+[2025-12-05 16:18:35.029] RECV_FRAME 1620 from coordinator
+[2025-12-05 16:18:35.282] RECV_FRAME 1650 from coordinator
+[2025-12-05 16:18:35.531] RECV_FRAME 1680 from coordinator
+[2025-12-05 16:18:35.790] RECV_FRAME 1710 from coordinator
+[2025-12-05 16:18:36.039] RECV_FRAME 1740 from coordinator
+[2025-12-05 16:18:36.302] RECV_FRAME 1770 from coordinator
+[2025-12-05 16:18:36.572] RECV_FRAME 1800 from coordinator
+[2025-12-05 16:18:36.818] RECV_FRAME 1830 from coordinator
+[2025-12-05 16:18:36.933] VIDEO_END from coordinator, segment frames: 644
+[2025-12-05 16:18:36.933] Missing frames in video #3: []
+[2025-12-05 16:18:36.934] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}

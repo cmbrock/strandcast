@@ -44,7 +44,7 @@ received_frames = set()  # frame numbers already processed
 # Storage for all received frames for playback
 all_collections = {}  # frame_num -> frame (numpy array)
 all_frames = []
-video_complete = False
+video_complete = True
 total_video_frames = 0
 video_segments = []  # List of (start_frame, end_frame) tuples for each video segment
 readyQueue = []
@@ -178,7 +178,7 @@ def udp_listener(udp_sock, name, seen):
                             if video_number not in all_collections.keys():
                                 buffer = [None] * total_frames
                                 all_collections[video_number] = buffer
-                                readyQueue.append(False)
+                                readyQueue.append(0)
 
 
                             all_collections[video_number][frame_num] = frame
@@ -275,9 +275,7 @@ def udp_listener(udp_sock, name, seen):
 
 
                 if len(missingFrames) == 0:
-                    all_frames.extend(targetArray)
-                    del all_collections[video_number]
-                    # append tuple of times to video segment
+                    readyQueue[video_number-1] = True
                     video_segments.append((segment_start_frame, total_frames-1))
                 
                 # Update total frames and offset for next segment
@@ -286,14 +284,21 @@ def udp_listener(udp_sock, name, seen):
                 segment_start_frame = total_video_frames
                 frame_count = 0  # Reset for next video
                 
-                # Mark video as ready (don't set video_complete=False, keep it True once set)
-                if not video_complete:
-                    video_complete = True
-                    print(f"[{name}] Video ready for playback! Starting automatically... (Total frames: {total_video_frames})")
-                else:
-                    print(f"[{name}] New video segment appended (total frames: {total_video_frames})")
                 
+                print(f"Ready Queue length: {len(readyQueue)}")
 
+                for i in range(len(readyQueue)):
+                    print(i)
+                    if readyQueue[i] != 0:
+                        if readyQueue[i] == 1:
+                            targetArray = all_collections[i+1]
+                            all_frames.extend(targetArray)
+                            del all_collections[i+1]
+                            readyQueue[i] = 2
+                            print(f"popped {i+1}")
+                    else:
+                        break
+                        
 
 
 
@@ -414,6 +419,10 @@ def ctrl_server(ctrl_port, name):
     serv.close()
     print(f"[{name}] control server exiting.")
 
+
+
+
+
 def sigint_handler(sig, frame):
     global running
     print("\n[Peer] Caught interrupt, shutting down...")
@@ -506,6 +515,10 @@ if __name__ == "__main__":
     last_total_frames = 0  # Track when new segments are added
     
     while running:
+
+
+
+
         # Auto-start playback when video becomes available
         if not playing and video_complete and len(all_frames) > 0:
             playing = True
