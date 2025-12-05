@@ -187,7 +187,7 @@ def udp_listener(udp_sock, name, seen):
                             if nextPeers:
                                 nxt = nextPeers[0]['port']
                                 nxtCtrl = nextPeers[0]['ctrl_port']
-                                # acknowledgePeer(nxtCtrl)
+                                acknowledgePeer(nxtCtrl)
                                 # Re-send all chunks to next peer with original frame numbers
                                 for cid in range(total_chunks):
                                     # Wait for ACK from previous chunk before sending next chunk
@@ -233,6 +233,19 @@ def udp_listener(udp_sock, name, seen):
                 log(name, f"VIDEO_END from {origin}, segment frames: {frame_count}")
                 
                 targetArray = all_collections[video_number]
+
+                missingFrames = []
+
+                for i in range (len(targetArray)):
+                    if targetArray[i] is None:
+                        missingFrames.append(i)
+
+                print(f"Missing Frames: {missingFrames}")
+
+
+
+
+
                 all_frames.extend(targetArray)
                 del all_collections[video_number]
 
@@ -252,6 +265,13 @@ def udp_listener(udp_sock, name, seen):
                 else:
                     print(f"[{name}] New video segment appended (total frames: {total_video_frames})")
                 
+
+
+
+
+
+
+
                 # Forward end marker
                 if nextPeers:
                     nxt = nextPeers[0]['port']
@@ -472,62 +492,64 @@ if __name__ == "__main__":
         if playing and video_complete:
             if not paused and current_frame_idx < total_video_frames:
                 # Display current frame with status bar
-                
-                frame = all_frames[current_frame_idx].copy()
-                
-                # Add status bar overlay
-                h, w = frame.shape[:2]
-                bar_height = 60
-                
-                # Create semi-transparent overlay for status bar
-                overlay = frame.copy()
-                cv2.rectangle(overlay, (0, h - bar_height), (w, h), (0, 0, 0), -1)
-                cv2.addWeighted(overlay, 0.7, frame, 0.3, 0, frame)
-                
-                # Calculate playback progress
-                progress = current_frame_idx / max(total_video_frames - 1, 1)
-                progress_bar_width = int((w - 40) * progress)
-                
-                # Draw progress bar
-                cv2.rectangle(frame, (20, h - 45), (w - 20, h - 35), (100, 100, 100), -1)
-                cv2.rectangle(frame, (20, h - 45), (20 + progress_bar_width, h - 35), (0, 255, 0), -1)
-                
-                # Calculate time
-                current_time = current_frame_idx / fps
-                total_time = total_video_frames / fps
-                time_str = f"{int(current_time // 60):02d}:{int(current_time % 60):02d} / {int(total_time // 60):02d}:{int(total_time % 60):02d}"
-                
-                # Status text
-                status_text = "PAUSED" if paused else "PLAYING"
-                frame_info = f"Frame: {current_frame_idx}/{total_video_frames}"
-                
-                # Add text to status bar
-                cv2.putText(frame, status_text, (20, h - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
-                cv2.putText(frame, time_str, (w // 2 - 80, h - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
-                cv2.putText(frame, frame_info, (w - 200, h - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
-                
-                cv2.imshow(window_name, frame)
-                key = cv2.waitKey(int(1000 / fps))  # Wait based on FPS
-                
-                # Handle keyboard controls
-                if key == ord(' '):  # Space bar
-                    paused = not paused
-                    status = "PAUSED" if paused else "PLAYING"
-                    print(f"[{name}] Video {status} at frame {current_frame_idx}/{total_video_frames}")
-                elif key == 81 or key == 2:  # Left arrow (different codes on different systems)
-                    current_frame_idx = max(0, current_frame_idx - 10)
-                    print(f"[{name}] Rewind to frame {current_frame_idx}/{total_video_frames}")
-                elif key == 83 or key == 3:  # Right arrow
-                    current_frame_idx = min(total_video_frames - 1, current_frame_idx + 10)
-                    print(f"[{name}] Forward to frame {current_frame_idx}/{total_video_frames}")
-                elif key == ord('q'):  # Quit playback
-                    playing = False
-                    paused = False
-                    current_frame_idx = 0
-                    print(f"[{name}] Stopped video playback")
-                    continue
-                
-                if not paused:
+                if all_frames[current_frame_idx] is not None:
+                    frame = all_frames[current_frame_idx].copy()
+                    
+                    # Add status bar overlay
+                    h, w = frame.shape[:2]
+                    bar_height = 60
+                    
+                    # Create semi-transparent overlay for status bar
+                    overlay = frame.copy()
+                    cv2.rectangle(overlay, (0, h - bar_height), (w, h), (0, 0, 0), -1)
+                    cv2.addWeighted(overlay, 0.7, frame, 0.3, 0, frame)
+                    
+                    # Calculate playback progress
+                    progress = current_frame_idx / max(total_video_frames - 1, 1)
+                    progress_bar_width = int((w - 40) * progress)
+                    
+                    # Draw progress bar
+                    cv2.rectangle(frame, (20, h - 45), (w - 20, h - 35), (100, 100, 100), -1)
+                    cv2.rectangle(frame, (20, h - 45), (20 + progress_bar_width, h - 35), (0, 255, 0), -1)
+                    
+                    # Calculate time
+                    current_time = current_frame_idx / fps
+                    total_time = total_video_frames / fps
+                    time_str = f"{int(current_time // 60):02d}:{int(current_time % 60):02d} / {int(total_time // 60):02d}:{int(total_time % 60):02d}"
+                    
+                    # Status text
+                    status_text = "PAUSED" if paused else "PLAYING"
+                    frame_info = f"Frame: {current_frame_idx}/{total_video_frames}"
+                    
+                    # Add text to status bar
+                    cv2.putText(frame, status_text, (20, h - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
+                    cv2.putText(frame, time_str, (w // 2 - 80, h - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
+                    cv2.putText(frame, frame_info, (w - 200, h - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
+                    
+                    cv2.imshow(window_name, frame)
+                    key = cv2.waitKey(int(1000 / fps))  # Wait based on FPS
+                    
+                    # Handle keyboard controls
+                    if key == ord(' '):  # Space bar
+                        paused = not paused
+                        status = "PAUSED" if paused else "PLAYING"
+                        print(f"[{name}] Video {status} at frame {current_frame_idx}/{total_video_frames}")
+                    elif key == 81 or key == 2:  # Left arrow (different codes on different systems)
+                        current_frame_idx = max(0, current_frame_idx - 10)
+                        print(f"[{name}] Rewind to frame {current_frame_idx}/{total_video_frames}")
+                    elif key == 83 or key == 3:  # Right arrow
+                        current_frame_idx = min(total_video_frames - 1, current_frame_idx + 10)
+                        print(f"[{name}] Forward to frame {current_frame_idx}/{total_video_frames}")
+                    elif key == ord('q'):  # Quit playback
+                        playing = False
+                        paused = False
+                        current_frame_idx = 0
+                        print(f"[{name}] Stopped video playback")
+                        continue
+                    
+                    if not paused:
+                        current_frame_idx += 1
+                else:
                     current_frame_idx += 1
                 
             elif current_frame_idx >= total_video_frames:
