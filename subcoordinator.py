@@ -92,7 +92,7 @@ def stream_video():
     frame_delay = 1.0 / fps if fps > 0 else 0.033  # default to ~30fps
     
     # Reduce delay for faster transmission (send at 2x speed)
-    frame_delay = frame_delay / 4.0  # Send 4x faster than original FPS
+    frame_delay = 0
     
     udp_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     frame_num = 0

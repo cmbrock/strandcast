@@ -75,7 +75,6 @@ def acknowledgePeer(ctrl_port):
             msg = json.dumps({"cmd": "ack"})
             s.sendall(msg.encode())
             resp = s.recv(8192).decode()
-            print(resp)
             # optional ack read
             try:
                 s.settimeout(1.0)
