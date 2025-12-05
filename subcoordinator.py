@@ -63,6 +63,23 @@ def update_host(ctrl_port, new_cord_port):
         print(f"[Subcoordinator] Failed to notify ctrl {ctrl_port}: {e}")
 
 
+def get_total_frames(video_path):
+    """Calculate the total number of frames in a video file."""
+    cap = cv2.VideoCapture(video_path)
+    if not cap.isOpened():
+        print(f"[Subcoordinator] ERROR: Cannot open video file {video_path} for frame counting")
+        return 0
+    
+    # Fast frame counting using grab()
+    total = 0
+    while cap.grab():
+        total += 1
+    
+    cap.release()
+    print(f"[Subcoordinator] Total frames in {video_path}: {total}")
+    return total
+
+
 def stream_video():
     """Stream video file to the first peer in the chain."""
     global running, video_streaming, FILE_COUNT
@@ -73,7 +90,6 @@ def stream_video():
             return
 
     VIDEO_FILE = f"videoFiles/test{FILE_COUNT}.mp4"
-    FILE_COUNT += 1
 
     with lock:
         if not peers:
@@ -82,6 +98,12 @@ def stream_video():
         first_peer = peers[0]
     
     print(f"[Coordinator] Starting video stream to first peer: {first_peer['name']}:{first_peer['port']}")
+    
+    # Calculate total frames before streaming
+    total_frames = get_total_frames(VIDEO_FILE)
+    if total_frames == 0:
+        print(f"[Coordinator] ERROR: Video file {VIDEO_FILE} has no frames or cannot be read")
+        return
     
     cap = cv2.VideoCapture(VIDEO_FILE)
     if not cap.isOpened():
@@ -108,7 +130,8 @@ def stream_video():
             end_msg = {
                 "type": "video_end",
                 "origin": "coordinator",
-                "frame_num": frame_num
+                "frame_num": frame_num,
+                "video_number": FILE_COUNT
             }
             try:
                 udp_sock.sendto(json.dumps(end_msg).encode(), (HOST, first_peer['port']))
@@ -135,6 +158,8 @@ def stream_video():
             
             # Create packet with metadata
             packet = {
+                "total_frames_incoming": total_frames,
+                "video_number" : FILE_COUNT,
                 "type": "video_frame",
                 "origin": "coordinator",
                 "frame_num": frame_num,
@@ -160,6 +185,7 @@ def stream_video():
         frame_num += 1
         time.sleep(frame_delay)
     
+    FILE_COUNT += 1
     cap.release()
     udp_sock.close()
     video_streaming = False
