@@ -23,21 +23,21 @@ def split_video(input_path, output_dir, k):
         if end > duration:
             end = duration
 
-        output_path = os.path.join(output_dir, f"test.{i+1}.mp4")
+        output_path = os.path.join(output_dir, f"test{i+1}.mp4")
         print(f"test{i+1}.mp4 done")
         subclip = video.subclipped(start, end)
         subclip.write_videofile(output_path, codec="libx264", audio_codec='aac')
     video.close()
-    print("Done with all")
+    print("You are now ready to test! Run 'python run_network.py' to test out our implementation")
 
 ######################################################
 # Create your test videos here!
 
 # Input video
-input_video_path = r"C:\Users\Miguel Alvarado\Downloads\unc_tour.mp4"
+input_video_path = r"C:\Users\Miguel Alvarado\Downloads\unc_video.mp4"
 
 # Output videos destination
-output_video_path = r"C:\Users\Miguel Alvarado\strandcast"
+output_video_path = r"C:\Users\Miguel Alvarado\strandcast\videoFiles"  # must end in "strandcast\videoFiles" for correct testing functionality
 
 # Number of subvideos (Three for this testing)
 k = 3

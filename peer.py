@@ -20,6 +20,7 @@ import numpy as np
 import pickle
 import zlib
 import base64
+import queue
 from datetime import datetime
 from collections import defaultdict
 
@@ -438,6 +439,11 @@ def query_coordinator_lookup(target_name, peer_name):
     except Exception as e:
         print("[peer] coordinator lookup error:", e)
         return {}
+    
+def stdin_reader(q):
+    '''Reads real lines from stdin in a separate thread.'''
+    for line in sys.stdin:
+        q.put(line.strip())
 
 if __name__ == "__main__":
 
@@ -484,6 +490,9 @@ if __name__ == "__main__":
     t_udp.start()
     t_ctrl = threading.Thread(target=ctrl_server, args=(ctrl_port, name), daemon=True)
     t_ctrl.start()
+
+    input_queue = queue.Queue()
+    threading.Thread(target=stdin_reader, args=(input_queue,), daemon=True).start()
 
     # Create OpenCV window for video display (must be done in main thread on macOS)
     window_name = f"Peer {name} - Video"
@@ -714,24 +723,13 @@ if __name__ == "__main__":
                     print(f"[{name}] Stopped video playback")
         
         # Check for user input with timeout so we can keep processing frames
+        # Modified to be compatible with windows
         try:
-            # Use select on Unix-like systems to check if input is available
-            if sys.stdin in select.select([sys.stdin], [], [], 0.01)[0]:
-                line = sys.stdin.readline().strip()
-                if not line:
-                    continue
-            else:
-                # No input available, continue to next iteration to check frames
-                time.sleep(0.01)
-                continue
-        except EOFError:
-            # likely no TTY - shut down gracefully
-            print(f"[{name}] Stdin closed (EOF). Exiting.")
-            running = False
-            break
-        except KeyboardInterrupt:
-            running = False
-            break
+            line = input_queue.get_nowait()
+        except queue.Empty:
+            # No input ready, continue looping
+            time.sleep(0.01)
+            continue
 
         if not line:
             continue

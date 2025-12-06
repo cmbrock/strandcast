@@ -4952,3 +4952,11 @@
 [2025-12-05 17:17:06.266] VIDEO_END from coordinator, segment frames: 644
 [2025-12-05 17:17:06.266] Missing frames in video #3: []
 [2025-12-05 17:17:06.267] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-05 21:05:02.287] Output directory: videoOutput/peer_C_frames
+[2025-12-05 21:05:02.340] CTRL UPDATE_NEXT -> A:10001
+[2025-12-05 21:05:02.353] CTRL UPDATE_NEXT -> B:10002
+[2025-12-05 21:05:59.290] Output directory: videoOutput/peer_C_frames
+[2025-12-05 21:06:58.741] Output directory: videoOutput/peer_C_frames
+[2025-12-05 21:16:00.691] Output directory: videoOutput/peer_C_frames
+[2025-12-05 21:16:49.678] Output directory: videoOutput/peer_C_frames
+[2025-12-05 21:44:55.576] Output directory: videoOutput/peer_C_frames

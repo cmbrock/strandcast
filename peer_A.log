@@ -35662,3 +35662,10 @@
 [2025-12-05 17:17:06.254] VIDEO_END from coordinator, segment frames: 644
 [2025-12-05 17:17:06.254] Missing frames in video #3: []
 [2025-12-05 17:17:06.254] FORWARDED video_end to B:10002
+[2025-12-05 21:05:02.290] Output directory: videoOutput/peer_A_frames
+[2025-12-05 21:05:02.350] CTRL UPDATE_NEXT -> B:10002
+[2025-12-05 21:05:57.656] Output directory: videoOutput/peer_A_frames
+[2025-12-05 21:06:57.096] Output directory: videoOutput/peer_A_frames
+[2025-12-05 21:15:59.051] Output directory: videoOutput/peer_A_frames
+[2025-12-05 21:16:48.081] Output directory: videoOutput/peer_A_frames
+[2025-12-05 21:44:49.101] Output directory: videoOutput/peer_A_frames
