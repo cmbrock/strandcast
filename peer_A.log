@@ -35669,3 +35669,180 @@
 [2025-12-05 21:15:59.051] Output directory: videoOutput/peer_A_frames
 [2025-12-05 21:16:48.081] Output directory: videoOutput/peer_A_frames
 [2025-12-05 21:44:49.101] Output directory: videoOutput/peer_A_frames
+[2025-12-05 22:26:36.167] Output directory: videoOutput/peer_A_frames
+[2025-12-05 22:37:22.312] Output directory: videoOutput/peer_A_frames
+[2025-12-05 22:46:09.725] Output directory: videoOutput/peer_A_frames
+[2025-12-05 22:46:15.494] CTRL UPDATE_NEXT -> B:10002
+[2025-12-05 22:46:15.518] CTRL UPDATE_NEXT -> C:10003
+[2025-12-05 22:46:18.573] RECV_FRAME 0 from coordinator
+[2025-12-05 22:46:18.585] FORWARDED frame 0 to B:10002
+[2025-12-05 22:46:21.326] RECV_FRAME 30 from coordinator
+[2025-12-05 22:46:21.336] FORWARDED frame 30 to B:10002
+[2025-12-05 22:46:24.067] RECV_FRAME 60 from coordinator
+[2025-12-05 22:46:24.080] FORWARDED frame 60 to B:10002
+[2025-12-05 22:46:26.812] RECV_FRAME 90 from coordinator
+[2025-12-05 22:46:26.827] FORWARDED frame 90 to B:10002
+[2025-12-05 22:46:29.543] RECV_FRAME 120 from coordinator
+[2025-12-05 22:46:29.554] FORWARDED frame 120 to B:10002
+[2025-12-05 22:46:31.804] RECV_FRAME 150 from coordinator
+[2025-12-05 22:46:31.816] FORWARDED frame 150 to B:10002
+[2025-12-05 22:46:33.379] RECV_FRAME 180 from coordinator
+[2025-12-05 22:46:33.401] FORWARDED frame 180 to B:10002
+[2025-12-05 22:46:43.909] RECV_FRAME 300 from coordinator
+[2025-12-05 22:46:43.922] FORWARDED frame 300 to B:10002
+[2025-12-05 22:46:44.413] VIDEO_END from coordinator, segment frames: 163
+[2025-12-05 22:46:44.418] Missing frames in video #1: [2, 4, 6, 12, 14, 16, 18, 20, 23, 25, 28, 34, 36, 38, 40, 42, 44, 46, 48, 50, 53, 56, 59, 62, 64, 66, 68, 70, 73, 76, 80, 82, 84, 86, 89, 91, 93, 95, 97, 99, 102, 106, 108, 110, 112, 114, 117, 119, 121, 123, 125, 127, 129, 131, 133, 135, 137, 139, 141, 143, 145, 147, 149, 151, 153, 155, 157, 159, 161, 162, 164, 166, 168, 170, 172, 173, 175, 177, 179, 181, 183, 185, 187, 189, 191, 193, 195, 197, 198, 200, 202, 204, 206, 208, 210, 212, 214, 215, 216, 217, 218, 220, 221, 222, 224, 226, 228, 230, 232, 234, 236, 238, 240, 242, 244, 246, 248, 250, 253, 256, 259, 261, 263, 265, 268, 270, 272, 274, 276, 278, 280, 282, 284, 286, 288, 290, 292, 294, 295, 297, 299, 301, 303, 305]
+[2025-12-05 22:46:44.420] Missing frames in video #1: [2, 4, 6, 12, 14, 16, 18, 20, 23, 25, 28, 34, 36, 38, 40, 42, 44, 46, 48, 50, 53, 56, 59, 62, 64, 66, 68, 70, 73, 76, 80, 82, 84, 86, 89, 91, 93, 95, 97, 99, 102, 106, 108, 110, 112, 114, 117, 119, 121, 123, 125, 127, 129, 131, 133, 135, 137, 139, 141, 143, 145, 147, 149, 151, 153, 155, 157, 159, 161, 162, 164, 166, 168, 170, 172, 173, 175, 177, 179, 181, 183, 185, 187, 189, 191, 193, 195, 197, 198, 200, 202, 204, 206, 208, 210, 212, 214, 215, 216, 217, 218, 220, 221, 222, 224, 226, 228, 230, 232, 234, 236, 238, 240, 242, 244, 246, 248, 250, 253, 256, 259, 261, 263, 265, 268, 270, 272, 274, 276, 278, 280, 282, 284, 286, 288, 290, 292, 294, 295, 297, 299, 301, 303, 305]
+[2025-12-05 22:46:44.424] Requested 144 missing frames for video #1, response: {"status": "ok", "message": "Resending 144 frames"}
+[2025-12-05 22:46:44.426] FORWARDED video_end to B:10002
+[2025-12-05 22:46:47.761] UDP_LISTENER_ERROR: 38
+[2025-12-05 22:46:53.434] UDP_LISTENER_ERROR: 29
+[2025-12-05 22:46:55.043] UDP_LISTENER_ERROR: 36
+[2025-12-05 22:46:55.666] DECODE_ERROR frame 199: Error -3 while decompressing data: invalid stored block lengths
+[2025-12-05 22:46:56.313] UDP_LISTENER_ERROR: 35
+[2025-12-05 22:46:56.467] UDP_LISTENER_ERROR: 13
+[2025-12-05 22:46:59.706] RECV_FRAME 210 from coordinator
+[2025-12-05 22:46:59.717] FORWARDED frame 210 to B:10002
+[2025-12-05 22:47:00.464] UDP_LISTENER_ERROR: 27
+[2025-12-05 22:47:03.806] UDP_LISTENER_ERROR: 35
+[2025-12-05 22:47:05.102] DECODE_ERROR frame 231: Error -3 while decompressing data: invalid code lengths set
+[2025-12-05 22:47:07.625] UDP_LISTENER_ERROR: 12
+[2025-12-05 22:47:08.356] DECODE_ERROR frame 245: Error -3 while decompressing data: invalid code lengths set
+[2025-12-05 22:47:08.360] DECODE_ERROR frame 245: Error -3 while decompressing data: invalid code lengths set
+[2025-12-05 22:47:08.363] DECODE_ERROR frame 245: Error -3 while decompressing data: invalid stored block lengths
+[2025-12-05 22:47:08.372] DECODE_ERROR frame 245: Error -3 while decompressing data: invalid stored block lengths
+[2025-12-05 22:47:08.380] DECODE_ERROR frame 245: Error -3 while decompressing data: invalid stored block lengths
+[2025-12-05 22:47:08.397] DECODE_ERROR frame 245: Error -3 while decompressing data: invalid code lengths set
+[2025-12-05 22:47:08.399] DECODE_ERROR frame 245: Error -3 while decompressing data: invalid stored block lengths
+[2025-12-05 22:47:08.412] DECODE_ERROR frame 245: Error -3 while decompressing data: invalid literal/length code
+[2025-12-05 22:47:08.430] DECODE_ERROR frame 245: Error -3 while decompressing data: incorrect data check
+[2025-12-05 22:47:08.444] DECODE_ERROR frame 245: Error -3 while decompressing data: incorrect data check
+[2025-12-05 22:47:08.460] DECODE_ERROR frame 245: Error -3 while decompressing data: incorrect data check
+[2025-12-05 22:47:08.512] DECODE_ERROR frame 245: Error -3 while decompressing data: incorrect data check
+[2025-12-05 22:47:08.516] DECODE_ERROR frame 245: Error -3 while decompressing data: invalid code lengths set
+[2025-12-05 22:47:08.522] DECODE_ERROR frame 245: Error -3 while decompressing data: invalid code lengths set
+[2025-12-05 22:47:08.523] DECODE_ERROR frame 245: Error -3 while decompressing data: invalid code lengths set
+[2025-12-05 22:47:08.534] DECODE_ERROR frame 245: Error -3 while decompressing data: invalid code lengths set
+[2025-12-05 22:47:09.360] DECODE_ERROR frame 249: Error -3 while decompressing data: invalid code lengths set
+[2025-12-05 22:47:09.383] DECODE_ERROR frame 249: Error -3 while decompressing data: invalid code lengths set
+[2025-12-05 22:47:09.394] DECODE_ERROR frame 249: Error -3 while decompressing data: invalid code lengths set
+[2025-12-05 22:47:09.400] DECODE_ERROR frame 249: Error -3 while decompressing data: invalid literal/length code
+[2025-12-05 22:47:09.407] DECODE_ERROR frame 249: Error -3 while decompressing data: invalid stored block lengths
+[2025-12-05 22:47:09.418] DECODE_ERROR frame 249: Error -3 while decompressing data: invalid stored block lengths
+[2025-12-05 22:47:09.428] DECODE_ERROR frame 249: Error -3 while decompressing data: incorrect data check
+[2025-12-05 22:47:09.434] DECODE_ERROR frame 249: Error -3 while decompressing data: invalid literal/length code
+[2025-12-05 22:47:09.460] DECODE_ERROR frame 249: Error -3 while decompressing data: invalid stored block lengths
+[2025-12-05 22:47:09.471] DECODE_ERROR frame 249: Error -3 while decompressing data: invalid code lengths set
+[2025-12-05 22:47:09.490] DECODE_ERROR frame 249: Error -3 while decompressing data: invalid distance code
+[2025-12-05 22:47:09.509] DECODE_ERROR frame 249: Error -3 while decompressing data: invalid distance code
+[2025-12-05 22:47:10.569] DECODE_ERROR frame 254: Error -3 while decompressing data: invalid distance code
+[2025-12-05 22:47:10.573] DECODE_ERROR frame 254: Error -3 while decompressing data: invalid block type
+[2025-12-05 22:47:10.575] DECODE_ERROR frame 254: Error -3 while decompressing data: invalid block type
+[2025-12-05 22:47:10.589] DECODE_ERROR frame 254: Error -3 while decompressing data: invalid block type
+[2025-12-05 22:47:10.591] DECODE_ERROR frame 254: Error -3 while decompressing data: invalid block type
+[2025-12-05 22:47:10.593] DECODE_ERROR frame 254: Error -3 while decompressing data: invalid block type
+[2025-12-05 22:47:10.603] DECODE_ERROR frame 254: Error -3 while decompressing data: invalid block type
+[2025-12-05 22:47:10.606] DECODE_ERROR frame 254: Error -3 while decompressing data: invalid block type
+[2025-12-05 22:47:10.609] DECODE_ERROR frame 254: Error -5 while decompressing data: incomplete or truncated stream
+[2025-12-05 22:47:10.617] DECODE_ERROR frame 254: Error -5 while decompressing data: incomplete or truncated stream
+[2025-12-05 22:47:10.626] DECODE_ERROR frame 254: Error -5 while decompressing data: incomplete or truncated stream
+[2025-12-05 22:47:14.846] DECODE_ERROR frame 269: Error -3 while decompressing data: invalid stored block lengths
+[2025-12-05 22:47:14.852] DECODE_ERROR frame 269: Error -3 while decompressing data: invalid stored block lengths
+[2025-12-05 22:47:14.856] DECODE_ERROR frame 269: Error -3 while decompressing data: invalid stored block lengths
+[2025-12-05 22:47:14.860] DECODE_ERROR frame 269: Error -3 while decompressing data: invalid stored block lengths
+[2025-12-05 22:47:14.863] DECODE_ERROR frame 269: Error -3 while decompressing data: invalid distance code
+[2025-12-05 22:47:14.868] DECODE_ERROR frame 269: Error -3 while decompressing data: invalid code lengths set
+[2025-12-05 22:47:14.895] DECODE_ERROR frame 269: Error -3 while decompressing data: invalid code lengths set
+[2025-12-05 22:47:14.906] DECODE_ERROR frame 269: Error -3 while decompressing data: invalid code lengths set
+[2025-12-05 22:47:14.935] DECODE_ERROR frame 269: Error -3 while decompressing data: invalid code lengths set
+[2025-12-05 22:47:14.957] DECODE_ERROR frame 269: Error -3 while decompressing data: invalid code lengths set
+[2025-12-05 22:47:14.990] DECODE_ERROR frame 269: Error -3 while decompressing data: invalid stored block lengths
+[2025-12-05 22:47:15.006] DECODE_ERROR frame 269: Error -3 while decompressing data: invalid stored block lengths
+[2025-12-05 22:47:15.036] DECODE_ERROR frame 269: Error -3 while decompressing data: invalid stored block lengths
+[2025-12-05 22:47:15.052] DECODE_ERROR frame 269: Error -3 while decompressing data: invalid stored block lengths
+[2025-12-05 22:47:15.064] DECODE_ERROR frame 269: Error -3 while decompressing data: invalid stored block lengths
+[2025-12-05 22:47:15.095] DECODE_ERROR frame 269: Error -3 while decompressing data: invalid stored block lengths
+[2025-12-05 22:47:15.119] DECODE_ERROR frame 269: Error -3 while decompressing data: invalid stored block lengths
+[2025-12-05 22:47:16.256] UDP_LISTENER_ERROR: 39
+[2025-12-05 22:47:18.149] UDP_LISTENER_ERROR: 18
+[2025-12-05 22:47:18.886] UDP_LISTENER_ERROR: 32
+[2025-12-05 22:47:19.344] UDP_LISTENER_ERROR: 11
+[2025-12-05 22:47:21.010] UDP_LISTENER_ERROR: 24
+[2025-12-05 22:47:21.688] UDP_LISTENER_ERROR: 33
+[2025-12-05 22:47:22.032] UDP_LISTENER_ERROR: 10
+[2025-12-05 22:47:24.171] RECV_FRAME 300 from coordinator
+[2025-12-05 22:47:24.179] FORWARDED frame 300 to B:10002
+[2025-12-05 22:47:24.488] UDP_LISTENER_ERROR: 12
+[2025-12-05 22:47:31.914] RECV_FRAME 330 from coordinator
+[2025-12-05 22:47:31.920] FORWARDED frame 330 to B:10002
+[2025-12-05 22:47:33.742] RECV_FRAME 300 from coordinator
+[2025-12-05 22:47:33.769] FORWARDED frame 300 to B:10002
+[2025-12-05 22:47:42.552] RECV_FRAME 360 from coordinator
+[2025-12-05 22:47:42.557] FORWARDED frame 360 to B:10002
+[2025-12-05 22:47:50.235] RECV_FRAME 390 from coordinator
+[2025-12-05 22:47:50.248] FORWARDED frame 390 to B:10002
+[2025-12-05 22:47:55.158] RECV_FRAME 420 from coordinator
+[2025-12-05 22:47:55.164] FORWARDED frame 420 to B:10002
+[2025-12-05 22:47:59.791] RECV_FRAME 450 from coordinator
+[2025-12-05 22:48:00.001] FORWARDED frame 450 to B:10002
+[2025-12-05 22:48:17.357] RECV_FRAME 360 from coordinator
+[2025-12-05 22:48:17.379] FORWARDED frame 360 to B:10002
+[2025-12-05 22:49:23.365] VIDEO_END from coordinator, segment frames: 305
+[2025-12-05 22:49:23.374] Missing frames in video #1: [25, 28, 34, 36, 40, 44, 50, 56, 59, 62, 66, 68, 73, 76, 82, 84, 86, 91, 93, 95, 97, 102, 106, 110, 117, 119, 121, 123, 125, 127, 129, 133, 135, 139, 141, 145, 147, 149, 151, 153, 155, 157, 161, 162, 164, 170, 172, 173, 175, 177, 179]
+[2025-12-05 22:49:23.375] Missing frames in video #1: [25, 28, 34, 36, 40, 44, 50, 56, 59, 62, 66, 68, 73, 76, 82, 84, 86, 91, 93, 95, 97, 102, 106, 110, 117, 119, 121, 123, 125, 127, 129, 133, 135, 139, 141, 145, 147, 149, 151, 153, 155, 157, 161, 162, 164, 170, 172, 173, 175, 177, 179]
+[2025-12-05 22:49:23.397] Requested 51 missing frames for video #1, response: {"status": "ok", "message": "Resending 51 frames"}
+[2025-12-05 22:49:23.410] FORWARDED video_end to B:10002
+[2025-12-05 22:49:33.568] RECV_FRAME 480 from coordinator
+[2025-12-05 22:49:33.583] FORWARDED frame 480 to B:10002
+[2025-12-05 22:49:42.637] RECV_FRAME 510 from coordinator
+[2025-12-05 22:49:42.654] FORWARDED frame 510 to B:10002
+[2025-12-05 22:49:48.093] UDP_LISTENER_ERROR: 9
+[2025-12-05 22:49:53.501] RECV_FRAME 540 from coordinator
+[2025-12-05 22:49:53.511] FORWARDED frame 540 to B:10002
+[2025-12-05 22:50:11.035] RECV_FRAME 600 from coordinator
+[2025-12-05 22:50:11.058] FORWARDED frame 600 to B:10002
+[2025-12-05 22:50:12.135] RECV_FRAME 570 from coordinator
+[2025-12-05 22:50:12.143] FORWARDED frame 570 to B:10002
+[2025-12-05 22:50:23.730] RECV_FRAME 630 from coordinator
+[2025-12-05 22:50:23.736] FORWARDED frame 630 to B:10002
+[2025-12-05 22:50:32.231] RECV_FRAME 660 from coordinator
+[2025-12-05 22:50:32.246] FORWARDED frame 660 to B:10002
+[2025-12-05 22:50:39.095] RECV_FRAME 690 from coordinator
+[2025-12-05 22:50:39.101] FORWARDED frame 690 to B:10002
+[2025-12-05 22:51:00.080] RECV_FRAME 750 from coordinator
+[2025-12-05 22:51:00.086] FORWARDED frame 750 to B:10002
+[2025-12-05 22:51:05.912] VIDEO_END from coordinator, segment frames: 300
+[2025-12-05 22:51:05.948] Missing frames in video #3: [3, 6, 9, 16, 19, 25, 28, 34, 36, 38, 43, 45, 55, 59, 76, 78, 100, 102, 109, 117, 122, 127, 202, 252]
+[2025-12-05 22:51:05.993] Missing frames in video #3: [3, 6, 9, 16, 19, 25, 28, 34, 36, 38, 43, 45, 55, 59, 76, 78, 100, 102, 109, 117, 122, 127, 202, 252]
+[2025-12-05 22:51:06.074] Requested 24 missing frames for video #3, response: {"status": "ok", "message": "Resending 24 frames"}
+[2025-12-05 22:51:06.097] FORWARDED video_end to B:10002
+[2025-12-05 22:51:50.963] RECV_FRAME 870 from coordinator
+[2025-12-05 22:51:50.973] FORWARDED frame 870 to B:10002
+[2025-12-05 22:52:12.558] RECV_FRAME 1020 from coordinator
+[2025-12-05 22:52:12.609] FORWARDED frame 1020 to B:10002
+[2025-12-05 22:52:12.643] VIDEO_END from coordinator, segment frames: 31
+[2025-12-05 22:52:12.711] Missing frames in video #3: []
+[2025-12-05 22:52:12.787] FORWARDED video_end to B:10002
+[2025-12-05 22:52:30.762] VIDEO_END from coordinator, segment frames: 2
+[2025-12-05 22:52:30.846] Missing frames in video #1: [25, 28, 34, 36, 40, 50, 56, 59, 62, 66, 73, 76, 84, 86, 93, 95, 97, 117, 119, 125, 127, 135, 145, 162]
+[2025-12-05 22:52:31.007] Missing frames in video #1: [25, 28, 34, 36, 40, 50, 56, 59, 62, 66, 73, 76, 84, 86, 93, 95, 97, 117, 119, 125, 127, 135, 145, 162]
+[2025-12-05 22:52:31.204] Requested 24 missing frames for video #1, response: {"status": "ok", "message": "Resending 24 frames"}
+[2025-12-05 22:52:31.207] FORWARDED video_end to B:10002
+[2025-12-05 22:53:24.626] SENT origin=A seq=1 to B:10002 msg=hello
+[2025-12-06 11:46:28.635] Output directory: videoOutput/peer_A_frames
+[2025-12-06 11:46:35.293] CTRL UPDATE_NEXT -> C:10003
+[2025-12-06 11:46:35.308] CTRL UPDATE_NEXT -> B:10002
+[2025-12-06 11:46:38.023] RECV_FRAME 0 from coordinator
+[2025-12-06 11:46:38.031] FORWARDED frame 0 to C:10003
+[2025-12-06 11:46:43.491] RECV_FRAME 60 from coordinator
+[2025-12-06 11:46:43.503] FORWARDED frame 60 to C:10003
+[2025-12-06 11:46:46.245] RECV_FRAME 90 from coordinator
+[2025-12-06 11:46:46.256] FORWARDED frame 90 to C:10003
+[2025-12-06 11:46:48.956] RECV_FRAME 120 from coordinator
+[2025-12-06 11:46:48.962] FORWARDED frame 120 to C:10003
+[2025-12-06 11:46:51.662] RECV_FRAME 150 from coordinator
+[2025-12-06 11:46:51.673] FORWARDED frame 150 to C:10003
+[2025-12-06 11:46:54.451] RECV_FRAME 180 from coordinator
+[2025-12-06 11:46:54.477] FORWARDED frame 180 to C:10003
+[2025-12-06 11:46:58.332] RECV_FRAME 210 from coordinator
+[2025-12-06 11:46:58.351] FORWARDED frame 210 to C:10003
