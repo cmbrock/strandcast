@@ -1,4 +1,4 @@
-from moviepy.editor import VideoFileClip
+from moviepy import VideoFileClip
 import os
 
 def split_video(input_path, output_dir, k):
@@ -25,7 +25,7 @@ def split_video(input_path, output_dir, k):
 
         output_path = os.path.join(output_dir, f"test.{i+1}.mp4")
         print(f"test{i+1}.mp4 done")
-        subclip = video.subclip(start, end)
+        subclip = video.subclipped(start, end)
         subclip.write_videofile(output_path, codec="libx264", audio_codec='aac')
     video.close()
     print("Done with all")
@@ -34,10 +34,10 @@ def split_video(input_path, output_dir, k):
 # Create your test videos here!
 
 # Input video
-input_video_path = r"paste your path here"
+input_video_path = r"C:\Users\Miguel Alvarado\Downloads\unc_tour.mp4"
 
 # Output videos destination
-output_video_path = r"paste your path here"
+output_video_path = r"C:\Users\Miguel Alvarado\strandcast"
 
 # Number of subvideos (Three for this testing)
 k = 3
