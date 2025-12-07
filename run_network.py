@@ -80,6 +80,7 @@ if __name__ == "__main__":
     coord_cmd = [sys.executable, "coordinator.py"]
     sub_coord_cmd = [sys.executable, "subcoordinator.py", "9001", COORD_HOST, str(COORD_PORT)]
     peers = [("A", 10001), ("B", 10002), ("C", 10003)]
+    peers2 = [("D", 10004)]
 
 
     procs = []
@@ -97,6 +98,15 @@ if __name__ == "__main__":
 
 
     for name, port in peers:
+        cmd = [sys.executable, "peer.py", name, str(port), COORD_HOST, str(COORD_PORT)]
+        print(f"Starting peer {name} on port {port} ...")
+        p = start_in_new_console(cmd)
+        procs.append(p)
+        time.sleep(0.8)
+
+    time.sleep(5)
+
+    for name, port in peers2:
         cmd = [sys.executable, "peer.py", name, str(port), COORD_HOST, str(COORD_PORT)]
         print(f"Starting peer {name} on port {port} ...")
         p = start_in_new_console(cmd)

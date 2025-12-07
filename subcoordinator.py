@@ -14,6 +14,7 @@ import numpy as np
 import pickle
 import zlib
 import base64
+from collections import defaultdict
 
 HOST = None
 SUPER_COORD_PORT = None
@@ -24,6 +25,10 @@ FILE_COUNT = 1
 VIDEO_FILE = None
 COUNT = 0
 BUFFER = 3
+
+# Frame buffer for storing compressed chunks - nested structure: video_number -> frame_num -> [chunks]
+frame_buffers = defaultdict(lambda: defaultdict(list))  # video_number -> frame_num -> [chunks array]
+frame_chunks_expected = defaultdict(dict)  # video_number -> frame_num -> total_chunks
 
 peers = []            # list of dicts: {"name":..., "port":..., "ctrl_port":...}
 lock = threading.Lock()
@@ -89,7 +94,9 @@ def stream_video():
             video_streaming = False
             return
 
-    VIDEO_FILE = f"videoFiles/test{FILE_COUNT}.mp4"
+    # Store the current video number to avoid race conditions
+    current_video_number = FILE_COUNT
+    VIDEO_FILE = f"videoFiles/test{current_video_number}.mp4"
 
     with lock:
         if not peers:
@@ -151,15 +158,23 @@ def stream_video():
         # Split into chunks if needed
         total_chunks = (size + MAX_CHUNK_SIZE - 1) // MAX_CHUNK_SIZE
         
+        # Initialize frame buffer array
+        if not frame_buffers[current_video_number][frame_num]:
+            frame_buffers[current_video_number][frame_num] = [None] * total_chunks
+            frame_chunks_expected[current_video_number][frame_num] = total_chunks
+        
         for chunk_id in range(total_chunks):
             start = chunk_id * MAX_CHUNK_SIZE
             end = min(start + MAX_CHUNK_SIZE, size)
             chunk_data = compressed[start:end]
             
+            # Store chunk in buffer for potential resending
+            frame_buffers[current_video_number][frame_num][chunk_id] = chunk_data
+            
             # Create packet with metadata
             packet = {
                 "total_frames_incoming": total_frames,
-                "video_number" : FILE_COUNT,
+                "video_number" : current_video_number,
                 "type": "video_frame",
                 "origin": "coordinator",
                 "frame_num": frame_num,
@@ -377,48 +392,49 @@ def request_missing_frames(req, conn):
 
 
 def resend_missing_frames(video_number, frame_numbers, peer_port):
-    """Resend specific frames from a video file to a peer."""
+    """Resend specific frames from frame_buffer to a peer."""
+    
+    print(f"[Subcoordinator] Starting to resend {len(frame_numbers)} frames from frame_buffer to port {peer_port}")
+    print(f"[Subcoordinator] Video number: {video_number}, Frame numbers: {frame_numbers[:10]}{'...' if len(frame_numbers) > 10 else ''}")
+    
+    # Debug: Check what's in the buffer
+    print(f"[Subcoordinator] Available videos in frame_buffers: {list(frame_buffers.keys())}")
+    if video_number in frame_buffers:
+        available_frames = [k for k, v in frame_buffers[video_number].items() if v]
+        print(f"[Subcoordinator] Available frames for video {video_number}: {len(available_frames)} frames")
+        if available_frames:
+            print(f"[Subcoordinator] Sample available frames: {available_frames[:10]}{'...' if len(available_frames) > 10 else ''}")
+    
+    # Get total frames for this video
     VIDEO_FILE = f"videoFiles/test{video_number}.mp4"
-    
-    print(f"[Subcoordinator] Starting to resend {len(frame_numbers)} frames from {VIDEO_FILE} to port {peer_port}")
-    
-    cap = cv2.VideoCapture(VIDEO_FILE)
-    if not cap.isOpened():
-        print(f"[Subcoordinator] ERROR: Cannot open video file {VIDEO_FILE} for resending")
-        return
-    
-    # Get total frames for metadata
-    total_video_frames = get_total_frames(VIDEO_FILE)
+    total_frames = get_total_frames(VIDEO_FILE)
     
     udp_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     
+    resent_count = 0
+    missing_in_buffer = 0
     for frame_num in frame_numbers:
-        # Seek to the specific frame
-        cap.set(cv2.CAP_PROP_POS_FRAMES, frame_num)
-        ret, frame = cap.read()
-        
-        if not ret:
-            print(f"[Subcoordinator] ERROR: Could not read frame {frame_num} from {VIDEO_FILE}")
+        # Check if frame exists in buffer (check if it's not an empty list)
+        if not frame_buffers[video_number][frame_num]:
+            missing_in_buffer += 1
+            if missing_in_buffer <= 5:  # Only print first 5
+                print(f"[Subcoordinator] WARNING: Frame {frame_num} not found in frame_buffer for video {video_number}")
             continue
         
-        # Encode frame: compress with JPEG then pickle
-        encode_param = [int(cv2.IMWRITE_JPEG_QUALITY), 40]
-        _, buffer = cv2.imencode('.jpg', frame, encode_param)
-        data = pickle.dumps(buffer)
+        # Get chunks and total_chunks for this frame
+        chunks_array = frame_buffers[video_number][frame_num]
+        total_chunks = frame_chunks_expected[video_number].get(frame_num, len(chunks_array))
         
-        # Compress with zlib
-        compressed = zlib.compress(data, 6)
-        size = len(compressed)
+        # Check if all chunks are available
+        if None in chunks_array or len(chunks_array) != total_chunks:
+            print(f"[Subcoordinator] WARNING: Frame {frame_num} incomplete ({len([c for c in chunks_array if c is not None])}/{total_chunks} chunks)")
+            continue
         
-        # Split into chunks if needed
-        total_chunks = (size + MAX_CHUNK_SIZE - 1) // MAX_CHUNK_SIZE
-        
+        # Resend all chunks for this frame
         for chunk_id in range(total_chunks):
-            start = chunk_id * MAX_CHUNK_SIZE
-            end = min(start + MAX_CHUNK_SIZE, size)
-            chunk_data = compressed[start:end]
+            chunk_data = chunks_array[chunk_id]
             
-            # Create packet with metadata
+            # Create packet with metadata (include total_frames_incoming for compatibility)
             packet = {
                 "video_number": video_number,
                 "type": "video_frame",
@@ -426,7 +442,7 @@ def resend_missing_frames(video_number, frame_numbers, peer_port):
                 "frame_num": frame_num,
                 "chunk_id": chunk_id,
                 "total_chunks": total_chunks,
-                "total_frames_incoming": total_video_frames,
+                "total_frames_incoming": total_frames,
                 "data": base64.b64encode(chunk_data).decode('ascii')
             }
             
@@ -437,9 +453,14 @@ def resend_missing_frames(video_number, frame_numbers, peer_port):
             except Exception as e:
                 print(f"[Subcoordinator] Error resending frame {frame_num} chunk {chunk_id}: {e}")
         
-        print(f"[Subcoordinator] Resent frame {frame_num} ({total_chunks} chunks)")
+        resent_count += 1
+        if frame_num % 10 == 0 or resent_count <= 5:
+            print(f"[Subcoordinator] Resent frame {frame_num} ({total_chunks} chunks)")
     
-    cap.release()
+    if missing_in_buffer > 5:
+        print(f"[Subcoordinator] ... and {missing_in_buffer - 5} more frames not found in buffer")
+    
+    print(f"[Subcoordinator] Completed resending {resent_count}/{len(frame_numbers)} frames (missing in buffer: {missing_in_buffer})")
     
     # Send video_end message after all missing frames have been resent
     end_msg = {
@@ -455,7 +476,7 @@ def resend_missing_frames(video_number, frame_numbers, peer_port):
         print(f"[Subcoordinator] Error sending video_end after recovery: {e}")
     
     udp_sock.close()
-    print(f"[Subcoordinator] Completed resending {len(frame_numbers)} frames and sent video_end")
+    print(f"[Subcoordinator] Frame recovery complete for video {video_number}")
 
 
 def handle_connection(conn, addr):

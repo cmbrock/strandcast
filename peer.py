@@ -36,9 +36,9 @@ oneTimeAck = True
 
 nextPeers = []
 
-# Frame buffer for reassembling chunks
-frame_buffers = defaultdict(dict)  # frame_num -> {chunk_id: data}
-frame_chunks_expected = {}  # frame_num -> total_chunks
+# Frame buffer for reassembling chunks - nested structure: video_number -> frame_num -> [chunks]
+frame_buffers = defaultdict(lambda: defaultdict(list))  # video_number -> frame_num -> [chunks array]
+frame_chunks_expected = defaultdict(dict)  # video_number -> frame_num -> total_chunks
 received_frames = set()  # frame numbers already processed
 
 # Storage for all received frames for playback
@@ -82,18 +82,25 @@ def acknowledgePeer(ctrl_port):
                 _ = s.recv(1024)
             except:
                 pass
+        return True
     except Exception as e:
         print(f"[Peer] Failed to acknowledge ctrl {ctrl_port}: {e}")
-        nextPeers.pop(0)
+        if nextPeers:
+            nextPeers.pop(0)
+        return False
 
 
-def udp_listener(udp_sock, name, seen):
-    global frame_buffers, frame_chunks_expected, received_frames, display_queue, all_frames, video_complete, total_video_frames, video_segments, startTime, endTime, next_peer_last_success, nextPeers, ack_event, oneTimeAck
+def udp_listener(udp_sock, name, seen, udp_port):
+    global frame_buffers, frame_chunks_expected, received_frames, display_queue, all_frames, video_complete, total_video_frames, video_segments, startTime, endTime, next_peer_last_success, nextPeers, oneTimeAck
     
     udp_sock.settimeout(5.0)
     frame_count = 0
     segment_start_frame = 0
     current_segment_offset = 0  # Offset to add to incoming frame numbers
+    
+    # Timer for periodic acknowledgments
+    last_ack_time = time.time()
+    ack_interval = 2.0  # Run acknowledgePeer every 2 seconds
     
     # Create output directory for saved frames (optional backup)
     import os
@@ -118,13 +125,13 @@ def udp_listener(udp_sock, name, seen):
             if typ == "video_frame":
                 if startTime == 0: startTime = time.perf_counter()
                 
-                # Send ACK back to sender to confirm receipt
-                if addr:
-                    ack_msg = json.dumps({"type": "ack"}).encode()
-                    try:
-                        udp_sock.sendto(ack_msg, addr)
-                    except:
-                        pass  # Don't let ACK failures block frame processing
+                # Skip sending ACK back - removes network overhead
+                # if addr:
+                #     ack_msg = json.dumps({"type": "ack"}).encode()
+                #     try:
+                #         udp_sock.sendto(ack_msg, addr)
+                #     except:
+                #         pass  # Don't let ACK failures block frame processing
                 
                 frame_num = msg.get("frame_num")
                 chunk_id = msg.get("chunk_id")
@@ -140,20 +147,23 @@ def udp_listener(udp_sock, name, seen):
                 global_frame_num = frame_num + current_segment_offset
                 
                 
+                # Store chunk using video_number -> frame_num -> chunks array
+                # Keep data as base64 string to avoid decode/re-encode cycle
+                chunk_data_b64 = chunk_data_hex  # Already base64 encoded
                 
-                # Store chunk
-                chunk_data = base64.b64decode(chunk_data_hex)
-                if global_frame_num not in frame_buffers:
-                    frame_buffers[global_frame_num] = {}
-                frame_buffers[global_frame_num][chunk_id] = chunk_data
-                frame_chunks_expected[global_frame_num] = total_chunks
+                # Initialize array with None values if needed
+                if not frame_buffers[video_number][frame_num]:
+                    frame_buffers[video_number][frame_num] = [None] * total_chunks
+                    frame_chunks_expected[video_number][frame_num] = total_chunks
                 
-                # Check if we have all chunks for this frame
-                if len(frame_buffers[global_frame_num]) == total_chunks:
-                    # Reassemble frame
-                    compressed_data = b''.join(
-                        frame_buffers[global_frame_num][i] for i in range(total_chunks)
-                    )
+                # Store the base64 string directly for forwarding
+                frame_buffers[video_number][frame_num][chunk_id] = chunk_data_b64
+                
+                # Check if we have all chunks for this frame (no None values)
+                chunks_array = frame_buffers[video_number][frame_num]
+                if None not in chunks_array:
+                    # Reassemble frame - decode base64 only once for playback
+                    compressed_data = b''.join(base64.b64decode(c) for c in chunks_array)
                     
                     try:
                         # Decompress and decode
@@ -162,11 +172,13 @@ def udp_listener(udp_sock, name, seen):
                         frame = cv2.imdecode(buffer, cv2.IMREAD_COLOR)
                         
                         if frame is not None:
-                            # Save frame to disk (backup)
-                            frame_path = f"{output_dir}/frame_{global_frame_num:06d}.jpg"
-                            cv2.imwrite(frame_path, frame)
+                            # Save frame to disk periodically for debugging (not every frame)
+                            if global_frame_num % 100 == 0:  # Only save every 100th frame
+                                frame_path = f"{output_dir}/frame_{global_frame_num:06d}.jpg"
+                                cv2.imwrite(frame_path, frame)
                             
-                            if global_frame_num % 30 == 0:
+                            # Reduce logging frequency
+                            if global_frame_num % 60 == 0:  # Log every 60 frames instead of 30
                                 print(f"[{name}] Received frame {global_frame_num} from {origin}")
                                 log(name, f"RECV_FRAME {global_frame_num} from {origin}")
                             
@@ -174,48 +186,50 @@ def udp_listener(udp_sock, name, seen):
                             received_frames.add(global_frame_num)
                             
                             # Store frame for later playback with global frame number
-
-                            if video_number not in all_collections.keys():
+                            if video_number not in all_collections:
                                 buffer = [None] * total_frames
                                 all_collections[video_number] = buffer
                                 readyQueue.append(False)
 
-
                             all_collections[video_number][frame_num] = frame
-                            
                             
                             # Forward to next peer
                             if nextPeers:
                                 nxt = nextPeers[0]['port']
                                 nxtCtrl = nextPeers[0]['ctrl_port']
-                                acknowledgePeer(nxtCtrl)
-                                # Re-send all chunks to next peer with original frame numbers
+                                
+                                # Run acknowledgePeer every 2 seconds
+                                current_time = time.time()
+                                if current_time - last_ack_time >= ack_interval:
+                                    acknowledgePeer(nxtCtrl)
+                                    last_ack_time = current_time
+                                
+                                # Send all chunks to next peer - chunks already base64 encoded
                                 for cid in range(total_chunks):
-                                    # Wait for ACK from previous chunk before sending next chunk
-                                    
+                                    # Build minimal packet on the fly
                                     packet = {
                                         "total_frames_incoming": total_frames,
                                         "video_number": video_number,
                                         "type": "video_frame",
                                         "origin": origin,
-                                        "frame_num": frame_num,  # Send original frame_num, not global
+                                        "frame_num": frame_num,
                                         "chunk_id": cid,
                                         "total_chunks": total_chunks,
-                                        "data": base64.b64encode(frame_buffers[global_frame_num][cid]).decode('ascii')
+                                        "data": chunks_array[cid]  # Already base64
                                     }
+                                    
                                     try:
                                         udp_sock.sendto(json.dumps(packet).encode(), ("127.0.0.1", nxt))
                                     except Exception as e:
                                         log(name, f"FORWARD_ERROR frame {global_frame_num} chunk {cid}: {e}")
-                                        ack_event.set()  # Reset on error to avoid permanent block
                                         break
                                 
-                                if global_frame_num % 30 == 0:
+                                # Reduce logging frequency
+                                if global_frame_num % 60 == 0:  # Log every 60 frames
                                     log(name, f"FORWARDED frame {global_frame_num} to {nextPeers[0]['name']}:{nxt}")
                         
                         # Clean up buffer
-                        del frame_buffers[global_frame_num]
-                        del frame_chunks_expected[global_frame_num]
+                        del frame_buffers[video_number][frame_num]
                         
                     except Exception as e:
                         print(f"[{name}] Error decoding frame {global_frame_num}: {e}")
@@ -241,8 +255,6 @@ def udp_listener(udp_sock, name, seen):
                     if targetArray[i] is None:
                         missingFrames.append(i)
 
-                print(f"[{name}] Missing {len(missingFrames)} frames: {missingFrames[:10]}{'...' if len(missingFrames) > 10 else ''}")
-                log(name, f"Missing frames in video #{video_number}: {missingFrames}")
                 if missingFrames:
                     print(f"[{name}] Missing {len(missingFrames)} frames: {missingFrames[:10]}{'...' if len(missingFrames) > 10 else ''}")
                     log(name, f"Missing frames in video #{video_number}: {missingFrames}")
@@ -278,7 +290,7 @@ def udp_listener(udp_sock, name, seen):
                     all_frames.extend(targetArray)
                     del all_collections[video_number]
                     # append tuple of times to video segment
-                    video_segments.append((segment_start_frame, total_frames-1))
+                    video_segments.append((segment_start_frame, segment_start_frame + len(targetArray) - 1))
                 
                 # Update total frames and offset for next segment
                 total_video_frames += frame_count
@@ -293,6 +305,21 @@ def udp_listener(udp_sock, name, seen):
                 else:
                     print(f"[{name}] New video segment appended (total frames: {total_video_frames})")
                 
+
+                oneTimeAck = True
+
+                # Acknowledge next peer once - loop until successful
+                if oneTimeAck and nextPeers:
+                    print(f"[{name}] Attempting to acknowledge next peer...")
+                    ack_success = False
+                    while not ack_success and nextPeers:
+                        ack_success = acknowledgePeer(nextPeers[0]['ctrl_port'])
+                        if not ack_success:
+                            print(f"[{name}] Acknowledgment failed, retrying in 0.5s...")
+                            time.sleep(0.5)
+                    if ack_success:
+                        oneTimeAck = False
+                        print(f"[{name}] Successfully acknowledged next peer")
 
 
 
@@ -471,7 +498,7 @@ if __name__ == "__main__":
     seen = set()
 
     # start threads
-    t_udp = threading.Thread(target=udp_listener, args=(udp_sock, name, seen), daemon=True)
+    t_udp = threading.Thread(target=udp_listener, args=(udp_sock, name, seen, udp_port), daemon=True)
     t_udp.start()
     t_ctrl = threading.Thread(target=ctrl_server, args=(ctrl_port, name), daemon=True)
     t_ctrl.start()
