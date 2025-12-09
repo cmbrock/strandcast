@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 """
-coordinator_static.py
-aiohttp-based static file + signaling server for StrandCast.
-Serves ./www/ (peer.html + peer.js), provides /register, /lookup, /peers,
-and WebSocket /ws/{name} for signaling and control.
+coordinator_static.py — web coordinator with per-strand SubCoordinator support.
 
-This version is cross-platform and avoids using loop.add_signal_handler directly
-on platforms (like Windows) where it's not implemented.
+- /register: register peer into strand (creates SubCoordinator if needed)
+- /lookup: lookup peer info
+- /peers: list peers (grouped by strand)
+- /sc/{strand}/{name}: WebSocket endpoint for strand-specific signaling handled by SubCoordinator
+- /ws/{name}: legacy global websocket (kept for compatibility)
+- serves ./www/ static files (peer.html / peer.js)
 """
 import asyncio
 import json
@@ -20,86 +21,260 @@ PORT = 9000
 BASE_DIR = os.path.dirname(__file__)
 WWW_DIR = os.path.join(BASE_DIR, "www")
 
-PEERS = []     # ordered list of peer dicts {name, port, ctrl, _ws?}
-PEER_MAP = {}
 LOCK = asyncio.Lock()
 routes = web.RouteTableDef()
 
-# ---------------------------
-# Safe peer list
-# ---------------------------
-async def list_peers_safe():
-    try:
-        raw = json.dumps([p['name'] for p in PEERS])
-        start = raw.find('[')
-        end = raw.rfind(']') + 1
-        if start == -1 or end == -1:
-            print("[WARN] No valid JSON found in peer list")
-            return []
-        return json.loads(raw[start:end])
-    except Exception as e:
-        print("[ERROR] list_peers_safe failed:", e)
-        return []
+# Global flat storage (for global discovery)
+PEERS = []         # list of entries: {name, port, ctrl, strand, _ws?}
+PEER_MAP = {}      # name -> entry
+SUBCOORDS = {}     # strand -> SubCoordinator instance
 
-# ---------------------------
-# Register user
-# ---------------------------
+
+def make_entry(name, port, ctrl, strand):
+    return {"name": name, "port": port, "ctrl": ctrl, "strand": strand, "_ws": None}
+
+
+class SubCoordinator:
+    """
+    Manages a single strand:
+      - ordered entries list for that strand
+      - notifies previous peer (UPDATE_NEXT) on registration
+      - broadcasts NEW_PEER within strand
+      - handles ws signaling routing for peers in this strand
+    """
+    def __init__(self, strand_id):
+        self.strand = strand_id
+        self.entries = []   # ordered entries in this strand
+        self.map = {}       # name -> entry (same object as global PEER_MAP points to)
+        self.lock = asyncio.Lock()
+
+    async def add_entry(self, entry):
+        async with self.lock:
+            if entry["name"] in self.map:
+                # Already present — maybe re-registration; update
+                return self.map[entry["name"]]
+            self.entries.append(entry)
+            self.map[entry["name"]] = entry
+            # notify previous in strand about next
+            prev = self.entries[-2] if len(self.entries) > 1 else None
+            if prev and prev.get("_ws"):
+                try:
+                    await prev["_ws"].send_json({
+                        "type": "UPDATE_NEXT",
+                        "next_name": entry["name"],
+                        "next_port": entry["port"],
+                        "strand": self.strand
+                    })
+                    print(f"[SubCoord:{self.strand}] Sent UPDATE_NEXT to {prev['name']} -> {entry['name']}")
+                except Exception as e:
+                    print(f"[SubCoord:{self.strand}] failed to notify prev: {e}")
+
+            # notify all existing peers in this strand about the new peer (NEW_PEER)
+            for p in self.entries:
+                if p is entry:
+                    continue
+                if p.get("_ws"):
+                    try:
+                        await p["_ws"].send_json({
+                            "type": "NEW_PEER",
+                            "name": entry["name"],
+                            "port": entry["port"],
+                            "ctrl": entry["ctrl"],
+                            "strand": self.strand
+                        })
+                        print(f"[SubCoord:{self.strand}] Sent NEW_PEER to {p['name']} about {entry['name']}")
+                    except Exception:
+                        pass
+            return entry
+
+    async def set_ws_for(self, name, ws):
+        """
+        Associate websocket with this entry. If entry does not exist yet, create a placeholder.
+        When WS connects, send current view (peers list and next if any).
+        """
+        async with self.lock:
+            entry = self.map.get(name)
+            if not entry:
+                # create placeholder entry in this strand (no port/ctrl yet)
+                entry = make_entry(name, None, None, self.strand)
+                self.entries.append(entry)
+                self.map[name] = entry
+                PEERS.append(entry)
+                PEER_MAP[name] = entry
+            entry["_ws"] = ws
+
+            # send initial peer list for this strand
+            try:
+                peers_list = [{"name": p["name"], "port": p["port"], "ctrl": p["ctrl"]} for p in self.entries]
+                await ws.send_json({"type": "STRAND_STATE", "strand": self.strand, "peers": peers_list})
+            except Exception:
+                pass
+
+            # Send UPDATE_NEXT to this ws if it has a previous (inform what its next is if any)
+            idx = self.entries.index(entry)
+            if idx < len(self.entries) - 1:
+                next_ent = self.entries[idx + 1]
+                if next_ent.get("name"):
+                    try:
+                        await ws.send_json({"type": "UPDATE_NEXT", "next_name": next_ent["name"], "next_port": next_ent["port"], "strand": self.strand})
+                    except Exception:
+                        pass
+
+            return entry
+
+    async def clear_ws_for(self, name, ws):
+        async with self.lock:
+            entry = self.map.get(name)
+            if entry and entry.get("_ws") is ws:
+                entry["_ws"] = None
+
+    async def route_message(self, from_name, obj):
+        """
+        Route a signaling object within this strand. obj should have 'to' property.
+        """
+        to = obj.get("to")
+        if not to:
+            return False
+        async with self.lock:
+            target = self.map.get(to)
+            if target and target.get("_ws"):
+                try:
+                    await target["_ws"].send_json(obj)
+                    return True
+                except Exception:
+                    return False
+            else:
+                return False
+
+
+# ---------- HTTP endpoints ----------
 @routes.post("/register")
 async def register(request):
     data = await request.json()
     name = data.get("name")
-    port = int(data.get("port"))
-    ctrl = int(data.get("ctrl"))
+    port = int(data.get("port")) if data.get("port") is not None else None
+    ctrl = int(data.get("ctrl")) if data.get("ctrl") is not None else None
+    strand = data.get("strand") or "default"
+
     async with LOCK:
         if not name:
             name = f"peer{len(PEERS)+1}"
-        entry = {"name": name, "port": port, "ctrl": ctrl}
-        PEERS.append(entry)
-        PEER_MAP[name] = entry
-        prev = PEERS[-2] if len(PEERS) > 1 else {}
-        print(f"[Coordinator] REGISTER {name} (port={port} ctrl={ctrl})")
+        entry = PEER_MAP.get(name)
+        if entry:
+            # update existing entry's port/ctrl/strand if changed
+            entry["port"] = port
+            entry["ctrl"] = ctrl
+            # if strand changed, remove from old subcoord and add to new
+            if entry.get("strand") != strand:
+                old_strand = entry.get("strand")
+                if old_strand in SUBCOORDS:
+                    sc = SUBCOORDS[old_strand]
+                    # remove from old list if present
+                    try:
+                        sc.entries.remove(entry)
+                        sc.map.pop(name, None)
+                    except Exception:
+                        pass
+                entry["strand"] = strand
+        else:
+            entry = make_entry(name, port, ctrl, strand)
+            PEERS.append(entry)
+            PEER_MAP[name] = entry
 
-        # Notify previous peer about next peer
-        if prev:
-            ws = prev.get("_ws")
-            if ws:
-                try:
-                    await ws.send_json({"type":"UPDATE_NEXT","next_name":name,"next_port":port})
-                    print(f"[Coordinator] Sent UPDATE_NEXT to {prev['name']} -> {name}:{port}")
-                except Exception as e:
-                    print("[Coordinator] failed notify prev:", e)
+        # ensure subcoordinator exists for this strand
+        sc = SUBCOORDS.get(strand)
+        if not sc:
+            sc = SubCoordinator(strand)
+            SUBCOORDS[strand] = sc
+            print(f"[Coordinator] Created SubCoordinator for strand '{strand}'")
 
-        # Notify all peers about new peer
-        for p in PEERS:
-            if p.get("_ws") and p["name"] != name:
-                try:
-                    await p["_ws"].send_json({"type":"NEW_PEER","name":name,"port":port,"ctrl":ctrl})
-                    print(f"[Coordinator] Sent NEW_PEER to {p['name']}")
-                except Exception:
-                    pass
+        # register with subcoordinator (handles UPDATE_NEXT and NEW_PEER within strand)
+        await sc.add_entry(entry)
+        prev = None
+        # compute prev for return
+        async with sc.lock:
+            if len(sc.entries) > 1:
+                prev = sc.entries[-2]
+        print(f"[Coordinator] REGISTER {name} port={port} ctrl={ctrl} strand={strand}")
+        return web.json_response(prev or {})
 
-    return web.json_response(prev or {})
 
-# ---------------------------
-# Lookup user
-# ---------------------------
 @routes.post("/lookup")
 async def lookup(request):
     data = await request.json()
     name = data.get("name")
     return web.json_response(PEER_MAP.get(name, {}) or {})
 
-# ---------------------------
-# List peers
-# ---------------------------
+
 @routes.get("/peers")
 async def peers_list(request):
-    peers_safe = await list_peers_safe()
-    return web.json_response({"peers": peers_safe})
+    """
+    Returns: { peers: [...], strands: { strand_id: [...] } }
+    """
+    try:
+        flat = [{"name": p["name"], "port": p["port"], "ctrl": p["ctrl"], "strand": p.get("strand", "default")} for p in PEERS]
+        strands = {}
+        for sid, sc in SUBCOORDS.items():
+            async def mklist(sco):
+                return [{"name": p["name"], "port": p["port"], "ctrl": p["ctrl"]} for p in sco.entries]
+            # make shallow sync-safe copy
+            strands[sid] = [{"name": p["name"], "port": p["port"], "ctrl": p["ctrl"]} for p in sc.entries]
+        return web.json_response({"peers": flat, "strands": strands})
+    except Exception as e:
+        print("[Coordinator] peers_list error:", e)
+        return web.json_response({"peers": [], "strands": {}})
 
-# ---------------------------
-# WebSocket handler
-# ---------------------------
+
+# ---------- SubCoordinator WebSocket endpoint ----------
+@routes.get("/sc/{strand}/{name}")
+async def subcoord_ws_handler(request):
+    strand = request.match_info["strand"]
+    name = request.match_info["name"]
+    sc = SUBCOORDS.get(strand)
+    # If no subcoordinator exists yet for the strand, create it (this can happen if someone connects before POST /register)
+    if not sc:
+        sc = SubCoordinator(strand)
+        SUBCOORDS[strand] = sc
+        print(f"[Coordinator] Lazy-created SubCoordinator for strand '{strand}' (via WS connect)")
+
+    ws = web.WebSocketResponse()
+    await ws.prepare(request)
+
+    # Associate this ws with entry in subcoordinator
+    await sc.set_ws_for(name, ws)
+    print(f"[SubCoord:{strand}] WS CONNECT {name}")
+
+    try:
+        async for msg in ws:
+            if msg.type == WSMsgType.TEXT:
+                try:
+                    obj = json.loads(msg.data)
+                except Exception:
+                    await ws.send_json({"status": "bad-json"})
+                    continue
+
+                # If message includes a 'to' field, forward inside this subcoordinator
+                to = obj.get("to")
+                if to:
+                    ok = await sc.route_message(name, obj)
+                    if ok:
+                        await ws.send_json({"status": "routed", "to": to})
+                    else:
+                        await ws.send_json({"status": "unroutable", "to": to})
+                else:
+                    # echo ack
+                    await ws.send_json({"status": "ok", "received": obj})
+            elif msg.type == WSMsgType.ERROR:
+                print(f"[SubCoord:{strand}] WS error for {name}: {ws.exception()}")
+    except Exception as e:
+        print(f"[SubCoord:{strand}] WS loop exception for {name}:", e)
+    finally:
+        await sc.clear_ws_for(name, ws)
+        print(f"[SubCoord:{strand}] WS DISCONNECT {name}")
+    return ws
+
+
+# ---------- Legacy global WS handler for backward compatibility ----------
 @routes.get("/ws/{name}")
 async def websocket_handler(request):
     name = request.match_info["name"]
@@ -108,24 +283,20 @@ async def websocket_handler(request):
     async with LOCK:
         entry = PEER_MAP.get(name)
         if not entry:
-            entry = {"name": name, "port": None, "ctrl": None}
+            entry = make_entry(name, None, None, "default")
             PEERS.append(entry)
             PEER_MAP[name] = entry
         entry["_ws"] = ws
     print(f"[Coordinator] WS CONNECT {name}")
 
-    async def safe_send(target_name, obj):
+    async def safe_send_to(target_name, obj):
         target = PEER_MAP.get(target_name)
         if target and target.get("_ws"):
-            # Retry until WS is open
-            for _ in range(50):
-                if not target["_ws"].closed:
-                    try:
-                        await target["_ws"].send_json(obj)
-                        return True
-                    except Exception:
-                        await asyncio.sleep(0.1)
-            return False
+            try:
+                await target["_ws"].send_json(obj)
+                return True
+            except:
+                return False
         return False
 
     try:
@@ -139,8 +310,8 @@ async def websocket_handler(request):
 
                 to = obj.get("to")
                 if to:
-                    success = await safe_send(to, obj)
-                    if success:
+                    ok = await safe_send_to(to, obj)
+                    if ok:
                         await ws.send_json({"status":"routed","to":to})
                     else:
                         await ws.send_json({"status":"unroutable","to":to})
@@ -156,12 +327,10 @@ async def websocket_handler(request):
             if ent and ent.get("_ws") is ws:
                 ent["_ws"] = None
         print(f"[Coordinator] WS DISCONNECT {name}")
-
     return ws
 
-# ---------------------------
-# Static files
-# ---------------------------
+
+# ---------- Static files ----------
 @routes.get("/{tail:.*}")
 async def static_handler(request):
     path = request.match_info['tail'] or "peer.html"
@@ -174,9 +343,8 @@ async def static_handler(request):
         return web.Response(status=404, text="Not found")
     return web.FileResponse(safe_path)
 
-# ---------------------------
-# App init
-# ---------------------------
+
+# ---------- App init ----------
 def init_app():
     app = web.Application()
     app.add_routes(routes)
@@ -185,9 +353,8 @@ def init_app():
         cors.add(r)
     return app
 
-# ---------------------------
-# Start server
-# ---------------------------
+
+# ---------- Run ----------
 async def start():
     app = init_app()
     runner = web.AppRunner(app)
@@ -206,12 +373,14 @@ async def start():
         loop.add_signal_handler(signal.SIGINT, _on_signal)
         loop.add_signal_handler(signal.SIGTERM, _on_signal)
     except (NotImplementedError, AttributeError):
-        signal.signal(signal.SIGINT, lambda *_: _on_signal())
-        signal.signal(signal.SIGTERM, lambda *_: _on_signal())
+        import signal as _sig
+        _sig.signal(_sig.SIGINT, lambda *_: _on_signal())
+        _sig.signal(_sig.SIGTERM, lambda *_: _on_signal())
 
     await stop.wait()
     print("[Coordinator] Shutdown...")
     await runner.cleanup()
+
 
 if __name__ == "__main__":
     try:
