@@ -1,0 +1,16 @@
+[SubCoord:alpha] running on port 10081
+[SubCoord:alpha] registered routes:
+[SubCoord:alpha]  - <ResourceRoute [POST] <PlainResource  /register> -> <function register at 0x00000202C3D97760>
+[SubCoord:alpha]  - <ResourceRoute [OPTIONS] <PlainResource  /register> -> <bound method _PreflightHandler._preflight_handler of <aiohttp_cors.cors_config._CorsConfigImpl object at 0x00000202C3D99E70>>
+[SubCoord:alpha]  - <ResourceRoute [HEAD] <PlainResource  /peers> -> <function peers_list at 0x00000202C3D977F0>
+[SubCoord:alpha]  - <ResourceRoute [GET] <PlainResource  /peers> -> <function peers_list at 0x00000202C3D977F0>
+[SubCoord:alpha]  - <ResourceRoute [OPTIONS] <PlainResource  /peers> -> <bound method _PreflightHandler._preflight_handler of <aiohttp_cors.cors_config._CorsConfigImpl object at 0x00000202C3D99E70>>
+[SubCoord:alpha]  - <ResourceRoute [HEAD] <PlainResource  /health> -> <function health at 0x00000202C3D97880>
+[SubCoord:alpha]  - <ResourceRoute [GET] <PlainResource  /health> -> <function health at 0x00000202C3D97880>
+[SubCoord:alpha]  - <ResourceRoute [OPTIONS] <PlainResource  /health> -> <bound method _PreflightHandler._preflight_handler of <aiohttp_cors.cors_config._CorsConfigImpl object at 0x00000202C3D99E70>>
+[SubCoord:alpha]  - <ResourceRoute [HEAD] <DynamicResource  /ws/{name}> -> <function ws_handler at 0x00000202C3D97910>
+[SubCoord:alpha]  - <ResourceRoute [GET] <DynamicResource  /ws/{name}> -> <function ws_handler at 0x00000202C3D97910>
+[SubCoord:alpha]  - <ResourceRoute [OPTIONS] <DynamicResource  /ws/{name}> -> <bound method _PreflightHandler._preflight_handler of <aiohttp_cors.cors_config._CorsConfigImpl object at 0x00000202C3D99E70>>
+[SubCoord:alpha] WS connect attempt for 'colin' from 127.0.0.1
+[SubCoord:alpha] WS CONNECT colin (remote=127.0.0.1)
+[SubCoord:alpha] shutdown
