@@ -98,7 +98,7 @@ if __name__ == "__main__":
 
 
     for name, port in peers:
-        cmd = [sys.executable, "peer.py", name, str(port), COORD_HOST, str(COORD_PORT)]
+        cmd = [sys.executable, "peer.py", name, str(port), COORD_HOST, str(COORD_PORT), "127.0.0.1"]
         print(f"Starting peer {name} on port {port} ...")
         p = start_in_new_console(cmd)
         procs.append(p)
@@ -107,7 +107,7 @@ if __name__ == "__main__":
     time.sleep(5)
 
     for name, port in peers2:
-        cmd = [sys.executable, "peer.py", name, str(port), COORD_HOST, str(COORD_PORT)]
+        cmd = [sys.executable, "peer.py", name, str(port), COORD_HOST, str(COORD_PORT), "127.0.0.1"]
         print(f"Starting peer {name} on port {port} ...")
         p = start_in_new_console(cmd)
         procs.append(p)

@@ -36,11 +36,11 @@ running = True
 downstream_started = False  # flag to ensure downstream thread starts only once
 video_streaming = False
 
-def notify_next(ctrl_port, next_name, next_port, next_ctrl_port):
+def notify_next(ctrl_port, ctrl_ip, next_name, next_port, next_ctrl_port, next_ip):
     """Notify a peer's control server about its new downstream neighbor."""
     try:
-        with socket.create_connection((HOST, ctrl_port), timeout=2) as s:
-            msg = json.dumps({"cmd": "UPDATE_NEXT", "name": next_name, "port": next_port, "ctrl_port": next_ctrl_port})
+        with socket.create_connection((ctrl_ip, ctrl_port), timeout=2) as s:
+            msg = json.dumps({"cmd": "UPDATE_NEXT", "name": next_name, "port": next_port, "ctrl_port": next_ctrl_port, "ip": next_ip})
             s.sendall(msg.encode())
             # optional ack read
             try:
@@ -141,7 +141,8 @@ def stream_video():
                 "video_number": FILE_COUNT
             }
             try:
-                udp_sock.sendto(json.dumps(end_msg).encode(), (HOST, first_peer['port']))
+                first_peer_ip = first_peer.get('ip', HOST)
+                udp_sock.sendto(json.dumps(end_msg).encode(), (first_peer_ip, first_peer['port']))
             except:
                 pass
             break
@@ -187,7 +188,8 @@ def stream_video():
                 msg = json.dumps(packet).encode()
                 if len(msg) > MAX_DGRAM:
                     print(f"[Coordinator] WARNING: Message too large ({len(msg)} bytes) for frame {frame_num} chunk {chunk_id}")
-                udp_sock.sendto(msg, (HOST, first_peer['port']))
+                first_peer_ip = first_peer.get('ip', HOST)
+                udp_sock.sendto(msg, (first_peer_ip, first_peer['port']))
                 # Small delay between chunks to avoid overwhelming UDP buffer
                 if chunk_id < total_chunks - 1:  # Don't delay after last chunk
                     time.sleep(0.0001)  # 0.1ms delay between chunks
@@ -244,7 +246,7 @@ def downstream():
             "direct": False
         })
         
-        sock.sendto(message.encode(), (HOST, first_peer["port"]))
+        sock.sendto(message.encode(), (first_peer.get('ip', HOST), first_peer["port"]))
         print(f"[Subcoordinator] Sent file{FILE_COUNT}.txt to {first_peer['name']} (port {first_peer['port']})")
         downstream_started = False
         sock.close()
@@ -275,10 +277,11 @@ def register_peer(req, conn):
     name = req.get("name") or f"peer{len(peers)+1}"
     port = int(req["port"])
     ctrl_port = int(req["ctrl_port"])
+    ip = req.get("ip", "127.0.0.1")  # Default to localhost if not provided
     with lock:
-        entry = {"name": name, "port": port, "ctrl_port": ctrl_port}
+        entry = {"name": name, "port": port, "ctrl_port": ctrl_port, "ip": ip}
         peers.append(entry)
-        print(f"[Subcoordinator] Registered {name} (udp={port}, ctrl={ctrl_port})")
+        print(f"[Subcoordinator] Registered {name} (udp={port}, ctrl={ctrl_port}, ip={ip})")
         prev = peers[-2] if len(peers) > 1 else None
         COUNT += 1
         
@@ -296,7 +299,7 @@ def register_peer(req, conn):
     for i in range(len(peers)-2, -1, -1):
         if count >= 3: break
         prev = peers[i]
-        notify_next(prev["ctrl_port"], entry["name"], entry["port"], entry["ctrl_port"])
+        notify_next(prev["ctrl_port"], prev.get("ip", HOST), entry["name"], entry["port"], entry["ctrl_port"], entry.get("ip", HOST))
         count += 1
 
 
@@ -379,6 +382,7 @@ def request_missing_frames(req, conn):
     """Handle request for missing frames from a peer."""
     peer_name = req.get("peer_name")
     peer_port = req.get("peer_port")
+    peer_ip = req.get("peer_ip", HOST)  # Default to HOST if not provided
     video_number = req.get("video_number")
     missing_frames = req.get("missing_frames", [])
     
@@ -388,13 +392,13 @@ def request_missing_frames(req, conn):
     conn.sendall(json.dumps({"status": "ok", "message": f"Resending {len(missing_frames)} frames"}).encode())
     
     # Spawn thread to resend missing frames
-    threading.Thread(target=resend_missing_frames, args=(video_number, missing_frames, peer_port), daemon=True).start()
+    threading.Thread(target=resend_missing_frames, args=(video_number, missing_frames, peer_port, peer_ip), daemon=True).start()
 
 
-def resend_missing_frames(video_number, frame_numbers, peer_port):
+def resend_missing_frames(video_number, frame_numbers, peer_port, peer_ip):
     """Resend specific frames from frame_buffer to a peer."""
     
-    print(f"[Subcoordinator] Starting to resend {len(frame_numbers)} frames from frame_buffer to port {peer_port}")
+    print(f"[Subcoordinator] Starting to resend {len(frame_numbers)} frames from frame_buffer to {peer_ip}:{peer_port}")
     print(f"[Subcoordinator] Video number: {video_number}, Frame numbers: {frame_numbers[:10]}{'...' if len(frame_numbers) > 10 else ''}")
     
     # Debug: Check what's in the buffer
@@ -448,7 +452,7 @@ def resend_missing_frames(video_number, frame_numbers, peer_port):
             
             try:
                 msg = json.dumps(packet).encode()
-                udp_sock.sendto(msg, (HOST, peer_port))
+                udp_sock.sendto(msg, (peer_ip, peer_port))
                 time.sleep(0.0001)  # Small delay between chunks
             except Exception as e:
                 print(f"[Subcoordinator] Error resending frame {frame_num} chunk {chunk_id}: {e}")
@@ -470,8 +474,8 @@ def resend_missing_frames(video_number, frame_numbers, peer_port):
         "frame_num": max(frame_numbers) if frame_numbers else 0
     }
     try:
-        udp_sock.sendto(json.dumps(end_msg).encode(), (HOST, peer_port))
-        print(f"[Subcoordinator] Sent video_end confirmation to port {peer_port} after recovery")
+        udp_sock.sendto(json.dumps(end_msg).encode(), (peer_ip, peer_port))
+        print(f"[Subcoordinator] Sent video_end confirmation to {peer_ip}:{peer_port} after recovery")
     except Exception as e:
         print(f"[Subcoordinator] Error sending video_end after recovery: {e}")
     
@@ -511,10 +515,10 @@ def listener():
     global running
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    sock.bind((HOST, COORD_PORT))
+    sock.bind(("0.0.0.0", COORD_PORT))  # Bind to all interfaces to accept external connections
     sock.listen(16) 
     sock.settimeout(1.0)
-    print(f"[Subcoordinator] Listening on {HOST}:{COORD_PORT}")
+    print(f"[Subcoordinator] Listening on 0.0.0.0:{COORD_PORT}")
     while running:
         try:
             conn, addr = sock.accept()

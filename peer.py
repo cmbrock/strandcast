@@ -196,6 +196,7 @@ def udp_listener(udp_sock, name, seen, udp_port):
                             # Forward to next peer
                             if nextPeers:
                                 nxt = nextPeers[0]['port']
+                                nxt_ip = nextPeers[0].get('ip', '127.0.0.1')
                                 nxtCtrl = nextPeers[0]['ctrl_port']
                                 
                                 # Run acknowledgePeer every 2 seconds
@@ -219,7 +220,7 @@ def udp_listener(udp_sock, name, seen, udp_port):
                                     }
                                     
                                     try:
-                                        udp_sock.sendto(json.dumps(packet).encode(), ("127.0.0.1", nxt))
+                                        udp_sock.sendto(json.dumps(packet).encode(), (nxt_ip, nxt))
                                     except Exception as e:
                                         log(name, f"FORWARD_ERROR frame {global_frame_num} chunk {cid}: {e}")
                                         break
@@ -266,6 +267,7 @@ def udp_listener(udp_sock, name, seen, udp_port):
                                 "type": "requestMissingFrames",
                                 "peer_name": name,
                                 "peer_port": udp_port,
+                                "peer_ip": peer_ip,
                                 "video_number": video_number,
                                 "missing_frames": missingFrames
                             })
@@ -330,8 +332,9 @@ def udp_listener(udp_sock, name, seen, udp_port):
                 # Forward end marker
                 if nextPeers:
                     nxt = nextPeers[0]['port']
+                    nxt_ip = nextPeers[0].get('ip', '127.0.0.1')
                     try:
-                        udp_sock.sendto(data, ("127.0.0.1", nxt))
+                        udp_sock.sendto(data, (nxt_ip, nxt))
                         log(name, f"FORWARDED video_end to {nextPeers[0]['name']}:{nxt}")
                     except Exception as e:
                         log(name, f"FORWARD_ERROR video_end: {e}")
@@ -364,8 +367,9 @@ def udp_listener(udp_sock, name, seen, udp_port):
                 
                 if nextPeers:
                     nxt = nextPeers[0]['port']
+                    nxt_ip = nextPeers[0].get('ip', '127.0.0.1')
                     try:
-                        udp_sock.sendto(data, ("127.0.0.1", nxt))
+                        udp_sock.sendto(data, (nxt_ip, nxt))
                         log(name, f"FORWARDED origin={origin} seq={seq}")
                     except Exception as e:
                         log(name, f"FORWARD_FAILED origin={origin} seq={seq} err={e}")
@@ -408,9 +412,10 @@ def ctrl_server(ctrl_port, name):
                 if msg.get("cmd") == "UPDATE_NEXT":
                     next_name = msg.get("name")
                     next_port = msg.get("port")
-                    print(f"[{name} CTRL] UPDATE_NEXT -> {next_name}:{next_port}")
+                    next_ip = msg.get("ip", "127.0.0.1")  # Default to localhost if not provided
+                    print(f"[{name} CTRL] UPDATE_NEXT -> {next_name}:{next_ip}:{next_port}")
                     nextPeers.append(msg)
-                    log(name, f"CTRL UPDATE_NEXT -> {next_name}:{next_port}")
+                    log(name, f"CTRL UPDATE_NEXT -> {next_name}:{next_ip}:{next_port}")
                     
                     try:
                         conn.sendall(b"OK")
@@ -462,8 +467,8 @@ if __name__ == "__main__":
 
     signal.signal(signal.SIGINT, sigint_handler)
 
-    if len(sys.argv) != 5:
-        print("Usage: python peer.py <name> <udp_port>")
+    if len(sys.argv) < 5:
+        print("Usage: python peer.py <name> <udp_port> <coord_host> <coord_port> [peer_ip]")
         sys.exit(1)
 
     name = sys.argv[1]
@@ -471,9 +476,12 @@ if __name__ == "__main__":
     COORD_HOST = sys.argv[3]
     COORD_PORT = int(sys.argv[4])
     ctrl_port = udp_port + 10000
+    
+    # Get peer's own IP address (default to 127.0.0.1 for local testing)
+    peer_ip = sys.argv[5] if len(sys.argv) > 5 else "127.0.0.1"
 
     # Register with coordinator
-    reg = {"type":"peer", "action":"register", "name": name, "port": udp_port, "ctrl_port": ctrl_port}
+    reg = {"type":"peer", "action":"register", "name": name, "port": udp_port, "ctrl_port": ctrl_port, "ip": peer_ip}
     try:
         with socket.create_connection((COORD_HOST, COORD_PORT), timeout=10) as s:
             s.sendall(json.dumps(reg).encode())
@@ -492,7 +500,7 @@ if __name__ == "__main__":
     # UDP socket for data
     udp_sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
     udp_sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    udp_sock.bind(("127.0.0.1", udp_port))
+    udp_sock.bind(("0.0.0.0", udp_port))  # Bind to all interfaces to accept external connections
 
     # seen messages (to avoid duplicates)
     seen = set()

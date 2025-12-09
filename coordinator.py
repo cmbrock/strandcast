@@ -10,7 +10,7 @@ import signal
 import sys
 import time
 
-HOST = "127.0.0.1"
+HOST = "0.0.0.0"  # Bind to all network interfaces to accept external connections
 COORD_PORT = 9000
 buffer = []
 subcoordinators = []
@@ -58,7 +58,7 @@ def register_peer_queue(index: int):
             target = target_queue[i]
             try:
                 with socket.create_connection((HOST, SUB_COORD_PORT), timeout=5) as s:
-                    reg = {"type":"register","name": target['name'], "port": target['port'], "ctrl_port": target['ctrl_port']}
+                    reg = {"type":"register","name": target['name'], "port": target['port'], "ctrl_port": target['ctrl_port'], "ip": target.get('ip', '127.0.0.1')}
                     s.sendall(json.dumps(reg).encode())
                     resp = s.recv(8192).decode()
                     meta_info = json.loads(resp) if resp else {}
@@ -70,8 +70,9 @@ def register_peer_queue(index: int):
                     
                     # If registration was successful, notify the peer's control port
                     peer_ctrl_port = int(target['ctrl_port'])
+                    peer_ip = target.get('ip', HOST)
                     try:
-                        with socket.create_connection((HOST, peer_ctrl_port), timeout=2) as ctrl_s:
+                        with socket.create_connection((peer_ip, peer_ctrl_port), timeout=2) as ctrl_s:
                             # Prepare notification message
                             notification = {
                                 "cmd": "SUBCOORDINATOR_INFO",
@@ -122,7 +123,8 @@ def register_peer(req, conn):
     name = req.get("name") 
     port = int(req["port"])
     ctrl_port = int(req["ctrl_port"])
-    entry = {"name": name, "port": port, "ctrl_port": ctrl_port}
+    ip = req.get("ip", "127.0.0.1")  # Default to localhost if not provided
+    entry = {"name": name, "port": port, "ctrl_port": ctrl_port, "ip": ip}
     accepted = False
 
     
