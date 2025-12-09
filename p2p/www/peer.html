@@ -1,34 +1,50 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>StrandCast — Browser Peer</title>
+  <title>StrandCast Web Peer</title>
   <style>
-    body{font-family:Arial,Helvetica,sans-serif;max-width:900px;margin:1rem auto;padding:1rem}
-    input, textarea {font-family: inherit;}
-    #log{white-space:pre-wrap;background:#f7f7f7;padding:8px;border:1px solid #ddd;height:250px;overflow:auto}
-    #controls {display:flex; gap:8px; margin-bottom:8px}
+    body { font-family: Arial, sans-serif; background:#111; color:#eee; padding:20px; }
+    .input-row { display:flex; gap:8px; margin-bottom:8px; }
+    input, button { padding:6px; border-radius:6px; border:1px solid #444; background:#222; color:#fff; }
+    #log { background:#222; padding:8px; height:260px; overflow:auto; white-space:pre; border-radius:6px; border:1px solid #444; }
+    .video-row { display:flex; gap:10px; margin-top:10px; }
+    video { width:320px; background:#000; border:1px solid #333; }
   </style>
 </head>
 <body>
-  <h2>StrandCast — Browser Peer</h2>
+  <h2>StrandCast Web Peer</h2>
 
-  <div id="controls">
-    <label>Name: <input id="name" /></label>
-    <label>Port: <input id="port" /></label>
-    <button id="btnRegister">Register (connect)</button>
-    <button id="btnList">List Peers</button>
-    <button id="btnDownload">Download metrics</button>
+  <div class="input-row">
+    <input id="name" placeholder="name">
+    <input id="port" placeholder="port (9001)" type="number">
+    <input id="strand" placeholder="strand (alpha)">
+    <button id="btnRegister">Register</button>
   </div>
 
-  <div>
-    <textarea id="msg" placeholder="Type message or: sendto &lt;peer&gt; &lt;message&gt;"></textarea>
-    <div><button id="btnSend">Send</button></div>
+  <div class="input-row">
+      <button id="btnList">List Peers</button>
+      <input id="msg" placeholder="message or 'sendto Bob hi'">
+      <button id="btnSend">Send</button>
+      <input type="file" id="fileInput">
+      <button id="btnSendFile">Send File</button>
+      <button id="btnDownload">Download Metrics</button>
   </div>
 
-  <h3>Log</h3>
-  <div id="log"></div>
 
-  <script src="./peer.js"></script>
+  <div class="video-row">
+    <div>
+      <div>Local</div>
+      <video id="localVideo" autoplay playsinline muted></video>
+    </div>
+    <div>
+      <div>Remote</div>
+      <video id="remoteVideo" autoplay playsinline></video>
+    </div>
+  </div>
+
+  <pre id="log"></pre>
+
+  <script src="peer.js"></script>
 </body>
 </html>

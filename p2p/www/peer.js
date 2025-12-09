@@ -1,254 +1,227 @@
-// peer.js - browser WebRTC client for StrandCast signaling via coordinator_static.py
+// peer.js - StrandCast browser peer (registers with root coordinator, then connects to per-strand subcoordinator)
 (() => {
   const logEl = document.getElementById('log');
   const append = (s) => { logEl.textContent += s + "\n"; logEl.scrollTop = logEl.scrollHeight; };
 
   const nameInput = document.getElementById('name');
   const portInput = document.getElementById('port');
+  const strandInput = document.getElementById('strand');
   const btnRegister = document.getElementById('btnRegister');
-  const btnList = document.getElementById('btnList');
   const btnSend = document.getElementById('btnSend');
   const txtMsg = document.getElementById('msg');
-  const btnDownload = document.getElementById('btnDownload');
-
-  // auto-fill fields from query params
-  const params = new URLSearchParams(window.location.search);
-  if (params.get('name')) nameInput.value = params.get('name');
-  if (params.get('port')) portInput.value = params.get('port');
+  const localVideo = document.getElementById('localVideo');
+  const remoteContainer = document.getElementById('remoteVideos');
 
   const COORD = `${location.protocol}//${location.hostname}:9000`;
-  const WS_BASE = `${location.protocol === 'https:' ? 'wss' : 'ws'}://${location.hostname}:9000/ws`;
 
+  let myName, myPort, myStrand;
   let ws = null;
-  let myName = null;
-  let myPort = null;
-  let pcMap = {};   // peerName -> RTCPeerConnection
-  let dcMap = {};   // peerName -> DataChannel
+  let pcMap = {}, dcMap = {};
+  let localStream = null;
   let seen = new Set();
   let metrics = [];
-  let peers = {};   // peerName -> {port, ctrl, dataChannel}
 
-  const ICE_CFG = {iceServers: [{urls: 'stun:stun.l.google.com:19302'}]};
+  const ICE_CFG = { iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] };
 
-  function metricsAdd(row) { metrics.push(row); }
-
-  // Add a peer dynamically
-  function addPeer(name, port, ctrl) {
-    if (peers[name]) return; // already exists
-    peers[name] = { port, ctrl, dataChannel: null };
-    append(`[PEER] Added ${name} port=${port} ctrl=${ctrl}`);
-    // Optionally start connection immediately
-    connectToPeer(name).catch(e => append(`[ERR] connect to ${name} failed: ${e}`));
+  async function initLocalMedia() {
+    try {
+      localStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+      localVideo.srcObject = localStream;
+      append("[MEDIA] Local stream active");
+    } catch (e) {
+      append("[MEDIA] getUserMedia error: " + e);
+      localStream = null; // continue even if no local webcam
+    }
   }
 
-  async function register() {
+  btnRegister.onclick = async () => {
     myName = nameInput.value.trim();
     myPort = parseInt(portInput.value);
-    if (!myName || !myPort) { alert('enter name and port'); return; }
+    myStrand = strandInput.value.trim() || "default";
+    if (!myName || !myPort) { alert("Enter name and port"); return; }
+    append(`[UI] Registering ${myName} strand=${myStrand}`);
 
-    append(`[UI] Registering ${myName}`);
     try {
-      const r = await fetch(`${COORD}/register`, {
-        method: 'POST', headers: {'Content-Type':'application/json'},
-        body: JSON.stringify({name: myName, port: myPort, ctrl: myPort + 10000})
+      const res = await fetch(`${COORD}/register`, {
+        method: "POST",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({ name: myName, port: myPort, ctrl: myPort + 10000, strand: myStrand })
       });
-      const prev = await r.json();
-      append(`[UI] Registered. prev=${prev.name || 'NONE'}`);
+      const j = await res.json();
+      if (j.error) { append("[ERR] register: " + j.error); return; }
+      append("[UI] Registered. prev=" + (j.prev && j.prev.name ? j.prev.name : "NONE"));
+      const sub_ws = j.sub_ws;
+      append("[UI] subcoordinator ws: " + sub_ws);
+
+      ws = new WebSocket(sub_ws);
+
+      ws.onopen = () => {
+        append("[WS] connected to subcoordinator");
+        // Auto-connect to nextPeer if known, even without localStream
+        if (window.nextPeer) connectToPeer(window.nextPeer).catch(e => append("[ERR] auto-connect: " + e));
+      };
+      ws.onclose = () => append("[WS] subcoordinator closed");
+      ws.onerror = (e) => append("[WS] error: " + (e && e.message));
+
+      ws.onmessage = async (evt) => {
+        let obj;
+        try { obj = JSON.parse(evt.data); } catch { return; }
+        switch (obj.type) {
+          case "UPDATE_NEXT":
+            append("[WS] UPDATE_NEXT -> " + obj.next_name);
+            window.nextPeer = obj.next_name;
+            connectToPeer(obj.next_name).catch(e => append("[ERR] auto-connect UPDATE_NEXT: " + e));
+            break;
+          case "NEW_PEER":
+            append("[WS] NEW_PEER -> " + obj.name);
+            // Auto-connect to the new peer immediately
+            if (obj.name !== myName) {
+              connectToPeer(obj.name).catch(e => append("[ERR] auto-connect NEW_PEER: " + e));
+            }
+            break;
+          case "offer":
+            if (obj.to === myName) await handleOffer(obj.from, obj.sdp);
+            break;
+          case "answer":
+            if (obj.to === myName) await handleAnswer(obj.from, obj.sdp);
+            break;
+          case "candidate":
+            if (obj.to === myName) await handleCandidate(obj.from, obj.candidate);
+            break;
+        }
+      };
+
+
+      await initLocalMedia();
     } catch (e) {
-      append(`[UI] register failed: ${e}`);
-      return;
+      append("[ERR] register failed: " + e);
     }
-
-    try {
-      ws = new WebSocket(`${WS_BASE}/${myName}`);
-    } catch (e) {
-      append(`[WS] WebSocket error: ${e}`);
-      return;
-    }
-
-    ws.onopen = () => { append('[WS] connected'); };
-    ws.onmessage = async (evt) => {
-      let obj;
-      try { obj = JSON.parse(evt.data); } catch (e) { return; }
-
-      // handle NEW_PEER
-      if (obj.type === 'NEW_PEER') {
-        addPeer(obj.name, obj.port, obj.ctrl);
-        return;
-      }
-
-      // handle UPDATE_NEXT
-      if (obj.type === 'UPDATE_NEXT') {
-        append(`[WS] UPDATE_NEXT -> ${obj.next_name}:${obj.next_port}`);
-        window.nextPeer = obj.next_name;
-        return;
-      }
-
-      // handle standard WebRTC signaling
-      if (obj.type === 'offer' && obj.to === myName) {
-        append(`[WS] Received OFFER from ${obj.from}`);
-        await handleOffer(obj.from, obj.sdp);
-        return;
-      }
-      if (obj.type === 'answer' && obj.to === myName) {
-        append(`[WS] Received ANSWER from ${obj.from}`);
-        await handleAnswer(obj.from, obj.sdp);
-        return;
-      }
-      if (obj.type === 'candidate' && obj.to === myName) {
-        append(`[WS] Received ICE candidate from ${obj.from}`);
-        await handleCandidate(obj.from, obj.candidate);
-        return;
-      }
-    };
-    ws.onclose = () => append('[WS] closed');
-  }
-
-  btnRegister.onclick = register;
-
-  btnList.onclick = async () => {
-    try {
-      const r = await fetch(`${COORD}/peers`);
-      const j = await r.json();
-      append('[UI] Peers: ' + JSON.stringify(j.peers));
-    } catch (e) { append('[UI] list failed ' + e); }
   };
 
-  // RTCPeerConnection setup for incoming offer
-  async function handleOffer(from, sdp) {
+  async function buildPC(peer) {
+    if (pcMap[peer]) return pcMap[peer];
     const pc = new RTCPeerConnection(ICE_CFG);
-    pcMap[from] = pc;
+    pcMap[peer] = pc;
+
+    if (localStream) localStream.getTracks().forEach(t => pc.addTrack(t, localStream));
+
+    pc.ontrack = (ev) => {
+      let vid = document.getElementById(`remoteVideo-${peer}`);
+      if (!vid) {
+        vid = document.createElement("video");
+        vid.id = `remoteVideo-${peer}`;
+        vid.autoplay = true;
+        vid.playsInline = true;
+        vid.width = 320;
+        vid.height = 240;
+        vid.style.margin = "5px";
+        remoteContainer.appendChild(vid);
+      }
+      vid.srcObject = ev.streams[0];
+      append(`[MEDIA] Remote track attached from ${peer}`);
+    };
 
     pc.ondatachannel = (ev) => {
       const ch = ev.channel;
-      dcMap[from] = ch;
-      peers[from] = peers[from] || { port: null, ctrl: null, dataChannel: ch };
-      append(`[PC] DataChannel incoming from ${from} label=${ch.label}`);
-      ch.onopen = () => { append(`[DC] open from ${from}`); metricsAdd(['CHANNEL_OPEN','', '', from, new Date().toISOString(), 'incoming']); };
-      ch.onmessage = (m) => { try { const payload = JSON.parse(m.data); onData(payload); } catch (e) {} };
+      dcMap[peer] = ch;
+      ch.onopen = () => append("[DC] incoming open from " + peer);
+      ch.onmessage = (m) => { try { onData(JSON.parse(m.data)); } catch {} };
     };
 
     pc.onicecandidate = (ev) => {
       if (ev.candidate) {
-        ws.send(JSON.stringify({type:'candidate', to: from, from: myName, candidate: ev.candidate}));
+        ws.send(JSON.stringify({ type: "candidate", to: peer, from: myName, candidate: ev.candidate }));
       }
     };
 
-    await pc.setRemoteDescription({type:'offer', sdp});
+    return pc;
+  }
+
+  async function handleOffer(from, sdp) {
+    const pc = await buildPC(from);
+    if (localStream) localStream.getTracks().forEach(t => pc.addTrack(t, localStream));
+    await pc.setRemoteDescription({ type: 'offer', sdp });
     const answer = await pc.createAnswer();
     await pc.setLocalDescription(answer);
-    ws.send(JSON.stringify({type:'answer', to: from, from: myName, sdp: pc.localDescription.sdp}));
-    append(`[WS] Sent ANSWER to ${from}`);
+    ws.send(JSON.stringify({ type: 'answer', to: from, from: myName, sdp: pc.localDescription.sdp }));
+    append("[WS] Sent ANSWER to " + from);
   }
 
   async function handleAnswer(from, sdp) {
     const pc = pcMap[from];
-    if (!pc) { append(`[WARN] No pc for answer from ${from}`); return; }
-    await pc.setRemoteDescription({type:'answer', sdp});
-    append(`[WS] Applied ANSWER from ${from}`);
+    if (!pc) { append("[WARN] no pc for answer " + from); return; }
+    await pc.setRemoteDescription({ type: 'answer', sdp });
+    append("[WS] Applied ANSWER from " + from);
   }
 
   async function handleCandidate(from, cand) {
     const pc = pcMap[from];
-    if (!pc) { append(`[WARN] No pc for candidate from ${from}`); return; }
-    try { await pc.addIceCandidate(cand); } catch(e) {}
+    if (!pc) return;
+    try { await pc.addIceCandidate(cand); } catch {}
   }
 
   async function connectToPeer(target) {
-    if (dcMap[target]) return dcMap[target];
-    append(`[UI] Connecting to ${target}...`);
-    const pc = new RTCPeerConnection(ICE_CFG);
-    pcMap[target] = pc;
+    if (dcMap[target] && dcMap[target].readyState === "open") return dcMap[target];
+    append("[UI] connecting to " + target);
+
+    const pc = await buildPC(target);
+
+    // Only add local stream if available
+    if (localStream) localStream.getTracks().forEach(t => pc.addTrack(t, localStream));
+
     const ch = pc.createDataChannel(target);
     dcMap[target] = ch;
-    peers[target] = peers[target] || { port:null, ctrl:null, dataChannel: ch };
-
-    ch.onopen = () => { append(`[DC] open -> ${target}`); metricsAdd(['CHANNEL_OPEN','', '', target, new Date().toISOString(), 'outgoing']); };
-    ch.onmessage = (m) => { try { const payload = JSON.parse(m.data); onData(payload); } catch(e){} };
-
-    pc.onicecandidate = (ev) => {
-      if (ev.candidate) ws.send(JSON.stringify({type:'candidate', to: target, from: myName, candidate: ev.candidate}));
-    };
+    ch.onopen = () => append("[DC] open -> " + target);
+    ch.onmessage = (m) => { try { onData(JSON.parse(m.data)); } catch {} };
 
     const offer = await pc.createOffer();
     await pc.setLocalDescription(offer);
-    ws.send(JSON.stringify({type:'offer', to: target, from: myName, sdp: pc.localDescription.sdp}));
-    append(`[WS] Sent OFFER to ${target}`);
+
+    ws.send(JSON.stringify({ type: 'offer', to: target, from: myName, sdp: pc.localDescription.sdp }));
+    append("[WS] Sent OFFER to " + target);
 
     return new Promise((resolve, reject) => {
       const start = Date.now();
       const interval = setInterval(() => {
-        if (ch.readyState === 'open') { clearInterval(interval); resolve(ch); }
-        if (Date.now() - start > 15000) { clearInterval(interval); reject('timeout'); }
+        if (ch.readyState === "open") { clearInterval(interval); resolve(ch); }
+        if (Date.now() - start > 15000) { clearInterval(interval); reject("timeout"); }
       }, 100);
     });
   }
 
+
   function onData(msg) {
-    if (!msg || msg.type !== 'data') return;
+    if (!msg || msg.type !== "data") return;
     const key = `${msg.origin}:${msg.seq}`;
     if (seen.has(key)) return;
     seen.add(key);
-    append(`[MSG] origin=${msg.origin} seq=${msg.seq} from=${msg.sender}: ${msg.msg}`);
-    metricsAdd(['RECV', msg.origin, msg.seq, msg.sender, myName, new Date().toISOString(), (msg.msg||'').replace(',', ' ')]);
+    append(`[MSG] ${msg.origin} -> ${msg.msg}`);
 
-    // forward downstream if coordinator set next
     const nxt = window.nextPeer;
-    if (nxt) {
-      const ch = dcMap[nxt];
-      if (ch && ch.readyState === 'open') {
-        ch.send(JSON.stringify(msg));
-        metricsAdd(['FORWARD', msg.origin, msg.seq, msg.sender, nxt, new Date().toISOString(), '']);
-        append(`[FORWARD] to ${nxt}`);
-      } else {
-        connectToPeer(nxt).then(c => { c.send(JSON.stringify(msg)); append(`[FORWARD] connected+sent to ${nxt}`); })
-          .catch(e => append(`[FORWARD] failed connect to ${nxt}: ${e}`));
-      }
+    if (!nxt) return;
+    const ch = dcMap[nxt];
+    if (ch && ch.readyState === "open") {
+      ch.send(JSON.stringify(msg));
+      append("[FORWARD] to " + nxt);
+    } else {
+      connectToPeer(nxt).then(c => { c.send(JSON.stringify(msg)); append("[FORWARD] connected+sent to " + nxt); });
     }
   }
 
-  btnSend.onclick = async () => {
+  // Simple send button
+  document.getElementById('btnSend').onclick = async () => {
     const raw = txtMsg.value.trim();
-    if (!raw) return;
-    if (!myName) { alert('Register first'); return; }
-    if (raw.startsWith('sendto ')) {
-      const parts = raw.split(' ');
-      const tgt = parts[1];
-      const text = parts.slice(2).join(' ');
-      try {
-        const ch = await connectToPeer(tgt);
-        const seq = Date.now();
-        const m = {type:'data', origin: myName, seq, sender: myName, msg: text};
-        ch.send(JSON.stringify(m));
-        metricsAdd(['SENT_DIRECT', myName, seq, myName, tgt, new Date().toISOString(), text.replace(',', ' ')]);
-        append(`[SENT_DIRECT] to ${tgt}`);
-      } catch (e) { append(`[ERR] direct send failed ${e}`); }
-      return;
-    }
-
-    // originate downstream
-    const seq = Date.now();
-    const m = {type:'data', origin: myName, seq, sender: myName, msg: raw};
-    seen.add(`${myName}:${seq}`);
-    metricsAdd(['SENT', myName, seq, myName, window.nextPeer || '', new Date().toISOString(), raw.replace(',', ' ')]);
+    if (!raw || !myName) return;
     const nxt = window.nextPeer;
-    if (!nxt) {
-      append('[QUEUE] No next peer known (wait for coordinator UPDATE_NEXT)');
-      return;
-    }
+    if (!nxt) { append("[QUEUE] No next peer known"); return; }
+    const seq = Date.now();
+    const m = { type: "data", origin: myName, seq, sender: myName, msg: raw };
+    seen.add(`${myName}:${seq}`);
     try {
       const ch = await connectToPeer(nxt);
       ch.send(JSON.stringify(m));
-      append(`[SENT] origin -> ${nxt}`);
-    } catch (e) { append(`[ERR] send to ${nxt} failed: ${e}`); }
-  };
-
-  btnDownload.onclick = () => {
-    const csv = metrics.map(r => r.join(',')).join('\n');
-    const blob = new Blob([csv], {type:'text/csv'});
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a'); a.href = url; a.download = `metrics_${myName||'peer'}.csv`; a.click();
-    URL.revokeObjectURL(url);
+      append("[SENT] to " + nxt);
+    } catch (e) { append("[ERR] send failed: " + e); }
   };
 
 })();
