@@ -60,6 +60,19 @@
     }
     mediaReady = true;
 
+    // ---------- Show webcam resolution ----------
+    if (localStream) {
+      const videoTrack = localStream.getVideoTracks()[0];
+      if (videoTrack) {
+        const settings = videoTrack.getSettings();
+        const resStr = `${settings.width}x${settings.height} @ ${settings.frameRate || "?"}fps`;
+        console.log("Webcam resolution:", resStr);
+        append(`[INFO] Webcam resolution: ${resStr}`);
+      } else {
+        append("[INFO] No video track in localStream");
+      }
+    }
+
     // process queued UPDATE_NEXT events (chain uses UPDATE_NEXT for connecting)
     for (const ev of queuedEvents) {
       append(`[QUEUE] processing queued UPDATE_NEXT -> ${ev.next_name}`);
