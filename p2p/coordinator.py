@@ -26,7 +26,7 @@ HOST = "0.0.0.0"
 PORT = 9000
 
 # Subcoordinator spawn base port (will try increasing ports from here)
-SUB_BASE_PORT = 10080
+SUB_BASE_PORT = 10081
 SUB_PORT_LIMIT = 200  # try ports SUB_BASE_PORT .. SUB_BASE_PORT+SUB_PORT_LIMIT
 
 # Globals

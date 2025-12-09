@@ -19,7 +19,6 @@ import os
 import traceback
 from aiohttp import web, WSMsgType
 import aiohttp_cors
-import signal
 import sys
 
 routes = web.RouteTableDef()
@@ -128,8 +127,17 @@ async def register(request):
                 except Exception as e:
                     log("failed notify prev:", e)
 
-        # success — return prev info
-        return web.json_response(prev or {})
+        # success — return prev info (safe for JSON)
+        try:
+            if prev:
+                safe_prev = {k: v for k, v in prev.items() if k != "_ws"}
+            else:
+                safe_prev = {}
+            return web.json_response(safe_prev)
+        except Exception:
+            log_exc("Unexpected error in /register (returning prev)")
+            return web.json_response({"error": "internal error"}, status=500)
+
     except Exception:
         log_exc("Unexpected error in /register")
         return web.json_response({"error": "internal error"}, status=500)
@@ -253,18 +261,14 @@ async def start():
     log("registered routes:")
     for r in list(app.router.routes()):
         log(" -", r)
-    stop = asyncio.Event()
-    loop = asyncio.get_running_loop()
-    def _on_signal():
-        loop.call_soon_threadsafe(stop.set)
+
+    # Run forever (Windows-safe: avoids add_signal_handler oddities for subprocesses)
     try:
-        loop.add_signal_handler(signal.SIGINT, _on_signal)
-        loop.add_signal_handler(signal.SIGTERM, _on_signal)
-    except (NotImplementedError, AttributeError):
-        import signal as _sig
-        _sig.signal(_sig.SIGINT, lambda *_: _on_signal())
-        _sig.signal(_sig.SIGTERM, lambda *_: _on_signal())
-    await stop.wait()
+        while True:
+            await asyncio.sleep(3600)
+    except asyncio.CancelledError:
+        pass
+
     log("shutdown")
     await runner.cleanup()
 
