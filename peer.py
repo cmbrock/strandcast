@@ -615,41 +615,40 @@ if __name__ == "__main__":
                     print(f"[{name}] Video playback reached end. PAUSED on last frame.")
                     print(f"[{name}] Press SPACE to resume if more content arrives.")
                 # Show the last frame while paused
-                if current_frame_idx in all_frames:
-                    frame = all_frames[current_frame_idx].copy()
-                    
-                    # Add status bar overlay
-                    h, w = frame.shape[:2]
-                    bar_height = 60
-                    
-                    # Create semi-transparent overlay for status bar
-                    overlay = frame.copy()
-                    cv2.rectangle(overlay, (0, h - bar_height), (w, h), (0, 0, 0), -1)
-                    cv2.addWeighted(overlay, 0.7, frame, 0.3, 0, frame)
-                    
-                    # Calculate playback progress
-                    progress = current_frame_idx / max(total_video_frames - 1, 1)
-                    progress_bar_width = int((w - 40) * progress)
-                    
-                    # Draw progress bar
-                    cv2.rectangle(frame, (20, h - 45), (w - 20, h - 35), (100, 100, 100), -1)
-                    cv2.rectangle(frame, (20, h - 45), (20 + progress_bar_width, h - 35), (0, 255, 0), -1)
-                    
-                    # Calculate time
-                    current_time = current_frame_idx / fps
-                    total_time = total_video_frames / fps
-                    time_str = f"{int(current_time // 60):02d}:{int(current_time % 60):02d} / {int(total_time // 60):02d}:{int(total_time % 60):02d}"
-                    
-                    # Status text
-                    status_text = "PAUSED - END"
-                    frame_info = f"Frame: {current_frame_idx}/{total_video_frames}"
-                    
-                    # Add text to status bar
-                    cv2.putText(frame, status_text, (20, h - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
-                    cv2.putText(frame, time_str, (w // 2 - 80, h - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
-                    cv2.putText(frame, frame_info, (w - 200, h - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
-                    
-                    cv2.imshow(window_name, frame)
+                frame = all_frames[current_frame_idx].copy()
+                
+                # Add status bar overlay
+                h, w = frame.shape[:2]
+                bar_height = 60
+                
+                # Create semi-transparent overlay for status bar
+                overlay = frame.copy()
+                cv2.rectangle(overlay, (0, h - bar_height), (w, h), (0, 0, 0), -1)
+                cv2.addWeighted(overlay, 0.7, frame, 0.3, 0, frame)
+                
+                # Calculate playback progress
+                progress = current_frame_idx / max(total_video_frames - 1, 1)
+                progress_bar_width = int((w - 40) * progress)
+                
+                # Draw progress bar
+                cv2.rectangle(frame, (20, h - 45), (w - 20, h - 35), (100, 100, 100), -1)
+                cv2.rectangle(frame, (20, h - 45), (20 + progress_bar_width, h - 35), (0, 255, 0), -1)
+                
+                # Calculate time
+                current_time = current_frame_idx / fps
+                total_time = total_video_frames / fps
+                time_str = f"{int(current_time // 60):02d}:{int(current_time % 60):02d} / {int(total_time // 60):02d}:{int(total_time % 60):02d}"
+                
+                # Status text
+                status_text = "PAUSED - END"
+                frame_info = f"Frame: {current_frame_idx}/{total_video_frames}"
+                
+                # Add text to status bar
+                cv2.putText(frame, status_text, (20, h - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
+                cv2.putText(frame, time_str, (w // 2 - 80, h - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
+                cv2.putText(frame, frame_info, (w - 200, h - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
+                
+                cv2.imshow(window_name, frame)
                 
                 # Check for keyboard input
                 key = cv2.waitKey(100)
@@ -673,41 +672,41 @@ if __name__ == "__main__":
                     print(f"[{name}] Stopped video playback")
             elif paused:
                 # Just wait for key input while paused (show frame with status bar)
-                if current_frame_idx in all_frames:
-                    frame = all_frames[current_frame_idx].copy()
-                    
-                    # Add status bar overlay
-                    h, w = frame.shape[:2]
-                    bar_height = 60
-                    
-                    # Create semi-transparent overlay for status bar
-                    overlay = frame.copy()
-                    cv2.rectangle(overlay, (0, h - bar_height), (w, h), (0, 0, 0), -1)
-                    cv2.addWeighted(overlay, 0.7, frame, 0.3, 0, frame)
-                    
-                    # Calculate playback progress
-                    progress = current_frame_idx / max(total_video_frames - 1, 1)
-                    progress_bar_width = int((w - 40) * progress)
-                    
-                    # Draw progress bar
-                    cv2.rectangle(frame, (20, h - 45), (w - 20, h - 35), (100, 100, 100), -1)
-                    cv2.rectangle(frame, (20, h - 45), (20 + progress_bar_width, h - 35), (0, 255, 0), -1)
-                    
-                    # Calculate time
-                    current_time = current_frame_idx / fps
-                    total_time = total_video_frames / fps
-                    time_str = f"{int(current_time // 60):02d}:{int(current_time % 60):02d} / {int(total_time // 60):02d}:{int(total_time % 60):02d}"
-                    
-                    # Status text
-                    status_text = "PAUSED"
-                    frame_info = f"Frame: {current_frame_idx}/{total_video_frames}"
-                    
-                    # Add text to status bar
-                    cv2.putText(frame, status_text, (20, h - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
-                    cv2.putText(frame, time_str, (w // 2 - 80, h - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
-                    cv2.putText(frame, frame_info, (w - 200, h - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
-                    
-                    cv2.imshow(window_name, frame)
+                
+                frame = all_frames[current_frame_idx].copy()
+                
+                # Add status bar overlay
+                h, w = frame.shape[:2]
+                bar_height = 60
+                
+                # Create semi-transparent overlay for status bar
+                overlay = frame.copy()
+                cv2.rectangle(overlay, (0, h - bar_height), (w, h), (0, 0, 0), -1)
+                cv2.addWeighted(overlay, 0.7, frame, 0.3, 0, frame)
+                
+                # Calculate playback progress
+                progress = current_frame_idx / max(total_video_frames - 1, 1)
+                progress_bar_width = int((w - 40) * progress)
+                
+                # Draw progress bar
+                cv2.rectangle(frame, (20, h - 45), (w - 20, h - 35), (100, 100, 100), -1)
+                cv2.rectangle(frame, (20, h - 45), (20 + progress_bar_width, h - 35), (0, 255, 0), -1)
+                
+                # Calculate time
+                current_time = current_frame_idx / fps
+                total_time = total_video_frames / fps
+                time_str = f"{int(current_time // 60):02d}:{int(current_time % 60):02d} / {int(total_time // 60):02d}:{int(total_time % 60):02d}"
+                
+                # Status text
+                status_text = "PAUSED"
+                frame_info = f"Frame: {current_frame_idx}/{total_video_frames}"
+                
+                # Add text to status bar
+                cv2.putText(frame, status_text, (20, h - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
+                cv2.putText(frame, time_str, (w // 2 - 80, h - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
+                cv2.putText(frame, frame_info, (w - 200, h - 15), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1, cv2.LINE_AA)
+                
+                cv2.imshow(window_name, frame)
                 
                 key = cv2.waitKey(100)
                 if key == ord(' '):

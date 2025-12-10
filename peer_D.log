@@ -375,3 +375,17 @@
 [2025-12-07 15:24:24.583] RECV_FRAME 600 from coordinator
 [2025-12-07 15:24:24.947] VIDEO_END from coordinator, segment frames: 644
 [2025-12-07 15:24:24.969] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
+[2025-12-09 22:02:20.230] Output directory: videoOutput/peer_D_frames
+[2025-12-09 22:02:25.826] RECV_FRAME 0 from coordinator
+[2025-12-09 22:02:26.369] RECV_FRAME 60 from coordinator
+[2025-12-09 22:02:26.910] RECV_FRAME 120 from coordinator
+[2025-12-09 22:02:27.448] RECV_FRAME 180 from coordinator
+[2025-12-09 22:02:27.987] RECV_FRAME 240 from coordinator
+[2025-12-09 22:02:28.547] RECV_FRAME 300 from coordinator
+[2025-12-09 22:02:29.093] RECV_FRAME 360 from coordinator
+[2025-12-09 22:02:29.661] RECV_FRAME 420 from coordinator
+[2025-12-09 22:02:30.251] RECV_FRAME 480 from coordinator
+[2025-12-09 22:02:30.805] RECV_FRAME 540 from coordinator
+[2025-12-09 22:02:31.390] RECV_FRAME 600 from coordinator
+[2025-12-09 22:02:31.764] VIDEO_END from coordinator, segment frames: 644
+[2025-12-09 22:02:31.794] Notified subcoordinator: deliveryDone, response: {"status": "acknowledged"}
